@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Adversarr
+title: Adversarr's Blog
 subtitle: ''
 description: 'Hi there~'
 keywords:
 author: Adversarr
 language: en
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -40,8 +40,11 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
-relative_link: true
+post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
+relative_link: false
 future: true
 highlight:
   enable: true

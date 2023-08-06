@@ -12,5 +12,5 @@ Here are some quick-look of my work.
 
 See [ACG/hybrid_admm_ct](https://github.com/Adversarr/ACG/tree/main/examples/hybrid_admm_ct).
 
-![FSI](assets/gd-fsi.png)
+![FSI](images/gd-fsi.png)
 
