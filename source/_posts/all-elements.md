@@ -6,7 +6,6 @@ tags:
 This post gives an overview of all Markdown elements and how they are rendered by this theme.
 <!-- more -->
 
-TOC
 
 - [Block Elements](#block-elements)
   - [Paragraphs and Line Breaks](#paragraphs-and-line-breaks)
