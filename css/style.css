@@ -325,7 +325,7 @@ body .h1 {
   letter-spacing: 0.01em;
   font-weight: 700;
   font-style: normal;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
@@ -339,13 +339,13 @@ body .h2 {
   text-transform: none;
   letter-spacing: normal;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.4rem;
 }
 body h3 {
   color: #eee;
   text-decoration: underline;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1.25rem;
 }
 body h4,
 body h5,
@@ -354,7 +354,7 @@ body h6 {
   text-decoration: none;
   color: #ccc;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 body h3,
 body h4,
@@ -1128,12 +1128,12 @@ article header .postdate {
 }
 article .content h2:before {
   position: absolute;
-  top: -4px;
+  top: 0;
   left: -1rem;
   color: #2bbc8a;
   content: "#";
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 article .content img,
 article .content video {
@@ -1165,6 +1165,7 @@ article .content blockquote {
   color: #ccffb6;
   quotes: "\201C" "\201D" "\2018" "\2019";
   font-weight: bold;
+  font-size: 0.95rem;
 }
 article .content blockquote p {
   margin: 0;
@@ -1180,7 +1181,7 @@ article .content blockquote:before {
 article .content blockquote footer {
   margin: line-height 0;
   color: #908d8d;
-  font-size: 12px;
+  font-size: 14px;
 }
 article .content blockquote footer a {
   background-image: linear-gradient(transparent, transparent 5px, #908d8d 5px, #908d8d);
@@ -1221,7 +1222,7 @@ article .content .caption {
   line-height: 1.25;
 }
 .article-tag .tag-link {
-  background-image: linear-gradient(transparent, transparent 10px, #d480aa 10px, #d480aa);
+  background-image: linear-gradient(transparent, transparent 14px, #d480aa 14px, #d480aa);
   background-position: bottom;
   background-size: 100% 6px;
   background-repeat: repeat-x;
@@ -1230,7 +1231,7 @@ article .content .caption {
   content: "#";
 }
 .article-category .category-link {
-  background-image: linear-gradient(transparent, transparent 10px, #d480aa 10px, #d480aa);
+  background-image: linear-gradient(transparent, transparent 14px, #d480aa 14px, #d480aa);
   background-position: bottom;
   background-size: 100% 6px;
   background-repeat: repeat-x;
@@ -1284,7 +1285,7 @@ article .content .caption {
   color: #908d8d;
   vertical-align: top;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
 }
 #footer ul {
   margin: 0;
@@ -1636,7 +1637,7 @@ code {
   color: #908d8d;
   font-style: italic;
   font-size: 0.8em;
-  background-image: linear-gradient(transparent, transparent 10px, #d480aa 10px, #d480aa);
+  background-image: linear-gradient(transparent, transparent 14px, #d480aa 14px, #d480aa);
   background-position: bottom;
   background-size: 100% 6px;
   background-repeat: repeat-x;
