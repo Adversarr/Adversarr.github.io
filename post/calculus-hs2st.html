@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="00. CalculusGauss-Green TheoremDivergence TheoremSuppose $u \in C^1$, $$\int_{U}^{}u_{x_{i}}\mathrm{d}x&#x3D;\int_{\partial U}^{}u\nu^{i}\mathrm{d}S$$ where $\nu$ is the normal vector of $\partial U$.">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" Calculus">
+<meta property="og:url" content="https://adversarr.github.io/post/calculus-hs2st.html">
+<meta property="og:site_name" content="Adversarr&#39;s Blog">
+<meta property="og:description" content="00. CalculusGauss-Green TheoremDivergence TheoremSuppose $u \in C^1$, $$\int_{U}^{}u_{x_{i}}\mathrm{d}x&#x3D;\int_{\partial U}^{}u\nu^{i}\mathrm{d}S$$ where $\nu$ is the normal vector of $\partial U$.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-08-08T07:25:14.863Z">
+<meta property="article:modified_time" content="2023-08-07T16:00:00.000Z">
+<meta property="article:author" content="Adversarr">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/magic-wand-48.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/magic-wand-192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/magic-wand-180.png">
+        
+      
+    
+    <!-- title -->
+    <title> Calculus</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/08/08/hello-world/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/post/calculus-hs2st.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/post/calculus-hs2st.html&text= Calculus"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/post/calculus-hs2st.html&title= Calculus"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/post/calculus-hs2st.html&is_video=false&description= Calculus"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject= Calculus&body=Check out this article: https://adversarr.github.io/post/calculus-hs2st.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/post/calculus-hs2st.html&title= Calculus"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/post/calculus-hs2st.html&title= Calculus"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/post/calculus-hs2st.html&title= Calculus"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/post/calculus-hs2st.html&title= Calculus"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/post/calculus-hs2st.html&name= Calculus&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/post/calculus-hs2st.html&t= Calculus"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#00-Calculus"><span class="toc-number">1.</span> <span class="toc-text">00. Calculus</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Gauss-Green-Theorem"><span class="toc-number">1.1.</span> <span class="toc-text">Gauss-Green Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Divergence-Theorem"><span class="toc-number">1.1.1.</span> <span class="toc-text">Divergence Theorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integration-by-parts"><span class="toc-number">1.1.2.</span> <span class="toc-text">Integration by parts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Green%E2%80%99s-Formulas"><span class="toc-number">1.1.3.</span> <span class="toc-text">Green’s Formulas</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+         Calculus
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Adversarr</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-08-08T07:25:14.863Z" class="dt-published" itemprop="datePublished">2023-08-08</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="00-Calculus"><a href="#00-Calculus" class="headerlink" title="00. Calculus"></a>00. Calculus</h1><h2 id="Gauss-Green-Theorem"><a href="#Gauss-Green-Theorem" class="headerlink" title="Gauss-Green Theorem"></a>Gauss-Green Theorem</h2><h3 id="Divergence-Theorem"><a href="#Divergence-Theorem" class="headerlink" title="Divergence Theorem"></a>Divergence Theorem</h3><p>Suppose $u \in C^1$,</p>
+<p>$$<br>\int_{U}^{}u_{x_{i}}\mathrm{d}x&#x3D;\int_{\partial U}^{}u\nu^{i}\mathrm{d}S<br>$$</p>
+<p>where $\nu$ is the normal vector of $\partial U$. Therefore, we have<strong>​ (Divergence Theorem)</strong></p>
+<p>$$<br>\int_U \mathrm{div}\mathbf u \mathrm dx &#x3D; \int_{\partial U} \mathbf u \cdot \nu \mathrm dS<br>$$</p>
+<p>for each vector field.</p>
+<h3 id="Integration-by-parts"><a href="#Integration-by-parts" class="headerlink" title="Integration by parts"></a>Integration by parts</h3><p>Let $u, v\in C^1$, then</p>
+<p>$$<br>\int_{U}^{}u_{x_i} vdx &#x3D; - \int_U u v_{x_i} dx + \int_{\partial U} u v \nu ^i dS<br>$$</p>
+<blockquote>
+<p>Apply Divergence Theorem.</p>
+</blockquote>
+<h3 id="Green’s-Formulas"><a href="#Green’s-Formulas" class="headerlink" title="Green’s Formulas"></a>Green’s Formulas</h3><p>Let $u, v\in C^2$, then</p>
+<p>$$<br>\begin{cases}\int_{U}^{<em>{}}\Delta udx&#x3D;\int</em>{\partial U}^{}\frac{\partial u}{\partial\nu}dS\ \int_{U}^{}Dv\cdot Du\ \mathrm{d}x&#x3D;-\int_{U}^{}u\Delta vdx+\int_{\partial U}^{}\frac{\partial v}{\partial\nu}udS\ \int_{U}^{}u\Delta v-v\Delta udx&#x3D;\int_{\partial U}^{}u\cdot\frac{\partial v}{\partial\nu}-v\cdot\frac{\partial u}{\partial\nu}dS\end{cases}<br>$$</p>
+<p>‍</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/tags/">Tag</a></li>
+        
+          <li><a href="/categories/">Category</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#00-Calculus"><span class="toc-number">1.</span> <span class="toc-text">00. Calculus</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Gauss-Green-Theorem"><span class="toc-number">1.1.</span> <span class="toc-text">Gauss-Green Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Divergence-Theorem"><span class="toc-number">1.1.1.</span> <span class="toc-text">Divergence Theorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integration-by-parts"><span class="toc-number">1.1.2.</span> <span class="toc-text">Integration by parts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Green%E2%80%99s-Formulas"><span class="toc-number">1.1.3.</span> <span class="toc-text">Green’s Formulas</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/post/calculus-hs2st.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/post/calculus-hs2st.html&text= Calculus"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/post/calculus-hs2st.html&title= Calculus"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/post/calculus-hs2st.html&is_video=false&description= Calculus"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject= Calculus&body=Check out this article: https://adversarr.github.io/post/calculus-hs2st.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/post/calculus-hs2st.html&title= Calculus"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/post/calculus-hs2st.html&title= Calculus"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/post/calculus-hs2st.html&title= Calculus"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/post/calculus-hs2st.html&title= Calculus"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/post/calculus-hs2st.html&name= Calculus&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/post/calculus-hs2st.html&t= Calculus"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2023
+    Adversarr
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
