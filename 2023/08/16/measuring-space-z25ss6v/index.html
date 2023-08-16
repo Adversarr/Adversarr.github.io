@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="压缩映像原理距离  定义：三个条件 例：$C([a, b])$，按照 $\max |x - y|$ 目的：引入“收敛”  收敛、闭集、基本列、完备空间  $R^n,||_2$ 是完备的； $C([a, b])$，按照 $\max |x - y|$ 是完备的；  连续映射、压缩映射、不动点  定义：$T:(X,\rho)\to\left(X,\rho\right)\quad\rho\left(Tx,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Adversarr&#39;s Blog">
+<meta property="og:url" content="https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/index.html">
+<meta property="og:site_name" content="Adversarr&#39;s Blog">
+<meta property="og:description" content="压缩映像原理距离  定义：三个条件 例：$C([a, b])$，按照 $\max |x - y|$ 目的：引入“收敛”  收敛、闭集、基本列、完备空间  $R^n,||_2$ 是完备的； $C([a, b])$，按照 $\max |x - y|$ 是完备的；  连续映射、压缩映射、不动点  定义：$T:(X,\rho)\to\left(X,\rho\right)\quad\rho\left(Tx,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://127.0.0.1:6806/assets/image-20230816114201-eupnfg5.png">
+<meta property="article:published_time" content="2023-08-16T08:14:03.066Z">
+<meta property="article:modified_time" content="2023-08-16T08:14:03.066Z">
+<meta property="article:author" content="Adversarr">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://127.0.0.1:6806/assets/image-20230816114201-eupnfg5.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/magic-wand-48.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/magic-wand-192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/magic-wand-180.png">
+        
+      
+    
+    <!-- title -->
+    <title>Adversarr&#39;s Blog</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2023/08/16/hello-world/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/post/position-equation-19h4du.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&t="><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E6%98%A0%E5%83%8F%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">压缩映像原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E5%A4%87%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text">完备化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E7%B4%A7%E9%9B%86"><span class="toc-number">3.</span> <span class="toc-text">列紧集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4"><span class="toc-number">4.</span> <span class="toc-text">线性赋范空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4"><span class="toc-number">4.1.</span> <span class="toc-text">线性空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E8%B7%9D%E7%A6%BB"><span class="toc-number">4.2.</span> <span class="toc-text">线性空间上的距离</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8C%83%E6%95%B0%E3%80%81Banach-%E7%A9%BA%E9%97%B4"><span class="toc-number">4.3.</span> <span class="toc-text">范数、Banach 空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4%E4%B8%AD%E7%9A%84%E6%A8%A1%E7%AD%89%E4%BB%B7"><span class="toc-number">4.4.</span> <span class="toc-text">线性赋范空间中的模等价</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E9%80%BC%E8%BF%91%E9%97%AE%E9%A2%98"><span class="toc-number">4.5.</span> <span class="toc-text">最佳逼近问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%A9%B7%E7%BB%B4-B-%E7%A9%BA%E9%97%B4%E7%9A%84%E5%88%BB%E7%94%BB"><span class="toc-number">4.6.</span> <span class="toc-text">有穷维 B*空间的刻画</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Adversarr</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-08-16T08:14:03.066Z" class="dt-published" itemprop="datePublished">2023-08-16</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="压缩映像原理"><a href="#压缩映像原理" class="headerlink" title="压缩映像原理"></a>压缩映像原理</h2><p><strong>距离</strong></p>
+<ul>
+<li>定义：<strong>三个条件</strong></li>
+<li>例：$C([a, b])$，按照 $\max |x - y|$</li>
+<li>目的：引入“收敛”</li>
+</ul>
+<p><strong>收敛、闭集、基本列、完备空间</strong></p>
+<ul>
+<li>$R^n,||_2$ 是完备的；</li>
+<li>$C([a, b])$，按照 $\max |x - y|$ 是完备的；</li>
+</ul>
+<p><strong>连续映射、压缩映射、不动点</strong></p>
+<ul>
+<li>定义：$T:(X,\rho)\to\left(X,\rho\right)\quad\rho\left(Tx,Ty\right)\le\alpha\rho\left(x,y\right),0&lt;\alpha&lt;1$</li>
+</ul>
+<p><strong>Banach 不动点定理、压缩映射原理</strong></p>
+<ul>
+<li>完备距离空间到自身的压缩映射的不动点存在且唯一</li>
+<li>应用：隐函数存在定理</li>
+</ul>
+<blockquote>
+<p>ODE 的初值问题</p>
+<p>$$<br>\begin{cases}\dot{x}&#x3D;F\left(t,x\right)\ x\left(0\right)&#x3D;\xi\end{cases}<br>$$</p>
+<p>等价于求解积分方程问题：</p>
+<p>$$<br>x(t)&#x3D;\xi+\int_0^{t}F\left(\tau,x\left(\tau\right)\right)\mathrm{d}\tau<br>$$</p>
+<p>定义映射：</p>
+<p>$$<br>(Tx)(t)&#x3D;\xi+\int_0^{t}F\left(\tau,x\left(\tau\right)\right)\mathrm{d}\tau<br>$$</p>
+<p>考虑如何使得 $T$ 为压缩映射？（距离定义为 $\max|x-y|$）</p>
+<p>假设 $F$ 对 $x$ 关于 $t$ 一致满足局部 L 条件即可。</p>
+</blockquote>
+<p>Theorem：假设函数 $F$ 在 $[-h, h]\times [\xi - \delta, \xi + \delta]$ 上有定义、连续、满足条件</p>
+<p>$$<br>|F(t, x_1) - F(t, x_2)| \le L|x_1 - x_2|<br>$$</p>
+<p>则当 $h&lt;\min\left\lbrace\frac{\delta}{M},\frac{1}{L}\right\rbrace$ 时，初值问题在 $[-h, h]$ 上存在唯一解。</p>
+<h2 id="完备化"><a href="#完备化" class="headerlink" title="完备化"></a>完备化</h2><p>一般而言，距离空间是不完备的。例如全体有理数组成的空间，或 $C[a,b]$ 对 $L_1$ 范数。</p>
+<p><strong>等距同构、等距同构映射、嵌入</strong></p>
+<ul>
+<li>定义？</li>
+<li>目的：存在等距同构的空间的性质都是一样的，不加以区分</li>
+</ul>
+<p><strong>稠密子集、完备化空间</strong></p>
+<ul>
+<li>Theorem：每个空间都有其完备化空间</li>
+<li>例如：$P[a,b]$ 在 $C[a, b]$ 内稠密，以 $C[a,b]$ 为其完备化空间</li>
+</ul>
+<h2 id="列紧集"><a href="#列紧集" class="headerlink" title="列紧集"></a>列紧集</h2><blockquote>
+<p><strong>Compactness</strong> is a <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/topology/" title="topological">topological</a> property that is fundamental in <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/real-analysis/" title="real analysis">real analysis</a>, <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/algebraic-geometry/" title="algebraic geometry">algebraic geometry</a>, and many other mathematical fields. In ��<strong>R</strong>n (with the standard topology), the compact sets are precisely the sets which are <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/closed-sets/" title="closed">closed</a> and bounded. Compactness can be thought of a generalization of these properties to more abstract topological spaces.</p>
+<p>Compact sets are well-behaved with respect to <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/continuous-functions/" title="continuous functions">continuous functions</a>; in particular, the continuous image of a compact function is compact, so a continuous function from a compact set to �<strong>R</strong> must have a finite minimum and maximum, and must attain each of these at some point in the domain (the <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/extreme-value-theorem/" title="extreme value theorem">extreme value theorem</a>). This is quite useful in applications to <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/optimization-problems/" title="optimization">optimization</a> and other related areas.</p>
+</blockquote>
+<p><strong>有界：</strong></p>
+<ul>
+<li>在 Rn 中，有界无穷集中可以找到收敛子列</li>
+<li>一般的距离空间不满足</li>
+</ul>
+<p><strong>列紧、自列紧、列紧空间</strong></p>
+<ul>
+<li>定义：任意点列都有一个收敛子列；进一步，收敛到原本空间中的点；进一步，自身是列紧的</li>
+<li>例如：Rn 中的有界集合是列紧的、有界闭集是自列紧的</li>
+<li>列紧空间的任意的子集都是列紧的、任意闭子集都是自列紧的；（反证法）</li>
+<li>列紧空间是完备的</li>
+</ul>
+<p>$\epsilon$** <strong>网、有穷</strong> **** <strong>网、完全有界、Hausdorff 定理</strong></p>
+<ul>
+<li>定义？</li>
+<li>Hausdorff：<br>为了距离空间中的集合是列紧的，必须要求其是完全有界的；<br>为了完备距离空间中的集合是列紧的，必须且仅须其是完全有界的；</li>
+</ul>
+<p><strong>可分</strong></p>
+<ul>
+<li>定义？</li>
+<li>Theorem：完全有界的距离空间是可分的.</li>
+</ul>
+<p><strong>紧集</strong></p>
+<ul>
+<li><strong>Z</strong> is compact if every open cover has a finite subcover.</li>
+<li>Theorem：距离空间中的紧集，当且仅当其是自列紧的</li>
+</ul>
+<p>​<img src="http://127.0.0.1:6806/assets/image-20230816114201-eupnfg5.png" alt="image">​</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/58904993">怎么通俗的理解有界闭集，紧集，列紧集？ - 知乎 (zhihu.com)</a></p>
+</blockquote>
+<p>考察紧的距离空间 $M$，和其上的连续映射全体 $C(M)$，定义：</p>
+<p>$$<br>d(u, v) &#x3D; \max_{x\in M} |u - v|<br>$$</p>
+<ul>
+<li><p>$C, d$ 是距离空间、完备</p>
+</li>
+<li><p>一致有界、等度连续、Arzela-Ascoli：为了 $F \subset C(M)$ 列紧，当且仅当，$F$ 一致有界且等度连续.</p>
+<ul>
+<li>刻画了连续函数空间上的列紧集</li>
+</ul>
+</li>
+</ul>
+<h2 id="线性赋范空间"><a href="#线性赋范空间" class="headerlink" title="线性赋范空间"></a>线性赋范空间</h2><p>之前我们的讨论只涉及了“距离”，其只包含拓扑结构，我们还需要考虑其代数结构。</p>
+<h3 id="线性空间"><a href="#线性空间" class="headerlink" title="线性空间"></a>线性空间</h3><p><strong>线性空间、线性同构、线性子空间、线性流形、线性相关、线性基、维数、线性包、线性和和直和</strong></p>
+<h3 id="线性空间上的距离"><a href="#线性空间上的距离" class="headerlink" title="线性空间上的距离"></a>线性空间上的距离</h3><p>结合距离和线性运算，我们要求这个距离具有如下性质：</p>
+<ol>
+<li>平移不变性：$\rho (x, y) &#x3D; \rho (x+ z, y+z) \forall z$</li>
+<li>数乘连续性：$\rho\left(x_{n},y\right)\to0\Rightarrow\rho\left(\alpha x_{n,}\alpha x\right)\to0,\alpha_{n}\to\alpha\Rightarrow\rho\left(\alpha_{n}x,\alpha x\right)\to0$</li>
+</ol>
+<p>从而可以将其公理化为某一函数 $p$ 的条件，因为 $\rho (x, y) &#x3D; \rho (x-y, 0)&#x3D;p(x - y)$</p>
+<p><strong>准范数（准模）、F*空间、F 空间（Frechet）</strong></p>
+<ul>
+<li><p>定义？（四个条件）</p>
+</li>
+<li><p>例如：</p>
+<ul>
+<li>$C(M)$，按 $\max |x- y|$ ​是 $F$ 空间</li>
+<li>Euclid 空间是 F 空间</li>
+<li>数列，按照 $|x|&#x3D;\sum_{n&#x3D;1}^{\infty}\frac{1}{2^{n}}\frac{|x_{n}|}{1+\left|x_{n}\right|}$ 是 F 空间</li>
+</ul>
+</li>
+</ul>
+<h3 id="范数、Banach-空间"><a href="#范数、Banach-空间" class="headerlink" title="范数、Banach 空间"></a>范数、Banach 空间</h3><p><strong>范数、线性赋范空间（B*空间）、Banach 空间</strong></p>
+<ul>
+<li><p>定义？（三个性质）</p>
+</li>
+<li><p>例如：</p>
+<ul>
+<li>$L^p(1\le p &lt; \infty)$ 是 B 空间，三角形不等式由 Minkowski 不等式给出</li>
+<li>$L^\infty$ 是 B 空间</li>
+<li>$C^k(M)$ 按照 $| u | &#x3D; \max_{|\alpha |&lt; k, x \in \bar \Omega}| \partial^\alpha u|$ 是 B 空间</li>
+<li>$C^k(M)$ 按照 $|u|<em>{m,p}&#x3D;\left(\sum</em>{\left|\alpha\right|\le m}^{}\int_{\Omega}^{}\left|\partial^{\alpha}u\left(x\right)\right|^{p}dx\right)^{\frac{1}{p}}$ 是 B*空间，其完备化记作 $H^{m, p}$，是 B 空间</li>
+<li>当 $p&#x3D;2$ 时，$H^{m, 2}$ 简单地记为 $H^m(\Omega)$</li>
+</ul>
+</li>
+</ul>
+<h3 id="线性赋范空间中的模等价"><a href="#线性赋范空间中的模等价" class="headerlink" title="线性赋范空间中的模等价"></a>线性赋范空间中的模等价</h3><p><strong>（范数的）强、等价</strong></p>
+<ul>
+<li>定义？</li>
+<li>为了 $|\cdot|_2$ 比 $|\cdot|_1$ 强，当且仅当存在常数 $C$，使得 $|\cdot|_1 \le C|\cdot|_2$</li>
+</ul>
+<p>有穷维线性空间：任意两个有相同维数的线性空间等价，我们想知道，其拓扑之间有什么联系？（思路：写出每一个点的坐标，然后将原先的范数用 $K^n$ 中的 L2 范数建立联系）</p>
+<ul>
+<li>有穷维线性空间上的范数之间时相互等价的</li>
+<li>有穷维 B*空间一定是 B 空间</li>
+</ul>
+<p><strong>次线性泛函</strong></p>
+<ul>
+<li>定义？（次可加性、正齐次性）</li>
+<li>Theorem：设有穷维 B*空间上的次线性泛函 $P$，若 $P(x) \ge 0, P(x) &#x3D; 0 \iff x &#x3D; 0$，那么存在正常数 $c_1, c_2$ 使得 $c_1 | x| \le P(x) \le c_2|x|$</li>
+</ul>
+<h3 id="最佳逼近问题"><a href="#最佳逼近问题" class="headerlink" title="最佳逼近问题"></a>最佳逼近问题</h3><p>逼近论的一个基本问题是：给定一组函数 $\phi_1 … \phi_n$，和函数 $f$，尝试用 $\phi$ 的线性组合去逼近 $f$，问是否有最佳逼近存在？</p>
+<p>换成 B* 空间：给定 B*空间，和其中的有穷个向量 $e_i$，对于给定向量，求一组系数，使得按照空间中的范数而言误差最小。</p>
+<p>首先，最小值是存在的，定义：</p>
+<p>$$<br>F(a)&#x3D;\left|x-\sum_{i&#x3D;1}^{n}a_{i}e_{i}\right|<br>$$</p>
+<p>$F$ 是连续函数，且 $F(a) &gt; | \sum a_i e_i | - | x|\ge c_1 |a| - | x|$</p>
+<blockquote>
+<p>???</p>
+</blockquote>
+<ul>
+<li>Theorem：这样的最佳逼近系数是存在的</li>
+<li>问题：唯一性？</li>
+</ul>
+<p><strong>严格凸</strong></p>
+<ul>
+<li>定义：$\forall x\ne y,|x|&#x3D;|y|&#x3D;1\implies|\alpha x+\beta y|&lt;1$</li>
+<li>Theorem：严格凸的 B*空间中的最佳逼近系数是存在且唯一的；</li>
+</ul>
+<h3 id="有穷维-B-空间的刻画"><a href="#有穷维-B-空间的刻画" class="headerlink" title="有穷维 B*空间的刻画"></a>有穷维 B*空间的刻画</h3><ol>
+<li>为了 B*空间是有穷维的，当且仅当其单位球面是列紧的</li>
+<li>定义：有界</li>
+<li>为了 B*空间是有穷维的，当且仅当其中的任意有界集是列紧的</li>
+</ol>
+<p>Riesz 引理：</p>
+<ul>
+<li>如果 $X_0$ 是 $X$ 的一个真闭子空间，那么对于 $\forall 0 &lt; \varepsilon &lt; 1, \exists y \in X, | y | &#x3D; 1 , | y - x| \ge 1-\varepsilon$</li>
+</ul>
+<p>‍</p>
+<p>‍</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/tags/">Tag</a></li>
+        
+          <li><a href="/categories/">Category</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E6%98%A0%E5%83%8F%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">压缩映像原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E5%A4%87%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text">完备化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E7%B4%A7%E9%9B%86"><span class="toc-number">3.</span> <span class="toc-text">列紧集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4"><span class="toc-number">4.</span> <span class="toc-text">线性赋范空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4"><span class="toc-number">4.1.</span> <span class="toc-text">线性空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E8%B7%9D%E7%A6%BB"><span class="toc-number">4.2.</span> <span class="toc-text">线性空间上的距离</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8C%83%E6%95%B0%E3%80%81Banach-%E7%A9%BA%E9%97%B4"><span class="toc-number">4.3.</span> <span class="toc-text">范数、Banach 空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4%E4%B8%AD%E7%9A%84%E6%A8%A1%E7%AD%89%E4%BB%B7"><span class="toc-number">4.4.</span> <span class="toc-text">线性赋范空间中的模等价</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E9%80%BC%E8%BF%91%E9%97%AE%E9%A2%98"><span class="toc-number">4.5.</span> <span class="toc-text">最佳逼近问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%A9%B7%E7%BB%B4-B-%E7%A9%BA%E9%97%B4%E7%9A%84%E5%88%BB%E7%94%BB"><span class="toc-number">4.6.</span> <span class="toc-text">有穷维 B*空间的刻画</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/08/16/measuring-space-z25ss6v/&t="><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2023
+    Adversarr
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
