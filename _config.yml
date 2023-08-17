@@ -110,3 +110,10 @@ deploy:
   branch: gh-pages
   message: Site updated:{{ now('YYYY-MM-DD HH:mm:ss') }})
 
+pandoc:
+  args:
+    - '-f'
+    - 'markdown'
+    - '-t'
+    - 'html'
+    - '--mathjax'
