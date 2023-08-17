@@ -6,19 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="压缩映像原理距离  定义：三个条件 例：$C([a, b])$，按照 $\max |x - y|$ 目的：引入“收敛”  收敛、闭集、基本列、完备空间  $R^n,||_2$ 是完备的； $C([a, b])$，按照 $\max |x - y|$ 是完备的；  连续映射、压缩映射、不动点  定义：$T:(X,\rho)\to\left(X,\rho\right)\quad\rho\left(Tx,">
+    <meta name="description" content="压缩映像原理 距离  定义：三个条件 例：\(C([a, b])\)，按照 \(\max |x - y|\) 目的：引入“收敛”  收敛、闭集、基本列、完备空间  \(R^n,||_2\) 是完备的； \(C([a, b])\)，按照 \(\max |x - y|\) 是完备的；  连续映射、压缩映射、不动点  定义：\(T:(X,\rho)\to\left(X,\rho\right)\quad\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="度量空间">
 <meta property="og:url" content="https://adversarr.github.io/2023/02/22/measuring-space-z25ss6v/index.html">
 <meta property="og:site_name" content="Adversarr&#39;s Blog">
-<meta property="og:description" content="压缩映像原理距离  定义：三个条件 例：$C([a, b])$，按照 $\max |x - y|$ 目的：引入“收敛”  收敛、闭集、基本列、完备空间  $R^n,||_2$ 是完备的； $C([a, b])$，按照 $\max |x - y|$ 是完备的；  连续映射、压缩映射、不动点  定义：$T:(X,\rho)\to\left(X,\rho\right)\quad\rho\left(Tx,">
+<meta property="og:description" content="压缩映像原理 距离  定义：三个条件 例：\(C([a, b])\)，按照 \(\max |x - y|\) 目的：引入“收敛”  收敛、闭集、基本列、完备空间  \(R^n,||_2\) 是完备的； \(C([a, b])\)，按照 \(\max |x - y|\) 是完备的；  连续映射、压缩映射、不动点  定义：\(T:(X,\rho)\to\left(X,\rho\right)\quad\">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://127.0.0.1:6806/assets/image-20230816114201-eupnfg5.png">
 <meta property="article:published_time" content="2023-02-22T11:02:05.000Z">
-<meta property="article:modified_time" content="2023-08-17T07:53:09.371Z">
+<meta property="article:modified_time" content="2023-08-17T08:23:58.046Z">
 <meta property="article:author" content="Adversarr">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://127.0.0.1:6806/assets/image-20230816114201-eupnfg5.png">
     
     
       
@@ -65,7 +63,7 @@
 			}
 		  });
 		</script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+		<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' async></script>
 	
 <meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -132,7 +130,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E6%98%A0%E5%83%8F%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">压缩映像原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E5%A4%87%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text">完备化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E7%B4%A7%E9%9B%86"><span class="toc-number">3.</span> <span class="toc-text">列紧集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4"><span class="toc-number">4.</span> <span class="toc-text">线性赋范空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4"><span class="toc-number">4.1.</span> <span class="toc-text">线性空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E8%B7%9D%E7%A6%BB"><span class="toc-number">4.2.</span> <span class="toc-text">线性空间上的距离</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8C%83%E6%95%B0%E3%80%81Banach-%E7%A9%BA%E9%97%B4"><span class="toc-number">4.3.</span> <span class="toc-text">范数、Banach 空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4%E4%B8%AD%E7%9A%84%E6%A8%A1%E7%AD%89%E4%BB%B7"><span class="toc-number">4.4.</span> <span class="toc-text">线性赋范空间中的模等价</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E9%80%BC%E8%BF%91%E9%97%AE%E9%A2%98"><span class="toc-number">4.5.</span> <span class="toc-text">最佳逼近问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%A9%B7%E7%BB%B4-B-%E7%A9%BA%E9%97%B4%E7%9A%84%E5%88%BB%E7%94%BB"><span class="toc-number">4.6.</span> <span class="toc-text">有穷维 B*空间的刻画</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%B8%E9%9B%86%E5%92%8C%E4%B8%8D%E5%8A%A8%E7%82%B9"><span class="toc-number">5.</span> <span class="toc-text">凸集和不动点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">5.1.</span> <span class="toc-text">定义和基本性质</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E6%98%A0%E5%83%8F%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">压缩映像原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E5%A4%87%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text">完备化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E7%B4%A7%E9%9B%86"><span class="toc-number">3.</span> <span class="toc-text">列紧集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4"><span class="toc-number">4.</span> <span class="toc-text">线性赋范空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4"><span class="toc-number">4.1.</span> <span class="toc-text">线性空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E8%B7%9D%E7%A6%BB"><span class="toc-number">4.2.</span> <span class="toc-text">线性空间上的距离</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8C%83%E6%95%B0banach-%E7%A9%BA%E9%97%B4"><span class="toc-number">4.3.</span> <span class="toc-text">范数、Banach 空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4%E4%B8%AD%E7%9A%84%E6%A8%A1%E7%AD%89%E4%BB%B7"><span class="toc-number">4.4.</span> <span class="toc-text">线性赋范空间中的模等价</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E9%80%BC%E8%BF%91%E9%97%AE%E9%A2%98"><span class="toc-number">4.5.</span> <span class="toc-text">最佳逼近问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%A9%B7%E7%BB%B4-b%E7%A9%BA%E9%97%B4%E7%9A%84%E5%88%BB%E7%94%BB"><span class="toc-number">4.6.</span> <span class="toc-text">有穷维 B*空间的刻画</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%B8%E9%9B%86%E5%92%8C%E4%B8%8D%E5%8A%A8%E7%82%B9"><span class="toc-number">5.</span> <span class="toc-text">凸集和不动点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">5.1.</span> <span class="toc-text">定义和基本性质</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -172,20 +170,24 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h2 id="压缩映像原理"><a href="#压缩映像原理" class="headerlink" title="压缩映像原理"></a>压缩映像原理</h2><p><strong>距离</strong></p>
+    <h2 id="压缩映像原理">压缩映像原理</h2>
+<p><strong>距离</strong></p>
 <ul>
 <li>定义：<strong>三个条件</strong></li>
-<li>例：$C([a, b])$，按照 $\max |x - y|$</li>
+<li>例：<span class="math inline">\(C([a, b])\)</span>，按照 <span
+class="math inline">\(\max |x - y|\)</span></li>
 <li>目的：引入“收敛”</li>
 </ul>
 <p><strong>收敛、闭集、基本列、完备空间</strong></p>
 <ul>
-<li>$R^n,||_2$ 是完备的；</li>
-<li>$C([a, b])$，按照 $\max |x - y|$ 是完备的；</li>
+<li><span class="math inline">\(R^n,||_2\)</span> 是完备的；</li>
+<li><span class="math inline">\(C([a, b])\)</span>，按照 <span
+class="math inline">\(\max |x - y|\)</span> 是完备的；</li>
 </ul>
 <p><strong>连续映射、压缩映射、不动点</strong></p>
 <ul>
-<li>定义：$T:(X,\rho)\to\left(X,\rho\right)\quad\rho\left(Tx,Ty\right)\le\alpha\rho\left(x,y\right),0&lt;\alpha&lt;1$</li>
+<li>定义：<span
+class="math inline">\(T:(X,\rho)\to\left(X,\rho\right)\quad\rho\left(Tx,Ty\right)\le\alpha\rho\left(x,y\right),0&lt;\alpha&lt;1\)</span></li>
 </ul>
 <p><strong>Banach 不动点定理、压缩映射原理</strong></p>
 <ul>
@@ -194,18 +196,38 @@
 </ul>
 <blockquote>
 <p>ODE 的初值问题</p>
-<p>$$<br>\begin{cases}\dot{x}&#x3D;F\left(t,x\right)\ x\left(0\right)&#x3D;\xi\end{cases}<br>$$</p>
+<p><span class="math display">\[
+\begin{cases}\dot{x}=F\left(t,x\right)\\ x\left(0\right)=\xi\end{cases}
+\]</span></p>
 <p>等价于求解积分方程问题：</p>
-<p>$$<br>x(t)&#x3D;\xi+\int_0^{t}F\left(\tau,x\left(\tau\right)\right)\mathrm{d}\tau<br>$$</p>
+<p><span class="math display">\[
+x(t)=\xi+\int_0^{t}F\left(\tau,x\left(\tau\right)\right)\mathrm{d}\tau
+\]</span></p>
 <p>定义映射：</p>
-<p>$$<br>(Tx)(t)&#x3D;\xi+\int_0^{t}F\left(\tau,x\left(\tau\right)\right)\mathrm{d}\tau<br>$$</p>
-<p>考虑如何使得 $T$ 为压缩映射？（距离定义为 $\max|x-y|$）</p>
-<p>假设 $F$ 对 $x$ 关于 $t$ 一致满足局部 L 条件即可。</p>
+<p><span class="math display">\[
+(Tx)(t)=\xi+\int_0^{t}F\left(\tau,x\left(\tau\right)\right)\mathrm{d}\tau
+\]</span></p>
+<p>考虑如何使得 <span class="math inline">\(T\)</span>
+为压缩映射？（距离定义为 <span
+class="math inline">\(\max|x-y|\)</span>）</p>
+<p>假设 <span class="math inline">\(F\)</span> 对 <span
+class="math inline">\(x\)</span> 关于 <span
+class="math inline">\(t\)</span> 一致满足局部 L 条件即可。</p>
 </blockquote>
-<p>Theorem：假设函数 $F$ 在 $[-h, h]\times [\xi - \delta, \xi + \delta]$ 上有定义、连续、满足条件</p>
-<p>$$<br>|F(t, x_1) - F(t, x_2)| \le L|x_1 - x_2|<br>$$</p>
-<p>则当 $h&lt;\min\left\lbrace\frac{\delta}{M},\frac{1}{L}\right\rbrace$ 时，初值问题在 $[-h, h]$ 上存在唯一解。</p>
-<h2 id="完备化"><a href="#完备化" class="headerlink" title="完备化"></a>完备化</h2><p>一般而言，距离空间是不完备的。例如全体有理数组成的空间，或 $C[a,b]$ 对 $L_1$ 范数。</p>
+<p>Theorem：假设函数 <span class="math inline">\(F\)</span> 在 <span
+class="math inline">\([-h, h]\times [\xi - \delta, \xi +
+\delta]\)</span> 上有定义、连续、满足条件</p>
+<p><span class="math display">\[
+|F(t, x_1) - F(t, x_2)| \le L|x_1 - x_2|
+\]</span></p>
+<p>则当 <span
+class="math inline">\(h&lt;\min\left\lbrace\frac{\delta}{M},\frac{1}{L}\right\rbrace\)</span>
+时，初值问题在 <span class="math inline">\([-h, h]\)</span>
+上存在唯一解。</p>
+<h2 id="完备化">完备化</h2>
+<p>一般而言，距离空间是不完备的。例如全体有理数组成的空间，或 <span
+class="math inline">\(C[a,b]\)</span> 对 <span
+class="math inline">\(L_1\)</span> 范数。</p>
 <p><strong>等距同构、等距同构映射、嵌入</strong></p>
 <ul>
 <li>定义？</li>
@@ -214,11 +236,35 @@
 <p><strong>稠密子集、完备化空间</strong></p>
 <ul>
 <li>Theorem：每个空间都有其完备化空间</li>
-<li>例如：$P[a,b]$ 在 $C[a, b]$ 内稠密，以 $C[a,b]$ 为其完备化空间</li>
+<li>例如：<span class="math inline">\(P[a,b]\)</span> 在 <span
+class="math inline">\(C[a, b]\)</span> 内稠密，以 <span
+class="math inline">\(C[a,b]\)</span> 为其完备化空间</li>
 </ul>
-<h2 id="列紧集"><a href="#列紧集" class="headerlink" title="列紧集"></a>列紧集</h2><blockquote>
-<p><strong>Compactness</strong> is a <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/topology/" title="topological">topological</a> property that is fundamental in <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/real-analysis/" title="real analysis">real analysis</a>, <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/algebraic-geometry/" title="algebraic geometry">algebraic geometry</a>, and many other mathematical fields. In ��<strong>R</strong>n (with the standard topology), the compact sets are precisely the sets which are <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/closed-sets/" title="closed">closed</a> and bounded. Compactness can be thought of a generalization of these properties to more abstract topological spaces.</p>
-<p>Compact sets are well-behaved with respect to <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/continuous-functions/" title="continuous functions">continuous functions</a>; in particular, the continuous image of a compact function is compact, so a continuous function from a compact set to �<strong>R</strong> must have a finite minimum and maximum, and must attain each of these at some point in the domain (the <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/extreme-value-theorem/" title="extreme value theorem">extreme value theorem</a>). This is quite useful in applications to <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/optimization-problems/" title="optimization">optimization</a> and other related areas.</p>
+<h2 id="列紧集">列紧集</h2>
+<blockquote>
+<p><strong>Compactness</strong> is a <a
+target="_blank" rel="noopener" href="https://brilliant.org/wiki/topology/"
+title="topological">topological</a> property that is fundamental in <a
+target="_blank" rel="noopener" href="https://brilliant.org/wiki/real-analysis/"
+title="real analysis">real analysis</a>, <a
+target="_blank" rel="noopener" href="https://brilliant.org/wiki/algebraic-geometry/"
+title="algebraic geometry">algebraic geometry</a>, and many other
+mathematical fields. In ��<strong>R</strong>n (with the standard
+topology), the compact sets are precisely the sets which are <a
+target="_blank" rel="noopener" href="https://brilliant.org/wiki/closed-sets/" title="closed">closed</a>
+and bounded. Compactness can be thought of a generalization of these
+properties to more abstract topological spaces.</p>
+<p>Compact sets are well-behaved with respect to <a
+target="_blank" rel="noopener" href="https://brilliant.org/wiki/continuous-functions/"
+title="continuous functions">continuous functions</a>; in particular,
+the continuous image of a compact function is compact, so a continuous
+function from a compact set to �<strong>R</strong> must have a finite
+minimum and maximum, and must attain each of these at some point in the
+domain (the <a target="_blank" rel="noopener" href="https://brilliant.org/wiki/extreme-value-theorem/"
+title="extreme value theorem">extreme value theorem</a>). This is quite
+useful in applications to <a
+target="_blank" rel="noopener" href="https://brilliant.org/wiki/optimization-problems/"
+title="optimization">optimization</a> and other related areas.</p>
 </blockquote>
 <p><strong>有界：</strong></p>
 <ul>
@@ -232,10 +278,13 @@
 <li>列紧空间的任意的子集都是列紧的、任意闭子集都是自列紧的；（反证法）</li>
 <li>列紧空间是完备的</li>
 </ul>
-<p>$\epsilon$** <strong>网、有穷</strong> **** <strong>网、完全有界、Hausdorff 定理</strong></p>
+<p><span class="math inline">\(\epsilon\)</span>**
+<strong>网、有穷</strong> **** <strong>网、完全有界、Hausdorff
+定理</strong></p>
 <ul>
 <li>定义？</li>
-<li>Hausdorff：<br>为了距离空间中的集合是列紧的，必须要求其是完全有界的；<br>为了完备距离空间中的集合是列紧的，必须且仅须其是完全有界的；</li>
+<li>Hausdorff： 为了距离空间中的集合是列紧的，必须要求其是完全有界的；
+为了完备距离空间中的集合是列紧的，必须且仅须其是完全有界的；</li>
 </ul>
 <p><strong>可分</strong></p>
 <ul>
@@ -244,64 +293,99 @@
 </ul>
 <p><strong>紧集</strong></p>
 <ul>
-<li><strong>Z</strong> is compact if every open cover has a finite subcover.</li>
+<li><strong>Z</strong> is compact if every open cover has a finite
+subcover.</li>
 <li>Theorem：距离空间中的紧集，当且仅当其是自列紧的</li>
 </ul>
-<p>​<img src="http://127.0.0.1:6806/assets/image-20230816114201-eupnfg5.png" alt="image">​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230816114201-eupnfg5.png"
+alt="image" />​</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/58904993">怎么通俗的理解有界闭集，紧集，列紧集？ - 知乎 (zhihu.com)</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.zhihu.com/question/58904993">怎么通俗的理解有界闭集，紧集，列紧集？
+- 知乎 (zhihu.com)</a></p>
 </blockquote>
-<p>考察紧的距离空间 $M$，和其上的连续映射全体 $C(M)$，定义：</p>
-<p>$$<br>d(u, v) &#x3D; \max_{x\in M} |u - v|<br>$$</p>
+<p>考察紧的距离空间 <span
+class="math inline">\(M\)</span>，和其上的连续映射全体 <span
+class="math inline">\(C(M)\)</span>，定义：</p>
+<p><span class="math display">\[
+d(u, v) = \max_{x\in M} |u - v|
+\]</span></p>
 <ul>
-<li><p>$C, d$ 是距离空间、完备</p>
-</li>
-<li><p>一致有界、等度连续、Arzela-Ascoli：为了 $F \subset C(M)$ 列紧，当且仅当，$F$ 一致有界且等度连续.</p>
+<li><p><span class="math inline">\(C, d\)</span>
+是距离空间、完备</p></li>
+<li><p>一致有界、等度连续、Arzela-Ascoli：为了 <span
+class="math inline">\(F \subset C(M)\)</span> 列紧，当且仅当，<span
+class="math inline">\(F\)</span> 一致有界且等度连续.</p>
 <ul>
 <li>刻画了连续函数空间上的列紧集</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="线性赋范空间"><a href="#线性赋范空间" class="headerlink" title="线性赋范空间"></a>线性赋范空间</h2><p>之前我们的讨论只涉及了“距离”，其只包含拓扑结构，我们还需要考虑其代数结构。</p>
-<h3 id="线性空间"><a href="#线性空间" class="headerlink" title="线性空间"></a>线性空间</h3><p><strong>线性空间、线性同构、线性子空间、线性流形、线性相关、线性基、维数、线性包、线性和和直和</strong></p>
-<h3 id="线性空间上的距离"><a href="#线性空间上的距离" class="headerlink" title="线性空间上的距离"></a>线性空间上的距离</h3><p>结合距离和线性运算，我们要求这个距离具有如下性质：</p>
-<ol>
-<li>平移不变性：$\rho (x, y) &#x3D; \rho (x+ z, y+z) \forall z$</li>
-<li>数乘连续性：$\rho\left(x_{n},y\right)\to0\Rightarrow\rho\left(\alpha x_{n,}\alpha x\right)\to0,\alpha_{n}\to\alpha\Rightarrow\rho\left(\alpha_{n}x,\alpha x\right)\to0$</li>
+<h2 id="线性赋范空间">线性赋范空间</h2>
+<p>之前我们的讨论只涉及了“距离”，其只包含拓扑结构，我们还需要考虑其代数结构。</p>
+<h3 id="线性空间">线性空间</h3>
+<p><strong>线性空间、线性同构、线性子空间、线性流形、线性相关、线性基、维数、线性包、线性和和直和</strong></p>
+<h3 id="线性空间上的距离">线性空间上的距离</h3>
+<p>结合距离和线性运算，我们要求这个距离具有如下性质：</p>
+<ol type="1">
+<li>平移不变性：<span class="math inline">\(\rho (x, y) = \rho (x+ z,
+y+z) \forall z\)</span></li>
+<li>数乘连续性：<span
+class="math inline">\(\rho\left(x_{n},y\right)\to0\Rightarrow\rho\left(\alpha
+x_{n,}\alpha
+x\right)\to0,\alpha_{n}\to\alpha\Rightarrow\rho\left(\alpha_{n}x,\alpha
+x\right)\to0\)</span></li>
 </ol>
-<p>从而可以将其公理化为某一函数 $p$ 的条件，因为 $\rho (x, y) &#x3D; \rho (x-y, 0)&#x3D;p(x - y)$</p>
-<p><strong>准范数（准模）、F*空间、F 空间（Frechet）</strong></p>
+<p>从而可以将其公理化为某一函数 <span class="math inline">\(p\)</span>
+的条件，因为 <span class="math inline">\(\rho (x, y) = \rho (x-y, 0)=p(x
+- y)\)</span></p>
+<p>**准范数（准模）、F*空间、F 空间（Frechet）**</p>
 <ul>
-<li><p>定义？（四个条件）</p>
-</li>
+<li><p>定义？（四个条件）</p></li>
 <li><p>例如：</p>
 <ul>
-<li>$C(M)$，按 $\max |x- y|$ ​是 $F$ 空间</li>
+<li><span class="math inline">\(C(M)\)</span>，按 <span
+class="math inline">\(\max |x- y|\)</span> ​是 <span
+class="math inline">\(F\)</span> 空间</li>
 <li>Euclid 空间是 F 空间</li>
-<li>数列，按照 $|x|&#x3D;\sum_{n&#x3D;1}^{\infty}\frac{1}{2^{n}}\frac{|x_{n}|}{1+\left|x_{n}\right|}$ 是 F 空间</li>
+<li>数列，按照 <span
+class="math inline">\(\|x\|=\sum_{n=1}^{\infty}\frac{1}{2^{n}}\frac{|x_{n}|}{1+\left|x_{n}\right|}\)</span>
+是 F 空间</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="范数、Banach-空间"><a href="#范数、Banach-空间" class="headerlink" title="范数、Banach 空间"></a>范数、Banach 空间</h3><p><strong>范数、线性赋范空间（B*空间）、Banach 空间</strong></p>
+<h3 id="范数banach-空间">范数、Banach 空间</h3>
+<p>**范数、线性赋范空间（B*空间）、Banach 空间**</p>
 <ul>
-<li><p>定义？（三个性质）</p>
-</li>
+<li><p>定义？（三个性质）</p></li>
 <li><p>例如：</p>
 <ul>
-<li>$L^p(1\le p &lt; \infty)$ 是 B 空间，三角形不等式由 Minkowski 不等式给出</li>
-<li>$L^\infty$ 是 B 空间</li>
-<li>$C^k(M)$ 按照 $| u | &#x3D; \max_{|\alpha |&lt; k, x \in \bar \Omega}| \partial^\alpha u|$ 是 B 空间</li>
-<li>$C^k(M)$ 按照 $|u|<em>{m,p}&#x3D;\left(\sum</em>{\left|\alpha\right|\le m}^{}\int_{\Omega}^{}\left|\partial^{\alpha}u\left(x\right)\right|^{p}dx\right)^{\frac{1}{p}}$ 是 B*空间，其完备化记作 $H^{m, p}$，是 B 空间</li>
-<li>当 $p&#x3D;2$ 时，$H^{m, 2}$ 简单地记为 $H^m(\Omega)$</li>
+<li><span class="math inline">\(L^p(1\le p &lt; \infty)\)</span> 是 B
+空间，三角形不等式由 Minkowski 不等式给出</li>
+<li><span class="math inline">\(L^\infty\)</span> 是 B 空间</li>
+<li><span class="math inline">\(C^k(M)\)</span> 按照 <span
+class="math inline">\(\| u \| = \max_{|\alpha |&lt; k, x \in \bar
+\Omega}| \partial^\alpha u|\)</span> 是 B 空间</li>
+<li><span class="math inline">\(C^k(M)\)</span> 按照 <span
+class="math inline">\(\|u\|_{m,p}=\left(\sum_{\left|\alpha\right|\le
+m}^{}\int_{\Omega}^{}\left|\partial^{\alpha}u\left(x\right)\right|^{p}dx\right)^{\frac{1}{p}}\)</span>
+是 B*空间，其完备化记作 <span class="math inline">\(H^{m,
+p}\)</span>，是 B 空间</li>
+<li>当 <span class="math inline">\(p=2\)</span> 时，<span
+class="math inline">\(H^{m, 2}\)</span> 简单地记为 <span
+class="math inline">\(H^m(\Omega)\)</span></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="线性赋范空间中的模等价"><a href="#线性赋范空间中的模等价" class="headerlink" title="线性赋范空间中的模等价"></a>线性赋范空间中的模等价</h3><p><strong>（范数的）强、等价</strong></p>
+<h3 id="线性赋范空间中的模等价">线性赋范空间中的模等价</h3>
+<p><strong>（范数的）强、等价</strong></p>
 <ul>
 <li>定义？</li>
-<li>为了 $|\cdot|_2$ 比 $|\cdot|_1$ 强，当且仅当存在常数 $C$，使得 $|\cdot|_1 \le C|\cdot|_2$</li>
+<li>为了 <span class="math inline">\(\|\cdot\|_2\)</span> 比 <span
+class="math inline">\(\|\cdot\|_1\)</span> 强，当且仅当存在常数 <span
+class="math inline">\(C\)</span>，使得 <span
+class="math inline">\(\|\cdot\|_1 \le C\|\cdot\|_2\)</span></li>
 </ul>
-<p>有穷维线性空间：任意两个有相同维数的线性空间等价，我们想知道，其拓扑之间有什么联系？（思路：写出每一个点的坐标，然后将原先的范数用 $K^n$ 中的 L2 范数建立联系）</p>
+<p>有穷维线性空间：任意两个有相同维数的线性空间等价，我们想知道，其拓扑之间有什么联系？（思路：写出每一个点的坐标，然后将原先的范数用
+<span class="math inline">\(K^n\)</span> 中的 L2 范数建立联系）</p>
 <ul>
 <li>有穷维线性空间上的范数之间时相互等价的</li>
 <li>有穷维 B*空间一定是 B 空间</li>
@@ -309,13 +393,27 @@
 <p><strong>次线性泛函</strong></p>
 <ul>
 <li>定义？（次可加性、正齐次性）</li>
-<li>Theorem：设有穷维 B*空间上的次线性泛函 $P$，若 $P(x) \ge 0, P(x) &#x3D; 0 \iff x &#x3D; 0$，那么存在正常数 $c_1, c_2$ 使得 $c_1 | x| \le P(x) \le c_2|x|$</li>
+<li>Theorem：设有穷维 B*空间上的次线性泛函 <span
+class="math inline">\(P\)</span>，若 <span class="math inline">\(P(x)
+\ge 0, P(x) = 0 \iff x = 0\)</span>，那么存在正常数 <span
+class="math inline">\(c_1, c_2\)</span> 使得 <span
+class="math inline">\(c_1 \| x\| \le P(x) \le c_2\|x\|\)</span></li>
 </ul>
-<h3 id="最佳逼近问题"><a href="#最佳逼近问题" class="headerlink" title="最佳逼近问题"></a>最佳逼近问题</h3><p>逼近论的一个基本问题是：给定一组函数 $\phi_1 … \phi_n$，和函数 $f$，尝试用 $\phi$ 的线性组合去逼近 $f$，问是否有最佳逼近存在？</p>
-<p>换成 B* 空间：给定 B*空间，和其中的有穷个向量 $e_i$，对于给定向量，求一组系数，使得按照空间中的范数而言误差最小。</p>
+<h3 id="最佳逼近问题">最佳逼近问题</h3>
+<p>逼近论的一个基本问题是：给定一组函数 <span
+class="math inline">\(\phi_1 ... \phi_n\)</span>，和函数 <span
+class="math inline">\(f\)</span>，尝试用 <span
+class="math inline">\(\phi\)</span> 的线性组合去逼近 <span
+class="math inline">\(f\)</span>，问是否有最佳逼近存在？</p>
+<p>换成 B* 空间：给定 B*空间，和其中的有穷个向量 <span
+class="math inline">\(e_i\)</span>，对于给定向量，求一组系数，使得按照空间中的范数而言误差最小。</p>
 <p>首先，最小值是存在的，定义：</p>
-<p>$$<br>F(a)&#x3D;\left|x-\sum_{i&#x3D;1}^{n}a_{i}e_{i}\right|<br>$$</p>
-<p>$F$ 是连续函数，且 $F(a) &gt; | \sum a_i e_i | - | x|\ge c_1 |a| - | x|$</p>
+<p><span class="math display">\[
+F(a)=\left\|x-\sum_{i=1}^{n}a_{i}e_{i}\right\|
+\]</span></p>
+<p><span class="math inline">\(F\)</span> 是连续函数，且 <span
+class="math inline">\(F(a) &gt; \| \sum a_i e_i \| - \| x\|\ge c_1 |a| -
+\| x\|\)</span></p>
 <blockquote>
 <p>???</p>
 </blockquote>
@@ -325,46 +423,76 @@
 </ul>
 <p><strong>严格凸</strong></p>
 <ul>
-<li>定义：$\forall x\ne y,|x|&#x3D;|y|&#x3D;1\implies|\alpha x+\beta y|&lt;1$</li>
+<li>定义：<span class="math inline">\(\forall x\ne
+y,\|x\|=\|y\|=1\implies\|\alpha x+\beta y\|&lt;1\)</span></li>
 <li>Theorem：严格凸的 B*空间中的最佳逼近系数是存在且唯一的；</li>
 </ul>
-<h3 id="有穷维-B-空间的刻画"><a href="#有穷维-B-空间的刻画" class="headerlink" title="有穷维 B*空间的刻画"></a>有穷维 B*空间的刻画</h3><ol>
+<h3 id="有穷维-b空间的刻画">有穷维 B*空间的刻画</h3>
+<ol type="1">
 <li>为了 B*空间是有穷维的，当且仅当其单位球面是列紧的</li>
 <li>定义：有界</li>
 <li>为了 B*空间是有穷维的，当且仅当其中的任意有界集是列紧的</li>
 </ol>
 <p>Riesz 引理：</p>
 <ul>
-<li>如果 $X_0$ 是 $X$ 的一个真闭子空间，那么对于 $\forall 0 &lt; \varepsilon &lt; 1, \exists y \in X, | y | &#x3D; 1 , | y - x| \ge 1-\varepsilon$</li>
+<li>如果 <span class="math inline">\(X_0\)</span> 是 <span
+class="math inline">\(X\)</span> 的一个真闭子空间，那么对于 <span
+class="math inline">\(\forall 0 &lt; \varepsilon &lt; 1, \exists y \in
+X, \| y \| = 1 , \| y - x\| \ge 1-\varepsilon\)</span></li>
 </ul>
-<h2 id="凸集和不动点"><a href="#凸集和不动点" class="headerlink" title="凸集和不动点"></a>凸集和不动点</h2><h3 id="定义和基本性质"><a href="#定义和基本性质" class="headerlink" title="定义和基本性质"></a>定义和基本性质</h3><p><strong>凸集、凸包、凸组合</strong></p>
-<ol>
+<h2 id="凸集和不动点">凸集和不动点</h2>
+<h3 id="定义和基本性质">定义和基本性质</h3>
+<p><strong>凸集、凸包、凸组合</strong></p>
+<ol type="1">
 <li>定义？</li>
 <li>凸集的任意并集也是凸集</li>
 <li>凸包：集合中元素的任意凸组合的全体</li>
 </ol>
 <p><strong>Minkowski泛函</strong></p>
 <ul>
-<li>定义：$P(x) &#x3D; \inf { \lambda &gt; 0| x&#x2F;\lambda \in C , x \in X}$（其中$C \subset X$是凸集）</li>
-<li>性质：正齐次性、次可加性、$P(x) \in [0, \infty], P(\theta) &#x3D; 0$</li>
-<li>问：何时$P(x)$成为函数，即何时$P &lt; \infty$？</li>
+<li>定义：<span class="math inline">\(P(x) = \inf \{ \lambda &gt; 0|
+x/\lambda \in C , x \in X\}\)</span>（其中<span class="math inline">\(C
+\subset X\)</span>是凸集）</li>
+<li>性质：正齐次性、次可加性、<span class="math inline">\(P(x) \in [0,
+\infty], P(\theta) = 0\)</span></li>
+<li>问：何时<span
+class="math inline">\(P(x)\)</span>成为函数，即何时<span
+class="math inline">\(P &lt; \infty\)</span>？</li>
 </ul>
 <p><strong>（实线性空间上、凸集的）吸收性、对称性、（复线性空间）均衡</strong></p>
 <ul>
-<li>定义：吸收是指$P$是函数，即$\forall x, \exists \lambda x&#x2F; \lambda \in C$；对称是指，$x \in C \iff -x \in C$​</li>
-<li>Prop：吸收$\iff P$是函数、对称$\Rightarrow P$是齐次的；</li>
-<li>均衡的定义：$x \in C \Rightarrow \alpha x \in C, \forall |\alpha | &#x3D; 1$​</li>
-<li>Prop：复线性空间上的一个均衡吸收凸集$C$决定了一个半模（Minkowski泛函）</li>
+<li>定义：吸收是指<span class="math inline">\(P\)</span>是函数，即<span
+class="math inline">\(\forall x, \exists \lambda x/ \lambda \in
+C\)</span>；对称是指，<span class="math inline">\(x \in C \iff -x \in
+C\)</span>​</li>
+<li>Prop：吸收<span class="math inline">\(\iff
+P\)</span>是函数、对称<span class="math inline">\(\Rightarrow
+P\)</span>是齐次的；</li>
+<li>均衡的定义：<span class="math inline">\(x \in C \Rightarrow \alpha x
+\in C, \forall |\alpha | = 1\)</span>​</li>
+<li>Prop：复线性空间上的一个均衡吸收凸集<span
+class="math inline">\(C\)</span>决定了一个半模（Minkowski泛函）</li>
 </ul>
 <p>对于线性赋范空间中的凸集，有更强的结果：</p>
 <ul>
-<li><p>设$X$是一个B*空间，$C$是一个含有$\theta$点的闭凸集，$P$是下半连续的，并且</p>
-<p>$$<br>C&#x3D;\left\lbrace x\in X{|}P\left(x\right)\le1\right\rbrace<br>$$</p>
-<p>如果$C$还是有界的，那么$P&#x3D; 0 \iff x &#x3D; \theta$  </p>
-<p>如果$C$还以$\theta$为内点，那么$C$是吸收的、并且$P$一致连续</p>
-</li>
-<li><p>若$C$ 是$R^n$中的一个紧凸子集，那么存在一个正整数$m\le n$，使得$C$同胚于$R^m$中的单位球</p>
-</li>
+<li><p>设<span class="math inline">\(X\)</span>是一个B*空间，<span
+class="math inline">\(C\)</span>是一个含有<span
+class="math inline">\(\theta\)</span>点的闭凸集，<span
+class="math inline">\(P\)</span>是下半连续的，并且</p>
+<p><span class="math display">\[
+C=\left\lbrace x\in X{|}P\left(x\right)\le1\right\rbrace
+\]</span></p>
+<p>如果<span class="math inline">\(C\)</span>还是有界的，那么<span
+class="math inline">\(P= 0 \iff x = \theta\)</span></p>
+<p>如果<span class="math inline">\(C\)</span>还以<span
+class="math inline">\(\theta\)</span>为内点，那么<span
+class="math inline">\(C\)</span>是吸收的、并且<span
+class="math inline">\(P\)</span>一致连续</p></li>
+<li><p>若<span class="math inline">\(C\)</span> 是<span
+class="math inline">\(R^n\)</span>中的一个紧凸子集，那么存在一个正整数<span
+class="math inline">\(m\le n\)</span>，使得<span
+class="math inline">\(C\)</span>同胚于<span
+class="math inline">\(R^m\)</span>中的单位球</p></li>
 </ul>
 <p>‍</p>
 <p>‍</p>
@@ -401,7 +529,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E6%98%A0%E5%83%8F%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">压缩映像原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E5%A4%87%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text">完备化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E7%B4%A7%E9%9B%86"><span class="toc-number">3.</span> <span class="toc-text">列紧集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4"><span class="toc-number">4.</span> <span class="toc-text">线性赋范空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4"><span class="toc-number">4.1.</span> <span class="toc-text">线性空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E8%B7%9D%E7%A6%BB"><span class="toc-number">4.2.</span> <span class="toc-text">线性空间上的距离</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8C%83%E6%95%B0%E3%80%81Banach-%E7%A9%BA%E9%97%B4"><span class="toc-number">4.3.</span> <span class="toc-text">范数、Banach 空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4%E4%B8%AD%E7%9A%84%E6%A8%A1%E7%AD%89%E4%BB%B7"><span class="toc-number">4.4.</span> <span class="toc-text">线性赋范空间中的模等价</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E9%80%BC%E8%BF%91%E9%97%AE%E9%A2%98"><span class="toc-number">4.5.</span> <span class="toc-text">最佳逼近问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%A9%B7%E7%BB%B4-B-%E7%A9%BA%E9%97%B4%E7%9A%84%E5%88%BB%E7%94%BB"><span class="toc-number">4.6.</span> <span class="toc-text">有穷维 B*空间的刻画</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%B8%E9%9B%86%E5%92%8C%E4%B8%8D%E5%8A%A8%E7%82%B9"><span class="toc-number">5.</span> <span class="toc-text">凸集和不动点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">5.1.</span> <span class="toc-text">定义和基本性质</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E6%98%A0%E5%83%8F%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">压缩映像原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E5%A4%87%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text">完备化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E7%B4%A7%E9%9B%86"><span class="toc-number">3.</span> <span class="toc-text">列紧集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4"><span class="toc-number">4.</span> <span class="toc-text">线性赋范空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4"><span class="toc-number">4.1.</span> <span class="toc-text">线性空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E8%B7%9D%E7%A6%BB"><span class="toc-number">4.2.</span> <span class="toc-text">线性空间上的距离</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8C%83%E6%95%B0banach-%E7%A9%BA%E9%97%B4"><span class="toc-number">4.3.</span> <span class="toc-text">范数、Banach 空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4%E4%B8%AD%E7%9A%84%E6%A8%A1%E7%AD%89%E4%BB%B7"><span class="toc-number">4.4.</span> <span class="toc-text">线性赋范空间中的模等价</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E9%80%BC%E8%BF%91%E9%97%AE%E9%A2%98"><span class="toc-number">4.5.</span> <span class="toc-text">最佳逼近问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%A9%B7%E7%BB%B4-b%E7%A9%BA%E9%97%B4%E7%9A%84%E5%88%BB%E7%94%BB"><span class="toc-number">4.6.</span> <span class="toc-text">有穷维 B*空间的刻画</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%B8%E9%9B%86%E5%92%8C%E4%B8%8D%E5%8A%A8%E7%82%B9"><span class="toc-number">5.</span> <span class="toc-text">凸集和不动点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">5.1.</span> <span class="toc-text">定义和基本性质</span></a></li></ol></li></ol>
       </div>
     
 

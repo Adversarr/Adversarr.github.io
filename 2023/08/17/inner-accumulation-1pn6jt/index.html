@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="内积空间基本定义和性质共轭双线性函数、内积、内积空间 定义：共轭对称、正定的共轭双线性函数  例：  $l^2$ 空间 $L^2$ 空间 $C^k(\bar \Omega)$ 中，按照 $(u,v)&#x3D;\sum_{\left|\alpha\right|\le k}^{}\int_{\Omega}^{}\partial^{\alpha}u\overline{\partial^{\alpha}">
+    <meta name="description" content="内积空间 基本定义和性质 共轭双线性函数、内积、内积空间  定义：共轭对称、正定的共轭双线性函数 例：  \(l^2\) 空间 \(L^2\) 空间 \(C^k(\bar \Omega)\) 中，按照 \((u,v)&#x3D;\sum_{\left|\alpha\right|\le k}^{}\int_{\Omega}^{}\partial^{\alpha}u\overline{\partial^{\al">
 <meta property="og:type" content="article">
 <meta property="og:title" content="内积空间">
 <meta property="og:url" content="https://adversarr.github.io/2023/08/17/inner-accumulation-1pn6jt/index.html">
 <meta property="og:site_name" content="Adversarr&#39;s Blog">
-<meta property="og:description" content="内积空间基本定义和性质共轭双线性函数、内积、内积空间 定义：共轭对称、正定的共轭双线性函数  例：  $l^2$ 空间 $L^2$ 空间 $C^k(\bar \Omega)$ 中，按照 $(u,v)&#x3D;\sum_{\left|\alpha\right|\le k}^{}\int_{\Omega}^{}\partial^{\alpha}u\overline{\partial^{\alpha}">
+<meta property="og:description" content="内积空间 基本定义和性质 共轭双线性函数、内积、内积空间  定义：共轭对称、正定的共轭双线性函数 例：  \(l^2\) 空间 \(L^2\) 空间 \(C^k(\bar \Omega)\) 中，按照 \((u,v)&#x3D;\sum_{\left|\alpha\right|\le k}^{}\int_{\Omega}^{}\partial^{\alpha}u\overline{\partial^{\al">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-17T02:46:04.000Z">
-<meta property="article:modified_time" content="2023-08-17T07:53:09.371Z">
+<meta property="article:modified_time" content="2023-08-17T08:23:58.046Z">
 <meta property="article:author" content="Adversarr">
 <meta name="twitter:card" content="summary">
     
@@ -63,7 +63,7 @@
 			}
 		  });
 		</script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+		<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' async></script>
 	
 <meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -97,7 +97,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="Previous post" href="/2023/08/17/hello-world/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/post/calculus-hs2st.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="Next post" href="/2023/08/07/position-equation-19h4du/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -130,7 +130,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">1.</span> <span class="toc-text">内积空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89%E5%92%8C%E6%80%A7%E8%B4%A8"><span class="toc-number">1.1.</span> <span class="toc-text">基本定义和性质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E8%BD%AD%E5%8F%8C%E7%BA%BF%E6%80%A7%E5%87%BD%E6%95%B0%E3%80%81%E5%86%85%E7%A7%AF%E3%80%81%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">1.1.1.</span> <span class="toc-text">共轭双线性函数、内积、内积空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hilbert-%E7%A9%BA%E9%97%B4"><span class="toc-number">1.1.2.</span> <span class="toc-text">Hilbert 空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E5%92%8C%E6%AD%A3%E4%BA%A4%E5%9F%BA"><span class="toc-number">1.2.</span> <span class="toc-text">正交和正交基</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E3%80%81%E6%AD%A3%E4%BA%A4%E8%A1%A5"><span class="toc-number">1.2.1.</span> <span class="toc-text">正交、正交补</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E9%9B%86%E3%80%81%E6%AD%A3%E4%BA%A4%E8%A7%84%E8%8C%83%E9%9B%86%E3%80%81%E5%AE%8C%E5%A4%87%E6%AD%A3%E4%BA%A4%E9%9B%86"><span class="toc-number">1.2.2.</span> <span class="toc-text">正交集、正交规范集、完备正交集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E3%80%81Fourier-%E7%B3%BB%E6%95%B0"><span class="toc-number">1.2.3.</span> <span class="toc-text">基、Fourier 系数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E5%8C%96%E5%92%8C-Hilbert-%E7%A9%BA%E9%97%B4%E7%9A%84%E5%90%8C%E6%9E%84"><span class="toc-number">1.3.</span> <span class="toc-text">正交化和 Hilbert 空间的同构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%9E%84"><span class="toc-number">1.3.1.</span> <span class="toc-text">同构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E9%80%BC%E8%BF%91%E9%97%AE%E9%A2%98-ext"><span class="toc-number">1.4.</span> <span class="toc-text">最佳逼近问题-ext</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">1.5.</span> <span class="toc-text">应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="toc-number">1.5.1.</span> <span class="toc-text">最小二乘法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B2%E7%BA%BF%E5%85%89%E9%A1%BA%E5%92%8C%E6%A0%B7%E6%9D%A1%E5%87%BD%E6%95%B0%EF%BC%88Spline%EF%BC%89"><span class="toc-number">1.5.2.</span> <span class="toc-text">曲线光顺和样条函数（Spline）</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">1.</span> <span class="toc-text">内积空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89%E5%92%8C%E6%80%A7%E8%B4%A8"><span class="toc-number">1.1.</span> <span class="toc-text">基本定义和性质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E8%BD%AD%E5%8F%8C%E7%BA%BF%E6%80%A7%E5%87%BD%E6%95%B0%E5%86%85%E7%A7%AF%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">1.1.1.</span> <span class="toc-text">共轭双线性函数、内积、内积空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hilbert-%E7%A9%BA%E9%97%B4"><span class="toc-number">1.1.2.</span> <span class="toc-text">Hilbert 空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E5%92%8C%E6%AD%A3%E4%BA%A4%E5%9F%BA"><span class="toc-number">1.2.</span> <span class="toc-text">正交和正交基</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E6%AD%A3%E4%BA%A4%E8%A1%A5"><span class="toc-number">1.2.1.</span> <span class="toc-text">正交、正交补</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E9%9B%86%E6%AD%A3%E4%BA%A4%E8%A7%84%E8%8C%83%E9%9B%86%E5%AE%8C%E5%A4%87%E6%AD%A3%E4%BA%A4%E9%9B%86"><span class="toc-number">1.2.2.</span> <span class="toc-text">正交集、正交规范集、完备正交集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BAfourier-%E7%B3%BB%E6%95%B0"><span class="toc-number">1.2.3.</span> <span class="toc-text">基、Fourier 系数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E5%8C%96%E5%92%8C-hilbert-%E7%A9%BA%E9%97%B4%E7%9A%84%E5%90%8C%E6%9E%84"><span class="toc-number">1.3.</span> <span class="toc-text">正交化和 Hilbert 空间的同构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%9E%84"><span class="toc-number">1.3.1.</span> <span class="toc-text">同构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E9%80%BC%E8%BF%91%E9%97%AE%E9%A2%98-ext"><span class="toc-number">1.4.</span> <span class="toc-text">最佳逼近问题-ext</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">1.5.</span> <span class="toc-text">应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="toc-number">1.5.1.</span> <span class="toc-text">最小二乘法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B2%E7%BA%BF%E5%85%89%E9%A1%BA%E5%92%8C%E6%A0%B7%E6%9D%A1%E5%87%BD%E6%95%B0spline"><span class="toc-number">1.5.2.</span> <span class="toc-text">曲线光顺和样条函数（Spline）</span></a></li></ol></li></ol></li></ol>
       </div>
     
   </span>
@@ -170,54 +170,80 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h2 id="内积空间"><a href="#内积空间" class="headerlink" title="内积空间"></a>内积空间</h2><h3 id="基本定义和性质"><a href="#基本定义和性质" class="headerlink" title="基本定义和性质"></a>基本定义和性质</h3><h4 id="共轭双线性函数、内积、内积空间"><a href="#共轭双线性函数、内积、内积空间" class="headerlink" title="共轭双线性函数、内积、内积空间"></a>共轭双线性函数、内积、内积空间</h4><ul>
-<li><p>定义：共轭对称、正定的共轭双线性函数</p>
-</li>
+    <h2 id="内积空间">内积空间</h2>
+<h3 id="基本定义和性质">基本定义和性质</h3>
+<h4 id="共轭双线性函数内积内积空间">共轭双线性函数、内积、内积空间</h4>
+<ul>
+<li><p>定义：共轭对称、正定的共轭双线性函数</p></li>
 <li><p>例：</p>
 <ul>
-<li>$l^2$ 空间 $L^2$ 空间</li>
-<li>$C^k(\bar \Omega)$ 中，按照 $(u,v)&#x3D;\sum_{\left|\alpha\right|\le k}^{}\int_{\Omega}^{}\partial^{\alpha}u\overline{\partial^{\alpha}v}dx$ 是内积空间</li>
+<li><span class="math inline">\(l^2\)</span> 空间 <span
+class="math inline">\(L^2\)</span> 空间</li>
+<li><span class="math inline">\(C^k(\bar \Omega)\)</span> 中，按照 <span
+class="math inline">\((u,v)=\sum_{\left|\alpha\right|\le
+k}^{}\int_{\Omega}^{}\partial^{\alpha}u\overline{\partial^{\alpha}v}dx\)</span>
+是内积空间</li>
+</ul></li>
+<li><p>Cauchy-Schwarz 不等式：<span class="math inline">\(|(x, y) | \le
+\| x \| \|y\|\)</span>，等号成立当且仅当 <span class="math inline">\(x,
+y\)</span> 线性相关</p></li>
 </ul>
-</li>
-<li><p>Cauchy-Schwarz 不等式：$|(x, y) | \le | x | |y|$，等号成立当且仅当 $x, y$ 线性相关</p>
-</li>
-</ul>
-<p>内积空间按照 $|x|&#x3D;(x, x)$ 定义范数，构成 B*空间：</p>
+<p>内积空间按照 <span class="math inline">\(\|x\|=(x, x)\)</span>
+定义范数，构成 B*空间：</p>
 <ul>
-<li>内积 $(\cdot, \cdot)$ 是关于 $|\cdot |$ 的连续函数</li>
+<li>内积 <span class="math inline">\((\cdot, \cdot)\)</span> 是关于
+<span class="math inline">\(\|\cdot \|\)</span> 的连续函数</li>
 <li>内积空间是严格凸的 B*空间</li>
 </ul>
-<p>反过来，一个 $|\cdot |$ 也有可能构成一个内积空间：</p>
+<p>反过来，一个 <span class="math inline">\(\|\cdot \|\)</span>
+也有可能构成一个内积空间：</p>
 <ul>
-<li><p>如果 $|\cdot |$ 满足平行四边形等式：</p>
-<p>$$<br>|x-y|^2+|x+y|^2&#x3D;2\left(|x|+|y|\right)<br>$$</p>
-</li>
+<li><p>如果 <span class="math inline">\(\|\cdot \|\)</span>
+满足平行四边形等式：</p>
+<p><span class="math display">\[
+\|x-y\|^2+\|x+y\|^2=2\left(\|x\|+\|y\|\right)
+\]</span></p></li>
 </ul>
-<h4 id="Hilbert-空间"><a href="#Hilbert-空间" class="headerlink" title="Hilbert 空间"></a>Hilbert 空间</h4><ul>
+<h4 id="hilbert-空间">Hilbert 空间</h4>
+<ul>
 <li>完备的内积空间</li>
 </ul>
 <blockquote>
-<p>在 PDE 中，常用的一个 Hilbert 空间是 $H^m_0$，</p>
-<p>设 $C_0^m$ 是有界开区域上一切 $m$ 次连续可微、在边界的某个邻域内为 0 的函数集合，那么：</p>
-<p>$$<br>\forall u\in C_{0^{}}^{m},\sum_{\left|\alpha\right|&lt;m}^{}\int_{\Omega}^{}\left|\partial^{\alpha}u\left(x\right)\right|^2dx\le C\sum_{\left|\alpha\right|&#x3D;m}^{}\int_\Omega\left|\partial^{\alpha}u(x)\right|^2dx<br>$$</p>
+<p>在 PDE 中，常用的一个 Hilbert 空间是 <span
+class="math inline">\(H^m_0\)</span>，</p>
+<p>设 <span class="math inline">\(C_0^m\)</span> 是有界开区域上一切
+<span class="math inline">\(m\)</span> 次连续可微、在边界的某个邻域内为
+0 的函数集合，那么：</p>
+<p><span class="math display">\[
+\forall u\in
+C_{0^{}}^{m},\sum_{\left|\alpha\right|&lt;m}^{}\int_{\Omega}^{}\left|\partial^{\alpha}u\left(x\right)\right|^2dx\le
+C\sum_{\left|\alpha\right|=m}^{}\int_\Omega\left|\partial^{\alpha}u(x)\right|^2dx
+\]</span></p>
 <p>‍</p>
-<p>从而，在 $C^m_0$ 上引入范数：</p>
-<p>$$<br>|u|<em>{m}&#x3D;\left(\sum</em>{\alpha&#x3D;m}^{}\int_{\Omega}^{}\left|\partial^{\alpha}u\left(x\right)\right|^2dx\right)^{\frac12}<br>$$</p>
-<p>完备化后得到 $H^m_0$，它是 $H^m$ 的一个闭子空间</p>
+<p>从而，在 <span class="math inline">\(C^m_0\)</span> 上引入范数：</p>
+<p><span class="math display">\[
+\|u\|_{m}=\left(\sum_{\alpha=m}^{}\int_{\Omega}^{}\left|\partial^{\alpha}u\left(x\right)\right|^2dx\right)^{\frac12}
+\]</span></p>
+<p>完备化后得到 <span class="math inline">\(H^m_0\)</span>，它是 <span
+class="math inline">\(H^m\)</span> 的一个闭子空间</p>
 </blockquote>
-<h3 id="正交和正交基"><a href="#正交和正交基" class="headerlink" title="正交和正交基"></a>正交和正交基</h3><h4 id="正交、正交补"><a href="#正交、正交补" class="headerlink" title="正交、正交补"></a>正交、正交补</h4><ul>
-<li><p>定义？</p>
-</li>
+<h3 id="正交和正交基">正交和正交基</h3>
+<h4 id="正交正交补">正交、正交补</h4>
+<ul>
+<li><p>定义？</p></li>
 <li><p>性质：</p>
 <ul>
 <li>勾股定理</li>
-<li>若 $x\perp y_n$，且 $y_n \to y$，那么 $x \perp y$​</li>
-<li>若 $x \perp M$ 那么 $x \perp span(M)$​</li>
-<li>$M^\perp$ 是一个闭线性子空间</li>
+<li>若 <span class="math inline">\(x\perp y_n\)</span>，且 <span
+class="math inline">\(y_n \to y\)</span>，那么 <span
+class="math inline">\(x \perp y\)</span>​</li>
+<li>若 <span class="math inline">\(x \perp M\)</span> 那么 <span
+class="math inline">\(x \perp span(M)\)</span>​</li>
+<li><span class="math inline">\(M^\perp\)</span> 是一个闭线性子空间</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="正交集、正交规范集、完备正交集"><a href="#正交集、正交规范集、完备正交集" class="headerlink" title="正交集、正交规范集、完备正交集"></a>正交集、正交规范集、完备正交集</h4><ul>
+<h4 id="正交集正交规范集完备正交集">正交集、正交规范集、完备正交集</h4>
+<ul>
 <li>定义？</li>
 <li>非平凡的内积空间一定有完备正交集</li>
 </ul>
@@ -225,60 +251,99 @@
 <p>Zorn 引理</p>
 </blockquote>
 <p>有正交规范集，可以考虑：</p>
-<h4 id="基、Fourier-系数"><a href="#基、Fourier-系数" class="headerlink" title="基、Fourier 系数"></a>基、Fourier 系数</h4><ul>
-<li><p>Bessel 不等式：$\sum_{\alpha \in A} |(x, e_\alpha)|^2\le | x | ^ 2$</p>
-</li>
-<li><p>假设 $X$ 是 Hilbert 空间，并且 $e_\alpha$ 是正交规范集，那么对于任意的 $x\in X$，都有 $\sum _{\alpha \in A }(x, e_\alpha) e_\alpha \in X$，并且</p>
-<p>$$<br>|x-\sum_{\alpha\in A}^{}\left(x,e_{\alpha}\right)e_{\alpha}|^2&#x3D;|x|^2-\sum_{\alpha\in A}^{}\left|(x,e_{\alpha})\right|^2<br>$$</p>
-</li>
+<h4 id="基fourier-系数">基、Fourier 系数</h4>
+<ul>
+<li><p>Bessel 不等式：<span class="math inline">\(\sum_{\alpha \in A}
+|(x, e_\alpha)|^2\le \| x \| ^ 2\)</span></p></li>
+<li><p>假设 <span class="math inline">\(X\)</span> 是 Hilbert 空间，并且
+<span class="math inline">\(e_\alpha\)</span>
+是正交规范集，那么对于任意的 <span class="math inline">\(x\in
+X\)</span>，都有 <span class="math inline">\(\sum _{\alpha \in A }(x,
+e_\alpha) e_\alpha \in X\)</span>，并且</p>
+<p><span class="math display">\[
+\|x-\sum_{\alpha\in
+A}^{}\left(x,e_{\alpha}\right)e_{\alpha}\|^2=\|x\|^2-\sum_{\alpha\in
+A}^{}\left|(x,e_{\alpha})\right|^2
+\]</span></p></li>
 </ul>
 <p>问：何时 Bessel 不等式取等号？</p>
 <ul>
-<li><p>Theorem：设 X 是 Hilbert 空间，若 $S&#x3D;\left\lbrace e_{\alpha},\vert\alpha\in A,\right\rbrace$ 是其中的正交规范集，那么下面三条等价：</p>
-<ol>
+<li><p>Theorem：设 X 是 Hilbert 空间，若 <span
+class="math inline">\(S=\left\lbrace e_{\alpha}\,\vert\alpha\in
+A\,\right\rbrace\)</span> 是其中的正交规范集，那么下面三条等价：</p>
+<ol type="1">
 <li>S 封闭</li>
 <li>S 完备</li>
 <li>Parseval 等式成立</li>
-</ol>
-</li>
+</ol></li>
 </ul>
 <p>例如：</p>
-<ol>
-<li>$L^2 [0, 2\pi]$ 上 $e_{n}(t)&#x3D;\frac{1}{\sqrt{2\pi}}e^{\mathrm{i}nt}$ 是正交规范基</li>
-<li>$l^2$ 上，$e_n &#x3D; ( 0, …., 0, 1, 0, … )$ 是正交规范基</li>
-<li>令 $D$ 是 $C$ 中的单位开圆域，$H^2(D)$ 表示其中 L2 可积的解析函数组成的全体构成的空间，规定内积为：$(u,v)&#x3D;\iint_{D}u\bar{v}dxdy$，那么 $\varphi_n &#x3D; \sqrt{ n &#x2F; \pi } z ^ {n - 1}$ 是正交规范基</li>
+<ol type="1">
+<li><span class="math inline">\(L^2 [0, 2\pi]\)</span> 上 <span
+class="math inline">\(e_{n}(t)=\frac{1}{\sqrt{2\pi}}e^{\mathrm{i}nt}\)</span>
+是正交规范基</li>
+<li><span class="math inline">\(l^2\)</span> 上，<span
+class="math inline">\(e_n = ( 0, ...., 0, 1, 0, ... )\)</span>
+是正交规范基</li>
+<li>令 <span class="math inline">\(D\)</span> 是 <span
+class="math inline">\(C\)</span> 中的单位开圆域，<span
+class="math inline">\(H^2(D)\)</span> 表示其中 L2
+可积的解析函数组成的全体构成的空间，规定内积为：<span
+class="math inline">\((u,v)=\iint_{D}u\bar{v}dxdy\)</span>，那么 <span
+class="math inline">\(\varphi_n = \sqrt{ n / \pi } z ^ {n - 1}\)</span>
+是正交规范基</li>
 </ol>
-<h3 id="正交化和-Hilbert-空间的同构"><a href="#正交化和-Hilbert-空间的同构" class="headerlink" title="正交化和 Hilbert 空间的同构"></a>正交化和 Hilbert 空间的同构</h3><p>Gram-Schmidt 正交化过程可以在Hilbert空间中直接实施。</p>
-<h4 id="同构"><a href="#同构" class="headerlink" title="同构"></a>同构</h4><ul>
-<li><p>定义</p>
-</li>
+<h3 id="正交化和-hilbert-空间的同构">正交化和 Hilbert 空间的同构</h3>
+<p>Gram-Schmidt 正交化过程可以在Hilbert空间中直接实施。</p>
+<h4 id="同构">同构</h4>
+<ul>
+<li><p>定义</p></li>
 <li><p>为了Hilbert空间可分，必须且仅须它有至多可数的正交规范基S；</p>
 <ul>
-<li>如果S中元素个数$N &lt; \infty$，那么同构于$K^N$​</li>
-<li>否则同构于$l^n$​</li>
+<li>如果S中元素个数<span class="math inline">\(N &lt;
+\infty\)</span>，那么同构于<span class="math inline">\(K^N\)</span>​</li>
+<li>否则同构于<span class="math inline">\(l^n\)</span>​</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="最佳逼近问题-ext"><a href="#最佳逼近问题-ext" class="headerlink" title="最佳逼近问题-ext"></a>最佳逼近问题-ext</h3><p>最佳逼近问题中我们将其看成求空间中一点到它的线性子空间的距离问题。当时我们要求了，子空间是<strong>有穷维</strong>的，并不知道<strong>无穷维</strong>的情况。</p>
+<h3 id="最佳逼近问题-ext">最佳逼近问题-ext</h3>
+<p>最佳逼近问题中我们将其看成求空间中一点到它的线性子空间的距离问题。当时我们要求了，子空间是<strong>有穷维</strong>的，并不知道<strong>无穷维</strong>的情况。</p>
 <p>在Hilbert空间中，答案是肯定的，并且可以用更为一般的闭凸子集来替代原本考虑的闭子空间。</p>
-<p>Theorem：如果$C$是Hilbert空间中的一个闭凸子集，那么$C$上<strong>存在唯一</strong>元素取最小模</p>
+<p>Theorem：如果<span
+class="math inline">\(C\)</span>是Hilbert空间中的一个闭凸子集，那么<span
+class="math inline">\(C\)</span>上<strong>存在唯一</strong>元素取最小模</p>
 <ul>
-<li>思路：首先找到下确界$\inf | z|$，然后逐步逼近，注意到平行四边形不等式成立即可；</li>
-<li>推论：对于任意元素$x_0 \in X$，和闭凸子集$C$，C中的最佳逼近是存在且唯一的</li>
+<li>思路：首先找到下确界<span class="math inline">\(\inf \|
+z\|\)</span>，然后逐步逼近，注意到平行四边形不等式成立即可；</li>
+<li>推论：对于任意元素<span class="math inline">\(x_0 \in
+X\)</span>，和闭凸子集<span
+class="math inline">\(C\)</span>，C中的最佳逼近是存在且唯一的</li>
 </ul>
 <p>我们还需要考虑，这样的最佳逼近元有什么样的性质：</p>
-<p>Theorem：设$C$是内积空间$X$中的一个闭凸子集，为了$x_0$是$y$的最佳逼近，当且仅当：</p>
-<p>$$<br>\operatorname{Re}\left(y-x_0,x_0-x\right)\ge0<br>$$</p>
+<p>Theorem：设<span class="math inline">\(C\)</span>是内积空间<span
+class="math inline">\(X\)</span>中的一个闭凸子集，为了<span
+class="math inline">\(x_0\)</span>是<span
+class="math inline">\(y\)</span>的最佳逼近，当且仅当：</p>
+<p><span class="math display">\[
+\operatorname{Re}\left(y-x_0,x_0-x\right)\ge0
+\]</span></p>
 <ul>
-<li>思路：考察函数$\varphi _ x (t) &#x3D; | y - tx - (1-t) x _ 0|^2$​</li>
-<li>推论：<strong>（正交分解）</strong>设M是Hilbert空间上的一个闭线性子空间，对于任意的$x \in X$​<strong>存在唯一的</strong>正交分解$x &#x3D; y + z, ( y \in M , z \in M ^ \perp)$​</li>
+<li>思路：考察函数<span class="math inline">\(\varphi _ x (t) = \| y -
+tx - (1-t) x _ 0\|^2\)</span>​</li>
+<li>推论：<strong>（正交分解）</strong>设M是Hilbert空间上的一个闭线性子空间，对于任意的<span
+class="math inline">\(x \in
+X\)</span>​<strong>存在唯一的</strong>正交分解<span
+class="math inline">\(x = y + z, ( y \in M , z \in M ^
+\perp)\)</span>​</li>
 </ul>
-<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h4><ol>
+<h3 id="应用">应用</h3>
+<h4 id="最小二乘法">最小二乘法</h4>
+<ol type="1">
 <li>实际观测问题（线性拟合）</li>
 <li>平方平均逼近：类似与NPDE求解？</li>
 <li>最佳估计问题</li>
 </ol>
-<h4 id="曲线光顺和样条函数（Spline）"><a href="#曲线光顺和样条函数（Spline）" class="headerlink" title="曲线光顺和样条函数（Spline）"></a>曲线光顺和样条函数（Spline）</h4><blockquote>
+<h4 id="曲线光顺和样条函数spline">曲线光顺和样条函数（Spline）</h4>
+<blockquote>
 <p>TODO？</p>
 </blockquote>
 
@@ -314,7 +379,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">1.</span> <span class="toc-text">内积空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89%E5%92%8C%E6%80%A7%E8%B4%A8"><span class="toc-number">1.1.</span> <span class="toc-text">基本定义和性质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E8%BD%AD%E5%8F%8C%E7%BA%BF%E6%80%A7%E5%87%BD%E6%95%B0%E3%80%81%E5%86%85%E7%A7%AF%E3%80%81%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">1.1.1.</span> <span class="toc-text">共轭双线性函数、内积、内积空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hilbert-%E7%A9%BA%E9%97%B4"><span class="toc-number">1.1.2.</span> <span class="toc-text">Hilbert 空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E5%92%8C%E6%AD%A3%E4%BA%A4%E5%9F%BA"><span class="toc-number">1.2.</span> <span class="toc-text">正交和正交基</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E3%80%81%E6%AD%A3%E4%BA%A4%E8%A1%A5"><span class="toc-number">1.2.1.</span> <span class="toc-text">正交、正交补</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E9%9B%86%E3%80%81%E6%AD%A3%E4%BA%A4%E8%A7%84%E8%8C%83%E9%9B%86%E3%80%81%E5%AE%8C%E5%A4%87%E6%AD%A3%E4%BA%A4%E9%9B%86"><span class="toc-number">1.2.2.</span> <span class="toc-text">正交集、正交规范集、完备正交集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E3%80%81Fourier-%E7%B3%BB%E6%95%B0"><span class="toc-number">1.2.3.</span> <span class="toc-text">基、Fourier 系数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E5%8C%96%E5%92%8C-Hilbert-%E7%A9%BA%E9%97%B4%E7%9A%84%E5%90%8C%E6%9E%84"><span class="toc-number">1.3.</span> <span class="toc-text">正交化和 Hilbert 空间的同构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%9E%84"><span class="toc-number">1.3.1.</span> <span class="toc-text">同构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E9%80%BC%E8%BF%91%E9%97%AE%E9%A2%98-ext"><span class="toc-number">1.4.</span> <span class="toc-text">最佳逼近问题-ext</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">1.5.</span> <span class="toc-text">应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="toc-number">1.5.1.</span> <span class="toc-text">最小二乘法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B2%E7%BA%BF%E5%85%89%E9%A1%BA%E5%92%8C%E6%A0%B7%E6%9D%A1%E5%87%BD%E6%95%B0%EF%BC%88Spline%EF%BC%89"><span class="toc-number">1.5.2.</span> <span class="toc-text">曲线光顺和样条函数（Spline）</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">1.</span> <span class="toc-text">内积空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89%E5%92%8C%E6%80%A7%E8%B4%A8"><span class="toc-number">1.1.</span> <span class="toc-text">基本定义和性质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E8%BD%AD%E5%8F%8C%E7%BA%BF%E6%80%A7%E5%87%BD%E6%95%B0%E5%86%85%E7%A7%AF%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">1.1.1.</span> <span class="toc-text">共轭双线性函数、内积、内积空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hilbert-%E7%A9%BA%E9%97%B4"><span class="toc-number">1.1.2.</span> <span class="toc-text">Hilbert 空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E5%92%8C%E6%AD%A3%E4%BA%A4%E5%9F%BA"><span class="toc-number">1.2.</span> <span class="toc-text">正交和正交基</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E6%AD%A3%E4%BA%A4%E8%A1%A5"><span class="toc-number">1.2.1.</span> <span class="toc-text">正交、正交补</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E9%9B%86%E6%AD%A3%E4%BA%A4%E8%A7%84%E8%8C%83%E9%9B%86%E5%AE%8C%E5%A4%87%E6%AD%A3%E4%BA%A4%E9%9B%86"><span class="toc-number">1.2.2.</span> <span class="toc-text">正交集、正交规范集、完备正交集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BAfourier-%E7%B3%BB%E6%95%B0"><span class="toc-number">1.2.3.</span> <span class="toc-text">基、Fourier 系数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E5%8C%96%E5%92%8C-hilbert-%E7%A9%BA%E9%97%B4%E7%9A%84%E5%90%8C%E6%9E%84"><span class="toc-number">1.3.</span> <span class="toc-text">正交化和 Hilbert 空间的同构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%9E%84"><span class="toc-number">1.3.1.</span> <span class="toc-text">同构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E9%80%BC%E8%BF%91%E9%97%AE%E9%A2%98-ext"><span class="toc-number">1.4.</span> <span class="toc-text">最佳逼近问题-ext</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">1.5.</span> <span class="toc-text">应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="toc-number">1.5.1.</span> <span class="toc-text">最小二乘法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B2%E7%BA%BF%E5%85%89%E9%A1%BA%E5%92%8C%E6%A0%B7%E6%9D%A1%E5%87%BD%E6%95%B0spline"><span class="toc-number">1.5.2.</span> <span class="toc-text">曲线光顺和样条函数（Spline）</span></a></li></ol></li></ol></li></ol>
       </div>
     
 

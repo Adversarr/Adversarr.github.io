@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="Title: 面向夏令营的实变函数整理 Tags: #Analysis#​, #RealAnalysis#​, #SummerCamp#​   集合论集合集合运算： 代数 – 交并补差 分析 – 上下极限 直积  上下极限可以有两种定义方式： $$\lim\sup {n\rightarrow \infty} A_n &#x3D;\lim { n \rightarrow \infty}\bigc">
+    <meta name="description" content="Title: 面向夏令营的实变函数整理 Tags: #Analysis#​, #RealAnalysis#​, #SummerCamp#​   集合论 集合 集合运算：  代数 – 交并补差 分析 – 上下极限 直积  上下极限可以有两种定义方式： \[ \lim\sup _{n\rightarrow \infty} A_n &#x3D;\lim _{ n \rightarrow \infty}\big">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向夏令营的实变函数整理">
 <meta property="og:url" content="https://adversarr.github.io/2022/12/04/sorting-the-real-changing-function-for-the-summer-camp-zezzds/index.html">
 <meta property="og:site_name" content="Adversarr&#39;s Blog">
-<meta property="og:description" content="Title: 面向夏令营的实变函数整理 Tags: #Analysis#​, #RealAnalysis#​, #SummerCamp#​   集合论集合集合运算： 代数 – 交并补差 分析 – 上下极限 直积  上下极限可以有两种定义方式： $$\lim\sup {n\rightarrow \infty} A_n &#x3D;\lim { n \rightarrow \infty}\bigc">
+<meta property="og:description" content="Title: 面向夏令营的实变函数整理 Tags: #Analysis#​, #RealAnalysis#​, #SummerCamp#​   集合论 集合 集合运算：  代数 – 交并补差 分析 – 上下极限 直积  上下极限可以有两种定义方式： \[ \lim\sup _{n\rightarrow \infty} A_n &#x3D;\lim _{ n \rightarrow \infty}\big">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-12-04T15:11:00.000Z">
-<meta property="article:modified_time" content="2023-08-17T07:53:09.371Z">
+<meta property="article:modified_time" content="2023-08-17T08:23:58.050Z">
 <meta property="article:author" content="Adversarr">
 <meta name="twitter:card" content="summary">
     
@@ -63,7 +63,7 @@
 			}
 		  });
 		</script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+		<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' async></script>
 	
 <meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -130,7 +130,8 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">集合论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-number">1.1.</span> <span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">集合运算：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E6%9E%81%E9%99%90%E5%92%8C%E4%B8%8B%E6%9E%81%E9%99%90%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9%EF%BC%9A"><span class="toc-number">1.1.2.</span> <span class="toc-text">上极限和下极限相关内容：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A0%E5%B0%84"><span class="toc-number">1.2.</span> <span class="toc-text">映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rn-%E7%A9%BA%E9%97%B4"><span class="toc-number">1.3.</span> <span class="toc-text">Rn 空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AD%E9%9B%86%E3%80%81%E5%BC%80%E9%9B%86%E3%80%81Borel-%E9%9B%86"><span class="toc-number">1.3.1.</span> <span class="toc-text">闭集、开集、Borel 集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E9%9B%86%E7%BB%93%E6%9E%84%E3%80%81%E8%BF%9E%E7%BB%AD%E6%80%A7"><span class="toc-number">1.3.2.</span> <span class="toc-text">开集结构、连续性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="toc-number">1.3.3.</span> <span class="toc-text">基本定理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8B%92%E8%B4%9D%E6%A0%BC%E6%B5%8B%E5%BA%A6"><span class="toc-number">2.</span> <span class="toc-text">勒贝格测度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E6%B5%8B%E5%BA%A6%E3%80%81%E5%8F%AF%E6%B5%8B%E9%9B%86"><span class="toc-number">2.1.</span> <span class="toc-text">外测度、可测集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E6%B5%8B%E5%BA%A6"><span class="toc-number">2.1.1.</span> <span class="toc-text">外测度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Lebesgue-%E5%8F%AF%E6%B5%8B%E9%9B%86"><span class="toc-number">2.1.2.</span> <span class="toc-text">Lebesgue 可测集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4"><span class="toc-number">2.1.3.</span> <span class="toc-text">测度空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">可测函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">基本性质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.2.</span> <span class="toc-text">测度空间上的可测函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lesbegue-%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E5%88%97%E7%9A%84%E6%94%B6%E6%95%9B%E6%80%A7"><span class="toc-number">2.3.</span> <span class="toc-text">Lesbegue 可测函数列的收敛性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%A0%E4%B9%8E%E5%A4%84%E5%A4%84%E6%94%B6%E6%95%9B-%E5%87%A0%E4%B9%8E%E4%B8%80%E8%87%B4%E6%94%B6%E6%95%9B"><span class="toc-number">2.3.1.</span> <span class="toc-text">几乎处处收敛&#x2F;几乎一致收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%9D%E6%B5%8B%E5%BA%A6%E6%94%B6%E6%95%9B"><span class="toc-number">2.3.2.</span> <span class="toc-text">依测度收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E5%92%8C%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.3.3.</span> <span class="toc-text">可测函数和连续函数的关系</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lebesgue-%E7%A7%AF%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">Lebesgue 积分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lebesgue-%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><span class="toc-number">3.1.</span> <span class="toc-text">Lebesgue 可测函数的积分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E8%B4%9F%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><span class="toc-number">3.1.1.</span> <span class="toc-text">非负可测函数的积分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.2.</span> <span class="toc-text">一般可测函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Riemann-%E7%A7%AF%E5%88%86%E5%92%8C-Lebesgue-%E7%A7%AF%E5%88%86%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">3.1.3.</span> <span class="toc-text">Riemann 积分和 Lebesgue 积分的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86"><span class="toc-number">3.1.4.</span> <span class="toc-text">测度空间上的可测函数积分</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">极限定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Riemann-%E5%8F%AF%E7%A7%AF%E7%9A%84%E5%88%BB%E7%94%BB"><span class="toc-number">3.2.1.</span> <span class="toc-text">Riemann 可积的刻画</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E7%A7%AF%E5%88%86%E5%92%8C%E7%B4%AF%E6%AC%A1%E7%A7%AF%E5%88%86"><span class="toc-number">3.3.</span> <span class="toc-text">重积分和累次积分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Fubini-%E5%AE%9A%E7%90%86"><span class="toc-number">3.3.1.</span> <span class="toc-text">Fubini 定理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%88%86%E5%92%8C%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86"><span class="toc-number">4.</span> <span class="toc-text">微分和不定积分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%B0%83%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%AF%E5%BE%AE%E6%80%A7"><span class="toc-number">4.1.</span> <span class="toc-text">单调函数的可微性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%95%8C%E5%8F%98%E5%B7%AE%E5%87%BD%E6%95%B0"><span class="toc-number">4.2.</span> <span class="toc-text">有界变差函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BE%AE%E5%88%86"><span class="toc-number">4.3.</span> <span class="toc-text">不定积分的微分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="toc-number">4.3.1.</span> <span class="toc-text">绝对连续函数和微积分基本定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%83%A8%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E5%92%8C%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="toc-number">4.4.</span> <span class="toc-text">分部积分公式和积分中值定理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L-p-%E7%A9%BA%E9%97%B4"><span class="toc-number">5.</span> <span class="toc-text">L^p^空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">5.1.</span> <span class="toc-text">定义和基本性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lp-%E7%A9%BA%E9%97%B4%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">5.2.</span> <span class="toc-text">Lp 空间的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E5%A4%87%E7%A9%BA%E9%97%B4"><span class="toc-number">5.2.1.</span> <span class="toc-text">完备空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E5%88%86%E7%A9%BA%E9%97%B4"><span class="toc-number">5.2.2.</span> <span class="toc-text">可分空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L2-%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">5.3.</span> <span class="toc-text">L2 内积空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E7%A7%AF%E5%92%8C%E6%AD%A3%E4%BA%A4%E7%B3%BB"><span class="toc-number">5.3.1.</span> <span class="toc-text">内积和正交系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89-Fourier-%E7%BA%A7%E6%95%B0"><span class="toc-number">5.3.2.</span> <span class="toc-text">广义 Fourier 级数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lp-%E4%B8%AD%E7%9A%84%E8%8C%83%E6%95%B0%E5%85%AC%E5%BC%8F"><span class="toc-number">5.4.</span> <span class="toc-text">Lp 中的范数公式</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">集合论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-number">1.1.</span> <span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97"><span class="toc-number">1.1.1.</span> <span class="toc-text">集合运算：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E6%9E%81%E9%99%90%E5%92%8C%E4%B8%8B%E6%9E%81%E9%99%90%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.2.</span> <span class="toc-text">上极限和下极限相关内容：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A0%E5%B0%84"><span class="toc-number">1.2.</span> <span class="toc-text">映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rn-%E7%A9%BA%E9%97%B4"><span class="toc-number">1.3.</span> <span class="toc-text">Rn 空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AD%E9%9B%86%E5%BC%80%E9%9B%86borel-%E9%9B%86"><span class="toc-number">1.3.1.</span> <span class="toc-text">闭集、开集、Borel 集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E9%9B%86%E7%BB%93%E6%9E%84%E8%BF%9E%E7%BB%AD%E6%80%A7"><span class="toc-number">1.3.2.</span> <span class="toc-text">开集结构、连续性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="toc-number">1.3.3.</span> <span class="toc-text">基本定理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8B%92%E8%B4%9D%E6%A0%BC%E6%B5%8B%E5%BA%A6"><span class="toc-number">2.</span> <span class="toc-text">勒贝格测度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E6%B5%8B%E5%BA%A6%E5%8F%AF%E6%B5%8B%E9%9B%86"><span class="toc-number">2.1.</span> <span class="toc-text">外测度、可测集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E6%B5%8B%E5%BA%A6"><span class="toc-number">2.1.1.</span> <span class="toc-text">外测度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lebesgue-%E5%8F%AF%E6%B5%8B%E9%9B%86"><span class="toc-number">2.1.2.</span> <span class="toc-text">Lebesgue 可测集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4"><span class="toc-number">2.1.3.</span> <span class="toc-text">测度空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">可测函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">基本性质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.2.</span> <span class="toc-text">测度空间上的可测函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lesbegue-%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E5%88%97%E7%9A%84%E6%94%B6%E6%95%9B%E6%80%A7"><span class="toc-number">2.3.</span> <span class="toc-text">Lesbegue 可测函数列的收敛性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%A0%E4%B9%8E%E5%A4%84%E5%A4%84%E6%94%B6%E6%95%9B%E5%87%A0%E4%B9%8E%E4%B8%80%E8%87%B4%E6%94%B6%E6%95%9B"><span class="toc-number">2.3.1.</span> <span class="toc-text">几乎处处收敛&#x2F;几乎一致收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%9D%E6%B5%8B%E5%BA%A6%E6%94%B6%E6%95%9B"><span class="toc-number">2.3.2.</span> <span class="toc-text">依测度收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E5%92%8C%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.3.3.</span> <span class="toc-text">可测函数和连续函数的关系</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lebesgue-%E7%A7%AF%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">Lebesgue 积分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lebesgue-%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><span class="toc-number">3.1.</span> <span class="toc-text">Lebesgue 可测函数的积分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E8%B4%9F%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><span class="toc-number">3.1.1.</span> <span class="toc-text">非负可测函数的积分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.2.</span> <span class="toc-text">一般可测函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#riemann-%E7%A7%AF%E5%88%86%E5%92%8C-lebesgue-%E7%A7%AF%E5%88%86%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">3.1.3.</span> <span class="toc-text">Riemann 积分和 Lebesgue
+积分的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86"><span class="toc-number">3.1.4.</span> <span class="toc-text">测度空间上的可测函数积分</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">极限定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#riemann-%E5%8F%AF%E7%A7%AF%E7%9A%84%E5%88%BB%E7%94%BB"><span class="toc-number">3.2.1.</span> <span class="toc-text">Riemann 可积的刻画</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E7%A7%AF%E5%88%86%E5%92%8C%E7%B4%AF%E6%AC%A1%E7%A7%AF%E5%88%86"><span class="toc-number">3.3.</span> <span class="toc-text">重积分和累次积分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#fubini-%E5%AE%9A%E7%90%86"><span class="toc-number">3.3.1.</span> <span class="toc-text">Fubini 定理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%88%86%E5%92%8C%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86"><span class="toc-number">4.</span> <span class="toc-text">微分和不定积分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%B0%83%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%AF%E5%BE%AE%E6%80%A7"><span class="toc-number">4.1.</span> <span class="toc-text">单调函数的可微性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%95%8C%E5%8F%98%E5%B7%AE%E5%87%BD%E6%95%B0"><span class="toc-number">4.2.</span> <span class="toc-text">有界变差函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BE%AE%E5%88%86"><span class="toc-number">4.3.</span> <span class="toc-text">不定积分的微分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="toc-number">4.3.1.</span> <span class="toc-text">绝对连续函数和微积分基本定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%83%A8%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E5%92%8C%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="toc-number">4.4.</span> <span class="toc-text">分部积分公式和积分中值定理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lp%E7%A9%BA%E9%97%B4"><span class="toc-number">5.</span> <span class="toc-text">Lp空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">5.1.</span> <span class="toc-text">定义和基本性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lp-%E7%A9%BA%E9%97%B4%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">5.2.</span> <span class="toc-text">Lp 空间的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E5%A4%87%E7%A9%BA%E9%97%B4"><span class="toc-number">5.2.1.</span> <span class="toc-text">完备空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E5%88%86%E7%A9%BA%E9%97%B4"><span class="toc-number">5.2.2.</span> <span class="toc-text">可分空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#l2-%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">5.3.</span> <span class="toc-text">L2 内积空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E7%A7%AF%E5%92%8C%E6%AD%A3%E4%BA%A4%E7%B3%BB"><span class="toc-number">5.3.1.</span> <span class="toc-text">内积和正交系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89-fourier-%E7%BA%A7%E6%95%B0"><span class="toc-number">5.3.2.</span> <span class="toc-text">广义 Fourier 级数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lp-%E4%B8%AD%E7%9A%84%E8%8C%83%E6%95%B0%E5%85%AC%E5%BC%8F"><span class="toc-number">5.4.</span> <span class="toc-text">Lp 中的范数公式</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -170,400 +171,1396 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <hr>
+    <hr />
 <ul>
 <li>Title: 面向夏令营的实变函数整理</li>
 <li>Tags: #Analysis#​, #RealAnalysis#​, #SummerCamp#​</li>
 </ul>
-<hr>
-<h2 id="集合论"><a href="#集合论" class="headerlink" title="集合论"></a>集合论</h2><h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><h4 id="集合运算："><a href="#集合运算：" class="headerlink" title="集合运算："></a>集合运算：</h4><ol>
+<hr />
+<h2 id="集合论">集合论</h2>
+<h3 id="集合">集合</h3>
+<h4 id="集合运算">集合运算：</h4>
+<ol type="1">
 <li>代数 – 交并补差</li>
 <li>分析 – 上下极限</li>
 <li>直积</li>
 </ol>
 <p>上下极限可以有两种定义方式：</p>
-<p>$$<br>\lim\sup <em>{n\rightarrow \infty} A_n &#x3D;\lim <em>{ n \rightarrow \infty}\bigcup</em>{k &#x3D; n}  ^ \infty A_n  &#x3D; \bigcap _ { n &#x3D; 1} ^ \infty\bigcup</em>{k &#x3D; n}  ^ \infty A_n<br>$$</p>
+<p><span class="math display">\[
+\lim\sup _{n\rightarrow \infty} A_n =\lim _{ n \rightarrow
+\infty}\bigcup_{k = n}  ^ \infty A_n  = \bigcap _ { n = 1} ^
+\infty\bigcup_{k = n}  ^ \infty A_n
+\]</span></p>
 <p>对于下极限同样定义。</p>
-<h4 id="上极限和下极限相关内容："><a href="#上极限和下极限相关内容：" class="headerlink" title="上极限和下极限相关内容："></a>上极限和下极限相关内容：</h4><p>集合的上下确界 $\sup, \inf$</p>
-<dl><dt>Theo</dt><dd>确界存在定理</dd></dl><p>上下极限也可以通过上下界定义：</p>
-<p>$$<br>\lim \sup &#x3D; \inf \sup \quad \lim \inf &#x3D; \sup \inf<br>$$</p>
+<h4 id="上极限和下极限相关内容">上极限和下极限相关内容：</h4>
+<p>集合的上下确界 <span class="math inline">\(\sup, \inf\)</span></p>
+<dl>
+<dt>Theo</dt>
+<dd>
+确界存在定理
+</dd>
+</dl>
+<p>上下极限也可以通过上下界定义：</p>
+<p><span class="math display">\[
+\lim \sup = \inf \sup \quad \lim \inf = \sup \inf
+\]</span></p>
 <blockquote>
 <p>类比点列、函数的上下极限定义</p>
 </blockquote>
-<h3 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h3><ol>
+<h3 id="映射">映射</h3>
+<ol type="1">
 <li>映射</li>
 <li>集合势</li>
 </ol>
 <p>研究可列：</p>
-<ol>
+<ol type="1">
 <li>任何无穷集合中包含可列的子集</li>
 <li>可列集的无穷子集可列</li>
 <li>可列集的交并都可列</li>
 </ol>
-<h3 id="Rn-空间"><a href="#Rn-空间" class="headerlink" title="Rn 空间"></a>Rn 空间</h3><ol>
-<li>定义 ${\mathbb R}^n$</li>
+<h3 id="rn-空间">Rn 空间</h3>
+<ol type="1">
+<li>定义 <span class="math inline">\({\mathbb R}^n\)</span></li>
 <li>线性空间、范数、柯西不等式、距离、球</li>
 </ol>
 <p>考察点集：</p>
-<ol>
+<ol type="1">
 <li>点：内点、边界点、聚点</li>
 <li>诱导集合：闭包、边界</li>
 <li>相互关系：稠密</li>
 </ol>
-<h4 id="闭集、开集、Borel-集"><a href="#闭集、开集、Borel-集" class="headerlink" title="闭集、开集、Borel 集"></a>闭集、开集、Borel 集</h4><ol>
+<h4 id="闭集开集borel-集">闭集、开集、Borel 集</h4>
+<ol type="1">
 <li>闭集、开集的定义</li>
 </ol>
 <p>极限性质：</p>
-<ol>
+<ol type="1">
 <li>开集的并始终是开的，两个开集的交是开的</li>
 <li>闭集的交始终是闭的，两个闭集的并是闭的</li>
-<li>从而定义 $F_\sigma$ 型集（可数闭集并）和 $G_\delta$ 型集（可数开集的交）</li>
+<li>从而定义 <span class="math inline">\(F_\sigma\)</span>
+型集（可数闭集并）和 <span class="math inline">\(G_\delta\)</span>
+型集（可数开集的交）</li>
 </ol>
-<p>推广上述性质：$\sigma$-代数</p>
-<h4 id="开集结构、连续性"><a href="#开集结构、连续性" class="headerlink" title="开集结构、连续性"></a>开集结构、连续性</h4><dl><dt>Theo</dt><dd>${\mathbb R}$ 上任意非空开集是至多可数个开集的并</dd></dl><dl><dt>Theo</dt><dd>${\mathbb R}^n$ 上的任意非空开集是之多可数个互不相交的半开矩体的并。</dd></dl><p>通过这两个定理，我们来观察函数的连续性：</p>
-<dl><dt>Theo</dt><dd>设 $f:{\mathbb R}^n \rightarrow {\mathbb R}$ 则 TFAE：</dd></dl><ol>
-<li>$f\in C$</li>
-<li>$\forall \lambda, {f &lt; \lambda}, {f &gt; \lambda }$ 是开的</li>
-<li>$\forall \lambda, {f &lt;&#x3D; \lambda}, {f &gt;&#x3D; \lambda }$ 是闭的</li>
+<p>推广上述性质：<span class="math inline">\(\sigma\)</span>-代数</p>
+<h4 id="开集结构连续性">开集结构、连续性</h4>
+<dl>
+<dt>Theo</dt>
+<dd>
+<span class="math inline">\({\mathbb R}\)</span>
+上任意非空开集是至多可数个开集的并
+</dd>
+<dt>Theo</dt>
+<dd>
+<span class="math inline">\({\mathbb R}^n\)</span>
+上的任意非空开集是之多可数个互不相交的半开矩体的并。
+</dd>
+</dl>
+<p>通过这两个定理，我们来观察函数的连续性：</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+设 <span class="math inline">\(f:{\mathbb R}^n \rightarrow {\mathbb
+R}\)</span> 则 TFAE：
+</dd>
+</dl>
+<ol type="1">
+<li><span class="math inline">\(f\in C\)</span></li>
+<li><span class="math inline">\(\forall \lambda, \{f &lt; \lambda\}, \{f
+&gt; \lambda \}\)</span> 是开的</li>
+<li><span class="math inline">\(\forall \lambda, \{f &lt;= \lambda\},
+\{f &gt;= \lambda \}\)</span> 是闭的</li>
 </ol>
-<h4 id="基本定理"><a href="#基本定理" class="headerlink" title="基本定理"></a>基本定理</h4><ol>
+<h4 id="基本定理">基本定理</h4>
+<ol type="1">
 <li>Cauchy-收敛原理</li>
 <li>有限覆盖定理</li>
 <li>闭区间套定理</li>
 <li>魏尔斯特拉斯定理</li>
 </ol>
 <p>关于紧集：</p>
-<ol>
+<ol type="1">
 <li>定义：任意开覆盖有有限子覆盖</li>
-<li>性质：在 ${\mathbb R} ^ n$ 中就是有界闭集</li>
+<li>性质：在 <span class="math inline">\({\mathbb R} ^ n\)</span>
+中就是有界闭集</li>
 </ol>
-<h2 id="勒贝格测度"><a href="#勒贝格测度" class="headerlink" title="勒贝格测度"></a>勒贝格测度</h2><h3 id="外测度、可测集"><a href="#外测度、可测集" class="headerlink" title="外测度、可测集"></a>外测度、可测集</h3><h4 id="外测度"><a href="#外测度" class="headerlink" title="外测度"></a>外测度</h4><dl><dt>外测度</dt><dd>设 $E$ 是 ${\mathbb R} ^ n$ 中的点集，若 ${I_k}$ 是一列开矩体，且为 $E$ 的一个开覆盖，确定了一个实数：$u &#x3D; \sum _{k} I_k$，令：</dd></dl><p>$$<br>m^*(E) &#x3D; \inf {u}<br>$$</p>
-<p>称为其的 $Lebesgue$ 外测度。</p>
+<h2 id="勒贝格测度">勒贝格测度</h2>
+<h3 id="外测度可测集">外测度、可测集</h3>
+<h4 id="外测度">外测度</h4>
+<dl>
+<dt>外测度</dt>
+<dd>
+设 <span class="math inline">\(E\)</span> 是 <span
+class="math inline">\({\mathbb R} ^ n\)</span> 中的点集，若 <span
+class="math inline">\(\{I_k\}\)</span> 是一列开矩体，且为 <span
+class="math inline">\(E\)</span> 的一个开覆盖，确定了一个实数：<span
+class="math inline">\(u = \sum _{k} I_k\)</span>，令：
+</dd>
+</dl>
+<p><span class="math display">\[
+m^*(E) = \inf \{u\}
+\]</span></p>
+<p>称为其的 <span class="math inline">\(Lebesgue\)</span> 外测度。</p>
 <p>关于外测度的性质：</p>
-<ol>
+<ol type="1">
 <li>非负性</li>
 <li>单调性</li>
 <li>次可加性</li>
 <li>平移不变性</li>
 </ol>
 <blockquote>
-<ol>
+<ol type="1">
 <li>单点集、可数点集的外测度都为 0</li>
-<li>$n-1$ 维超平面测度为 0</li>
+<li><span class="math inline">\(n-1\)</span> 维超平面测度为 0</li>
 <li>康托集外测度为 0</li>
 </ol>
 </blockquote>
 <p>题目</p>
-<ol>
-<li><p>求证 $m^* &#x3D; \sup &#x2F; \inf$ 这一类</p>
-<ol>
+<ol type="1">
+<li><p>求证 <span class="math inline">\(m^* = \sup / \inf\)</span>
+这一类</p>
+<ol type="1">
 <li>一般一边好证明（直接用单调性）</li>
-<li>另一边用次可加性 +$\varepsilon$ 的任意性来描述</li>
-</ol>
-</li>
+<li>另一边用次可加性 +<span class="math inline">\(\varepsilon\)</span>
+的任意性来描述</li>
+</ol></li>
 <li><p>求证有子集满足 xxx 条件</p>
-<ol>
+<ol type="1">
 <li>设函数，利用连续性</li>
+</ol></li>
 </ol>
-</li>
-</ol>
-<h4 id="Lebesgue-可测集"><a href="#Lebesgue-可测集" class="headerlink" title="Lebesgue 可测集"></a>Lebesgue 可测集</h4><p>外测度不符合可加性！因此在集合上加 Carathedory 条件：</p>
-<dl><dt>可测</dt><dd>设 $E \subseteq {\mathbb R} ^ n$ 如果 $\forall T \subset {\mathbb R} ^ n$，有</dd></dl><p>$$<br>m^*(T) &#x3D; m^*(T \cap E) + m^*(T\cap E^c)<br>$$</p>
-<p>则称之为 Lebesgue 可测，全体记为 $\mathcal M$ 测度即其外侧度</p>
+<h4 id="lebesgue-可测集">Lebesgue 可测集</h4>
+<p>外测度不符合可加性！因此在集合上加 Carathedory 条件：</p>
+<dl>
+<dt>可测</dt>
+<dd>
+设 <span class="math inline">\(E \subseteq {\mathbb R} ^ n\)</span> 如果
+<span class="math inline">\(\forall T \subset {\mathbb R} ^
+n\)</span>，有
+</dd>
+</dl>
+<p><span class="math display">\[
+m^*(T) = m^*(T \cap E) + m^*(T\cap E^c)
+\]</span></p>
+<p>则称之为 Lebesgue 可测，全体记为 <span class="math inline">\(\mathcal
+M\)</span> 测度即其外侧度</p>
 <blockquote>
-<p>上述条件中实际上只需要 $\ge$ 成立即可（另一侧自然成立）</p>
+<p>上述条件中实际上只需要 <span class="math inline">\(\ge\)</span>
+成立即可（另一侧自然成立）</p>
 </blockquote>
 <p>考虑原来的简单集合：</p>
 <p>Theorem:</p>
-<ol>
+<ol type="1">
 <li>外测度的零测集是可测的，即为零测集。</li>
 <li>对开矩体而言，其测度为其“长度”</li>
 </ol>
 <p>对于可测集，其具有如下性质：</p>
-<ol>
+<ol type="1">
 <li>空集可测，测度为 0</li>
 <li>可测集的交并补差都是可测集</li>
-<li><strong>可数可加性</strong>：对于互不相交的可测集 $E_i$，取并和取测度可换</li>
+<li><strong>可数可加性</strong>：对于互不相交的可测集 <span
+class="math inline">\(E_i\)</span>，取并和取测度可换</li>
 <li>平移不变性</li>
 </ol>
 <p>进一步考察和极限的关系：</p>
-<dl><dt>Theo</dt><dd>可测集合的可数交是可测的</dd></dl><p>考虑极限和测度交换：</p>
-<dl><dt>Theo</dt><dd>对于递增的可测集列 $E_i$，则其极限可测，且有极限和测度可换</dd></dl><dl><dt>Theo</dt><dd>对于递减的可测集列 $E_i$，若存在 $m(E_i) &lt; +\infty$，则其极限可测，且有极限和测度可换</dd></dl><blockquote>
-<p>上式要求存在一个集合测度有限：考察 $E_i &#x3D; [i, \infty)$ 的极限的测度和其测度的极限</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+可测集合的可数交是可测的
+</dd>
+</dl>
+<p>考虑极限和测度交换：</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+对于递增的可测集列 <span
+class="math inline">\(E_i\)</span>，则其极限可测，且有极限和测度可换
+</dd>
+<dt>Theo</dt>
+<dd>
+对于递减的可测集列 <span class="math inline">\(E_i\)</span>，若存在
+<span class="math inline">\(m(E_i) &lt;
++\infty\)</span>，则其极限可测，且有极限和测度可换
+</dd>
+</dl>
+<blockquote>
+<p>上式要求存在一个集合测度有限：考察 <span class="math inline">\(E_i =
+[i, \infty)\)</span> 的极限的测度和其测度的极限</p>
 </blockquote>
 <p>下面的定理表述了可测集和 Borel 集的关系</p>
-<dl><dt>Theo</dt><dd>若 $E$ 可测，则存在 Borel 集 $G, F$，使得 $F\subset E\subset G$ 且 $m(F) &#x3D; m(E) &#x3D; m(G)$<br>换句话说，对于任意可测集，存在 Borel 集来从两侧（在测度意义上）逼近。</dd></dl><h4 id="测度空间"><a href="#测度空间" class="headerlink" title="测度空间"></a>测度空间</h4><blockquote>
+<dl>
+<dt>Theo</dt>
+<dd>
+若 <span class="math inline">\(E\)</span> 可测，则存在 Borel 集 <span
+class="math inline">\(G, F\)</span>，使得 <span
+class="math inline">\(F\subset E\subset G\)</span> 且 <span
+class="math inline">\(m(F) = m(E) = m(G)\)</span>
+换句话说，对于任意可测集，存在 Borel 集来从两侧（在测度意义上）逼近。
+</dd>
+</dl>
+<h4 id="测度空间">测度空间</h4>
+<blockquote>
 <p>TODO</p>
 </blockquote>
-<h3 id="可测函数"><a href="#可测函数" class="headerlink" title="可测函数"></a>可测函数</h3><p>对于函数，正如我们一开始用开集闭集来表征连续性一样，考察用可测集来表述可测性。</p>
-<dl><dt>可测函数</dt><dd>设 $E \subseteq \mathbb R^n$ 可测，$f$ 是 $E$ 上的函数，若对于任何 $t\in {\mathbb R}$ 有</dd></dl><p>$$<br>E(f&gt;t) :&#x3D; {x\in E| f(x) &gt; t}<br>$$</p>
-<p>都可测，则称函数在 $E$ 上可测，用 $M(E)$ 表示。</p>
-<ol>
-<li>对于上述定理中的 $t\in E$，只需要考察稠密的 $t\in E’\subset E$ 即可</li>
-<li>对于 $&gt;$，可以等价替换为 $\ge, \le , &lt;$</li>
+<h3 id="可测函数">可测函数</h3>
+<p>对于函数，正如我们一开始用开集闭集来表征连续性一样，考察用可测集来表述可测性。</p>
+<dl>
+<dt>可测函数</dt>
+<dd>
+设 <span class="math inline">\(E \subseteq \mathbb R^n\)</span>
+可测，<span class="math inline">\(f\)</span> 是 <span
+class="math inline">\(E\)</span> 上的函数，若对于任何 <span
+class="math inline">\(t\in {\mathbb R}\)</span> 有
+</dd>
+</dl>
+<p><span class="math display">\[
+E(f&gt;t) := \{x\in E| f(x) &gt; t\}
+\]</span></p>
+<p>都可测，则称函数在 <span class="math inline">\(E\)</span> 上可测，用
+<span class="math inline">\(M(E)\)</span> 表示。</p>
+<ol type="1">
+<li>对于上述定理中的 <span class="math inline">\(t\in
+E\)</span>，只需要考察稠密的 <span class="math inline">\(t\in
+E&#39;\subset E\)</span> 即可</li>
+<li>对于 <span class="math inline">\(&gt;\)</span>，可以等价替换为 <span
+class="math inline">\(\ge, \le , &lt;\)</span></li>
 </ol>
 <p>对于以上的定义，我们还有一些基础的结论：</p>
-<ol>
+<ol type="1">
 <li>可测函数列的收敛点集和发散点集是可测的。</li>
-<li>若 $f,g$ 都可测，则 $E[f&gt;g], E[f\ne g]$ 可测（用有理数集插在 $f,g$ 之间）</li>
+<li>若 <span class="math inline">\(f,g\)</span> 都可测，则 <span
+class="math inline">\(E[f&gt;g], E[f\ne g]\)</span> 可测（用有理数集插在
+<span class="math inline">\(f,g\)</span> 之间）</li>
 </ol>
 <p>我们考察在这个定义下的简单函数，他们通过特征函数来定义：</p>
-<dl><dt>简单函数</dt><dd>设有互不相交的 $E_i$ 是 $E$ 的一个分划，称</dd></dl><p>$$<br>\varphi (x) &#x3D; \sum_{i &#x3D; 1} ^ m \alpha _ i \chi _{E_i} (x)<br>$$</p>
-<p>是简单函数，当 $E_i$ 是矩体时，$\varphi$ 是阶梯函数</p>
+<dl>
+<dt>简单函数</dt>
+<dd>
+设有互不相交的 <span class="math inline">\(E_i\)</span> 是 <span
+class="math inline">\(E\)</span> 的一个分划，称
+</dd>
+</dl>
+<p><span class="math display">\[
+\varphi (x) = \sum_{i = 1} ^ m \alpha _ i \chi _{E_i} (x)
+\]</span></p>
+<p>是简单函数，当 <span class="math inline">\(E_i\)</span>
+是矩体时，<span class="math inline">\(\varphi\)</span> 是阶梯函数</p>
 <p>显然，简单函数是可测的。而下面的定理说明了简单函数能够构建出一个可测函数：</p>
-<h4 id="基本性质"><a href="#基本性质" class="headerlink" title="基本性质"></a>基本性质</h4><dl><dt>Theo</dt><dd>对于可测函数集，</dd></dl><ol>
+<h4 id="基本性质">基本性质</h4>
+<dl>
+<dt>Theo</dt>
+<dd>
+对于可测函数集，
+</dd>
+</dl>
+<ol type="1">
 <li>是线性空间（对非零除法也是）</li>
 <li>连续函数都可测</li>
 </ol>
 <p>下面考察其极限性质：</p>
-<dl><dt>Theo</dt><dd>对于可测函数列的 $f_k$ 的 上确界，下确界，上极限，下极限 都是可测函数</dd></dl><dl><dt>Theo</dt><dd>对于可测函数列，若 $f_k \rightarrow f$，则 $f$ 可测。</dd></dl><p>下面考虑取绝对值前后的可测性：</p>
-<dl><dt>Theo</dt><dd>对于实值函数，可测的充要条件是正部和负部都是可测的，且若 $f$ 可测，则 $|f|$ 可测</dd></dl><p>考虑复合函数的可测性：</p>
-<dl><dt>Theo</dt><dd>对于 $f\in C$ 和 $g\in M$ 有 $h&#x3D;f\circ g$ 可测</dd></dl><p>下面引入几乎处处的概念：</p>
-<dl><dt>几乎处处</dt><dd>称 E 在 $A$ 几乎处处满足 P(E)，是指存在一个固定的零测的 $Z$ 使得对 $A - Z$ 满足 P(E)</dd></dl><p>从而，我们有：</p>
-<dl><dt>Theo</dt><dd>对于实函数，若 $f &#x3D; g\quad a.e.$ 则 $f$ 与 $g$ 有相同的可测性。</dd></dl><p>从上面的描述中不难看出，相比于<strong>连续性</strong>，可测性在极限运算下具有良好的性质（保持、交换），这也是我们需要可测的原因。</p>
-<h4 id="测度空间上的可测函数"><a href="#测度空间上的可测函数" class="headerlink" title="测度空间上的可测函数"></a>测度空间上的可测函数</h4><blockquote>
+<dl>
+<dt>Theo</dt>
+<dd>
+对于可测函数列的 <span class="math inline">\(f_k\)</span> 的
+上确界，下确界，上极限，下极限 都是可测函数
+</dd>
+<dt>Theo</dt>
+<dd>
+对于可测函数列，若 <span class="math inline">\(f_k \rightarrow
+f\)</span>，则 <span class="math inline">\(f\)</span> 可测。
+</dd>
+</dl>
+<p>下面考虑取绝对值前后的可测性：</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+对于实值函数，可测的充要条件是正部和负部都是可测的，且若 <span
+class="math inline">\(f\)</span> 可测，则 <span
+class="math inline">\(|f|\)</span> 可测
+</dd>
+</dl>
+<p>考虑复合函数的可测性：</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+对于 <span class="math inline">\(f\in C\)</span> 和 <span
+class="math inline">\(g\in M\)</span> 有 <span
+class="math inline">\(h=f\circ g\)</span> 可测
+</dd>
+</dl>
+<p>下面引入几乎处处的概念：</p>
+<dl>
+<dt>几乎处处</dt>
+<dd>
+称 E 在 <span class="math inline">\(A\)</span> 几乎处处满足
+P(E)，是指存在一个固定的零测的 <span class="math inline">\(Z\)</span>
+使得对 <span class="math inline">\(A - Z\)</span> 满足 P(E)
+</dd>
+</dl>
+<p>从而，我们有：</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+对于实函数，若 <span class="math inline">\(f = g\quad a.e.\)</span> 则
+<span class="math inline">\(f\)</span> 与 <span
+class="math inline">\(g\)</span> 有相同的可测性。
+</dd>
+</dl>
+<p>从上面的描述中不难看出，相比于<strong>连续性</strong>，可测性在极限运算下具有良好的性质（保持、交换），这也是我们需要可测的原因。</p>
+<h4 id="测度空间上的可测函数">测度空间上的可测函数</h4>
+<blockquote>
 <p>TODO</p>
 </blockquote>
-<h3 id="Lesbegue-可测函数列的收敛性"><a href="#Lesbegue-可测函数列的收敛性" class="headerlink" title="Lesbegue 可测函数列的收敛性"></a>Lesbegue 可测函数列的收敛性</h3><p>这一节，我们详细讨论收敛的概念。</p>
-<h4 id="几乎处处收敛-几乎一致收敛"><a href="#几乎处处收敛-几乎一致收敛" class="headerlink" title="几乎处处收敛&#x2F;几乎一致收敛"></a>几乎处处收敛&#x2F;几乎一致收敛</h4><dl><dt>几乎处处收敛</dt><dd>（直接从几乎处处收敛的定义得到）</dd></dl><p>相对于几乎处处收敛，我们有稍弱一些的几乎一致收敛，其描述的是定义域极限意义下的收敛性。（即我们不需要得到零测集，而得到测度充分小的集合）</p>
-<dl><dt>几乎一致收敛</dt><dd>$\forall \delta &gt; 0, \exists E_\delta \subset E$ 使得（测度充分小）$m(E_\delta) &lt; \delta$，且在 $E - E_\delta$ 上满足一直收敛到 $f$。</dd></dl><p>下面的定理说明了这两个收敛行的关系：</p>
-<dl><dt>叶戈罗夫定理</dt><dd>对于<strong>有限测度集</strong>上的几乎处处<strong>有限</strong>的可测函数列，若函数列几乎处处收敛，则函数列几乎一致收敛</dd></dl><p>有限和有界是不同的：$y &#x3D; 1&#x2F;x$ 在 $(0, 1)$ 无界，但其是有限的。有界是对于区间而言，而有限是对于点（$&lt; +\infty$ 而言）</p>
-<h4 id="依测度收敛"><a href="#依测度收敛" class="headerlink" title="依测度收敛"></a>依测度收敛</h4><p>条件更弱，去掉的集合甚至不一定“稳定”，即该集合只需要测度的极限为 0，而不需要考虑其极限是否存在。</p>
-<dl><dt>依测度收敛</dt><dd>对于几乎处处有限的可测函数，对于给定的 $\epsilon&gt;0$，其能够满足</dd></dl><p>$$<br>m(E(|f_k - f| &gt; \epsilon)) \rightarrow 0<br>$$</p>
-<p>则其是在 $E$ 上依测度收敛到 $f$（$f_k\rightarrow_m f$）</p>
+<h3 id="lesbegue-可测函数列的收敛性">Lesbegue 可测函数列的收敛性</h3>
+<p>这一节，我们详细讨论收敛的概念。</p>
+<h4 id="几乎处处收敛几乎一致收敛">几乎处处收敛/几乎一致收敛</h4>
+<dl>
+<dt>几乎处处收敛</dt>
+<dd>
+（直接从几乎处处收敛的定义得到）
+</dd>
+</dl>
+<p>相对于几乎处处收敛，我们有稍弱一些的几乎一致收敛，其描述的是定义域极限意义下的收敛性。（即我们不需要得到零测集，而得到测度充分小的集合）</p>
+<dl>
+<dt>几乎一致收敛</dt>
+<dd>
+<span class="math inline">\(\forall \delta &gt; 0, \exists E_\delta
+\subset E\)</span> 使得（测度充分小）<span
+class="math inline">\(m(E_\delta) &lt; \delta\)</span>，且在 <span
+class="math inline">\(E - E_\delta\)</span> 上满足一直收敛到 <span
+class="math inline">\(f\)</span>。
+</dd>
+</dl>
+<p>下面的定理说明了这两个收敛行的关系：</p>
+<dl>
+<dt>叶戈罗夫定理</dt>
+<dd>
+对于<strong>有限测度集</strong>上的几乎处处<strong>有限</strong>的可测函数列，若函数列几乎处处收敛，则函数列几乎一致收敛
+</dd>
+</dl>
+<p>有限和有界是不同的：<span class="math inline">\(y = 1/x\)</span> 在
+<span class="math inline">\((0, 1)\)</span>
+无界，但其是有限的。有界是对于区间而言，而有限是对于点（<span
+class="math inline">\(&lt; +\infty\)</span> 而言）</p>
+<h4 id="依测度收敛">依测度收敛</h4>
+<p>条件更弱，去掉的集合甚至不一定“稳定”，即该集合只需要测度的极限为
+0，而不需要考虑其极限是否存在。</p>
+<dl>
+<dt>依测度收敛</dt>
+<dd>
+对于几乎处处有限的可测函数，对于给定的 <span
+class="math inline">\(\epsilon&gt;0\)</span>，其能够满足
+</dd>
+</dl>
+<p><span class="math display">\[
+m(E(|f_k - f| &gt; \epsilon)) \rightarrow 0
+\]</span></p>
+<p>则其是在 <span class="math inline">\(E\)</span> 上依测度收敛到 <span
+class="math inline">\(f\)</span>（<span
+class="math inline">\(f_k\rightarrow_m f\)</span>）</p>
 <p>显然，几乎处处收敛和几乎一致收敛蕴含了依测度收敛。但依测度收敛给出了收敛到什么函数的本质问题。</p>
-<dl><dt>Theo</dt><dd>若函数列 $f_k$ 依测度收敛于 $f, g$ ，则 $f&#x3D; g \quad a.e.$</dd></dl><dl><dt>Theo — 勒贝格定理</dt><dd>对于有限测度集上的几乎处处有限的可测函数，则其依测度收敛到该极限函数</dd></dl><blockquote>
+<dl>
+<dt>Theo</dt>
+<dd>
+若函数列 <span class="math inline">\(f_k\)</span> 依测度收敛于 <span
+class="math inline">\(f, g\)</span> ，则 <span class="math inline">\(f=
+g \quad a.e.\)</span>
+</dd>
+<dt>Theo — 勒贝格定理</dt>
+<dd>
+对于有限测度集上的几乎处处有限的可测函数，则其依测度收敛到该极限函数
+</dd>
+</dl>
+<blockquote>
 <p>如果我们将几乎处处相等作为等价关系，实变函数考察的始终是这个等价关系下对于可测函数集的划分。</p>
 </blockquote>
 <p>考虑从依测度收敛到几乎处处收敛的条件：</p>
-<dl><dt>Theo — Riesz 引理</dt><dd>若 $f_k \rightarrow _m f$，则存在子列几乎处处收敛到 $f$</dd></dl><p>依测度收敛意义下，我们可以类比柯西收敛准则：</p>
-<dl><dt>依测度基本列</dt><dd>设有 $f_k$ 为 $E$ 上几乎处处有限的可测函数列，若</dd></dl><p>$$<br>\forall \varepsilon &gt; 0, \quad \lim_{k , j \rightarrow \infty} m(E(|f_i - f_j| &gt; \varepsilon)) &#x3D; 0<br>$$</p>
-<p>则称其为 $E$ 上的依测度基本列</p>
+<dl>
+<dt>Theo — Riesz 引理</dt>
+<dd>
+若 <span class="math inline">\(f_k \rightarrow _m
+f\)</span>，则存在子列几乎处处收敛到 <span
+class="math inline">\(f\)</span>
+</dd>
+</dl>
+<p>依测度收敛意义下，我们可以类比柯西收敛准则：</p>
+<dl>
+<dt>依测度基本列</dt>
+<dd>
+设有 <span class="math inline">\(f_k\)</span> 为 <span
+class="math inline">\(E\)</span> 上几乎处处有限的可测函数列，若
+</dd>
+</dl>
+<p><span class="math display">\[
+\forall \varepsilon &gt; 0, \quad \lim_{k , j \rightarrow \infty}
+m(E(|f_i - f_j| &gt; \varepsilon)) = 0
+\]</span></p>
+<p>则称其为 <span class="math inline">\(E\)</span> 上的依测度基本列</p>
 <p>类似柯西收敛准则：</p>
-<dl><dt>Theo</dt><dd>对于几乎处处有限的可测函数列，依测度收敛当且仅当它是依测度基本列</dd></dl><h4 id="可测函数和连续函数的关系"><a href="#可测函数和连续函数的关系" class="headerlink" title="可测函数和连续函数的关系"></a>可测函数和连续函数的关系</h4><p>连续函数在数学分析中具有重要的作用（特别是一致连续的函数）。因此我们考察连续和可测之间是否有一定的联系。</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+对于几乎处处有限的可测函数列，依测度收敛当且仅当它是依测度基本列
+</dd>
+</dl>
+<h4 id="可测函数和连续函数的关系">可测函数和连续函数的关系</h4>
+<p>连续函数在数学分析中具有重要的作用（特别是一致连续的函数）。因此我们考察连续和可测之间是否有一定的联系。</p>
 <p>下面的定理描述了函数可测和连续之间的差别。</p>
-<dl><dt>Theo — 鲁金定理</dt><dd>设 $f$ 是<strong>有限测度集</strong>上几乎处处有限的可测函数，对于任一（充分小的）$\delta &gt; 0$，存在 $E$ 中的闭集 $F$，满足 $m(E \backslash F) &lt; \delta$ 使 $f$ 在 $F$ 上连续。</dd></dl><p>下面的定理描述了如何从连续函数构造一个可测函数：</p>
-<dl><dt>Theo</dt><dd>对于任意可测函数 $f$，存在连续函数列 $g_k$，使得 $g_k \rightarrow f\quad a.e.$</dd></dl><p>上面的定理可以推广为：</p>
-<dl><dt>Theo</dt><dd>对于几乎处处有限的函数 $f$，$f$ 可测，当且仅当 $\exists g_k\in C$ 使得 $g_k \rightarrow f\quad a.e.$</dd></dl><h2 id="Lebesgue-积分"><a href="#Lebesgue-积分" class="headerlink" title="Lebesgue 积分"></a>Lebesgue 积分</h2><p>至此，我们得到了可测函数优秀的极限性质，我们开始考虑一类特殊的极限 – 积分，这也是实变函数论目的：给积分 - 极限之间的互换关系一个完备的解释。</p>
-<h3 id="Lebesgue-可测函数的积分"><a href="#Lebesgue-可测函数的积分" class="headerlink" title="Lebesgue 可测函数的积分"></a>Lebesgue 可测函数的积分</h3><h4 id="非负可测函数的积分"><a href="#非负可测函数的积分" class="headerlink" title="非负可测函数的积分"></a>非负可测函数的积分</h4><dl><dt>非负简单函数的积分</dt><dd>设 $h(x)$ 是可测集 $E$ 上的非负可测函数，定义</dd></dl><p>$$<br>h(x) &#x3D; \sum_{j &#x3D; 1} ^ m a_j m(E_j) \Longrightarrow \int _ E h(x) \mathrm dx &#x3D; \sum _{j &#x3D; 1} ^ m a_j m ( E _ j )<br>$$</p>
-<p>为 $h(x)$ 在可测集 $E$ 傻姑娘的积分。</p>
+<dl>
+<dt>Theo — 鲁金定理</dt>
+<dd>
+设 <span class="math inline">\(f\)</span>
+是<strong>有限测度集</strong>上几乎处处有限的可测函数，对于任一（充分小的）<span
+class="math inline">\(\delta &gt; 0\)</span>，存在 <span
+class="math inline">\(E\)</span> 中的闭集 <span
+class="math inline">\(F\)</span>，满足 <span class="math inline">\(m(E
+\backslash F) &lt; \delta\)</span> 使 <span
+class="math inline">\(f\)</span> 在 <span
+class="math inline">\(F\)</span> 上连续。
+</dd>
+</dl>
+<p>下面的定理描述了如何从连续函数构造一个可测函数：</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+对于任意可测函数 <span class="math inline">\(f\)</span>，存在连续函数列
+<span class="math inline">\(g_k\)</span>，使得 <span
+class="math inline">\(g_k \rightarrow f\quad a.e.\)</span>
+</dd>
+</dl>
+<p>上面的定理可以推广为：</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+对于几乎处处有限的函数 <span class="math inline">\(f\)</span>，<span
+class="math inline">\(f\)</span> 可测，当且仅当 <span
+class="math inline">\(\exists g_k\in C\)</span> 使得 <span
+class="math inline">\(g_k \rightarrow f\quad a.e.\)</span>
+</dd>
+</dl>
+<h2 id="lebesgue-积分">Lebesgue 积分</h2>
+<p>至此，我们得到了可测函数优秀的极限性质，我们开始考虑一类特殊的极限 –
+积分，这也是实变函数论目的：给积分 -
+极限之间的互换关系一个完备的解释。</p>
+<h3 id="lebesgue-可测函数的积分">Lebesgue 可测函数的积分</h3>
+<h4 id="非负可测函数的积分">非负可测函数的积分</h4>
+<dl>
+<dt>非负简单函数的积分</dt>
+<dd>
+设 <span class="math inline">\(h(x)\)</span> 是可测集 <span
+class="math inline">\(E\)</span> 上的非负可测函数，定义
+</dd>
+</dl>
+<p><span class="math display">\[
+h(x) = \sum_{j = 1} ^ m a_j m(E_j) \Longrightarrow \int _ E h(x) \mathrm
+dx = \sum _{j = 1} ^ m a_j m ( E _ j )
+\]</span></p>
+<p>为 <span class="math inline">\(h(x)\)</span> 在可测集 <span
+class="math inline">\(E\)</span> 傻姑娘的积分。</p>
 <p>关于上面定义的积分，其满足：</p>
-<ol>
+<ol type="1">
 <li>线性性质</li>
 <li>对定义域的连续性：</li>
 </ol>
-<p>$$<br>\lim E_k &#x3D; E \Rightarrow \lim \int _{E_k} h(x)\mathrm dx &#x3D; \int _ E h(x) \mathrm dx<br>$$</p>
-<p>其中的 $\mathrm d$ 仅仅是一个记号，并不代表自变量的微元。</p>
+<p><span class="math display">\[
+\lim E_k = E \Rightarrow \lim \int _{E_k} h(x)\mathrm dx = \int _ E h(x)
+\mathrm dx
+\]</span></p>
+<p>其中的 <span class="math inline">\(\mathrm d\)</span>
+仅仅是一个记号，并不代表自变量的微元。</p>
 <p>从而我们可以定义：</p>
-<dl><dt>非负可测函数的积分</dt><dd>对于 $f\in \mathcal M ( E)$ 定义</dd></dl><p>$$<br>\int _ E f(x) \mathrm dx &#x3D; \sup \left{ \int _ E h(x) \mathrm dx | h(x) \le f(x), h(x) 是简单函数 \right}<br>$$</p>
-<p>若上式有限，则称 $f$ 在 $E$ 上可积。</p>
+<dl>
+<dt>非负可测函数的积分</dt>
+<dd>
+对于 <span class="math inline">\(f\in \mathcal M ( E)\)</span> 定义
+</dd>
+</dl>
+<p><span class="math display">\[
+\int _ E f(x) \mathrm dx = \sup \left\{ \int _ E h(x) \mathrm dx | h(x)
+\le f(x), h(x) 是简单函数 \right\}
+\]</span></p>
+<p>若上式有限，则称 <span class="math inline">\(f\)</span> 在 <span
+class="math inline">\(E\)</span> 上可积。</p>
 <p>综合上面的定义可以看出：</p>
-<ol>
-<li><p>对于一个零测集，任何函数的积分都为 0 （因为在实变函数中我们是中认为 $0 \cdot \infty &#x3D; 0$）</p>
-</li>
+<ol type="1">
+<li><p>对于一个零测集，任何函数的积分都为 0
+（因为在实变函数中我们是中认为 <span class="math inline">\(0 \cdot
+\infty = 0\)</span>）</p></li>
 <li><p>对于一个非负可测函数，我们通过和特征函数内积来确定在子集上的积分：</p>
-<p>$$<br>\int _A f &#x3D; \int _E f \cdot \chi _ A<br>$$</p>
-</li>
-<li><p>积分具有保序性</p>
-</li>
+<p><span class="math display">\[
+\int _A f = \int _E f \cdot \chi _ A
+\]</span></p></li>
+<li><p>积分具有保序性</p></li>
 </ol>
-<p>同时，由于上述的定义中 <strong>可积</strong> 这个条件实际上非常宽泛，所以我们很容易得到这样的结论：</p>
-<dl><dt>Theo</dt><dd>有限测度集上的几乎处处有界函数必可积。</dd></dl><p>这是区别于 Riemann 积分很大的一个地方，因为在 Riemann 积分中，我们甚至连 dirichlet 函数的积分都无法定义！</p>
+<p>同时，由于上述的定义中 <strong>可积</strong>
+这个条件实际上非常宽泛，所以我们很容易得到这样的结论：</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+有限测度集上的几乎处处有界函数必可积。
+</dd>
+</dl>
+<p>这是区别于 Riemann 积分很大的一个地方，因为在 Riemann
+积分中，我们甚至连 dirichlet 函数的积分都无法定义！</p>
 <p>下面介绍一个著名的定理，它揭示了可测函数积分在极限过程中体现出的性质：</p>
-<dl><dt>Levi Theo</dt><dd>设 ${ f _ k }$ 是可测集 $E$ 上的非负可测函数，满足 $f_1 \le f_2 \le \cdots$ 且有</dd></dl><p>$$<br>\lim _ {k \rightarrow \infty} f_k ( x) &#x3D; f(x), \quad \forall x \in E<br>$$</p>
+<dl>
+<dt>Levi Theo</dt>
+<dd>
+设 <span class="math inline">\(\{ f _ k \}\)</span> 是可测集 <span
+class="math inline">\(E\)</span> 上的非负可测函数，满足 <span
+class="math inline">\(f_1 \le f_2 \le \cdots\)</span> 且有
+</dd>
+</dl>
+<p><span class="math display">\[
+\lim _ {k \rightarrow \infty} f_k ( x) = f(x), \quad \forall x \in E
+\]</span></p>
 <p>则有</p>
-<p>$$<br>\lim _ {k \rightarrow \infty} \int _ E f_k (x)\mathrm dx &#x3D; \int _ E f(x) \mathrm dx<br>$$</p>
+<p><span class="math display">\[
+\lim _ {k \rightarrow \infty} \int _ E f_k (x)\mathrm dx = \int _ E f(x)
+\mathrm dx
+\]</span></p>
 <p>这个定理说明，对于单调、收敛的可测函数，其积分的极限就是极限的积分。</p>
-<h4 id="一般可测函数"><a href="#一般可测函数" class="headerlink" title="一般可测函数"></a>一般可测函数</h4><p>通过非负可测函数的积分、将可测函数分为正负两部分，我们可以定义：</p>
-<dl><dt>可测函数积分</dt><dd>设 $f$ 是可测函数，$f^+$ 和 $f^-$ 至少有一个是可积的，则称</dd></dl><p>$$<br>\int_E f(x) \mathrm dx &#x3D; \int _ E f ^+ (x)\mathrm dx - \int _ E f ^ - (x) \mathrm dx<br>$$</p>
-<p>是 $f$ 在 $E$ 上的积分，如果右端两个积分都有限，则称该函数可积 $f\in \mathcal L(E)$。</p>
+<h4 id="一般可测函数">一般可测函数</h4>
+<p>通过非负可测函数的积分、将可测函数分为正负两部分，我们可以定义：</p>
+<dl>
+<dt>可测函数积分</dt>
+<dd>
+设 <span class="math inline">\(f\)</span> 是可测函数，<span
+class="math inline">\(f^+\)</span> 和 <span
+class="math inline">\(f^-\)</span> 至少有一个是可积的，则称
+</dd>
+</dl>
+<p><span class="math display">\[
+\int_E f(x) \mathrm dx = \int _ E f ^+ (x)\mathrm dx - \int _ E f ^ -
+(x) \mathrm dx
+\]</span></p>
+<p>是 <span class="math inline">\(f\)</span> 在 <span
+class="math inline">\(E\)</span>
+上的积分，如果右端两个积分都有限，则称该函数可积 <span
+class="math inline">\(f\in \mathcal L(E)\)</span>。</p>
 <p>显然，其具有这样的简单性质：</p>
-<p>$$<br>f\in \mathcal L ( E ) \rightarrow | \int_E f(x)\mathrm dx| \le \int _ E | f(x) | \mathrm dx<br>$$</p>
-<dl><dt>Theo Lebesgue 可测函数积分性质</dt><dd>对于积分：</dd></dl><ol>
-<li>$|f| &lt; \infty,\quad a.e.$</li>
-<li>如果其中一个可积，$f &#x3D; g\quad a.e.\implies \int f &#x3D; \int g$</li>
-<li>（控制性）若存在 $|f| &lt; |g|\in \mathcal L$，则 $f\in \mathcal L$，且 $|\int f| \le \int |g|$</li>
+<p><span class="math display">\[
+f\in \mathcal L ( E ) \rightarrow | \int_E f(x)\mathrm dx| \le \int _ E
+| f(x) | \mathrm dx
+\]</span></p>
+<dl>
+<dt>Theo Lebesgue 可测函数积分性质</dt>
+<dd>
+对于积分：
+</dd>
+</dl>
+<ol type="1">
+<li><span class="math inline">\(|f| &lt; \infty,\quad a.e.\)</span></li>
+<li>如果其中一个可积，<span class="math inline">\(f = g\quad
+a.e.\implies \int f = \int g\)</span></li>
+<li>（控制性）若存在 <span class="math inline">\(|f| &lt; |g|\in
+\mathcal L\)</span>，则 <span class="math inline">\(f\in \mathcal
+L\)</span>，且 <span class="math inline">\(|\int f| \le \int
+|g|\)</span></li>
 <li>对于有限测度集，有界函数都可积</li>
 </ol>
-<dl><dt>Theo</dt><dd>Lebesgue 积分具有线性性</dd></dl><p>下面给出 Lebesgue 积分的等价描述</p>
-<dl><dt>Theo 可积&#x2F;积分的等价描述</dt><dd>设 $f$ 是<strong>有限测度集</strong>上的<strong>有界可测</strong>函数，$|f| \le M$，作 $[-M, M]$ 的划分，</dd></dl><p>$$<br>-M &#x3D; \alpha_0 &lt; \cdots &lt; \alpha_k &#x3D; M<br>$$</p>
-<p>设 $E_j&#x3D; E(\alpha_{j-1} &lt; f &lt; \alpha_j)$，对于任意的</p>
-<p>$$<br>\eta_j \in [\alpha_{j - 1}, \alpha _ j]<br>$$</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+Lebesgue 积分具有线性性
+</dd>
+</dl>
+<p>下面给出 Lebesgue 积分的等价描述</p>
+<dl>
+<dt>Theo 可积/积分的等价描述</dt>
+<dd>
+设 <span class="math inline">\(f\)</span>
+是<strong>有限测度集</strong>上的<strong>有界可测</strong>函数，<span
+class="math inline">\(|f| \le M\)</span>，作 <span
+class="math inline">\([-M, M]\)</span> 的划分，
+</dd>
+</dl>
+<p><span class="math display">\[
+-M = \alpha_0 &lt; \cdots &lt; \alpha_k = M
+\]</span></p>
+<p>设 <span class="math inline">\(E_j= E(\alpha_{j-1} &lt; f &lt;
+\alpha_j)\)</span>，对于任意的</p>
+<p><span class="math display">\[
+\eta_j \in [\alpha_{j - 1}, \alpha _ j]
+\]</span></p>
 <p>极限</p>
-<p>$$<br>\lim_{\max \alpha_j - \alpha_{j-1} \rightarrow 0} \sum_{j &#x3D; 1} ^ k \eta_j m(E_j)<br>$$</p>
+<p><span class="math display">\[
+\lim_{\max \alpha_j - \alpha_{j-1} \rightarrow 0} \sum_{j = 1} ^ k
+\eta_j m(E_j)
+\]</span></p>
 <p>存在，则该极限就是 Lebesgue 积分。</p>
-<p>对于 Lebesgue 积分，其具有绝对连续性（定义域测度充分小，则积分值充分小）：</p>
-<dl><dt>Theo 绝对连续性</dt><dd>设 $f\in \mathcal L$，则对于任意的 $\varepsilon &gt; 0$，存在 $\delta &gt; 0$，使得对于<strong>任何</strong>的子集 $A$，当 $m(A) &lt; \delta$ 时，</dd></dl><p>$$<br>|\int_A f(x) \mathrm dx | \le \int_A |f(x)|\mathrm dx \le \varepsilon<br>$$</p>
+<p>对于 Lebesgue
+积分，其具有绝对连续性（定义域测度充分小，则积分值充分小）：</p>
+<dl>
+<dt>Theo 绝对连续性</dt>
+<dd>
+设 <span class="math inline">\(f\in \mathcal L\)</span>，则对于任意的
+<span class="math inline">\(\varepsilon &gt; 0\)</span>，存在 <span
+class="math inline">\(\delta &gt;
+0\)</span>，使得对于<strong>任何</strong>的子集 <span
+class="math inline">\(A\)</span>，当 <span class="math inline">\(m(A)
+&lt; \delta\)</span> 时，
+</dd>
+</dl>
+<p><span class="math display">\[
+|\int_A f(x) \mathrm dx | \le \int_A |f(x)|\mathrm dx \le \varepsilon
+\]</span></p>
 <p>当然，对于 Lebesgue 积分，也有平移不变性。</p>
 <p>我们之前考察了可测和连续的关系，在这里我们也有类似的结论：</p>
-<dl><dt>Theo</dt><dd>对于任意 Lebesgue 可积函数，对于任意 $\varepsilon &gt; 0$，存在一个具有紧支集的连续函数 $g$ 使得</dd></dl><p>$$<br>\int_ E| f(x) - g(x) | \mathrm dx &lt; \varepsilon<br>$$</p>
-<p>。因此，可以构造具有紧支集的连续函数列 $g_k$，使得</p>
-<p>$$<br>\lim_{k\rightarrow \infty}\int_ E| f(x) - g_k(x) | \mathrm dx &lt; \varepsilon, \quad 即 g_k \rightarrow f\quad a.e.<br>$$</p>
-<h4 id="Riemann-积分和-Lebesgue-积分的关系"><a href="#Riemann-积分和-Lebesgue-积分的关系" class="headerlink" title="Riemann 积分和 Lebesgue 积分的关系"></a>Riemann 积分和 Lebesgue 积分的关系</h4><dl><dt>Theo Riemann 积分和 Lebesgue 积分值的相等性</dt><dd>闭区间上有界函数 $f(x)$ Riemann 可积，则它时 Lebesgue 可积的且其积分值相等。</dd></dl><h4 id="测度空间上的可测函数积分"><a href="#测度空间上的可测函数积分" class="headerlink" title="测度空间上的可测函数积分"></a>测度空间上的可测函数积分</h4><h3 id="极限定理"><a href="#极限定理" class="headerlink" title="极限定理"></a>极限定理</h3><p>这一节我们考虑极限和 Lebesgue 积分的互换关系。</p>
-<dl><dt>Lebesgue 基本定理</dt><dd>设 $f_n$ 是可测集 $E$ 上的非负可测函数列，</dd></dl><p>$$<br>f(x) &#x3D; \sum_{n &#x3D; 1} ^ \infty f_n(x)<br>$$</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+对于任意 Lebesgue 可积函数，对于任意 <span
+class="math inline">\(\varepsilon &gt;
+0\)</span>，存在一个具有紧支集的连续函数 <span
+class="math inline">\(g\)</span> 使得
+</dd>
+</dl>
+<p><span class="math display">\[
+\int_ E| f(x) - g(x) | \mathrm dx &lt; \varepsilon
+\]</span></p>
+<p>。因此，可以构造具有紧支集的连续函数列 <span
+class="math inline">\(g_k\)</span>，使得</p>
+<p><span class="math display">\[
+\lim_{k\rightarrow \infty}\int_ E| f(x) - g_k(x) | \mathrm dx &lt;
+\varepsilon, \quad 即 g_k \rightarrow f\quad a.e.
+\]</span></p>
+<h4 id="riemann-积分和-lebesgue-积分的关系">Riemann 积分和 Lebesgue
+积分的关系</h4>
+<dl>
+<dt>Theo Riemann 积分和 Lebesgue 积分值的相等性</dt>
+<dd>
+闭区间上有界函数 <span class="math inline">\(f(x)\)</span> Riemann
+可积，则它时 Lebesgue 可积的且其积分值相等。
+</dd>
+</dl>
+<h4 id="测度空间上的可测函数积分">测度空间上的可测函数积分</h4>
+<h3 id="极限定理">极限定理</h3>
+<p>这一节我们考虑极限和 Lebesgue 积分的互换关系。</p>
+<dl>
+<dt>Lebesgue 基本定理</dt>
+<dd>
+设 <span class="math inline">\(f_n\)</span> 是可测集 <span
+class="math inline">\(E\)</span> 上的非负可测函数列，
+</dd>
+</dl>
+<p><span class="math display">\[
+f(x) = \sum_{n = 1} ^ \infty f_n(x)
+\]</span></p>
 <p>则</p>
-<p>$$<br>\int _ E f(x) \mathrm dx &#x3D; \sum _ {n &#x3D; 1} ^ \infty \int _ E f_n (x) \mathrm dx<br>$$</p>
+<p><span class="math display">\[
+\int _ E f(x) \mathrm dx = \sum _ {n = 1} ^ \infty \int _ E f_n (x)
+\mathrm dx
+\]</span></p>
 <blockquote>
 <p>正函数项级数，和函数积分为积分的和。（积分与求和交换）</p>
 </blockquote>
 <p>从上述定理，我们可以应用到定义域上：</p>
-<dl><dt>Col</dt><dd>设 $E &#x3D; \bigsqcup E_n$，若 $f(x)$ 在 $E$ 上有积分时，$f(x)$ 在每一个子集 $E_n$ 时有积分的，且</dd></dl><p>$$<br>\int _ E f(x) \mathrm dx &#x3D; \sum _ {n &#x3D; 1} ^ \infty \int _{E_n} f(x) \mathrm dx<br>$$</p>
+<dl>
+<dt>Col</dt>
+<dd>
+设 <span class="math inline">\(E = \bigsqcup E_n\)</span>，若 <span
+class="math inline">\(f(x)\)</span> 在 <span
+class="math inline">\(E\)</span> 上有积分时，<span
+class="math inline">\(f(x)\)</span> 在每一个子集 <span
+class="math inline">\(E_n\)</span> 时有积分的，且
+</dd>
+</dl>
+<p><span class="math display">\[
+\int _ E f(x) \mathrm dx = \sum _ {n = 1} ^ \infty \int _{E_n} f(x)
+\mathrm dx
+\]</span></p>
 <p>我们始终不希望只考虑单调的函数列</p>
-<dl><dt>Fatou 引理</dt><dd>对于非负可测函数列 $f_n$，有</dd></dl><p>$$<br>\int _ E \lim \inf f_n(x) \mathrm dx \le \lim \inf \int _ E f_n(x)\mathrm dx<br>$$</p>
+<dl>
+<dt>Fatou 引理</dt>
+<dd>
+对于非负可测函数列 <span class="math inline">\(f_n\)</span>，有
+</dd>
+</dl>
+<p><span class="math display">\[
+\int _ E \lim \inf f_n(x) \mathrm dx \le \lim \inf \int _ E
+f_n(x)\mathrm dx
+\]</span></p>
 <p>得到这样一个定理是不够的，我们希望得到更好的结论，而不局限于下确界和不等号：</p>
-<dl><dt>控制收敛定理</dt><dd>给定可测集 $E$，设 $f_n\subset \mathcal M$，且有</dd></dl><p>$$<br>f_n (x) \rightarrow f(x)\quad a.e.[E]<br>$$</p>
-<p>如果存在函数 $F(x) \in \mathcal L(E)$，控制了 $|f_n| \le F\quad, a.e.[E]$，那么，$f\in \mathcal L(E)$ 且</p>
-<p>$$<br>\lim _ {n \rightarrow \infty} \int_{E} f_n (x) \mathrm dx &#x3D; \int_ E f(x) \mathrm dx<br>$$</p>
+<dl>
+<dt>控制收敛定理</dt>
+<dd>
+给定可测集 <span class="math inline">\(E\)</span>，设 <span
+class="math inline">\(f_n\subset \mathcal M\)</span>，且有
+</dd>
+</dl>
+<p><span class="math display">\[
+f_n (x) \rightarrow f(x)\quad a.e.[E]
+\]</span></p>
+<p>如果存在函数 <span class="math inline">\(F(x) \in \mathcal
+L(E)\)</span>，控制了 <span class="math inline">\(|f_n| \le F\quad,
+a.e.[E]\)</span>，那么，<span class="math inline">\(f\in \mathcal
+L(E)\)</span> 且</p>
+<p><span class="math display">\[
+\lim _ {n \rightarrow \infty} \int_{E} f_n (x) \mathrm dx = \int_ E f(x)
+\mathrm dx
+\]</span></p>
 <p>从而，我们有如下几个定理：</p>
-<dl><dt>Theo</dt><dd>设 $E$ 是可测集，$f_n$ 是 $E$ 上的可测函数列，该函数列依测度收敛到 $f$ ，若存在 $F\in \mathcal L(E)$ 使得 $|f_n| \le F, a.e.[E]$ 则 $f_n, f$ 都在 $E$ 上 Lebesgue 可积，且积分和极限可换。</dd></dl><p>当然，对于有界函数，其在有限测度集上积分有很好的性质：</p>
-<dl><dt>Theo 有界收敛原理</dt><dd>设 $m(E)&lt; \infty$，${f_n} \subset L(E)$ 且一致有界，则当其依测度收敛时，其积分和极限可换。</dd></dl><p>对于函数项级数，有类似的定理：</p>
-<dl><dt>Theo</dt><dd>对于可积函数列，若</dd></dl><p>$$<br>\sum _ {n &#x3D; 1} ^ \infty \int _ E | f_n ( x ) | \mathrm dx &lt; \infty<br>$$</p>
-<p>则级数 $\sum f_n (x)$ 在 $E$ 上几乎处处收敛，且和函数的积分是各函数积分的和。</p>
-<h4 id="Riemann-可积的刻画"><a href="#Riemann-可积的刻画" class="headerlink" title="Riemann 可积的刻画"></a>Riemann 可积的刻画</h4><p>首先，我们使用振幅函数来入手描述 Riemann 可积性</p>
-<dl><dt>Theo</dt><dd>对于区间上的有界函数 $f$，有</dd></dl><p>$$<br>\int _ I \omega <em>f (x) \mathrm dx &#x3D; \bar \int _ a ^ b f -<br>\underline{\int}</em>{a}^b f<br>$$</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+设 <span class="math inline">\(E\)</span> 是可测集，<span
+class="math inline">\(f_n\)</span> 是 <span
+class="math inline">\(E\)</span> 上的可测函数列，该函数列依测度收敛到
+<span class="math inline">\(f\)</span> ，若存在 <span
+class="math inline">\(F\in \mathcal L(E)\)</span> 使得 <span
+class="math inline">\(|f_n| \le F, a.e.[E]\)</span> 则 <span
+class="math inline">\(f_n, f\)</span> 都在 <span
+class="math inline">\(E\)</span> 上 Lebesgue 可积，且积分和极限可换。
+</dd>
+</dl>
+<p>当然，对于有界函数，其在有限测度集上积分有很好的性质：</p>
+<dl>
+<dt>Theo 有界收敛原理</dt>
+<dd>
+设 <span class="math inline">\(m(E)&lt; \infty\)</span>，<span
+class="math inline">\(\{f_n\} \subset L(E)\)</span>
+且一致有界，则当其依测度收敛时，其积分和极限可换。
+</dd>
+</dl>
+<p>对于函数项级数，有类似的定理：</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+对于可积函数列，若
+</dd>
+</dl>
+<p><span class="math display">\[
+\sum _ {n = 1} ^ \infty \int _ E | f_n ( x ) | \mathrm dx &lt; \infty
+\]</span></p>
+<p>则级数 <span class="math inline">\(\sum f_n (x)\)</span> 在 <span
+class="math inline">\(E\)</span>
+上几乎处处收敛，且和函数的积分是各函数积分的和。</p>
+<h4 id="riemann-可积的刻画">Riemann 可积的刻画</h4>
+<p>首先，我们使用振幅函数来入手描述 Riemann 可积性</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+对于区间上的有界函数 <span class="math inline">\(f\)</span>，有
+</dd>
+</dl>
+<p><span class="math display">\[
+\int _ I \omega _f (x) \mathrm dx = \bar \int _ a ^ b f -
+\underline{\int}_{a}^b f
+\]</span></p>
 <p>与此同时，我们揭示了 Riemann 可积的充要条件：</p>
-<dl><dt>Riemann 可积</dt><dd>对闭区间上的有界函数 $f$ ：Riemann 可积，当且仅当不连续点集是零测的</dd></dl><h3 id="重积分和累次积分"><a href="#重积分和累次积分" class="headerlink" title="重积分和累次积分"></a>重积分和累次积分</h3><blockquote>
+<dl>
+<dt>Riemann 可积</dt>
+<dd>
+对闭区间上的有界函数 <span class="math inline">\(f\)</span> ：Riemann
+可积，当且仅当不连续点集是零测的
+</dd>
+</dl>
+<h3 id="重积分和累次积分">重积分和累次积分</h3>
+<blockquote>
 <p>重积分的交换就是极限过程的交换。</p>
 </blockquote>
-<h4 id="Fubini-定理"><a href="#Fubini-定理" class="headerlink" title="Fubini 定理"></a>Fubini 定理</h4><dl><dt>截口</dt><dd>设 $E\subset {\mathbb R}^{p+q}$，对于任意的 $x\in {\mathbb R}^p$，令</dd></dl><p>$$<br>E_x &#x3D; { y \in {\mathbb R}^ q| (x, y) \in E}<br>$$</p>
-<p>对于任意的 $y$，对应定义 $E_y$。其中，$E_x$ 称为 $E$ 的 $x$ 截口</p>
+<h4 id="fubini-定理">Fubini 定理</h4>
+<dl>
+<dt>截口</dt>
+<dd>
+设 <span class="math inline">\(E\subset {\mathbb
+R}^{p+q}\)</span>，对于任意的 <span class="math inline">\(x\in {\mathbb
+R}^p\)</span>，令
+</dd>
+</dl>
+<p><span class="math display">\[
+E_x = \{ y \in {\mathbb R}^ q| (x, y) \in E\}
+\]</span></p>
+<p>对于任意的 <span class="math inline">\(y\)</span>，对应定义 <span
+class="math inline">\(E_y\)</span>。其中，<span
+class="math inline">\(E_x\)</span> 称为 <span
+class="math inline">\(E\)</span> 的 <span
+class="math inline">\(x\)</span> 截口</p>
 <p>显然：</p>
-<p>$$<br>m(E) &#x3D; \int _ {\mathbb R ^ p} m(E_x)\mathrm dx &#x3D; \int _ {\mathbb R ^ q} m(E_y)\mathrm dy<br>$$</p>
-<dl><dt>Theo</dt><dd>设 $n &#x3D; p + q$，$E \in \mathcal M _ n$ 则</dd></dl><ol>
-<li>对几乎处处的 $x\in \mathbb R ^ p$，有 $E_x \in \mathbb R^q$</li>
-<li>$m(E_x)$ 在 $\mathbb R^q$ 上几乎处处有定义，且是非负可测函数</li>
+<p><span class="math display">\[
+m(E) = \int _ {\mathbb R ^ p} m(E_x)\mathrm dx = \int _ {\mathbb R ^ q}
+m(E_y)\mathrm dy
+\]</span></p>
+<dl>
+<dt>Theo</dt>
+<dd>
+设 <span class="math inline">\(n = p + q\)</span>，<span
+class="math inline">\(E \in \mathcal M _ n\)</span> 则
+</dd>
+</dl>
+<ol type="1">
+<li>对几乎处处的 <span class="math inline">\(x\in \mathbb R ^
+p\)</span>，有 <span class="math inline">\(E_x \in \mathbb
+R^q\)</span></li>
+<li><span class="math inline">\(m(E_x)\)</span> 在 <span
+class="math inline">\(\mathbb R^q\)</span>
+上几乎处处有定义，且是非负可测函数</li>
 </ol>
-<p>借助截口，我们一步步引入 Fubini 定理，来解决重积分和累次积分关系的问题：</p>
-<dl><dt>Theo</dt><dd>假设 $E_1$ 和 $E_2$ 是 $\mathbb R^p$ 和 $\mathbb R^q$ 中的可测集则 $E_1\times E_2 \in M_n$ 且有</dd></dl><p>$$<br>m(E_1\times E_2) &#x3D; m(E_1)m(E_2)<br>$$</p>
+<p>借助截口，我们一步步引入 Fubini
+定理，来解决重积分和累次积分关系的问题：</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+假设 <span class="math inline">\(E_1\)</span> 和 <span
+class="math inline">\(E_2\)</span> 是 <span
+class="math inline">\(\mathbb R^p\)</span> 和 <span
+class="math inline">\(\mathbb R^q\)</span> 中的可测集则 <span
+class="math inline">\(E_1\times E_2 \in M_n\)</span> 且有
+</dd>
+</dl>
+<p><span class="math display">\[
+m(E_1\times E_2) = m(E_1)m(E_2)
+\]</span></p>
 <p>借助该定理，以及测度、积分在极限下的交换关系，我们有：</p>
-<dl><dt>Toneli</dt><dd>设 $n &#x3D; p + q$，$f(x,y)\in \mathcal M (\mathbb R ^ {p + q})$ 且非负，则</dd></dl><ol>
-<li>对于几乎处处的 $x\in \mathbb R ^ p$，$f(x, \cdot )$ 是非负可测函数；</li>
-<li>积分 $F_f(x) &#x3D; \int _ {\mathbb R^q}f(x, y) \mathrm dy$ 几乎处处有定义，是非负可测函数；</li>
+<dl>
+<dt>Toneli</dt>
+<dd>
+设 <span class="math inline">\(n = p + q\)</span>，<span
+class="math inline">\(f(x,y)\in \mathcal M (\mathbb R ^ {p +
+q})\)</span> 且非负，则
+</dd>
+</dl>
+<ol type="1">
+<li>对于几乎处处的 <span class="math inline">\(x\in \mathbb R ^
+p\)</span>，<span class="math inline">\(f(x, \cdot )\)</span>
+是非负可测函数；</li>
+<li>积分 <span class="math inline">\(F_f(x) = \int _ {\mathbb R^q}f(x,
+y) \mathrm dy\)</span> 几乎处处有定义，是非负可测函数；</li>
 <li>重积分和累次积分相等。</li>
 </ol>
 <p>对于上述定理，我们可以将条件加强为 <code>可积</code>，得到：</p>
-<dl><dt>Fubini 定理</dt><dd>设 $n &#x3D; p + q$，$f(x,y)\in \mathcal L (\mathbb R ^ {p + q})$，则</dd></dl><ol>
-<li>对于几乎处处的 $x\in \mathbb R ^ p$，$f(x, \cdot )$ 可积；</li>
-<li>积分 $F_f(x) &#x3D; \int _ {\mathbb R^q}f(x, y) \mathrm dy$ 几乎处处有定义，且可积；</li>
+<dl>
+<dt>Fubini 定理</dt>
+<dd>
+设 <span class="math inline">\(n = p + q\)</span>，<span
+class="math inline">\(f(x,y)\in \mathcal L (\mathbb R ^ {p +
+q})\)</span>，则
+</dd>
+</dl>
+<ol type="1">
+<li>对于几乎处处的 <span class="math inline">\(x\in \mathbb R ^
+p\)</span>，<span class="math inline">\(f(x, \cdot )\)</span>
+可积；</li>
+<li>积分 <span class="math inline">\(F_f(x) = \int _ {\mathbb R^q}f(x,
+y) \mathrm dy\)</span> 几乎处处有定义，且可积；</li>
 <li>重积分和累次积分相等。</li>
 </ol>
 <p>至此，我们已经几乎研究完了定积分的极限性质，下面将研究微积分基本定理的成立条件</p>
-<h2 id="微分和不定积分"><a href="#微分和不定积分" class="headerlink" title="微分和不定积分"></a>微分和不定积分</h2><h3 id="单调函数的可微性"><a href="#单调函数的可微性" class="headerlink" title="单调函数的可微性"></a>单调函数的可微性</h3><p>我们先研究单调函数，它是一个性质好（有界变差）的函数！</p>
-<dl><dt>Vitali 覆盖</dt><dd>设 $E \subset \mathbb R$，设 $\tau &#x3D; { I _ \alpha }$ 是一个区间族，若对于任意的 $x\in E$ 和 $\varepsilon &gt; 0$，存在一个 $I_\alpha \in \tau$，使得 $x\in I _ \alpha$ 且 $|I_\alpha| &lt; \varepsilon$，则称 $E$ 是在 Vitali 意义下的覆盖。</dd></dl><p>研究 Vitali 覆盖，一方面是因为其对于任意点都可以找到充分小的区间覆盖，另一方面是其可以任意有限外测度集合，都能找到误差充分笑的有限覆盖：</p>
-<dl><dt>Vitali 覆盖定理</dt><dd>设 $E \subset \mathbb{R}$，且 $m^*(E)&lt;\infty$，则对于任意的 $\varepsilon &gt; 0$ 存在有限个互不相交的 $I_j\in \tau$ 使得</dd></dl><p>$$<br>m^*(E -\cup_{j&#x3D;1}^n I_j) &lt; \varepsilon<br>$$</p>
+<h2 id="微分和不定积分">微分和不定积分</h2>
+<h3 id="单调函数的可微性">单调函数的可微性</h3>
+<p>我们先研究单调函数，它是一个性质好（有界变差）的函数！</p>
+<dl>
+<dt>Vitali 覆盖</dt>
+<dd>
+设 <span class="math inline">\(E \subset \mathbb R\)</span>，设 <span
+class="math inline">\(\tau = \{ I _ \alpha \}\)</span>
+是一个区间族，若对于任意的 <span class="math inline">\(x\in E\)</span>
+和 <span class="math inline">\(\varepsilon &gt; 0\)</span>，存在一个
+<span class="math inline">\(I_\alpha \in \tau\)</span>，使得 <span
+class="math inline">\(x\in I _ \alpha\)</span> 且 <span
+class="math inline">\(|I_\alpha| &lt; \varepsilon\)</span>，则称 <span
+class="math inline">\(E\)</span> 是在 Vitali 意义下的覆盖。
+</dd>
+</dl>
+<p>研究 Vitali
+覆盖，一方面是因为其对于任意点都可以找到充分小的区间覆盖，另一方面是其可以任意有限外测度集合，都能找到误差充分笑的有限覆盖：</p>
+<dl>
+<dt>Vitali 覆盖定理</dt>
+<dd>
+设 <span class="math inline">\(E \subset \mathbb{R}\)</span>，且 <span
+class="math inline">\(m^*(E)&lt;\infty\)</span>，则对于任意的 <span
+class="math inline">\(\varepsilon &gt; 0\)</span> 存在有限个互不相交的
+<span class="math inline">\(I_j\in \tau\)</span> 使得
+</dd>
+</dl>
+<p><span class="math display">\[
+m^*(E -\cup_{j=1}^n I_j) &lt; \varepsilon
+\]</span></p>
 <p>srds，这个东西用的也不多。我们下面先考虑微分的问题：</p>
-<dl><dt>Dini 导数</dt><dd>记如下的</dd></dl><p>$$<br>D^+f(x_0):&#x3D; \limsup_{h\rightarrow 0 ^ +} \frac{f(x_0 + h) - f(x_0)}{h}<br>$$</p>
-<p>同理定义 $D^-,D_+,D_-$ 为 Dini 导数。</p>
+<dl>
+<dt>Dini 导数</dt>
+<dd>
+记如下的
+</dd>
+</dl>
+<p><span class="math display">\[
+D^+f(x_0):= \limsup_{h\rightarrow 0 ^ +} \frac{f(x_0 + h) - f(x_0)}{h}
+\]</span></p>
+<p>同理定义 <span class="math inline">\(D^-,D_+,D_-\)</span> 为 Dini
+导数。</p>
 <p>显然，函数可导（左右同理），当且仅当 Dini 导数全部存在且相等。</p>
-<dl><dt>Lebesgue 定理</dt><dd>设 $f(x)$ 是 $[a,b]$ 上的递增函数，那么 $f$ 的不可微点集为零测集，且有</dd></dl><p>$$<br>\int_ a ^ b f’(x) \mathrm dx \le f(b) - f(a)<br>$$</p>
+<dl>
+<dt>Lebesgue 定理</dt>
+<dd>
+设 <span class="math inline">\(f(x)\)</span> 是 <span
+class="math inline">\([a,b]\)</span> 上的递增函数，那么 <span
+class="math inline">\(f\)</span> 的不可微点集为零测集，且有
+</dd>
+</dl>
+<p><span class="math display">\[
+\int_ a ^ b f&#39;(x) \mathrm dx \le f(b) - f(a)
+\]</span></p>
 <p>例如，</p>
-<p>$$<br>f(x) &#x3D; I(x&gt;0)<br>$$</p>
-<p>满足上述不等号（因为 $0\cdot \infty &#x3D; 0$）</p>
-<dl><dt>Fubini 逐项积分定理</dt><dd>设 $f_n$ 是 $[a,b]$ 上的递增函数列，且 $\sum_{n &#x3D; 1} ^ \infty f_n$ 在 $[a,b]$ 上收敛，那么有：</dd></dl><p>$$<br>\frac{d}{dx} \left(<br>\sum_{n &#x3D; 1}^\infty f_n(x)<br>\right)&#x3D; \sum_{n &#x3D; 1}^\infty \frac{d}{dx}f_n(x) \quad a.e.<br>$$</p>
+<p><span class="math display">\[
+f(x) = I(x&gt;0)
+\]</span></p>
+<p>满足上述不等号（因为 <span class="math inline">\(0\cdot \infty =
+0\)</span>）</p>
+<dl>
+<dt>Fubini 逐项积分定理</dt>
+<dd>
+设 <span class="math inline">\(f_n\)</span> 是 <span
+class="math inline">\([a,b]\)</span> 上的递增函数列，且 <span
+class="math inline">\(\sum_{n = 1} ^ \infty f_n\)</span> 在 <span
+class="math inline">\([a,b]\)</span> 上收敛，那么有：
+</dd>
+</dl>
+<p><span class="math display">\[
+\frac{d}{dx} \left(
+\sum_{n = 1}^\infty f_n(x)
+\right)= \sum_{n = 1}^\infty \frac{d}{dx}f_n(x) \quad a.e.
+\]</span></p>
 <p>至此，我们已经解决了一些问题，至少对于单调函数而言是这样的。</p>
-<h3 id="有界变差函数"><a href="#有界变差函数" class="headerlink" title="有界变差函数"></a>有界变差函数</h3><p>这里我们引入有界变差函数，用于描述这个函数的在充分小的区间里<strong>变化</strong>的能力。</p>
-<dl><dt>有界变差函数</dt><dd>设 $f$ 是 $[a,b]$ 上的实函数，做定义域的分划，则：</dd></dl><p>$$<br>V_\Delta &#x3D; \sum_{i &#x3D; 1}^n | f(x_i) - f(x_{i-1}|)<br>$$</p>
-<p>是 $f$ 在 $[a,b]$ 上的一个变差。对上式取上极限：</p>
-<p>$$<br>\bigvee_{a}^b (f)  :&#x3D; \sup{V_\Delta}<br>$$</p>
-<p>是函数在该区间上的<strong>全变差</strong>，若上式有限，那么 $f$ 是 $[a,b]$ 上的有界变差函数。</p>
+<h3 id="有界变差函数">有界变差函数</h3>
+<p>这里我们引入有界变差函数，用于描述这个函数的在充分小的区间里<strong>变化</strong>的能力。</p>
+<dl>
+<dt>有界变差函数</dt>
+<dd>
+设 <span class="math inline">\(f\)</span> 是 <span
+class="math inline">\([a,b]\)</span> 上的实函数，做定义域的分划，则：
+</dd>
+</dl>
+<p><span class="math display">\[
+V_\Delta = \sum_{i = 1}^n | f(x_i) - f(x_{i-1}|)
+\]</span></p>
+<p>是 <span class="math inline">\(f\)</span> 在 <span
+class="math inline">\([a,b]\)</span> 上的一个变差。对上式取上极限：</p>
+<p><span class="math display">\[
+\bigvee_{a}^b (f)  := \sup\{V_\Delta\}
+\]</span></p>
+<p>是函数在该区间上的<strong>全变差</strong>，若上式有限，那么 <span
+class="math inline">\(f\)</span> 是 <span
+class="math inline">\([a,b]\)</span> 上的有界变差函数。</p>
 <p>显然：</p>
-<ol>
+<ol type="1">
 <li>单调函数是有界变差函数</li>
 <li>可微函数是有界变差函数</li>
 <li>有界变差函数空间是线性空间。</li>
 </ol>
 <p>有界变差函数对于函数做出了一定的限制，即全区间上的绝对变化是有界的。显然：</p>
-<dl><dt>Theo</dt><dd>设 $f(x)$ 是一个实函数，$a&lt;c&lt;b$，有：</dd></dl><p>$$<br>\bigvee_{a}^b (f) &#x3D; \bigvee_{a}^c (f) +\bigvee_{c}^b (f)<br>$$</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+设 <span class="math inline">\(f(x)\)</span> 是一个实函数，<span
+class="math inline">\(a&lt;c&lt;b\)</span>，有：
+</dd>
+</dl>
+<p><span class="math display">\[
+\bigvee_{a}^b (f) = \bigvee_{a}^c (f) +\bigvee_{c}^b (f)
+\]</span></p>
 <p>直觉告诉我们，一个有界变差函数可能可以拆成两个函数的差：值增加的时候，为正的函数增加，值减少的时候，权为负的函数增加。那么我们有如下的定理成立：</p>
-<dl><dt>Jordan 分解定理</dt><dd>$f \in BV([a,b])$ 当且仅当 $f &#x3D; g - h$，其中 $g, h$ 是 $[a,b]$ 上的递增函数</dd></dl><h3 id="不定积分的微分"><a href="#不定积分的微分" class="headerlink" title="不定积分的微分"></a>不定积分的微分</h3><p>这里我们开始研究不定积分。而所谓不定积分，我们可以认为是一个变上限积分 +C：</p>
-<dl><dt>Lemma</dt><dd>设 $f\in \mathcal L [a,b]$，令</dd></dl><p>$$<br>F_h(x) &#x3D; \frac{1}{h} \int _ x ^ {x + h} f(t) \mathrm dt<br>$$</p>
+<dl>
+<dt>Jordan 分解定理</dt>
+<dd>
+<span class="math inline">\(f \in BV([a,b])\)</span> 当且仅当 <span
+class="math inline">\(f = g - h\)</span>，其中 <span
+class="math inline">\(g, h\)</span> 是 <span
+class="math inline">\([a,b]\)</span> 上的递增函数
+</dd>
+</dl>
+<h3 id="不定积分的微分">不定积分的微分</h3>
+<p>这里我们开始研究不定积分。而所谓不定积分，我们可以认为是一个变上限积分
++C：</p>
+<dl>
+<dt>Lemma</dt>
+<dd>
+设 <span class="math inline">\(f\in \mathcal L [a,b]\)</span>，令
+</dd>
+</dl>
+<p><span class="math display">\[
+F_h(x) = \frac{1}{h} \int _ x ^ {x + h} f(t) \mathrm dt
+\]</span></p>
 <p>显然：</p>
-<p>$$<br>\lim_ {h\rightarrow 0} \int _ a ^ b |F_h( x) - f(x)| \mathrm dx &#x3D; 0<br>$$</p>
+<p><span class="math display">\[
+\lim_ {h\rightarrow 0} \int _ a ^ b |F_h( x) - f(x)| \mathrm dx = 0
+\]</span></p>
 <p>因此，我们有如下的性质</p>
-<dl><dt>Theo</dt><dd>设 $f\in \mathcal L$，令 $F(x) &#x3D; \int _a^x f(t) \mathrm dt$，则有</dd></dl><p>$$<br>F’(x) &#x3D; f(x) \quad a.e. x\in [a,b]<br>$$</p>
-<h4 id="绝对连续函数和微积分基本定理"><a href="#绝对连续函数和微积分基本定理" class="headerlink" title="绝对连续函数和微积分基本定理"></a>绝对连续函数和微积分基本定理</h4><p>至此，我们已经非常接近我们要的答案了（即微积分基本定理成立的充要条件）。为此，我们需要观察出变上限积分一些额外的性质</p>
-<dl><dt>Lemma</dt><dd>设 $f$ 在 $[a,b]$ 几乎处处可微，且 $f’(x) &#x3D; 0\quad a.e.$，如果 $f(x)$ 不是常函数，那么存在 $\varepsilon&gt;0$ 对于任意 $\delta &gt; 0$ 存在 $[a,b]$ 上有限个互不相交的区间，使得其测度之和小于 $\delta$，但：</dd></dl><p>$$<br>\sum_{i &#x3D; 1} ^ n| f(y_i) - f(x_i)| &gt; \varepsilon<br>$$</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+设 <span class="math inline">\(f\in \mathcal L\)</span>，令 <span
+class="math inline">\(F(x) = \int _a^x f(t) \mathrm dt\)</span>，则有
+</dd>
+</dl>
+<p><span class="math display">\[
+F&#39;(x) = f(x) \quad a.e. x\in [a,b]
+\]</span></p>
+<h4 id="绝对连续函数和微积分基本定理">绝对连续函数和微积分基本定理</h4>
+<p>至此，我们已经非常接近我们要的答案了（即微积分基本定理成立的充要条件）。为此，我们需要观察出变上限积分一些额外的性质</p>
+<dl>
+<dt>Lemma</dt>
+<dd>
+设 <span class="math inline">\(f\)</span> 在 <span
+class="math inline">\([a,b]\)</span> 几乎处处可微，且 <span
+class="math inline">\(f&#39;(x) = 0\quad a.e.\)</span>，如果 <span
+class="math inline">\(f(x)\)</span> 不是常函数，那么存在 <span
+class="math inline">\(\varepsilon&gt;0\)</span> 对于任意 <span
+class="math inline">\(\delta &gt; 0\)</span> 存在 <span
+class="math inline">\([a,b]\)</span>
+上有限个互不相交的区间，使得其测度之和小于 <span
+class="math inline">\(\delta\)</span>，但：
+</dd>
+</dl>
+<p><span class="math display">\[
+\sum_{i = 1} ^ n| f(y_i) - f(x_i)| &gt; \varepsilon
+\]</span></p>
 <p>很显然我们之前构造的阶跃函数满足这样的条件。从而我们希望将这一类函数暂时得从我们的考虑范围内去除。</p>
-<dl><dt>绝对连续函数</dt><dd>设 $f(x)$ 是实函数，若 $\forall \varepsilon &gt; 0$，存在 $\delta &gt; 0$ 对于任意两个互不相交的开区间 $(x_i, y _ i )$ 满足其 $\sum |y_i - x_i| &lt; \delta$ 且有</dd></dl><p>$$<br>\sum_{i &#x3D; 1} ^ n |f(y _ i ) - f(x_i)| &lt; \varepsilon<br>$$</p>
+<dl>
+<dt>绝对连续函数</dt>
+<dd>
+设 <span class="math inline">\(f(x)\)</span> 是实函数，若 <span
+class="math inline">\(\forall \varepsilon &gt; 0\)</span>，存在 <span
+class="math inline">\(\delta &gt; 0\)</span>
+对于任意两个互不相交的开区间 <span class="math inline">\((x_i, y _ i
+)\)</span> 满足其 <span class="math inline">\(\sum |y_i - x_i| &lt;
+\delta\)</span> 且有
+</dd>
+</dl>
+<p><span class="math display">\[
+\sum_{i = 1} ^ n |f(y _ i ) - f(x_i)| &lt; \varepsilon
+\]</span></p>
 <p>则称其为绝对连续函数</p>
 <p>这类函数有些简单的结论：</p>
-<ol>
+<ol type="1">
 <li>绝对连续函数是连续函数</li>
 <li>绝对连续函数构成线性空间</li>
 </ol>
-<dl><dt>Theo</dt><dd>设 $f\in L$，那么其变上限积分是绝对连续函数。</dd></dl><p>至此，我们找到了微积分基本定理成立的一个充分条件，借助上一节推出的结论，对一个函数先进行变上限积分，拿到的这个变上限积分函数是能够满足微积分基本定理的。这让我们不经怀疑，是否这个条件可以更进一步呢，我们直接引入微积分基本定理：</p>
-<dl><dt>微积分基本定理</dt><dd>若 $f(x)$ 是 $[a,b]$ 上的绝对连续函数，那么</dd></dl><p>$$<br>f(x) - f(a) &#x3D; \int _ a ^ x f’(t) \mathrm dt<br>$$</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+设 <span class="math inline">\(f\in
+L\)</span>，那么其变上限积分是绝对连续函数。
+</dd>
+</dl>
+<p>至此，我们找到了微积分基本定理成立的一个充分条件，借助上一节推出的结论，对一个函数先进行变上限积分，拿到的这个变上限积分函数是能够满足微积分基本定理的。这让我们不经怀疑，是否这个条件可以更进一步呢，我们直接引入微积分基本定理：</p>
+<dl>
+<dt>微积分基本定理</dt>
+<dd>
+若 <span class="math inline">\(f(x)\)</span> 是 <span
+class="math inline">\([a,b]\)</span> 上的绝对连续函数，那么
+</dd>
+</dl>
+<p><span class="math display">\[
+f(x) - f(a) = \int _ a ^ x f&#39;(t) \mathrm dt
+\]</span></p>
 <p>即绝对连续函数导数的积分就是自身。</p>
 <p>综合以上的讨论，我们得出结论：</p>
-<p>微积分基本定理成立 $\iff$ 绝对连续</p>
-<h3 id="分部积分公式和积分中值定理"><a href="#分部积分公式和积分中值定理" class="headerlink" title="分部积分公式和积分中值定理"></a>分部积分公式和积分中值定理</h3><p>老朋友了：</p>
-<dl><dt>分部积分公式</dt><dd>对于可积函数（作为被积函数）成立。</dd></dl><dl><dt>积分第一中值定理</dt><dd>若 $f(x)$ 是连续函数，且 $g$ 是非负可积函数，则存在一个 $\xi \in [a,b]$ 使得</dd></dl><p>$$<br>\int f\cdot g &#x3D; f(\xi)\int_a^b g(x) \mathrm dx<br>$$</p>
-<dl><dt>第二中值定理</dt><dd>若 $f\int \mathcal L$，$g$ 单调，啧 $\exists \xi \in [a,b]$ 使得</dd></dl><p>$$<br>\int _ a ^ b f \cdot g \mathrm dx &#x3D; g(a) \int _ a ^ \xi f + g(b) \int _ \xi ^ b f<br>$$</p>
+<p>微积分基本定理成立 <span class="math inline">\(\iff\)</span>
+绝对连续</p>
+<h3 id="分部积分公式和积分中值定理">分部积分公式和积分中值定理</h3>
+<p>老朋友了：</p>
+<dl>
+<dt>分部积分公式</dt>
+<dd>
+对于可积函数（作为被积函数）成立。
+</dd>
+<dt>积分第一中值定理</dt>
+<dd>
+若 <span class="math inline">\(f(x)\)</span> 是连续函数，且 <span
+class="math inline">\(g\)</span> 是非负可积函数，则存在一个 <span
+class="math inline">\(\xi \in [a,b]\)</span> 使得
+</dd>
+</dl>
+<p><span class="math display">\[
+\int f\cdot g = f(\xi)\int_a^b g(x) \mathrm dx
+\]</span></p>
+<dl>
+<dt>第二中值定理</dt>
+<dd>
+若 <span class="math inline">\(f\int \mathcal L\)</span>，<span
+class="math inline">\(g\)</span> 单调，啧 <span
+class="math inline">\(\exists \xi \in [a,b]\)</span> 使得
+</dd>
+</dl>
+<p><span class="math display">\[
+\int _ a ^ b f \cdot g \mathrm dx = g(a) \int _ a ^ \xi f + g(b) \int _
+\xi ^ b f
+\]</span></p>
 <p>当然还有更多的积分换元公式，不在这里继续讨论，因为我们有更加重要的内容需要引入：</p>
-<h2 id="L-p-空间"><a href="#L-p-空间" class="headerlink" title="L^p^空间"></a>L^p^空间</h2><h3 id="定义和基本性质"><a href="#定义和基本性质" class="headerlink" title="定义和基本性质"></a>定义和基本性质</h3><p>引入 $L^p$ 空间的很大的原因是积分变换（例如傅立叶等）。</p>
-<dl><dt>Lp 空间</dt><dd>设 $f(x)$ 是 $E\subseteq \mathbb R ^ n$ 上的可测函数，记</dd></dl><p>$$<br>|f|_p &#x3D; \left(\int _E |f(x)|^p\mathrm dx\right)^{1&#x2F;p}\quad 0 &lt; p &lt;&#x3D; \infty<br>$$</p>
-<p>用 $L^p$ 来表示使得上式有限的函数全体，构成 $L^p$ 空间。</p>
+<h2 id="lp空间">L<sup>p</sup>空间</h2>
+<h3 id="定义和基本性质">定义和基本性质</h3>
+<p>引入 <span class="math inline">\(L^p\)</span>
+空间的很大的原因是积分变换（例如傅立叶等）。</p>
+<dl>
+<dt>Lp 空间</dt>
+<dd>
+设 <span class="math inline">\(f(x)\)</span> 是 <span
+class="math inline">\(E\subseteq \mathbb R ^ n\)</span> 上的可测函数，记
+</dd>
+</dl>
+<p><span class="math display">\[
+\|f\|_p = \left(\int _E |f(x)|^p\mathrm dx\right)^{1/p}\quad 0 &lt; p
+&lt;= \infty
+\]</span></p>
+<p>用 <span class="math inline">\(L^p\)</span>
+来表示使得上式有限的函数全体，构成 <span
+class="math inline">\(L^p\)</span> 空间。</p>
 <p>显然 Lp 空间是线性空间。</p>
 <p>显然我们有两种方式定义这个空间：</p>
-<ol>
-<li>直接定义：$L^\infty$ 表示本性有界（$\exists M, |f(x) | \le M, \quad a.e.$）</li>
-<li>极限定义：$L^\infty &#x3D; \lim_{p\rightarrow \infty} L^p$</li>
+<ol type="1">
+<li>直接定义：<span class="math inline">\(L^\infty\)</span>
+表示本性有界（<span class="math inline">\(\exists M, |f(x) | \le M,
+\quad a.e.\)</span>）</li>
+<li>极限定义：<span class="math inline">\(L^\infty = \lim_{p\rightarrow
+\infty} L^p\)</span></li>
 </ol>
 <p>这两个定义是等价的</p>
 <p>另一方面，我们要研究两个线性空间之间的关系，两个范数之间的关系：</p>
-<dl><dt>Holder 不等式</dt><dd>设 $p$ 和 $q$ 是共轭指标（$p^-1 + q ^ -1 &#x3D; 2, p, q  &gt; 1$，另有 $f\in L^p, g\in L^q$，那么：</dd></dl><p>$$<br>|f\cdot g|_1 &#x3D; | f | _p \cdot | g | _ q\quad 1\le p \le \infty<br>$$</p>
+<dl>
+<dt>Holder 不等式</dt>
+<dd>
+设 <span class="math inline">\(p\)</span> 和 <span
+class="math inline">\(q\)</span> 是共轭指标（<span
+class="math inline">\(p^-1 + q ^ -1 = 2, p, q &gt; 1\)</span>，另有
+<span class="math inline">\(f\in L^p, g\in L^q\)</span>，那么：
+</dd>
+</dl>
+<p><span class="math display">\[
+\|f\cdot g\|_1 = \| f \| _p \cdot \| g \| _ q\quad 1\le p \le \infty
+\]</span></p>
 <blockquote>
 <p>上述定理的另一方面也成立，即反 Holder 不等式</p>
 </blockquote>
-<dl><dt>Minkowski 不等式</dt><dd>设 $f,g \in L ^ p$，那么：</dd></dl><p>$$<br>|f + g| _ p \le | f | _ p + | g | _ p<br>$$</p>
-<p>$p&#x3D;2$ 即三角不等式。</p>
-<p>借助以上不等关系，我们来研究 $L^p$ 空间的结构！</p>
-<h3 id="Lp-空间的结构"><a href="#Lp-空间的结构" class="headerlink" title="Lp 空间的结构"></a>Lp 空间的结构</h3><h4 id="完备空间"><a href="#完备空间" class="headerlink" title="完备空间"></a>完备空间</h4><p>定义 $d(f, g) &#x3D; | f - g| _ p$，那么 $\left(L^p(E), d\right)$ 是一个距离空间。</p>
-<dl><dt>依 Lp 收敛</dt><dd>设 ${f_k}\in L^p$ 若存在 $f\in L^p$ 使得</dd></dl><p>$$<br>\lim _ {k\rightarrow\infty} d(f_k, f) &#x3D; \lim_{k\rightarrow \infty} | f_ k - f |_ p &#x3D; 0<br>$$</p>
-<p>则称 $f_k$ 依 $L^p(E)$ 意义收敛于 $f$。</p>
+<dl>
+<dt>Minkowski 不等式</dt>
+<dd>
+设 <span class="math inline">\(f,g \in L ^ p\)</span>，那么：
+</dd>
+</dl>
+<p><span class="math display">\[
+\|f + g\| _ p \le \| f \| _ p + \| g \| _ p
+\]</span></p>
+<p><span class="math inline">\(p=2\)</span> 即三角不等式。</p>
+<p>借助以上不等关系，我们来研究 <span class="math inline">\(L^p\)</span>
+空间的结构！</p>
+<h3 id="lp-空间的结构">Lp 空间的结构</h3>
+<h4 id="完备空间">完备空间</h4>
+<p>定义 <span class="math inline">\(d(f, g) = \| f - g\| _
+p\)</span>，那么 <span class="math inline">\(\left(L^p(E),
+d\right)\)</span> 是一个距离空间。</p>
+<dl>
+<dt>依 Lp 收敛</dt>
+<dd>
+设 <span class="math inline">\(\{f_k\}\in L^p\)</span> 若存在 <span
+class="math inline">\(f\in L^p\)</span> 使得
+</dd>
+</dl>
+<p><span class="math display">\[
+\lim _ {k\rightarrow\infty} d(f_k, f) = \lim_{k\rightarrow \infty} \| f_
+k - f \|_ p = 0
+\]</span></p>
+<p>则称 <span class="math inline">\(f_k\)</span> 依 <span
+class="math inline">\(L^p(E)\)</span> 意义收敛于 <span
+class="math inline">\(f\)</span>。</p>
 <p>关于上述极限：</p>
-<ol>
+<ol type="1">
 <li>极限函数在几乎处处相等的意义下唯一</li>
 <li>保范数性：极限函数的范数等于范数列的极限</li>
 </ol>
-<dl><dt>完备距离空间</dt><dd>若 $\forall f_k$ 是依 $L^p$ 收敛列，且 $f_k \rightarrow f$，那么 $f\in L^p$，则称 $L^p$ 是完备距离空间。</dd></dl><dl><dt>Theo</dt><dd>$L^p, p &gt; 1$ 都是完备的</dd></dl><h4 id="可分空间"><a href="#可分空间" class="headerlink" title="可分空间"></a>可分空间</h4><dl><dt>可分</dt><dd>设 $\tau$ 是 $L^p$ 的子集，若 $\forall f\in L^p$ 存在 ${g_k}\in \tau$，使得 $g_k\rightarrow f\quad L^p$，那么称 $\tau$ 在 $L^p$ 中稠密。如果 $\tau$ 可数，那么 $L^p$ 可分。</dd></dl><p>对于 $p\ge 1$ 的情况，我们也有：</p>
-<dl><dt>Theo</dt><dd>$1\le p &lt; +\infty $时，$ L^p$ 可分</dd></dl><p>我们考虑用一个 Lp 空间来描述另一个 Lp 空间：</p>
-<dl><dt>Theo</dt><dd>设 $1\le p &lt; \infty, 1\le r \le \infty $那么$ L^p \cap L^r $在$ L^p$ 中稠密</dd></dl><h3 id="L2-内积空间"><a href="#L2-内积空间" class="headerlink" title="L2 内积空间"></a>L2 内积空间</h3><p>我们希望不仅仅得到距离，我们还希望得到内积，这要求对于两个函数位置都线性，那么两个函数的次数都必须为 1，从而 $p&#x3D;2$</p>
-<h4 id="内积和正交系"><a href="#内积和正交系" class="headerlink" title="内积和正交系"></a>内积和正交系</h4><p>L2 内积<br>: 令</p>
-<p>$$<br>\langle f, g \rangle &#x3D;\int_E f(x) g(x) \mathrm dx<br>$$</p>
-<p>为 $L^2$ 空间上的内积（对称正定双线性函数）。</p>
+<dl>
+<dt>完备距离空间</dt>
+<dd>
+若 <span class="math inline">\(\forall f_k\)</span> 是依 <span
+class="math inline">\(L^p\)</span> 收敛列，且 <span
+class="math inline">\(f_k \rightarrow f\)</span>，那么 <span
+class="math inline">\(f\in L^p\)</span>，则称 <span
+class="math inline">\(L^p\)</span> 是完备距离空间。
+</dd>
+<dt>Theo</dt>
+<dd>
+<span class="math inline">\(L^p, p &gt; 1\)</span> 都是完备的
+</dd>
+</dl>
+<h4 id="可分空间">可分空间</h4>
+<dl>
+<dt>可分</dt>
+<dd>
+设 <span class="math inline">\(\tau\)</span> 是 <span
+class="math inline">\(L^p\)</span> 的子集，若 <span
+class="math inline">\(\forall f\in L^p\)</span> 存在 <span
+class="math inline">\(\{g_k\}\in \tau\)</span>，使得 <span
+class="math inline">\(g_k\rightarrow f\quad L^p\)</span>，那么称 <span
+class="math inline">\(\tau\)</span> 在 <span
+class="math inline">\(L^p\)</span> 中稠密。如果 <span
+class="math inline">\(\tau\)</span> 可数，那么 <span
+class="math inline">\(L^p\)</span> 可分。
+</dd>
+</dl>
+<p>对于 <span class="math inline">\(p\ge 1\)</span>
+的情况，我们也有：</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+$1p &lt; +<span class="math inline">\(时，\)</span> L^p$ 可分
+</dd>
+</dl>
+<p>我们考虑用一个 Lp 空间来描述另一个 Lp 空间：</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+设 $1p &lt; , 1r <span class="math inline">\(那么\)</span> L^p L^r <span
+class="math inline">\(在\)</span> L^p$ 中稠密
+</dd>
+</dl>
+<h3 id="l2-内积空间">L2 内积空间</h3>
+<p>我们希望不仅仅得到距离，我们还希望得到内积，这要求对于两个函数位置都线性，那么两个函数的次数都必须为
+1，从而 <span class="math inline">\(p=2\)</span></p>
+<h4 id="内积和正交系">内积和正交系</h4>
+<dl>
+<dt>L2 内积</dt>
+<dd>
+令
+</dd>
+</dl>
+<p><span class="math display">\[
+\langle f, g \rangle =\int_E f(x) g(x) \mathrm dx
+\]</span></p>
+<p>为 <span class="math inline">\(L^2\)</span>
+空间上的内积（对称正定双线性函数）。</p>
 <p>不难证明，该内积对于极限过程可交换。</p>
-<p>有了内积的概念，我们试图在 $L^2$ 这个线性空间中找标准正交基，来分解所有的函数。</p>
-<dl><dt>Theo</dt><dd>$L^2$ 中的所有正交系都是可数的。</dd></dl><h4 id="广义-Fourier-级数"><a href="#广义-Fourier-级数" class="headerlink" title="广义 Fourier 级数"></a>广义 Fourier 级数</h4><p>从线性代数的知识我们可以知道，广义上说，给定：</p>
-<ol>
+<p>有了内积的概念，我们试图在 <span class="math inline">\(L^2\)</span>
+这个线性空间中找标准正交基，来分解所有的函数。</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+<span class="math inline">\(L^2\)</span> 中的所有正交系都是可数的。
+</dd>
+</dl>
+<h4 id="广义-fourier-级数">广义 Fourier 级数</h4>
+<p>从线性代数的知识我们可以知道，广义上说，给定：</p>
+<ol type="1">
 <li>内积</li>
 <li>标准正交基</li>
 <li>向量</li>
 </ol>
 <p>我们可以将向量分解到标准正交基上：</p>
-<p>$$<br>c_i &#x3D; \langle e_i, f\rangle\quad f \sim \sum_{i &#x3D; 1} ^ \infty c_i e_i<br>$$</p>
-<p>显然，我们还希望有更好的性质，例如我们不希望用 $\sim$ 符号（因为这里并不能直接相等）</p>
-<dl><dt>Theo</dt><dd>对于标准正交基 ${\varphi_i}$，$f\in L^2$，取定 $k$，作</dd></dl><p>$$<br>f_k (x) &#x3D; \sum_{i &#x3D; 1}^ k a_i \varphi _ i<br>$$</p>
-<p>则当 $a_i &#x3D; c_i$ 时，$|f-f_k|_2$ 取最小值</p>
+<p><span class="math display">\[
+c_i = \langle e_i, f\rangle\quad f \sim \sum_{i = 1} ^ \infty c_i e_i
+\]</span></p>
+<p>显然，我们还希望有更好的性质，例如我们不希望用 <span
+class="math inline">\(\sim\)</span> 符号（因为这里并不能直接相等）</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+对于标准正交基 <span class="math inline">\(\{\varphi_i\}\)</span>，<span
+class="math inline">\(f\in L^2\)</span>，取定 <span
+class="math inline">\(k\)</span>，作
+</dd>
+</dl>
+<p><span class="math display">\[
+f_k (x) = \sum_{i = 1}^ k a_i \varphi _ i
+\]</span></p>
+<p>则当 <span class="math inline">\(a_i = c_i\)</span> 时，<span
+class="math inline">\(\|f-f_k\|_2\)</span> 取最小值</p>
 <blockquote>
 <p>利用标准正交基来证明</p>
 </blockquote>
 <p>一般情况下，帕斯瓦尔定理不成立，但我们仍有如下的不等式：</p>
-<dl><dt>Bessel 不等式</dt><dd>设 $\varphi_k$ 是 $L^2$ 中的正交基，$c_i$ 是函数 $f$ 的 Fourier 系数，那么：</dd></dl><p>$$<br>\sum _ {k &#x3D; 1} ^ \infty c_k ^ 2 \le |f_k|^2<br>$$</p>
-<p>如果我们对于一个函数进行 Fourier 分解，我们考虑是否能够复原这一个函数，下面的定理说明函数的 Fourier 系数一定能够对应 L2 空间中的一个函数。</p>
-<dl><dt>Riesz-Fisher</dt><dd>设 $\varphi_k$ 是标准正交基，若 $c_k$ 是 Fourier 系数且 $\sum_{k &#x3D;1} ^ \infty c_k^2&lt; +\infty$，存在</dd></dl><p>$$<br>g\in L^2\quad \langle g, \varphi_k\rangle &#x3D; c_k, k &#x3D; 1, 2, ….<br>$$</p>
-<p>上面还只是考察了正交系（L2 的子集），但我们并不知道这个正交基张成的空间的正交补空间的情况（即是否有一个函数不能用这个正交系表出）因此我们定义：</p>
-<dl><dt>完全正交系</dt><dd>我们称一个正交系是完全的，当 $L^2$ 中不存在任何的非零元和任一 $\varphi_k$ 正交。</dd></dl><dl><dt>Theo</dt><dd>三角函数系是完全正交系</dd></dl><p>正如之前提到的，完全正交系的补空间是零。不难理解：</p>
-<dl><dt>Theo</dt><dd>设 $\varphi_k$ 是标准完全正交系，那么</dd></dl><p>$$<br>\forall f\in L ^ 2\quad \lim_{k \rightarrow \infty} | f - \sum_{i &#x3D; 1}^ k c_i \varphi_i | _ 2 &#x3D; 0<br>$$</p>
-<h3 id="Lp-中的范数公式"><a href="#Lp-中的范数公式" class="headerlink" title="Lp 中的范数公式"></a>Lp 中的范数公式</h3><p>我们在这里考虑一些 Lp 中的范数不等式，来帮助我们在一些问题中进行放缩。</p>
-<dl><dt>Theo</dt><dd>若 $f\in L ^ p$，且 $1\le p &lt; \infty $，那么存在$ g\in L ^{p’}$，且$| g| _ {p’} &#x3D; 1$ 使得，</dd></dl><p>$$<br>|f|_p &#x3D; \int _ E f(x) g(x) \mathrm dx<br>$$</p>
-<p>当然上式也可以推广到 $L^\infty$：</p>
-<p>$$<br>| f | _ \infty &#x3D; \sup _{| g | &#x3D; 1}{ | \int _ E f(x) g( x) \mathrm dx}<br>$$</p>
+<dl>
+<dt>Bessel 不等式</dt>
+<dd>
+设 <span class="math inline">\(\varphi_k\)</span> 是 <span
+class="math inline">\(L^2\)</span> 中的正交基，<span
+class="math inline">\(c_i\)</span> 是函数 <span
+class="math inline">\(f\)</span> 的 Fourier 系数，那么：
+</dd>
+</dl>
+<p><span class="math display">\[
+\sum _ {k = 1} ^ \infty c_k ^ 2 \le \|f_k\|^2
+\]</span></p>
+<p>如果我们对于一个函数进行 Fourier
+分解，我们考虑是否能够复原这一个函数，下面的定理说明函数的 Fourier
+系数一定能够对应 L2 空间中的一个函数。</p>
+<dl>
+<dt>Riesz-Fisher</dt>
+<dd>
+设 <span class="math inline">\(\varphi_k\)</span> 是标准正交基，若 <span
+class="math inline">\(c_k\)</span> 是 Fourier 系数且 <span
+class="math inline">\(\sum_{k =1} ^ \infty c_k^2&lt;
++\infty\)</span>，存在
+</dd>
+</dl>
+<p><span class="math display">\[
+g\in L^2\quad \langle g, \varphi_k\rangle = c_k, k = 1, 2, ....
+\]</span></p>
+<p>上面还只是考察了正交系（L2
+的子集），但我们并不知道这个正交基张成的空间的正交补空间的情况（即是否有一个函数不能用这个正交系表出）因此我们定义：</p>
+<dl>
+<dt>完全正交系</dt>
+<dd>
+我们称一个正交系是完全的，当 <span class="math inline">\(L^2\)</span>
+中不存在任何的非零元和任一 <span
+class="math inline">\(\varphi_k\)</span> 正交。
+</dd>
+<dt>Theo</dt>
+<dd>
+三角函数系是完全正交系
+</dd>
+</dl>
+<p>正如之前提到的，完全正交系的补空间是零。不难理解：</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+设 <span class="math inline">\(\varphi_k\)</span> 是标准完全正交系，那么
+</dd>
+</dl>
+<p><span class="math display">\[
+\forall f\in L ^ 2\quad \lim_{k \rightarrow \infty} \| f - \sum_{i = 1}^
+k c_i \varphi_i \| _ 2 = 0
+\]</span></p>
+<h3 id="lp-中的范数公式">Lp 中的范数公式</h3>
+<p>我们在这里考虑一些 Lp
+中的范数不等式，来帮助我们在一些问题中进行放缩。</p>
+<dl>
+<dt>Theo</dt>
+<dd>
+若 <span class="math inline">\(f\in L ^ p\)</span>，且 $1p &lt; <span
+class="math inline">\(，那么存在\)</span> gL ^{p’}<span
+class="math inline">\(，且\)</span>| g| _ {p’} = 1$ 使得，
+</dd>
+</dl>
+<p><span class="math display">\[
+\|f\|_p = \int _ E f(x) g(x) \mathrm dx
+\]</span></p>
+<p>当然上式也可以推广到 <span
+class="math inline">\(L^\infty\)</span>：</p>
+<p><span class="math display">\[
+\| f \| _ \infty = \sup _{\| g \| = 1}\{ | \int _ E f(x) g( x) \mathrm
+dx\}
+\]</span></p>
 <p>最后我们研究 Minkowski 不等式的推广</p>
-<dl><dt>广义 Minkowski</dt><dd>设 $f(x, y)$ 可测，若对于几乎处处的 $y\in \mathbb R ^ n$ 有</dd></dl><p>$$<br>f(x, y ) \in L ^p\quad \int _{\mathbb R^n}\left[\int _{\mathbb R ^ n}|f(x, y) |^p  \mathrm dx \right] ^{1&#x2F;p} \mathrm dy &#x3D; M &lt; \infty<br>$$</p>
+<dl>
+<dt>广义 Minkowski</dt>
+<dd>
+设 <span class="math inline">\(f(x, y)\)</span> 可测，若对于几乎处处的
+<span class="math inline">\(y\in \mathbb R ^ n\)</span> 有
+</dd>
+</dl>
+<p><span class="math display">\[
+f(x, y ) \in L ^p\quad \int _{\mathbb R^n}\left[\int _{\mathbb R ^
+n}|f(x, y) |^p  \mathrm dx \right] ^{1/p} \mathrm dy = M &lt; \infty
+\]</span></p>
 <p>那么</p>
-<p>$$<br>\int _{\mathbb R^n}\left[\int _{\mathbb R ^ n}|f(x, y) |^p  \mathrm dy \right] ^{1&#x2F;p} \mathrm dx\le \int _{\mathbb R^n}\left[\int _{\mathbb R ^ n}|f(x, y) |^p  \mathrm dx \right] ^{1&#x2F;p} \mathrm dy<br>$$</p>
-<p>$$<br>\int _{\mathbb R^n}\left[\int _{\mathbb R ^ n}|f(x, y) |^p  \mathrm dy \right] ^{1&#x2F;p} \mathrm dx\le \int _{\mathbb R^n}\left[\int _{\mathbb R ^ n}|f(x, y) |^p  \mathrm dx \right] ^{1&#x2F;p} \mathrm dy<br>$$</p>
+<p><span class="math display">\[
+\int _{\mathbb R^n}\left[\int _{\mathbb R ^ n}|f(x, y) |^p  \mathrm dy
+\right] ^{1/p} \mathrm dx\le \int _{\mathbb R^n}\left[\int _{\mathbb R ^
+n}|f(x, y) |^p  \mathrm dx \right] ^{1/p} \mathrm dy
+\]</span></p>
+<p><span class="math display">\[
+\int _{\mathbb R^n}\left[\int _{\mathbb R ^ n}|f(x, y) |^p  \mathrm dy
+\right] ^{1/p} \mathrm dx\le \int _{\mathbb R^n}\left[\int _{\mathbb R ^
+n}|f(x, y) |^p  \mathrm dx \right] ^{1/p} \mathrm dy
+\]</span></p>
 
   </div>
 </article>
@@ -597,7 +1594,8 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">集合论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-number">1.1.</span> <span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">集合运算：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E6%9E%81%E9%99%90%E5%92%8C%E4%B8%8B%E6%9E%81%E9%99%90%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9%EF%BC%9A"><span class="toc-number">1.1.2.</span> <span class="toc-text">上极限和下极限相关内容：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A0%E5%B0%84"><span class="toc-number">1.2.</span> <span class="toc-text">映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rn-%E7%A9%BA%E9%97%B4"><span class="toc-number">1.3.</span> <span class="toc-text">Rn 空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AD%E9%9B%86%E3%80%81%E5%BC%80%E9%9B%86%E3%80%81Borel-%E9%9B%86"><span class="toc-number">1.3.1.</span> <span class="toc-text">闭集、开集、Borel 集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E9%9B%86%E7%BB%93%E6%9E%84%E3%80%81%E8%BF%9E%E7%BB%AD%E6%80%A7"><span class="toc-number">1.3.2.</span> <span class="toc-text">开集结构、连续性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="toc-number">1.3.3.</span> <span class="toc-text">基本定理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8B%92%E8%B4%9D%E6%A0%BC%E6%B5%8B%E5%BA%A6"><span class="toc-number">2.</span> <span class="toc-text">勒贝格测度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E6%B5%8B%E5%BA%A6%E3%80%81%E5%8F%AF%E6%B5%8B%E9%9B%86"><span class="toc-number">2.1.</span> <span class="toc-text">外测度、可测集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E6%B5%8B%E5%BA%A6"><span class="toc-number">2.1.1.</span> <span class="toc-text">外测度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Lebesgue-%E5%8F%AF%E6%B5%8B%E9%9B%86"><span class="toc-number">2.1.2.</span> <span class="toc-text">Lebesgue 可测集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4"><span class="toc-number">2.1.3.</span> <span class="toc-text">测度空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">可测函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">基本性质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.2.</span> <span class="toc-text">测度空间上的可测函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lesbegue-%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E5%88%97%E7%9A%84%E6%94%B6%E6%95%9B%E6%80%A7"><span class="toc-number">2.3.</span> <span class="toc-text">Lesbegue 可测函数列的收敛性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%A0%E4%B9%8E%E5%A4%84%E5%A4%84%E6%94%B6%E6%95%9B-%E5%87%A0%E4%B9%8E%E4%B8%80%E8%87%B4%E6%94%B6%E6%95%9B"><span class="toc-number">2.3.1.</span> <span class="toc-text">几乎处处收敛&#x2F;几乎一致收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%9D%E6%B5%8B%E5%BA%A6%E6%94%B6%E6%95%9B"><span class="toc-number">2.3.2.</span> <span class="toc-text">依测度收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E5%92%8C%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.3.3.</span> <span class="toc-text">可测函数和连续函数的关系</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lebesgue-%E7%A7%AF%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">Lebesgue 积分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lebesgue-%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><span class="toc-number">3.1.</span> <span class="toc-text">Lebesgue 可测函数的积分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E8%B4%9F%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><span class="toc-number">3.1.1.</span> <span class="toc-text">非负可测函数的积分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.2.</span> <span class="toc-text">一般可测函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Riemann-%E7%A7%AF%E5%88%86%E5%92%8C-Lebesgue-%E7%A7%AF%E5%88%86%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">3.1.3.</span> <span class="toc-text">Riemann 积分和 Lebesgue 积分的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86"><span class="toc-number">3.1.4.</span> <span class="toc-text">测度空间上的可测函数积分</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">极限定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Riemann-%E5%8F%AF%E7%A7%AF%E7%9A%84%E5%88%BB%E7%94%BB"><span class="toc-number">3.2.1.</span> <span class="toc-text">Riemann 可积的刻画</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E7%A7%AF%E5%88%86%E5%92%8C%E7%B4%AF%E6%AC%A1%E7%A7%AF%E5%88%86"><span class="toc-number">3.3.</span> <span class="toc-text">重积分和累次积分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Fubini-%E5%AE%9A%E7%90%86"><span class="toc-number">3.3.1.</span> <span class="toc-text">Fubini 定理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%88%86%E5%92%8C%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86"><span class="toc-number">4.</span> <span class="toc-text">微分和不定积分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%B0%83%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%AF%E5%BE%AE%E6%80%A7"><span class="toc-number">4.1.</span> <span class="toc-text">单调函数的可微性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%95%8C%E5%8F%98%E5%B7%AE%E5%87%BD%E6%95%B0"><span class="toc-number">4.2.</span> <span class="toc-text">有界变差函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BE%AE%E5%88%86"><span class="toc-number">4.3.</span> <span class="toc-text">不定积分的微分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="toc-number">4.3.1.</span> <span class="toc-text">绝对连续函数和微积分基本定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%83%A8%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E5%92%8C%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="toc-number">4.4.</span> <span class="toc-text">分部积分公式和积分中值定理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L-p-%E7%A9%BA%E9%97%B4"><span class="toc-number">5.</span> <span class="toc-text">L^p^空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">5.1.</span> <span class="toc-text">定义和基本性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lp-%E7%A9%BA%E9%97%B4%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">5.2.</span> <span class="toc-text">Lp 空间的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E5%A4%87%E7%A9%BA%E9%97%B4"><span class="toc-number">5.2.1.</span> <span class="toc-text">完备空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E5%88%86%E7%A9%BA%E9%97%B4"><span class="toc-number">5.2.2.</span> <span class="toc-text">可分空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L2-%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">5.3.</span> <span class="toc-text">L2 内积空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E7%A7%AF%E5%92%8C%E6%AD%A3%E4%BA%A4%E7%B3%BB"><span class="toc-number">5.3.1.</span> <span class="toc-text">内积和正交系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89-Fourier-%E7%BA%A7%E6%95%B0"><span class="toc-number">5.3.2.</span> <span class="toc-text">广义 Fourier 级数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lp-%E4%B8%AD%E7%9A%84%E8%8C%83%E6%95%B0%E5%85%AC%E5%BC%8F"><span class="toc-number">5.4.</span> <span class="toc-text">Lp 中的范数公式</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">集合论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-number">1.1.</span> <span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97"><span class="toc-number">1.1.1.</span> <span class="toc-text">集合运算：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E6%9E%81%E9%99%90%E5%92%8C%E4%B8%8B%E6%9E%81%E9%99%90%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.2.</span> <span class="toc-text">上极限和下极限相关内容：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A0%E5%B0%84"><span class="toc-number">1.2.</span> <span class="toc-text">映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rn-%E7%A9%BA%E9%97%B4"><span class="toc-number">1.3.</span> <span class="toc-text">Rn 空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AD%E9%9B%86%E5%BC%80%E9%9B%86borel-%E9%9B%86"><span class="toc-number">1.3.1.</span> <span class="toc-text">闭集、开集、Borel 集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E9%9B%86%E7%BB%93%E6%9E%84%E8%BF%9E%E7%BB%AD%E6%80%A7"><span class="toc-number">1.3.2.</span> <span class="toc-text">开集结构、连续性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="toc-number">1.3.3.</span> <span class="toc-text">基本定理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8B%92%E8%B4%9D%E6%A0%BC%E6%B5%8B%E5%BA%A6"><span class="toc-number">2.</span> <span class="toc-text">勒贝格测度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E6%B5%8B%E5%BA%A6%E5%8F%AF%E6%B5%8B%E9%9B%86"><span class="toc-number">2.1.</span> <span class="toc-text">外测度、可测集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E6%B5%8B%E5%BA%A6"><span class="toc-number">2.1.1.</span> <span class="toc-text">外测度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lebesgue-%E5%8F%AF%E6%B5%8B%E9%9B%86"><span class="toc-number">2.1.2.</span> <span class="toc-text">Lebesgue 可测集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4"><span class="toc-number">2.1.3.</span> <span class="toc-text">测度空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">可测函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">基本性质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.2.</span> <span class="toc-text">测度空间上的可测函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lesbegue-%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E5%88%97%E7%9A%84%E6%94%B6%E6%95%9B%E6%80%A7"><span class="toc-number">2.3.</span> <span class="toc-text">Lesbegue 可测函数列的收敛性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%A0%E4%B9%8E%E5%A4%84%E5%A4%84%E6%94%B6%E6%95%9B%E5%87%A0%E4%B9%8E%E4%B8%80%E8%87%B4%E6%94%B6%E6%95%9B"><span class="toc-number">2.3.1.</span> <span class="toc-text">几乎处处收敛&#x2F;几乎一致收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%9D%E6%B5%8B%E5%BA%A6%E6%94%B6%E6%95%9B"><span class="toc-number">2.3.2.</span> <span class="toc-text">依测度收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E5%92%8C%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.3.3.</span> <span class="toc-text">可测函数和连续函数的关系</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lebesgue-%E7%A7%AF%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">Lebesgue 积分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lebesgue-%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><span class="toc-number">3.1.</span> <span class="toc-text">Lebesgue 可测函数的积分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E8%B4%9F%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><span class="toc-number">3.1.1.</span> <span class="toc-text">非负可测函数的积分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.2.</span> <span class="toc-text">一般可测函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#riemann-%E7%A7%AF%E5%88%86%E5%92%8C-lebesgue-%E7%A7%AF%E5%88%86%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">3.1.3.</span> <span class="toc-text">Riemann 积分和 Lebesgue
+积分的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4%E4%B8%8A%E7%9A%84%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86"><span class="toc-number">3.1.4.</span> <span class="toc-text">测度空间上的可测函数积分</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">极限定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#riemann-%E5%8F%AF%E7%A7%AF%E7%9A%84%E5%88%BB%E7%94%BB"><span class="toc-number">3.2.1.</span> <span class="toc-text">Riemann 可积的刻画</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E7%A7%AF%E5%88%86%E5%92%8C%E7%B4%AF%E6%AC%A1%E7%A7%AF%E5%88%86"><span class="toc-number">3.3.</span> <span class="toc-text">重积分和累次积分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#fubini-%E5%AE%9A%E7%90%86"><span class="toc-number">3.3.1.</span> <span class="toc-text">Fubini 定理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%88%86%E5%92%8C%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86"><span class="toc-number">4.</span> <span class="toc-text">微分和不定积分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%B0%83%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%AF%E5%BE%AE%E6%80%A7"><span class="toc-number">4.1.</span> <span class="toc-text">单调函数的可微性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%95%8C%E5%8F%98%E5%B7%AE%E5%87%BD%E6%95%B0"><span class="toc-number">4.2.</span> <span class="toc-text">有界变差函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BE%AE%E5%88%86"><span class="toc-number">4.3.</span> <span class="toc-text">不定积分的微分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="toc-number">4.3.1.</span> <span class="toc-text">绝对连续函数和微积分基本定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%83%A8%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E5%92%8C%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="toc-number">4.4.</span> <span class="toc-text">分部积分公式和积分中值定理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lp%E7%A9%BA%E9%97%B4"><span class="toc-number">5.</span> <span class="toc-text">Lp空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">5.1.</span> <span class="toc-text">定义和基本性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lp-%E7%A9%BA%E9%97%B4%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">5.2.</span> <span class="toc-text">Lp 空间的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E5%A4%87%E7%A9%BA%E9%97%B4"><span class="toc-number">5.2.1.</span> <span class="toc-text">完备空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E5%88%86%E7%A9%BA%E9%97%B4"><span class="toc-number">5.2.2.</span> <span class="toc-text">可分空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#l2-%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">5.3.</span> <span class="toc-text">L2 内积空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E7%A7%AF%E5%92%8C%E6%AD%A3%E4%BA%A4%E7%B3%BB"><span class="toc-number">5.3.1.</span> <span class="toc-text">内积和正交系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89-fourier-%E7%BA%A7%E6%95%B0"><span class="toc-number">5.3.2.</span> <span class="toc-text">广义 Fourier 级数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lp-%E4%B8%AD%E7%9A%84%E8%8C%83%E6%95%B0%E5%85%AC%E5%BC%8F"><span class="toc-number">5.4.</span> <span class="toc-text">Lp 中的范数公式</span></a></li></ol></li></ol>
       </div>
     
 

@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="00. CalculusGauss-Green TheoremDivergence TheoremSuppose $u \in C^1$, $$\int_{U}^{}u_{x_{i}}\mathrm{d}x&#x3D;\int_{\partial U}^{}u\nu^{i}\mathrm{d}S$$ where $\nu$ is the normal vector of $\partial U$.">
+    <meta name="description" content="00. Calculus Gauss-Green Theorem Divergence Theorem Suppose \(u \in C^1\), \[ \int_{U}^{}u_{x_{i}}\mathrm{d}x&#x3D;\int_{\partial U}^{}u\nu^{i}\mathrm{d}S \] where \(\nu\) is the normal vector of \(\partia">
 <meta property="og:type" content="article">
 <meta property="og:title" content=" Calculus">
 <meta property="og:url" content="https://adversarr.github.io/post/calculus-hs2st.html">
 <meta property="og:site_name" content="Adversarr&#39;s Blog">
-<meta property="og:description" content="00. CalculusGauss-Green TheoremDivergence TheoremSuppose $u \in C^1$, $$\int_{U}^{}u_{x_{i}}\mathrm{d}x&#x3D;\int_{\partial U}^{}u\nu^{i}\mathrm{d}S$$ where $\nu$ is the normal vector of $\partial U$.">
+<meta property="og:description" content="00. Calculus Gauss-Green Theorem Divergence Theorem Suppose \(u \in C^1\), \[ \int_{U}^{}u_{x_{i}}\mathrm{d}x&#x3D;\int_{\partial U}^{}u\nu^{i}\mathrm{d}S \] where \(\nu\) is the normal vector of \(\partia">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-08-17T07:53:09.371Z">
+<meta property="article:published_time" content="2023-08-17T08:23:58.046Z">
 <meta property="article:modified_time" content="2023-08-07T16:00:00.000Z">
 <meta property="article:author" content="Adversarr">
 <meta name="twitter:card" content="summary">
@@ -63,7 +63,7 @@
 			}
 		  });
 		</script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+		<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' async></script>
 	
 <meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -98,7 +98,7 @@
       <ul>
         
         
-        <li><a class="icon" aria-label="Next post" href="/2023/08/17/hello-world/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/2023/08/17/inner-accumulation-1pn6jt/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -128,7 +128,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#00-Calculus"><span class="toc-number">1.</span> <span class="toc-text">00. Calculus</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Gauss-Green-Theorem"><span class="toc-number">1.1.</span> <span class="toc-text">Gauss-Green Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Divergence-Theorem"><span class="toc-number">1.1.1.</span> <span class="toc-text">Divergence Theorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integration-by-parts"><span class="toc-number">1.1.2.</span> <span class="toc-text">Integration by parts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Green%E2%80%99s-Formulas"><span class="toc-number">1.1.3.</span> <span class="toc-text">Green’s Formulas</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#calculus"><span class="toc-number">1.</span> <span class="toc-text">00. Calculus</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#gauss-green-theorem"><span class="toc-number">1.1.</span> <span class="toc-text">Gauss-Green Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#divergence-theorem"><span class="toc-number">1.1.1.</span> <span class="toc-text">Divergence Theorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#integration-by-parts"><span class="toc-number">1.1.2.</span> <span class="toc-text">Integration by parts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#greens-formulas"><span class="toc-number">1.1.3.</span> <span class="toc-text">Green’s Formulas</span></a></li></ol></li></ol></li></ol>
       </div>
     
   </span>
@@ -153,7 +153,7 @@
       
     <div class="postdate">
       
-        <time datetime="2023-08-17T07:53:09.371Z" class="dt-published" itemprop="datePublished">2023-08-17</time>
+        <time datetime="2023-08-17T08:23:58.046Z" class="dt-published" itemprop="datePublished">2023-08-17</time>
         
       
     </div>
@@ -168,18 +168,40 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1 id="00-Calculus"><a href="#00-Calculus" class="headerlink" title="00. Calculus"></a>00. Calculus</h1><h2 id="Gauss-Green-Theorem"><a href="#Gauss-Green-Theorem" class="headerlink" title="Gauss-Green Theorem"></a>Gauss-Green Theorem</h2><h3 id="Divergence-Theorem"><a href="#Divergence-Theorem" class="headerlink" title="Divergence Theorem"></a>Divergence Theorem</h3><p>Suppose $u \in C^1$,</p>
-<p>$$<br>\int_{U}^{}u_{x_{i}}\mathrm{d}x&#x3D;\int_{\partial U}^{}u\nu^{i}\mathrm{d}S<br>$$</p>
-<p>where $\nu$ is the normal vector of $\partial U$. Therefore, we have<strong>​ (Divergence Theorem)</strong></p>
-<p>$$<br>\int_U \mathrm{div}\mathbf u \mathrm dx &#x3D; \int_{\partial U} \mathbf u \cdot \nu \mathrm dS<br>$$</p>
+    <h1 id="calculus">00. Calculus</h1>
+<h2 id="gauss-green-theorem">Gauss-Green Theorem</h2>
+<h3 id="divergence-theorem">Divergence Theorem</h3>
+<p>Suppose <span class="math inline">\(u \in C^1\)</span>,</p>
+<p><span class="math display">\[
+\int_{U}^{}u_{x_{i}}\mathrm{d}x=\int_{\partial U}^{}u\nu^{i}\mathrm{d}S
+\]</span></p>
+<p>where <span class="math inline">\(\nu\)</span> is the normal vector
+of <span class="math inline">\(\partial U\)</span>. Therefore, we
+have<strong>​ (Divergence Theorem)</strong></p>
+<p><span class="math display">\[
+\int_U \mathrm{div}\mathbf u \mathrm dx = \int_{\partial U} \mathbf u
+\cdot \nu \mathrm dS
+\]</span></p>
 <p>for each vector field.</p>
-<h3 id="Integration-by-parts"><a href="#Integration-by-parts" class="headerlink" title="Integration by parts"></a>Integration by parts</h3><p>Let $u, v\in C^1$, then</p>
-<p>$$<br>\int_{U}^{}u_{x_i} vdx &#x3D; - \int_U u v_{x_i} dx + \int_{\partial U} u v \nu ^i dS<br>$$</p>
+<h3 id="integration-by-parts">Integration by parts</h3>
+<p>Let <span class="math inline">\(u, v\in C^1\)</span>, then</p>
+<p><span class="math display">\[
+\int_{U}^{}u_{x_i} vdx = - \int_U u v_{x_i} dx + \int_{\partial U} u v
+\nu ^i dS
+\]</span></p>
 <blockquote>
 <p>Apply Divergence Theorem.</p>
 </blockquote>
-<h3 id="Green’s-Formulas"><a href="#Green’s-Formulas" class="headerlink" title="Green’s Formulas"></a>Green’s Formulas</h3><p>Let $u, v\in C^2$, then</p>
-<p>$$<br>\begin{cases}\int_{U}^{<em>{}}\Delta udx&#x3D;\int</em>{\partial U}^{}\frac{\partial u}{\partial\nu}dS\ \int_{U}^{}Dv\cdot Du\ \mathrm{d}x&#x3D;-\int_{U}^{}u\Delta vdx+\int_{\partial U}^{}\frac{\partial v}{\partial\nu}udS\ \int_{U}^{}u\Delta v-v\Delta udx&#x3D;\int_{\partial U}^{}u\cdot\frac{\partial v}{\partial\nu}-v\cdot\frac{\partial u}{\partial\nu}dS\end{cases}<br>$$</p>
+<h3 id="greens-formulas">Green’s Formulas</h3>
+<p>Let <span class="math inline">\(u, v\in C^2\)</span>, then</p>
+<p><span class="math display">\[
+\begin{cases}\int_{U}^{_{}}\Delta udx=\int_{\partial U}^{}\frac{\partial
+u}{\partial\nu}dS\\ \int_{U}^{}Dv\cdot Du\
+\mathrm{d}x=-\int_{U}^{}u\Delta vdx+\int_{\partial U}^{}\frac{\partial
+v}{\partial\nu}udS\\ \int_{U}^{}u\Delta v-v\Delta udx=\int_{\partial
+U}^{}u\cdot\frac{\partial v}{\partial\nu}-v\cdot\frac{\partial
+u}{\partial\nu}dS\end{cases}
+\]</span></p>
 <p>‍</p>
 
   </div>
@@ -214,7 +236,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#00-Calculus"><span class="toc-number">1.</span> <span class="toc-text">00. Calculus</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Gauss-Green-Theorem"><span class="toc-number">1.1.</span> <span class="toc-text">Gauss-Green Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Divergence-Theorem"><span class="toc-number">1.1.1.</span> <span class="toc-text">Divergence Theorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integration-by-parts"><span class="toc-number">1.1.2.</span> <span class="toc-text">Integration by parts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Green%E2%80%99s-Formulas"><span class="toc-number">1.1.3.</span> <span class="toc-text">Green’s Formulas</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#calculus"><span class="toc-number">1.</span> <span class="toc-text">00. Calculus</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#gauss-green-theorem"><span class="toc-number">1.1.</span> <span class="toc-text">Gauss-Green Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#divergence-theorem"><span class="toc-number">1.1.1.</span> <span class="toc-text">Divergence Theorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#integration-by-parts"><span class="toc-number">1.1.2.</span> <span class="toc-text">Integration by parts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#greens-formulas"><span class="toc-number">1.1.3.</span> <span class="toc-text">Green’s Formulas</span></a></li></ol></li></ol></li></ol>
       </div>
     
 
