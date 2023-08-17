@@ -1,7 +1,7 @@
 ---
 title: 面向夏令营的实变函数整理
 date: 2022-12-04T23:11:00Z
-lastmod: 2023-08-17T14:02:08+08:00
+lastmod: 2023-08-17T14:04:44Z
 ---
 
 
@@ -871,16 +871,12 @@ $$
 
 显然 Lp 空间是线性空间。
 
-{% noteblock info::$L^\infty$ %}
-
 显然我们有两种方式定义这个空间：
 
 1. 直接定义：$L^\infty$ 表示本性有界（$\exists M, |f(x) | \le M, \quad a.e.$）
 2. 极限定义：$L^\infty = \lim_{p\rightarrow \infty} L^p$
 
 这两个定义是等价的
-
-{% endnoteblock %}
 
 另一方面，我们要研究两个线性空间之间的关系，两个范数之间的关系：
 
@@ -1056,6 +1052,10 @@ f(x, y ) \in L ^p\quad \int _{\mathbb R^n}\left[\int _{\mathbb R ^ n}|f(x, y) |^
 $$
 
 那么
+
+$$
+\int _{\mathbb R^n}\left[\int _{\mathbb R ^ n}|f(x, y) |^p  \mathrm dy \right] ^{1/p} \mathrm dx\le \int _{\mathbb R^n}\left[\int _{\mathbb R ^ n}|f(x, y) |^p  \mathrm dx \right] ^{1/p} \mathrm dy
+$$
 
 $$
 \int _{\mathbb R^n}\left[\int _{\mathbb R ^ n}|f(x, y) |^p  \mathrm dy \right] ^{1/p} \mathrm dx\le \int _{\mathbb R^n}\left[\int _{\mathbb R ^ n}|f(x, y) |^p  \mathrm dx \right] ^{1/p} \mathrm dy
