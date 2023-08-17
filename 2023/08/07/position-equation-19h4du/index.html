@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="位势方程： $$-\Delta u&#x3D;f\left(x\right)$$ 是椭圆形方程的代表：  $f\equiv 0$：Laplace 方程，​**** 称为调和函数； 否则称为 Poisson 方程  类似于下解、上解，引入： $$-\Delta u\le0$$ 为下调和函数。 基本解基本解、Green 公式固定球心，对于球坐标系，$\Delta u$ 可以写作： $$\Delta u">
+<meta property="og:type" content="article">
+<meta property="og:title" content="06. 位势方程">
+<meta property="og:url" content="https://adversarr.github.io/2023/08/07/position-equation-19h4du/index.html">
+<meta property="og:site_name" content="Adversarr&#39;s Blog">
+<meta property="og:description" content="位势方程： $$-\Delta u&#x3D;f\left(x\right)$$ 是椭圆形方程的代表：  $f\equiv 0$：Laplace 方程，​**** 称为调和函数； 否则称为 Poisson 方程  类似于下解、上解，引入： $$-\Delta u\le0$$ 为下调和函数。 基本解基本解、Green 公式固定球心，对于球坐标系，$\Delta u$ 可以写作： $$\Delta u">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P134-20230807144704-20230807144941-o7y8zpr.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P135-20230807151753-20230807151755-u1uhjc3.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P137-20230807155201-20230807155203-u6jpn05.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P138-20230807155210-20230807155212-8h7op8n.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P140-20230808110623-20230808110627-mq87mq1.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P141-20230808105512-20230808105516-dtv2fn4.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P142-20230808111049-20230808111051-ejdecbp.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P143-20230808111834-20230808111836-xx6o93c.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P144-20230808111855-20230808111857-2vbip2i.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P144-20230808111411-20230808111413-rb45wia.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P145-20230808112021-20230808112023-fz9y67m.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P148-20230808112645-20230808112648-hzjesmv.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P150-20230808145235-20230808145236-0epamw2.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P150-20230808145422-20230808145423-q5b5g8h.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P163-20230809111748-20230809111751-ui0lq8w.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P164-20230809112250-20230809112252-djc45ds.png">
+<meta property="og:image" content="https://adversarr.github.io/assets/PDE-P166-20230809114813-20230809114815-1jleqeg.png">
+<meta property="article:published_time" content="2023-08-07T02:35:26.000Z">
+<meta property="article:modified_time" content="2023-08-17T07:53:09.371Z">
+<meta property="article:author" content="Adversarr">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://adversarr.github.io/assets/PDE-P134-20230807144704-20230807144941-o7y8zpr.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/magic-wand-48.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/magic-wand-192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/magic-wand-180.png">
+        
+      
+    
+    <!-- title -->
+    <title>06. 位势方程</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2023/08/17/inner-accumulation-1pn6jt/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/02/22/measuring-space-z25ss6v/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/08/07/position-equation-19h4du/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&text=06. 位势方程"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&title=06. 位势方程"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&is_video=false&description=06. 位势方程"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=06. 位势方程&body=Check out this article: https://adversarr.github.io/2023/08/07/position-equation-19h4du/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&title=06. 位势方程"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&title=06. 位势方程"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&title=06. 位势方程"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&title=06. 位势方程"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&name=06. 位势方程&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&t=06. 位势方程"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">基本解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%A7%A3%E3%80%81Green-%E5%85%AC%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">基本解、Green 公式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E5%92%8C%E5%87%BD%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">调和函数的基本积分公式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E5%80%BC%E7%AD%89%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">平均值等式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E3%80%81%E6%9C%80%E5%B0%8F%E5%80%BC%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">最大、最小值原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Green-%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">Green 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Green-%E5%87%BD%E6%95%B0%E7%9A%84%E5%AF%BC%E5%87%BA%E4%B8%8E%E6%80%A7%E8%B4%A8"><span class="toc-number">2.1.</span> <span class="toc-text">Green 函数的导出与性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%83%E4%B8%8A%E7%9A%84-Green-%E5%87%BD%E6%95%B0%E3%80%81Poisson-%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">球上的 Green 函数、Poisson 积分公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E5%8D%8A%E7%A9%BA%E9%97%B4%E7%9A%84-Green-%E5%87%BD%E6%95%B0"><span class="toc-number">2.3.</span> <span class="toc-text">上半空间的 Green 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%BD%E9%87%8F%E6%B3%95"><span class="toc-number">2.4.</span> <span class="toc-text">能量法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E5%92%8C%E5%87%BD%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">3.</span> <span class="toc-text">调和函数的基本性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%86%E5%B9%B3%E5%9D%87%E5%80%BC%E6%80%A7%E8%B4%A8"><span class="toc-number">3.1.</span> <span class="toc-text">逆平均值性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E5%80%BC%E7%AD%89%E5%BC%8F-1"><span class="toc-number">3.2.</span> <span class="toc-text">平均值等式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Harnack%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="toc-number">3.3.</span> <span class="toc-text">Harnack不等式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Liouville-%E5%AE%9A%E7%90%86"><span class="toc-number">3.4.</span> <span class="toc-text">Liouville 定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%87%E7%82%B9%E5%8F%AF%E5%8E%BB%E6%80%A7"><span class="toc-number">3.5.</span> <span class="toc-text">奇点可去性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E6%80%A7"><span class="toc-number">3.6.</span> <span class="toc-text">正则性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E5%BE%AE%E5%95%86%E4%BC%B0%E8%AE%A1"><span class="toc-number">3.7.</span> <span class="toc-text">局部微商估计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E6%80%A7"><span class="toc-number">3.8.</span> <span class="toc-text">解析性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hopf%E6%9C%80%E5%A4%A7%E5%80%BC%E5%8E%9F%E7%90%86%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">Hopf最大值原理及其应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hopf%E6%9C%80%E5%A4%A7%E5%80%BC%E5%8E%9F%E7%90%86"><span class="toc-number">4.1.</span> <span class="toc-text">Hopf最大值原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hopf%E5%8E%9F%E7%90%86%E5%BA%94%E7%94%A8"><span class="toc-number">4.2.</span> <span class="toc-text">Hopf原理应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8D%E5%8A%BF%E6%96%B9%E7%A8%8B%E7%9A%84%E5%BC%B1%E8%A7%A3"><span class="toc-number">5.</span> <span class="toc-text">位势方程的弱解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%B4%E9%9A%8F%E5%BE%AE%E5%88%86%E7%AE%97%E5%AD%90"><span class="toc-number">5.1.</span> <span class="toc-text">伴随微分算子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%B1%E5%BE%AE%E5%95%86"><span class="toc-number">5.2.</span> <span class="toc-text">弱微商</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        06. 位势方程
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Adversarr</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-08-07T02:35:26.000Z" class="dt-published" itemprop="datePublished">2023-08-07</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>位势方程：</p>
+<p>$$<br>-\Delta u&#x3D;f\left(x\right)<br>$$</p>
+<p>是椭圆形方程的代表：</p>
+<ul>
+<li>$f\equiv 0$：<strong>Laplace 方程，</strong>​**** 称为调和函数；</li>
+<li>否则称为 <strong>Poisson 方程</strong></li>
+</ul>
+<p>类似于下解、上解，引入：</p>
+<p>$$<br>-\Delta u\le0<br>$$</p>
+<p>为下调和函数。</p>
+<h2 id="基本解"><a href="#基本解" class="headerlink" title="基本解"></a>基本解</h2><h3 id="基本解、Green-公式"><a href="#基本解、Green-公式" class="headerlink" title="基本解、Green 公式"></a>基本解、Green 公式</h3><p>固定球心，对于球坐标系，$\Delta u$ 可以写作：</p>
+<p>$$<br>\Delta u&#x3D;u’’(r)+\frac{n-1}{r}u^{\prime}\left(r\right)<br>$$</p>
+<p>解 Laplace 方程，得到：</p>
+<p>$$<br>u&#x3D;\begin{cases}\frac{c}{2-n}r^{2-n} &amp; n&gt;2\ c\ln r &amp; n&#x3D;2\end{cases}<br>$$</p>
+<p>其中 $r&#x3D;\left|x-y\right|$。其满足 Laplace 方程。取常数 $c&#x3D;\frac{1}{n\omega_{n}}$，定义调和方程的基本解 $k(x-y)$。</p>
+<ul>
+<li>$\omega_2 &#x3D; \pi$​</li>
+<li>$\omega_3&#x3D;\frac43\pi$</li>
+</ul>
+<h4 id="调和函数的基本积分公式"><a href="#调和函数的基本积分公式" class="headerlink" title="调和函数的基本积分公式"></a>调和函数的基本积分公式</h4><blockquote>
+<p>Green 第二公式: Integration by parts，（<a href="assets/PDE-20230804142154-8fruti8.pdf?p=134">PDE.pdf - p134 - PDE-P134-20230807144704</a>）</p>
+<p>​<img src="/assets/PDE-P134-20230807144704-20230807144941-o7y8zpr.png">​</p>
+</blockquote>
+<p>对于 $y\in \Omega$，作球 $B_\rho (y) \sub \Omega$，在区域 $\Omega-\bar {B}_{\rho}$ 中用调和函数的基本解，代入 Green 第二公式，</p>
+<p>$$<br>\int_{\Omega-B_{\rho}}^{}k\left(x-y\right)\Delta u\mathrm{d}x&#x3D;\int_{\partial\Omega}^{}\left(k\frac{\partial u}{\partial\nu}-u\frac{\partial k}{\partial\nu}\right)\mathrm{d}S_{x}+\int_{\partial B_{\rho}}^{}\left(k\frac{\partial u}{\partial\nu}-u\frac{\partial k}{\partial\nu}\right)<br>$$</p>
+<p>对于第二个积分</p>
+<p>$$<br>\int_{\partial B}^{}k\frac{\partial u}{\partial\nu}dS_{x}\to0\quad\int_{\partial B}^{}u\frac{\partial k}{\partial\nu}dS_{x}→-u(y)\quad(\rho\to0)<br>$$</p>
+<p>因此，有 $u$ 的 Green 表示：</p>
+<p>$$<br>u(y)&#x3D;\int_{\partial\Omega}^{}\left(u\frac{\partial k}{\partial\nu}-k\frac{\partial u}{\partial\nu}\right)\mathrm{d}S_{x}+\int_{\Omega}^{}k\Delta u\mathrm{d}x<br>$$</p>
+<p><a href="assets/PDE-20230804142154-8fruti8.pdf?p=135">PDE.pdf - p135 - PDE-P135-20230807151753</a><br>​<img src="/assets/PDE-P135-20230807151753-20230807151755-u1uhjc3.png">​</p>
+<blockquote>
+<p>基本积分公式：</p>
+<p>$$<br>u(y)&#x3D;\int_{\partial\Omega}^{}\left(u\frac{\partial k\left(x-y\right)}{\partial\nu}-k\left(x-y\right)\frac{\partial u}{\partial\nu}\right)\mathrm{d}S_{x}<br>$$</p>
+</blockquote>
+<h3 id="平均值等式"><a href="#平均值等式" class="headerlink" title="平均值等式"></a>平均值等式</h3><p>设 $u\in C^2$，在 $\Omega$ 中满足</p>
+<p>$$<br>-\Delta u&#x3D;0(\le 0)<br>$$</p>
+<p>那么对于任何一个球 $B_R(y)\sub \Omega$，都有：</p>
+<p>$$<br>u(y)&#x3D;(\le)\frac{1}{n\omega_{n}R^{n-1}}\int_{\partial B_{n}}^{}udS<br>$$</p>
+<p>和</p>
+<p>$$<br>u(y)&#x3D;(\le)\frac{1}{\omega_{n}R^{n}}\int_{B_{R}}^{}u\mathrm{d}x<br>$$</p>
+<p>等号成立时，称为平均值定理。</p>
+<h3 id="最大、最小值原理"><a href="#最大、最小值原理" class="headerlink" title="最大、最小值原理"></a>最大、最小值原理</h3><p><strong>下调和函数的强最大值原理</strong>：设 $u$ 是 $\Omega$ 内的下调和函数，且存在 $y\in \Omega$ 使得</p>
+<p>$$<br>u(y) &#x3D; \sup_{\Omega} u<br>$$</p>
+<p>那么 $u$ 是常数。</p>
+<p><strong>下调和函数的弱最大值原理</strong>：设 $u$ 是 $\Omega$ 内的下调和函数，且 $\Omega$ 有界，那么</p>
+<p>$$<br>\max _{\bar \Omega} u&#x3D; \max _{\partial \Omega} u<br>$$</p>
+<p>由此可以直接得到调和函数的最大值&#x2F;最小值原理、调和函数的比较定理</p>
+<p><a href="assets/PDE-20230804142154-8fruti8.pdf?p=137">PDE.pdf - p137 - PDE-P137-20230807155201</a><br>​<img src="/assets/PDE-P137-20230807155201-20230807155203-u6jpn05.png">​</p>
+<p><a href="assets/PDE-20230804142154-8fruti8.pdf?p=138">PDE.pdf - p138 - PDE-P138-20230807155210</a><br>​<img src="/assets/PDE-P138-20230807155210-20230807155212-8h7op8n.png">​</p>
+<p>通过最大最小值原理，可以轻松得到：</p>
+<ol>
+<li>Poisson 方程的 Dirichlet <strong>内</strong>问题具有<strong>唯一性和稳定性</strong>；</li>
+<li>Poisson 方程的 Dirichlet <strong>外</strong>问题具有<strong>唯一性和稳定性</strong>；</li>
+</ol>
+<h2 id="Green-函数"><a href="#Green-函数" class="headerlink" title="Green 函数"></a>Green 函数</h2><h3 id="Green-函数的导出与性质"><a href="#Green-函数的导出与性质" class="headerlink" title="Green 函数的导出与性质"></a>Green 函数的导出与性质</h3><p>我们试图求用：</p>
+<blockquote>
+<blockquote>
+<p>基本积分公式：</p>
+<p>$$<br>u(y)&#x3D;\int_{\partial\Omega}^{}\left(u\frac{\partial k\left(x-y\right)}{\partial\nu}-k\left(x-y\right)\frac{\partial u}{\partial\nu}\right)\mathrm{d}S_{x}<br>$$</p>
+</blockquote>
+</blockquote>
+<p>解调和方程、或 Poisson 方程的 Dirichlet 问题，</p>
+<p>$$<br>\begin{cases}-\Delta u&#x3D;f\ u\left|_{\partial\Omega}\right.&#x3D;\varphi\left(x\right)\end{cases}<br>$$</p>
+<p>显然，边界上的 $\partial u&#x2F;\partial \nu$ 是未知的，不能直接求解，我们设法消去这一项。</p>
+<p>考察一个调和函数 $h(x;y)$，满足 $\Delta h&#x3D;0$，对 $h, u$ 应用 Green 第二公式，先考虑 $f\equiv 0$ 的情况：</p>
+<p>$$<br>\int_{\partial\Omega}^{}u\frac{\partial h}{\partial\nu}-h\frac{\partial u}{\partial\nu}dS&#x3D;0<br>$$</p>
+<p>要求 $G|_{\partial \Omega}&#x3D;0$，可得：</p>
+<p>$$<br>u(y)&#x3D;\int_{\partial\Omega}^{}\varphi\left(x\right)\frac{\partial G}{\partial\nu}dS<br>$$</p>
+<p>一般的：<a href="assets/PDE-20230804142154-8fruti8.pdf?p=140">PDE.pdf - p140 - PDE-P140-20230808110623</a><br>​<img src="/assets/PDE-P140-20230808110623-20230808110627-mq87mq1.png">​</p>
+<p>因此，问题转换为求解一个的 Dirichlet 问题，即求出特定区域上的 Green 函数。</p>
+<p><a href="assets/PDE-20230804142154-8fruti8.pdf?p=141">PDE.pdf - p141 - PDE-P141-20230808105512</a><br>​<img src="/assets/PDE-P141-20230808105512-20230808105516-dtv2fn4.png">​</p>
+<h3 id="球上的-Green-函数、Poisson-积分公式"><a href="#球上的-Green-函数、Poisson-积分公式" class="headerlink" title="球上的 Green 函数、Poisson 积分公式"></a>球上的 Green 函数、Poisson 积分公式</h3><p>当区域为球时，可以使用<strong>镜像法</strong>来求 Green 函数。<a href="assets/PDE-20230804142154-8fruti8.pdf?p=142">PDE.pdf - p142 - PDE-P142-20230808111049</a><br>​<img src="/assets/PDE-P142-20230808111049-20230808111051-ejdecbp.png">​</p>
+<p>分两种情况：</p>
+<ol>
+<li>$y\ne 0$, $G(x,y)&#x3D;k\left(\left|x-y\right|\right)-k\left(\frac{\left|y\right|}{R}\left|x-\bar{y}\right|\right)$​</li>
+<li>$y&#x3D;0$, $G(x,y) &#x3D; k(|x|) - k(R)$</li>
+</ol>
+<p>直接得到 Poisson 公式：</p>
+<p>三维情况：<a href="assets/PDE-20230804142154-8fruti8.pdf?p=143">PDE.pdf - p143 - PDE-P143-20230808111834</a><br>​<img src="/assets/PDE-P143-20230808111834-20230808111836-xx6o93c.png">​</p>
+<p>二维情况：<a href="assets/PDE-20230804142154-8fruti8.pdf?p=144">PDE.pdf - p144 - PDE-P144-20230808111855</a><br>​<img src="/assets/PDE-P144-20230808111855-20230808111857-2vbip2i.png">​</p>
+<h3 id="上半空间的-Green-函数"><a href="#上半空间的-Green-函数" class="headerlink" title="上半空间的 Green 函数"></a>上半空间的 Green 函数</h3><p><a href="assets/PDE-20230804142154-8fruti8.pdf?p=144">PDE.pdf - p144 - PDE-P144-20230808111411</a><br>​<img src="/assets/PDE-P144-20230808111411-20230808111413-rb45wia.png">​</p>
+<p>定义 Green 函数为</p>
+<p>$$<br>G(x, y) &#x3D; k (x-y) - k (x - y^*)<br>$$</p>
+<p>Poisson 公式：<a href="assets/PDE-20230804142154-8fruti8.pdf?p=145">PDE.pdf - p145 - PDE-P145-20230808112021</a><br>​<img src="/assets/PDE-P145-20230808112021-20230808112023-fz9y67m.png">​</p>
+<h3 id="能量法"><a href="#能量法" class="headerlink" title="能量法"></a>能量法</h3><p>用能量法，也能得到解的存在性和唯一性。</p>
+<ol>
+<li>唯一性：通过 Green 公式可以直接得到。$0&#x3D;\int_{\Omega}^{}w\Delta w\mathrm{d}x&#x3D;\int_{\Omega}^{}\left|Dw\right|^2\mathrm{d}x$</li>
+</ol>
+<p>Dirichlet 原理：能量泛函定义为</p>
+<p>$$<br>I[w]&#x3D;\int_{\Omega}^{}\left(\frac12\left|Dw\right|^2-wf\right)\mathrm{d}x<br>$$</p>
+<p>其中的 $w\in A&#x3D;\left\lbrace w|_{\partial\Omega}&#x3D;\varphi\right\rbrace$，假设 $u$ 是 Dirichlet 问题的解，那么 $u$ 满足 $I[u]&#x3D;\min I[w]$，反之亦然。</p>
+<blockquote>
+<p><a href="assets/PDE-20230804142154-8fruti8.pdf?p=148">PDE.pdf - p148 - PDE-P148-20230808112645</a><br>​<img src="/assets/PDE-P148-20230808112645-20230808112648-hzjesmv.png">​</p>
+</blockquote>
+<h2 id="调和函数的基本性质"><a href="#调和函数的基本性质" class="headerlink" title="调和函数的基本性质"></a>调和函数的基本性质</h2><h3 id="逆平均值性质"><a href="#逆平均值性质" class="headerlink" title="逆平均值性质"></a>逆平均值性质</h3><p>从之前的讨论中知道，调和函数具有平均值性质：</p>
+<blockquote>
+<h3 id="平均值等式-1"><a href="#平均值等式-1" class="headerlink" title="平均值等式"></a>平均值等式</h3><p>设 $u\in C^2$，在 $\Omega$ 中满足</p>
+<p>$$<br>-\Delta u&#x3D;0(\le 0)<br>$$</p>
+<p>那么对于任何一个球 $B_R(y)\sub \Omega$，都有：</p>
+<p>$$<br>u(y)&#x3D;(\le)\frac{1}{n\omega_{n}R^{n-1}}\int_{\partial B_{n}}^{}udS<br>$$</p>
+<p>和</p>
+<p>$$<br>u(y)&#x3D;(\le)\frac{1}{\omega_{n}R^{n}}\int_{B_{R}}^{}u\mathrm{d}x<br>$$</p>
+<p>等号成立时，称为平均值定理。</p>
+</blockquote>
+<p>但是并没有给出其逆定理。</p>
+<p><strong>逆平均值定理</strong>：设 $u$ 连续，且对于任意一个 $B &#x3D; B_R(y) \subset \Omega$，都满足平均值等式，那么 $u$ 在 $\Omega$ 内调和。</p>
+<p>另外，假设调和函数列 $u_n\rightarrow u$ 一致收敛，那么 $u$ 是调和函数。</p>
+<p><a href="assets/PDE-20230804142154-8fruti8.pdf?p=150">PDE.pdf - p150 - PDE-P150-20230808145235</a><br>​<img src="/assets/PDE-P150-20230808145235-20230808145236-0epamw2.png"></p>
+<h3 id="Harnack不等式"><a href="#Harnack不等式" class="headerlink" title="Harnack不等式"></a>Harnack不等式</h3><blockquote>
+<p>一个非负调和函数在其调和区域内一个紧子域上的最大值，可以被其最小值乘以一个与函数无关的常数界定。</p>
+</blockquote>
+<p><a href="assets/PDE-20230804142154-8fruti8.pdf?p=150">PDE.pdf - p150 - PDE-P150-20230808145422</a><br>​<img src="/assets/PDE-P150-20230808145422-20230808145423-q5b5g8h.png">​</p>
+<h3 id="Liouville-定理"><a href="#Liouville-定理" class="headerlink" title="Liouville 定理"></a>Liouville 定理</h3><p><strong>Liouville 定理</strong>：全空间$\mathbb{R}^{n}$上的有界调和函数一定是常数。</p>
+<h3 id="奇点可去性"><a href="#奇点可去性" class="headerlink" title="奇点可去性"></a>奇点可去性</h3><p>假设$u$在$\Omega-\left\lbrace x_0\right\rbrace$调和，在$x_0$有：</p>
+<p>$$<br>\lim_{x\to x_0}\left|x-x_0\right|^{n-2}u\left(x\right)&#x3D;0,n&gt;2<br>$$</p>
+<p>那么可以重新定义$u$在$x_0$的值，使得$u$在$\Omega$中调和。</p>
+<h3 id="正则性"><a href="#正则性" class="headerlink" title="正则性"></a>正则性</h3><p>调和函数是无穷次可微的。</p>
+<h3 id="局部微商估计"><a href="#局部微商估计" class="headerlink" title="局部微商估计"></a>局部微商估计</h3><p>对于每个球$B_r$，满足$|\alpha|&#x3D;k$的多重指标，</p>
+<p>$$<br>\left|D^{\alpha}u\left(x_0\right)\right|\le\frac{C_{k}}{r^{n+k}}|u|_{L^1}<br>$$</p>
+<h3 id="解析性"><a href="#解析性" class="headerlink" title="解析性"></a>解析性</h3><p>调和函数都是解析的。</p>
+<h2 id="Hopf最大值原理及其应用"><a href="#Hopf最大值原理及其应用" class="headerlink" title="Hopf最大值原理及其应用"></a>Hopf最大值原理及其应用</h2><h3 id="Hopf最大值原理"><a href="#Hopf最大值原理" class="headerlink" title="Hopf最大值原理"></a>Hopf最大值原理</h3><p>调和方程描述的稳定的温度分布，通过最大值&#x2F;最小值原理可知，温度的最高点和最低点一定在边界上取得。</p>
+<p><strong>Hopf引理</strong>：设$B_R(y)\subset R^n$，在其中$-\Delta u \le 0$，假设有边界点$x_0$，以及</p>
+<ol>
+<li>$u\in C(\bar B_R)$</li>
+<li>$\forall x \in B_R, u(x_0) &gt; u(x)$</li>
+</ol>
+<p>若$u$在$x_0$沿着外法向的微商存在，那么$\frac{\partial u}{\partial\nu}&gt;0$</p>
+<p><strong>Hopf最大最小值原理</strong>：设在$\Omega$中$-\Delta u \le 0$，$x_0 \in \partial \Omega$且：</p>
+<ol>
+<li>$u$在$x_0$连续</li>
+<li>对所有的$x$，有$u(x_0) &gt; u(x)$​</li>
+<li>$\Omega$在$x_0$满足内部球条件</li>
+</ol>
+<p>那么$u$在$x_0$的外法向微商若存在，则满足$\frac{\partial u}{\partial\nu}&gt;0$  </p>
+<h3 id="Hopf原理应用"><a href="#Hopf原理应用" class="headerlink" title="Hopf原理应用"></a>Hopf原理应用</h3><p><a href="assets/PDE-20230804142154-8fruti8.pdf?p=163">PDE.pdf - p163 - PDE-P163-20230809111748</a><br>​<img src="/assets/PDE-P163-20230809111748-20230809111751-ui0lq8w.png">​</p>
+<p>第二边值问题的解，除去一个常数是唯一的</p>
+<h2 id="位势方程的弱解"><a href="#位势方程的弱解" class="headerlink" title="位势方程的弱解"></a>位势方程的弱解</h2><h3 id="伴随微分算子"><a href="#伴随微分算子" class="headerlink" title="伴随微分算子"></a>伴随微分算子</h3><p>考察齐次边界的函数类：$D &#x3D; C_0^2(\Omega)$</p>
+<p>$L_2$内积：</p>
+<p>$$<br>(u, v) &#x3D; \int _ {\Omega} uv \mathrm dx<br>$$</p>
+<p>伴随微分算子：对于任意的$u, v$都有：</p>
+<p>$$<br>(L u , v)  &#x3D; (u, L^*v)<br>$$</p>
+<p>一般的二阶偏微分算子：</p>
+<p><a href="assets/PDE-20230804142154-8fruti8.pdf?p=164">PDE.pdf - p164 - PDE-P164-20230809112250</a><br>​<img src="/assets/PDE-P164-20230809112250-20230809112252-djc45ds.png">​</p>
+<p>Laplace 算子、波动算子都是自伴随微分算子。</p>
+<h3 id="弱微商"><a href="#弱微商" class="headerlink" title="弱微商"></a>弱微商</h3><p>设$u, \psi \in L^1_{loc}$，等式</p>
+<p>$$<br>\int_{\Omega}^{}uD^{\alpha}\varphi dx&#x3D;\left(-1\right)^{\left|\alpha\right|}\int_{\Omega}^{}\psi\varphi dx<br>$$</p>
+<p>对任意的$\varphi \in C_0 ^{|\alpha|}(\Omega)$成立，那么称$\psi$为$u$的$\alpha$弱微商。</p>
+<p><a href="assets/PDE-20230804142154-8fruti8.pdf?p=166">PDE.pdf - p166 - PDE-P166-20230809114813</a><br>​<img src="/assets/PDE-P166-20230809114813-20230809114815-1jleqeg.png">​</p>
+<p>‍</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/tags/">Tag</a></li>
+        
+          <li><a href="/categories/">Category</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">基本解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%A7%A3%E3%80%81Green-%E5%85%AC%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">基本解、Green 公式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E5%92%8C%E5%87%BD%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">调和函数的基本积分公式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E5%80%BC%E7%AD%89%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">平均值等式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E3%80%81%E6%9C%80%E5%B0%8F%E5%80%BC%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">最大、最小值原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Green-%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">Green 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Green-%E5%87%BD%E6%95%B0%E7%9A%84%E5%AF%BC%E5%87%BA%E4%B8%8E%E6%80%A7%E8%B4%A8"><span class="toc-number">2.1.</span> <span class="toc-text">Green 函数的导出与性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%83%E4%B8%8A%E7%9A%84-Green-%E5%87%BD%E6%95%B0%E3%80%81Poisson-%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">球上的 Green 函数、Poisson 积分公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E5%8D%8A%E7%A9%BA%E9%97%B4%E7%9A%84-Green-%E5%87%BD%E6%95%B0"><span class="toc-number">2.3.</span> <span class="toc-text">上半空间的 Green 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%BD%E9%87%8F%E6%B3%95"><span class="toc-number">2.4.</span> <span class="toc-text">能量法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E5%92%8C%E5%87%BD%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">3.</span> <span class="toc-text">调和函数的基本性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%86%E5%B9%B3%E5%9D%87%E5%80%BC%E6%80%A7%E8%B4%A8"><span class="toc-number">3.1.</span> <span class="toc-text">逆平均值性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E5%80%BC%E7%AD%89%E5%BC%8F-1"><span class="toc-number">3.2.</span> <span class="toc-text">平均值等式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Harnack%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="toc-number">3.3.</span> <span class="toc-text">Harnack不等式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Liouville-%E5%AE%9A%E7%90%86"><span class="toc-number">3.4.</span> <span class="toc-text">Liouville 定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%87%E7%82%B9%E5%8F%AF%E5%8E%BB%E6%80%A7"><span class="toc-number">3.5.</span> <span class="toc-text">奇点可去性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E6%80%A7"><span class="toc-number">3.6.</span> <span class="toc-text">正则性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E5%BE%AE%E5%95%86%E4%BC%B0%E8%AE%A1"><span class="toc-number">3.7.</span> <span class="toc-text">局部微商估计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E6%80%A7"><span class="toc-number">3.8.</span> <span class="toc-text">解析性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hopf%E6%9C%80%E5%A4%A7%E5%80%BC%E5%8E%9F%E7%90%86%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">Hopf最大值原理及其应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hopf%E6%9C%80%E5%A4%A7%E5%80%BC%E5%8E%9F%E7%90%86"><span class="toc-number">4.1.</span> <span class="toc-text">Hopf最大值原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hopf%E5%8E%9F%E7%90%86%E5%BA%94%E7%94%A8"><span class="toc-number">4.2.</span> <span class="toc-text">Hopf原理应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8D%E5%8A%BF%E6%96%B9%E7%A8%8B%E7%9A%84%E5%BC%B1%E8%A7%A3"><span class="toc-number">5.</span> <span class="toc-text">位势方程的弱解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%B4%E9%9A%8F%E5%BE%AE%E5%88%86%E7%AE%97%E5%AD%90"><span class="toc-number">5.1.</span> <span class="toc-text">伴随微分算子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%B1%E5%BE%AE%E5%95%86"><span class="toc-number">5.2.</span> <span class="toc-text">弱微商</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/08/07/position-equation-19h4du/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&text=06. 位势方程"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&title=06. 位势方程"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&is_video=false&description=06. 位势方程"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=06. 位势方程&body=Check out this article: https://adversarr.github.io/2023/08/07/position-equation-19h4du/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&title=06. 位势方程"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&title=06. 位势方程"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&title=06. 位势方程"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&title=06. 位势方程"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&name=06. 位势方程&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/08/07/position-equation-19h4du/&t=06. 位势方程"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2023
+    Adversarr
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
