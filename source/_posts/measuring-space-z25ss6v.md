@@ -1,3 +1,9 @@
+---
+title: 度量空间
+date: 2023-02-22T19:02:05Z
+lastmod: 2023-08-17T10:27:20Z
+---
+
 
 
 ## 压缩映像原理
@@ -205,6 +211,42 @@ $F$ 是连续函数，且 $F(a) > \| \sum a_i e_i \| - \| x\|\ge c_1 |a| - \| x\
 Riesz 引理：
 
 * 如果 $X_0$ 是 $X$ 的一个真闭子空间，那么对于 $\forall 0 < \varepsilon < 1, \exists y \in X, \| y \| = 1 , \| y - x\| \ge 1-\varepsilon$
+
+## 凸集和不动点
+
+### 定义和基本性质
+
+**凸集、凸包、凸组合**
+
+1. 定义？
+2. 凸集的任意并集也是凸集
+3. 凸包：集合中元素的任意凸组合的全体
+
+**Minkowski泛函**
+
+* 定义：$P(x) = \inf \{ \lambda > 0| x/\lambda \in C , x \in X\}$（其中$C \subset X$是凸集）
+* 性质：正齐次性、次可加性、$P(x) \in [0, \infty], P(\theta) = 0$
+* 问：何时$P(x)$成为函数，即何时$P < \infty$？
+
+**（实线性空间上、凸集的）吸收性、对称性、（复线性空间）均衡**
+
+* 定义：吸收是指$P$是函数，即$\forall x, \exists \lambda x/ \lambda \in C$；对称是指，$x \in C \iff -x \in C$​
+* Prop：吸收$\iff P$是函数、对称$\Rightarrow P$是齐次的；
+* 均衡的定义：$x \in C \Rightarrow \alpha x \in C, \forall |\alpha | = 1$​
+* Prop：复线性空间上的一个均衡吸收凸集$C$决定了一个半模（Minkowski泛函）
+
+对于线性赋范空间中的凸集，有更强的结果：
+
+* 设$X$是一个B*空间，$C$是一个含有$\theta$点的闭凸集，$P$是下半连续的，并且
+
+  $$
+  C=\left\lbrace x\in X{|}P\left(x\right)\le1\right\rbrace
+  $$
+
+  如果$C$还是有界的，那么$P= 0 \iff x = \theta$  
+
+  如果$C$还以$\theta$为内点，那么$C$是吸收的、并且$P$一致连续
+* 若$C$ 是$R^n$中的一个紧凸子集，那么存在一个正整数$m\le n$，使得$C$同胚于$R^m$中的单位球
 
 ‍
 
