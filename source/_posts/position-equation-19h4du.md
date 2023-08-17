@@ -1,13 +1,10 @@
 ---
-title: ' 位势方程'
-updated: '2023-08-08'
-excerpt: ''
-permalink: /post/position-equation-19h4du.html
-comments: true
-toc: true
+title: 06. 位势方程
+date: 2023-08-07T10:35:26Z
+lastmod: 2023-08-09T11:48:17Z
 ---
 
-#  位势方程
+
 
 位势方程：
 
@@ -94,6 +91,12 @@ $$
 
 $$
 u(y)=(\le)\frac{1}{n\omega_{n}R^{n-1}}\int_{\partial B_{n}}^{}udS
+$$
+
+和
+
+$$
+u(y)=(\le)\frac{1}{\omega_{n}R^{n}}\int_{B_{R}}^{}u\mathrm{d}x
 $$
 
 等号成立时，称为平均值定理。
@@ -204,7 +207,7 @@ Poisson 公式：[PDE.pdf - p145 - PDE-P145-20230808112021](assets/PDE-202308041
 
 用能量法，也能得到解的存在性和唯一性。
 
-1. 唯一性：通过Green公式可以直接得到。$0=\int_{\Omega}^{}w\Delta w\mathrm{d}x=\int_{\Omega}^{}\left|Dw\right|^2\mathrm{d}x$
+1. 唯一性：通过 Green 公式可以直接得到。$0=\int_{\Omega}^{}w\Delta w\mathrm{d}x=\int_{\Omega}^{}\left|Dw\right|^2\mathrm{d}x$
 
 Dirichlet 原理：能量泛函定义为
 
@@ -212,11 +215,149 @@ $$
 I[w]=\int_{\Omega}^{}\left(\frac12\left|Dw\right|^2-wf\right)\mathrm{d}x
 $$
 
-其中的$w\in A=\left\lbrace w|_{\partial\Omega}=\varphi\right\rbrace$，假设$u$是Dirichlet问题的解，那么$u$满足$I[u]=\min I[w]$，反之亦然。
+其中的 $w\in A=\left\lbrace w|_{\partial\Omega}=\varphi\right\rbrace$，假设 $u$ 是 Dirichlet 问题的解，那么 $u$ 满足 $I[u]=\min I[w]$，反之亦然。
 
-> [PDE.pdf - p148 - PDE-P148-20230808112645](assets/PDE-20230804142154-8fruti8.pdf?p=148)  
+> [PDE.pdf - p148 - PDE-P148-20230808112645](assets/PDE-20230804142154-8fruti8.pdf?p=148)
 > ​![](assets/PDE-P148-20230808112645-20230808112648-hzjesmv.png)​
 
 ## 调和函数的基本性质
+
+### 逆平均值性质
+
+从之前的讨论中知道，调和函数具有平均值性质：
+
+> ### 平均值等式
+>
+> 设 $u\in C^2$，在 $\Omega$ 中满足
+>
+> $$
+> -\Delta u=0(\le 0)
+> $$
+>
+> 那么对于任何一个球 $B_R(y)\sub \Omega$，都有：
+>
+> $$
+> u(y)=(\le)\frac{1}{n\omega_{n}R^{n-1}}\int_{\partial B_{n}}^{}udS
+> $$
+>
+> 和
+>
+> $$
+> u(y)=(\le)\frac{1}{\omega_{n}R^{n}}\int_{B_{R}}^{}u\mathrm{d}x
+> $$
+>
+> 等号成立时，称为平均值定理。
+
+但是并没有给出其逆定理。
+
+**逆平均值定理**：设 $u$ 连续，且对于任意一个 $B = B_R(y) \subset \Omega$，都满足平均值等式，那么 $u$ 在 $\Omega$ 内调和。
+
+另外，假设调和函数列 $u_n\rightarrow u$ 一致收敛，那么 $u$ 是调和函数。
+
+[PDE.pdf - p150 - PDE-P150-20230808145235](assets/PDE-20230804142154-8fruti8.pdf?p=150)  
+​![](assets/PDE-P150-20230808145235-20230808145236-0epamw2.png)
+
+### Harnack不等式
+
+> 一个非负调和函数在其调和区域内一个紧子域上的最大值，可以被其最小值乘以一个与函数无关的常数界定。
+
+[PDE.pdf - p150 - PDE-P150-20230808145422](assets/PDE-20230804142154-8fruti8.pdf?p=150)  
+​![](assets/PDE-P150-20230808145422-20230808145423-q5b5g8h.png)​
+
+### Liouville 定理
+
+**Liouville 定理**：全空间$\mathbb{R}^{n}$上的有界调和函数一定是常数。
+
+### 奇点可去性
+
+假设$u$在$\Omega-\left\lbrace x_0\right\rbrace$调和，在$x_0$有：
+
+$$
+\lim_{x\to x_0}\left|x-x_0\right|^{n-2}u\left(x\right)=0,n>2
+$$
+
+那么可以重新定义$u$在$x_0$的值，使得$u$在$\Omega$中调和。
+
+### 正则性
+
+调和函数是无穷次可微的。
+
+### 局部微商估计
+
+对于每个球$B_r$，满足$|\alpha|=k$的多重指标，
+
+$$
+\left|D^{\alpha}u\left(x_0\right)\right|\le\frac{C_{k}}{r^{n+k}}\|u\|_{L^1}
+$$
+
+### 解析性
+
+调和函数都是解析的。
+
+## Hopf最大值原理及其应用
+
+### Hopf最大值原理
+
+调和方程描述的稳定的温度分布，通过最大值/最小值原理可知，温度的最高点和最低点一定在边界上取得。
+
+**Hopf引理**：设$B_R(y)\subset R^n$，在其中$-\Delta u \le 0$，假设有边界点$x_0$，以及
+
+1. $u\in C(\bar B_R)$
+2. $\forall x \in B_R, u(x_0) > u(x)$
+
+若$u$在$x_0$沿着外法向的微商存在，那么$\frac{\partial u}{\partial\nu}>0$
+
+**Hopf最大最小值原理**：设在$\Omega$中$-\Delta u \le 0$，$x_0 \in \partial \Omega$且：
+
+1. $u$在$x_0$连续
+2. 对所有的$x$，有$u(x_0) > u(x)$​
+3. $\Omega$在$x_0$满足内部球条件
+
+那么$u$在$x_0$的外法向微商若存在，则满足$\frac{\partial u}{\partial\nu}>0$  
+
+### Hopf原理应用
+
+[PDE.pdf - p163 - PDE-P163-20230809111748](assets/PDE-20230804142154-8fruti8.pdf?p=163)  
+​![](assets/PDE-P163-20230809111748-20230809111751-ui0lq8w.png)​
+
+第二边值问题的解，除去一个常数是唯一的
+
+## 位势方程的弱解
+
+### 伴随微分算子
+
+考察齐次边界的函数类：$D = C_0^2(\Omega)$
+
+$L_2$内积：
+
+$$
+(u, v) = \int _ {\Omega} uv \mathrm dx
+$$
+
+伴随微分算子：对于任意的$u, v$都有：
+
+$$
+(L u , v)  = (u, L^*v)
+$$
+
+一般的二阶偏微分算子：
+
+[PDE.pdf - p164 - PDE-P164-20230809112250](assets/PDE-20230804142154-8fruti8.pdf?p=164)  
+​![](assets/PDE-P164-20230809112250-20230809112252-djc45ds.png)​
+
+Laplace 算子、波动算子都是自伴随微分算子。
+
+### 弱微商
+
+设$u, \psi \in L^1_{loc}$，等式
+
+$$
+\int_{\Omega}^{}uD^{\alpha}\varphi dx=\left(-1\right)^{\left|\alpha\right|}\int_{\Omega}^{}\psi\varphi dx
+$$
+
+对任意的$\varphi \in C_0 ^{|\alpha|}(\Omega)$成立，那么称$\psi$为$u$的$\alpha$弱微商。
+
+[PDE.pdf - p166 - PDE-P166-20230809114813](assets/PDE-20230804142154-8fruti8.pdf?p=166)  
+​![](assets/PDE-P166-20230809114813-20230809114815-1jleqeg.png)​
 
 ‍
