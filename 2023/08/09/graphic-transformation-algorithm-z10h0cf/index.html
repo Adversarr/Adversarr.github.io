@@ -6,33 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="包括视点变换、世界坐标变换、局部坐标变换等各种矩阵变换方法；  一般的，有如下几个坐标系之间需要相互转化：  模型坐标系 世界坐标系 Eye coordinates Clip coordinates NDC Window coordinates.  齐次坐标 考虑两个坐标系之间的转化： \[ \begin{bmatrix}u_1\\ u_2\\ u_3\end{bmatrix} &#x3D; M \beg">
+    <meta name="description" content="图形变换算法  包括视点变换、世界坐标变换、局部坐标变换等各种矩阵变换方法；  一般的，有如下几个坐标系之间需要相互转化：  模型坐标系 世界坐标系 Eye coordinates Clip coordinates NDC Window coordinates.  齐次坐标 考虑两个坐标系之间的转化： \[ \begin{bmatrix}u_1\\ u_2\\ u_3\end{bmatrix} &#x3D;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图形变换算法">
-<meta property="og:url" content="https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html">
+<meta property="og:url" content="https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/index.html">
 <meta property="og:site_name" content="Adversarr&#39;s Blog">
-<meta property="og:description" content="包括视点变换、世界坐标变换、局部坐标变换等各种矩阵变换方法；  一般的，有如下几个坐标系之间需要相互转化：  模型坐标系 世界坐标系 Eye coordinates Clip coordinates NDC Window coordinates.  齐次坐标 考虑两个坐标系之间的转化： \[ \begin{bmatrix}u_1\\ u_2\\ u_3\end{bmatrix} &#x3D; M \beg">
+<meta property="og:description" content="图形变换算法  包括视点变换、世界坐标变换、局部坐标变换等各种矩阵变换方法；  一般的，有如下几个坐标系之间需要相互转化：  模型坐标系 世界坐标系 Eye coordinates Clip coordinates NDC Window coordinates.  齐次坐标 考虑两个坐标系之间的转化： \[ \begin{bmatrix}u_1\\ u_2\\ u_3\end{bmatrix} &#x3D;">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230811161310-dt508l5.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230811162708-mw83uf9.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230811163152-e03be6w.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230811163148-4thudqd.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230811163200-9qseiro.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230814155754-rxl0joz.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230814155859-6eh5pu0.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230814160341-5s5oknr.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230814161642-59uzx5m.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230814161648-z4qawdx.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230814173621-iknmmdr.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230814173626-llgwro5.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230814173745-5qx890u.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230815101557-jmiuyum.png">
-<meta property="og:image" content="https://adversarr.github.io/post/assets/image-20230815105743-9ecc72j.png">
 <meta property="article:published_time" content="2023-08-09T03:01:58.000Z">
-<meta property="article:modified_time" content="2023-08-29T07:46:09.000Z">
+<meta property="article:modified_time" content="2023-08-29T08:12:15.000Z">
 <meta property="article:author" content="Adversarr">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://adversarr.github.io/post/assets/image-20230811161310-dt508l5.png">
     
     
       
@@ -129,24 +113,24 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&text=图形变换算法"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&title=图形变换算法"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&is_video=false&description=图形变换算法"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=图形变换算法&body=Check out this article: https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&title=图形变换算法"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&title=图形变换算法"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&title=图形变换算法"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&title=图形变换算法"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&name=图形变换算法&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&t=图形变换算法"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&text=图形变换算法"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&title=图形变换算法"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&is_video=false&description=图形变换算法"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=图形变换算法&body=Check out this article: https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&title=图形变换算法"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&title=图形变换算法"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&title=图形变换算法"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&title=图形变换算法"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&name=图形变换算法&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&t=图形变换算法"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BD%90%E6%AC%A1%E5%9D%90%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">齐次坐标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E7%A7%BB"><span class="toc-number">1.1.</span> <span class="toc-text">平移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC"><span class="toc-number">1.2.</span> <span class="toc-text">旋转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%A9%E6%94%BE%E7%9F%A9%E9%98%B5"><span class="toc-number">1.3.</span> <span class="toc-text">缩放矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E6%97%8B%E8%BD%AC"><span class="toc-number">1.4.</span> <span class="toc-text">复杂旋转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E6%97%8B%E8%BD%AC%E5%85%AC%E5%BC%8F"><span class="toc-number">1.5.</span> <span class="toc-text">向量旋转公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E5%85%89%E6%BB%91%E6%97%8B%E8%BD%AC"><span class="toc-number">2.</span> <span class="toc-text">四元数、光滑旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E8%A1%A8%E7%A4%BA%E6%97%8B%E8%BD%AC"><span class="toc-number">2.1.</span> <span class="toc-text">四元数表示旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E5%A4%8D%E5%90%88"><span class="toc-number">2.1.1.</span> <span class="toc-text">旋转复合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E5%80%8D%E8%A6%86%E7%9B%96"><span class="toc-number">2.1.2.</span> <span class="toc-text">双倍覆盖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E5%BD%A2%E5%BC%8F"><span class="toc-number">2.1.3.</span> <span class="toc-text">指数形式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E6%97%8B%E8%BD%AC%E6%8F%92%E5%80%BC"><span class="toc-number">2.2.</span> <span class="toc-text">四元数旋转插值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lerp-nlerp-slerp"><span class="toc-number">2.3.</span> <span class="toc-text">Lerp Nlerp Slerp</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#lerp"><span class="toc-number">2.3.1.</span> <span class="toc-text">Lerp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nlerp"><span class="toc-number">2.3.2.</span> <span class="toc-text">NLerp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#slerp"><span class="toc-number">2.3.3.</span> <span class="toc-text">Slerp</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%8F%98%E6%8D%A2"><span class="toc-number">3.</span> <span class="toc-text">图形变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%82%E5%AF%9Fviewing"><span class="toc-number">3.1.</span> <span class="toc-text">观察（Viewing）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%8C%E6%8A%95%E5%BD%B1"><span class="toc-number">3.1.1.</span> <span class="toc-text">平行投影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%8F%E8%A7%86"><span class="toc-number">3.1.2.</span> <span class="toc-text">透视</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E7%85%A7%E7%9B%B8%E6%9C%BA"><span class="toc-number">3.2.</span> <span class="toc-text">定位照相机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%8A%95%E5%BD%B1"><span class="toc-number">3.3.</span> <span class="toc-text">简单投影</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1"><span class="toc-number">3.3.1.</span> <span class="toc-text">透视投影</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#opengl-%E6%8A%95%E5%BD%B1"><span class="toc-number">3.4.</span> <span class="toc-text">Opengl 投影</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5"><span class="toc-number">3.5.</span> <span class="toc-text">投影矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%8C%E6%8A%95%E5%BD%B1-1"><span class="toc-number">3.5.1.</span> <span class="toc-text">平行投影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%95%E5%BD%B1%E8%A7%84%E8%8C%83%E5%8C%96"><span class="toc-number">3.5.2.</span> <span class="toc-text">投影规范化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1"><span class="toc-number">3.5.3.</span> <span class="toc-text">正交投影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%9C%E6%8A%95%E5%BD%B1"><span class="toc-number">3.5.4.</span> <span class="toc-text">斜投影</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1-1"><span class="toc-number">3.6.</span> <span class="toc-text">透视投影</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E9%9D%A2%E6%B6%88%E9%99%A4"><span class="toc-number">4.</span> <span class="toc-text">隐藏面消除</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%8F%98%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">图形变换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BD%90%E6%AC%A1%E5%9D%90%E6%A0%87"><span class="toc-number">1.1.</span> <span class="toc-text">齐次坐标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E7%A7%BB"><span class="toc-number">1.1.1.</span> <span class="toc-text">平移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC"><span class="toc-number">1.1.2.</span> <span class="toc-text">旋转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%A9%E6%94%BE%E7%9F%A9%E9%98%B5"><span class="toc-number">1.1.3.</span> <span class="toc-text">缩放矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E6%97%8B%E8%BD%AC"><span class="toc-number">1.1.4.</span> <span class="toc-text">复杂旋转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E6%97%8B%E8%BD%AC%E5%85%AC%E5%BC%8F"><span class="toc-number">1.1.5.</span> <span class="toc-text">向量旋转公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E5%85%89%E6%BB%91%E6%97%8B%E8%BD%AC"><span class="toc-number">1.2.</span> <span class="toc-text">四元数、光滑旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E8%A1%A8%E7%A4%BA%E6%97%8B%E8%BD%AC"><span class="toc-number">1.2.1.</span> <span class="toc-text">四元数表示旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E5%A4%8D%E5%90%88"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">旋转复合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E5%80%8D%E8%A6%86%E7%9B%96"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">双倍覆盖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E5%BD%A2%E5%BC%8F"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">指数形式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E6%97%8B%E8%BD%AC%E6%8F%92%E5%80%BC"><span class="toc-number">1.2.2.</span> <span class="toc-text">四元数旋转插值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lerp-nlerp-slerp"><span class="toc-number">1.2.3.</span> <span class="toc-text">Lerp Nlerp Slerp</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#lerp"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">Lerp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nlerp"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">NLerp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#slerp"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">Slerp</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%8F%98%E6%8D%A2"><span class="toc-number">1.3.</span> <span class="toc-text">图形变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%82%E5%AF%9Fviewing"><span class="toc-number">1.3.1.</span> <span class="toc-text">观察（Viewing）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%8C%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">平行投影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%8F%E8%A7%86"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">透视</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E7%85%A7%E7%9B%B8%E6%9C%BA"><span class="toc-number">1.3.2.</span> <span class="toc-text">定位照相机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.3.</span> <span class="toc-text">简单投影</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">透视投影</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#opengl-%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.4.</span> <span class="toc-text">Opengl 投影</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5"><span class="toc-number">1.3.5.</span> <span class="toc-text">投影矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%8C%E6%8A%95%E5%BD%B1-1"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">平行投影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%95%E5%BD%B1%E8%A7%84%E8%8C%83%E5%8C%96"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">投影规范化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.5.3.</span> <span class="toc-text">正交投影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%9C%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.5.4.</span> <span class="toc-text">斜投影</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1-1"><span class="toc-number">1.3.6.</span> <span class="toc-text">透视投影</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E9%9D%A2%E6%B6%88%E9%99%A4"><span class="toc-number">1.4.</span> <span class="toc-text">隐藏面消除</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -186,7 +170,8 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <blockquote>
+    <h1 id="图形变换算法">图形变换算法</h1>
+<blockquote>
 <p>包括视点变换、世界坐标变换、局部坐标变换等各种矩阵变换方法；</p>
 </blockquote>
 <p>一般的，有如下几个坐标系之间需要相互转化：</p>
@@ -407,7 +392,9 @@ class="math inline">\(q_1\)</span>，希望找到一些中间的变换<span
 class="math inline">\(q_t\)</span>。它可以将<span
 class="math inline">\(v_0 \rightarrow v_1\)</span>按照旋转插值到<span
 class="math inline">\(v_t\)</span>。</p>
-<p>​<img src="assets/image-20230811161310-dt508l5.png" alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230811161310-dt508l5.png"
+alt="image" />​</p>
 <p>显然：</p>
 <p><span class="math display">\[
 q_1vq_1^{*}=\Delta qq_0vq_0^{\ast}\left(\Delta q\right)^{*}\implies
@@ -419,25 +406,33 @@ q_ t = (q_1 q_0 ^*)^t q_0
 \]</span></p>
 <p>在本质上，<span class="math inline">\(q_0,
 q_1\)</span>仅能张成一个4d空间内的2d的超平面，因此可以在圆上考虑旋转差值：</p>
-<p>​<img src="assets/image-20230811162708-mw83uf9.png" alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230811162708-mw83uf9.png"
+alt="image" />​</p>
 <p>其中的<span class="math inline">\(\theta\)</span>可以通过 <span
 class="math inline">\(q_0\cdot q_1\)</span>
 计算得到。而恰巧的是，该角度刚刚好是<span class="math inline">\(\Delta
 q\)</span>对应的旋转角度的一半。</p>
 <h3 id="lerp-nlerp-slerp">Lerp Nlerp Slerp</h3>
 <h4 id="lerp">Lerp</h4>
-<p>​<img src="assets/image-20230811163152-e03be6w.png" alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230811163152-e03be6w.png"
+alt="image" />​</p>
 <p><span class="math display">\[
 Lerp(v_0, v_1, t) = v_t = (1-t) v_0 + tv_1
 \]</span></p>
 <h4 id="nlerp">NLerp</h4>
-<p>​<img src="assets/image-20230811163148-4thudqd.png" alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230811163148-4thudqd.png"
+alt="image" />​</p>
 <p><span class="math display">\[
 Nlerp(v_0, v_1, t) = Normalize(Lerp(v_0, v_1, t))
 \]</span></p>
 <h4 id="slerp">Slerp</h4>
 <p>球面线性插值</p>
-<p>​<img src="assets/image-20230811163200-9qseiro.png" alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230811163200-9qseiro.png"
+alt="image" />​</p>
 <p><span class="math display">\[
 Slerp=\frac{\sin\left(1-t\right)\theta}{\sin\theta}v_0+\frac{\sin
 t\theta}{\sin\theta}v_1
@@ -508,15 +503,21 @@ M=\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0\\ 0 &amp; 1 &amp; 0 &amp; 0\\
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">glFrustum</span>(l, r, b, t, n ,f)</span><br></pre></td></tr></table></figure>
 <h3 id="投影矩阵">投影矩阵</h3>
 <h4 id="平行投影-1">平行投影</h4>
-<p>​<img src="assets/image-20230814155754-rxl0joz.png" alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230814155754-rxl0joz.png"
+alt="image" />​</p>
 <p><span class="math display">\[
 x,y,z\to x,y,0
 \]</span></p>
 <p>OpenGL 中的平行投影API为：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">mat4 <span class="title">Ortho</span><span class="params">(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top, GLfloat near, GLfloat far)</span></span></span><br></pre></td></tr></table></figure>
-<p>​<img src="assets/image-20230814155859-6eh5pu0.png" alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230814155859-6eh5pu0.png"
+alt="image" />​</p>
 <h4 id="投影规范化">投影规范化</h4>
-<p>​<img src="assets/image-20230814160341-5s5oknr.png" alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230814160341-5s5oknr.png"
+alt="image" />​</p>
 <p>‍</p>
 <ol type="1">
 <li>在4d空间中计算</li>
@@ -524,19 +525,31 @@ x,y,z\to x,y,0
 <li>执行投影规范化，使得需要的投影变成一个固定的正交投影</li>
 </ol>
 <h4 id="正交投影">正交投影</h4>
-<p>​<img src="assets/image-20230814161642-59uzx5m.png" alt="image" />​</p>
-<p>​<img src="assets/image-20230814161648-z4qawdx.png" alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230814161642-59uzx5m.png"
+alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230814161648-z4qawdx.png"
+alt="image" />​</p>
 <h4 id="斜投影">斜投影</h4>
 <p>类似于正投影，但涵盖一个切变变换：</p>
-<p>​<img src="assets/image-20230814173621-iknmmdr.png" alt="image" />​​</p>
-<p><img src="assets/image-20230814173626-llgwro5.png" alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230814173621-iknmmdr.png"
+alt="image" />​​</p>
+<p><img
+src="http://127.0.0.1:6806/assets/image-20230814173626-llgwro5.png"
+alt="image" />​</p>
 <h3 id="透视投影-1">透视投影</h3>
 <p>考察如下的透视投影问题：</p>
-<p>​<img src="assets/image-20230814173745-5qx890u.png" alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230814173745-5qx890u.png"
+alt="image" />​</p>
 <p>现在我们考虑：<span
 class="math inline">\(z=-near\to-1\)</span>，<span
 class="math inline">\(z=-far\to1\)</span>，即：</p>
-<p>​<img src="assets/image-20230815101557-jmiuyum.png" alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230815101557-jmiuyum.png"
+alt="image" />​</p>
 <p>只考虑z轴，矩阵为</p>
 <p><span class="math display">\[
 M=\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0\\ 0 &amp; 1 &amp; 0 &amp; 0\\
@@ -548,7 +561,9 @@ M=\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0\\ 0 &amp; 1 &amp; 0 &amp; 0\\
 \begin{cases}\alpha=-\frac{n+f}{n-f}\\ \beta=-\frac{2nf}{n-f}\end{cases}
 \]</span></p>
 <p>‍</p>
-<p>​<img src="assets/image-20230815105743-9ecc72j.png" alt="image" />​</p>
+<p>​<img
+src="http://127.0.0.1:6806/assets/image-20230815105743-9ecc72j.png"
+alt="image" />​</p>
 <h2 id="隐藏面消除">隐藏面消除</h2>
 <p>两大类：</p>
 <ol type="1">
@@ -591,23 +606,23 @@ z-buffer</li>
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BD%90%E6%AC%A1%E5%9D%90%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">齐次坐标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E7%A7%BB"><span class="toc-number">1.1.</span> <span class="toc-text">平移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC"><span class="toc-number">1.2.</span> <span class="toc-text">旋转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%A9%E6%94%BE%E7%9F%A9%E9%98%B5"><span class="toc-number">1.3.</span> <span class="toc-text">缩放矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E6%97%8B%E8%BD%AC"><span class="toc-number">1.4.</span> <span class="toc-text">复杂旋转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E6%97%8B%E8%BD%AC%E5%85%AC%E5%BC%8F"><span class="toc-number">1.5.</span> <span class="toc-text">向量旋转公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E5%85%89%E6%BB%91%E6%97%8B%E8%BD%AC"><span class="toc-number">2.</span> <span class="toc-text">四元数、光滑旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E8%A1%A8%E7%A4%BA%E6%97%8B%E8%BD%AC"><span class="toc-number">2.1.</span> <span class="toc-text">四元数表示旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E5%A4%8D%E5%90%88"><span class="toc-number">2.1.1.</span> <span class="toc-text">旋转复合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E5%80%8D%E8%A6%86%E7%9B%96"><span class="toc-number">2.1.2.</span> <span class="toc-text">双倍覆盖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E5%BD%A2%E5%BC%8F"><span class="toc-number">2.1.3.</span> <span class="toc-text">指数形式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E6%97%8B%E8%BD%AC%E6%8F%92%E5%80%BC"><span class="toc-number">2.2.</span> <span class="toc-text">四元数旋转插值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lerp-nlerp-slerp"><span class="toc-number">2.3.</span> <span class="toc-text">Lerp Nlerp Slerp</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#lerp"><span class="toc-number">2.3.1.</span> <span class="toc-text">Lerp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nlerp"><span class="toc-number">2.3.2.</span> <span class="toc-text">NLerp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#slerp"><span class="toc-number">2.3.3.</span> <span class="toc-text">Slerp</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%8F%98%E6%8D%A2"><span class="toc-number">3.</span> <span class="toc-text">图形变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%82%E5%AF%9Fviewing"><span class="toc-number">3.1.</span> <span class="toc-text">观察（Viewing）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%8C%E6%8A%95%E5%BD%B1"><span class="toc-number">3.1.1.</span> <span class="toc-text">平行投影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%8F%E8%A7%86"><span class="toc-number">3.1.2.</span> <span class="toc-text">透视</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E7%85%A7%E7%9B%B8%E6%9C%BA"><span class="toc-number">3.2.</span> <span class="toc-text">定位照相机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%8A%95%E5%BD%B1"><span class="toc-number">3.3.</span> <span class="toc-text">简单投影</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1"><span class="toc-number">3.3.1.</span> <span class="toc-text">透视投影</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#opengl-%E6%8A%95%E5%BD%B1"><span class="toc-number">3.4.</span> <span class="toc-text">Opengl 投影</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5"><span class="toc-number">3.5.</span> <span class="toc-text">投影矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%8C%E6%8A%95%E5%BD%B1-1"><span class="toc-number">3.5.1.</span> <span class="toc-text">平行投影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%95%E5%BD%B1%E8%A7%84%E8%8C%83%E5%8C%96"><span class="toc-number">3.5.2.</span> <span class="toc-text">投影规范化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1"><span class="toc-number">3.5.3.</span> <span class="toc-text">正交投影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%9C%E6%8A%95%E5%BD%B1"><span class="toc-number">3.5.4.</span> <span class="toc-text">斜投影</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1-1"><span class="toc-number">3.6.</span> <span class="toc-text">透视投影</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E9%9D%A2%E6%B6%88%E9%99%A4"><span class="toc-number">4.</span> <span class="toc-text">隐藏面消除</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%8F%98%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">图形变换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BD%90%E6%AC%A1%E5%9D%90%E6%A0%87"><span class="toc-number">1.1.</span> <span class="toc-text">齐次坐标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E7%A7%BB"><span class="toc-number">1.1.1.</span> <span class="toc-text">平移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC"><span class="toc-number">1.1.2.</span> <span class="toc-text">旋转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%A9%E6%94%BE%E7%9F%A9%E9%98%B5"><span class="toc-number">1.1.3.</span> <span class="toc-text">缩放矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E6%97%8B%E8%BD%AC"><span class="toc-number">1.1.4.</span> <span class="toc-text">复杂旋转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E6%97%8B%E8%BD%AC%E5%85%AC%E5%BC%8F"><span class="toc-number">1.1.5.</span> <span class="toc-text">向量旋转公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E5%85%89%E6%BB%91%E6%97%8B%E8%BD%AC"><span class="toc-number">1.2.</span> <span class="toc-text">四元数、光滑旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E8%A1%A8%E7%A4%BA%E6%97%8B%E8%BD%AC"><span class="toc-number">1.2.1.</span> <span class="toc-text">四元数表示旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E5%A4%8D%E5%90%88"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">旋转复合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E5%80%8D%E8%A6%86%E7%9B%96"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">双倍覆盖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E5%BD%A2%E5%BC%8F"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">指数形式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E6%97%8B%E8%BD%AC%E6%8F%92%E5%80%BC"><span class="toc-number">1.2.2.</span> <span class="toc-text">四元数旋转插值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lerp-nlerp-slerp"><span class="toc-number">1.2.3.</span> <span class="toc-text">Lerp Nlerp Slerp</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#lerp"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">Lerp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nlerp"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">NLerp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#slerp"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">Slerp</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%8F%98%E6%8D%A2"><span class="toc-number">1.3.</span> <span class="toc-text">图形变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%82%E5%AF%9Fviewing"><span class="toc-number">1.3.1.</span> <span class="toc-text">观察（Viewing）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%8C%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">平行投影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%8F%E8%A7%86"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">透视</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E7%85%A7%E7%9B%B8%E6%9C%BA"><span class="toc-number">1.3.2.</span> <span class="toc-text">定位照相机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.3.</span> <span class="toc-text">简单投影</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">透视投影</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#opengl-%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.4.</span> <span class="toc-text">Opengl 投影</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5"><span class="toc-number">1.3.5.</span> <span class="toc-text">投影矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%8C%E6%8A%95%E5%BD%B1-1"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">平行投影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%95%E5%BD%B1%E8%A7%84%E8%8C%83%E5%8C%96"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">投影规范化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.5.3.</span> <span class="toc-text">正交投影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%9C%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.5.4.</span> <span class="toc-text">斜投影</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1-1"><span class="toc-number">1.3.6.</span> <span class="toc-text">透视投影</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E9%9D%A2%E6%B6%88%E9%99%A4"><span class="toc-number">1.4.</span> <span class="toc-text">隐藏面消除</span></a></li></ol></li></ol>
       </div>
     
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&text=图形变换算法"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&title=图形变换算法"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&is_video=false&description=图形变换算法"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=图形变换算法&body=Check out this article: https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&title=图形变换算法"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&title=图形变换算法"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&title=图形变换算法"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&title=图形变换算法"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&name=图形变换算法&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/post/graphic-transformation-algorithm-z10h0cf.html&t=图形变换算法"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&text=图形变换算法"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&title=图形变换算法"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&is_video=false&description=图形变换算法"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=图形变换算法&body=Check out this article: https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&title=图形变换算法"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&title=图形变换算法"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&title=图形变换算法"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&title=图形变换算法"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&name=图形变换算法&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/08/09/graphic-transformation-algorithm-z10h0cf/&t=图形变换算法"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
