@@ -1,12 +1,11 @@
 ---
 title: 图形变换算法
 date: '2023-08-09 11:01:58'
-updated: '2023-08-29 15:46:09'
-permalink: /post/graphic-transformation-algorithm-z10h0cf.html
+updated: '2023-08-29 16:12:15'
 comments: true
 toc: true
 ---
-
+# 图形变换算法
 
 > 包括视点变换、世界坐标变换、局部坐标变换等各种矩阵变换方法；
 
@@ -249,7 +248,7 @@ $$
 
 假设有两个旋转变换，$q_0$和$q_1$，希望找到一些中间的变换$q_t$。它可以将$v_0 \rightarrow v_1$按照旋转插值到$v_t$。
 
-​![image](assets/image-20230811161310-dt508l5.png)​
+​![image](http://127.0.0.1:6806/assets/image-20230811161310-dt508l5.png)​
 
 显然：
 
@@ -265,7 +264,7 @@ $$
 
 在本质上，$q_0, q_1$仅能张成一个4d空间内的2d的超平面，因此可以在圆上考虑旋转差值：
 
-​![image](assets/image-20230811162708-mw83uf9.png)​
+​![image](http://127.0.0.1:6806/assets/image-20230811162708-mw83uf9.png)​
 
 其中的$\theta$可以通过 $q_0\cdot q_1$ 计算得到。而恰巧的是，该角度刚刚好是$\Delta q$对应的旋转角度的一半。
 
@@ -273,7 +272,7 @@ $$
 
 #### Lerp
 
-​![image](assets/image-20230811163152-e03be6w.png)​
+​![image](http://127.0.0.1:6806/assets/image-20230811163152-e03be6w.png)​
 
 $$
 Lerp(v_0, v_1, t) = v_t = (1-t) v_0 + tv_1
@@ -281,7 +280,7 @@ $$
 
 #### NLerp
 
-​![image](assets/image-20230811163148-4thudqd.png)​
+​![image](http://127.0.0.1:6806/assets/image-20230811163148-4thudqd.png)​
 
 $$
 Nlerp(v_0, v_1, t) = Normalize(Lerp(v_0, v_1, t))
@@ -291,7 +290,7 @@ $$
 
 球面线性插值
 
-​![image](assets/image-20230811163200-9qseiro.png)​
+​![image](http://127.0.0.1:6806/assets/image-20230811163200-9qseiro.png)​
 
 $$
 Slerp=\frac{\sin\left(1-t\right)\theta}{\sin\theta}v_0+\frac{\sin t\theta}{\sin\theta}v_1
@@ -381,7 +380,7 @@ glFrustum(l, r, b, t, n ,f)
 
 #### 平行投影
 
-​![image](assets/image-20230814155754-rxl0joz.png)​
+​![image](http://127.0.0.1:6806/assets/image-20230814155754-rxl0joz.png)​
 
 $$
 x,y,z\to x,y,0
@@ -393,11 +392,11 @@ OpenGL 中的平行投影API为：
 mat4 Ortho(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top, GLfloat near, GLfloat far)
 ```
 
-​![image](assets/image-20230814155859-6eh5pu0.png)​
+​![image](http://127.0.0.1:6806/assets/image-20230814155859-6eh5pu0.png)​
 
 #### 投影规范化
 
-​![image](assets/image-20230814160341-5s5oknr.png)​
+​![image](http://127.0.0.1:6806/assets/image-20230814160341-5s5oknr.png)​
 
 ‍
 
@@ -407,27 +406,27 @@ mat4 Ortho(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top, GLfloat nea
 
 #### 正交投影
 
-​![image](assets/image-20230814161642-59uzx5m.png)​
+​![image](http://127.0.0.1:6806/assets/image-20230814161642-59uzx5m.png)​
 
-​![image](assets/image-20230814161648-z4qawdx.png)​
+​![image](http://127.0.0.1:6806/assets/image-20230814161648-z4qawdx.png)​
 
 #### 斜投影
 
 类似于正投影，但涵盖一个切变变换：
 
-​![image](assets/image-20230814173621-iknmmdr.png)​​
+​![image](http://127.0.0.1:6806/assets/image-20230814173621-iknmmdr.png)​​
 
-![image](assets/image-20230814173626-llgwro5.png)​
+![image](http://127.0.0.1:6806/assets/image-20230814173626-llgwro5.png)​
 
 ### 透视投影
 
 考察如下的透视投影问题：
 
-​![image](assets/image-20230814173745-5qx890u.png)​
+​![image](http://127.0.0.1:6806/assets/image-20230814173745-5qx890u.png)​
 
 现在我们考虑：$z=-near\to-1$，$z=-far\to1$，即：
 
-​![image](assets/image-20230815101557-jmiuyum.png)​
+​![image](http://127.0.0.1:6806/assets/image-20230815101557-jmiuyum.png)​
 
 只考虑z轴，矩阵为
 
@@ -443,7 +442,7 @@ $$
 
 ‍
 
-​![image](assets/image-20230815105743-9ecc72j.png)​
+​![image](http://127.0.0.1:6806/assets/image-20230815105743-9ecc72j.png)​
 
 ## 隐藏面消除
 
