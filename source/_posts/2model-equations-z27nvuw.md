@@ -1,7 +1,7 @@
 ---
 title: 2-Model Equations
 date: '2023-09-22 09:49:41'
-updated: '2023-09-26 09:02:27'
+updated: '2023-09-26 09:06:08'
 comments: true
 toc: true
 ---
@@ -93,7 +93,7 @@ $$
 
 简单说，这个系统将$\omega$的频率分量放大了$\hat Q$倍。
 
-​![image](assets/image-20230922103339-4808cmb.png)
+​![image](http://127.0.0.1:49482/assets/image-20230922103339-4808cmb.png)
 
 有这个结论，我们还能知道，这个算法是逐点收敛的。
 
@@ -141,7 +141,7 @@ $$
 1. $0 < \lambda \le 2 \sigma \le 1$​
 2. $1 \le 2 \sigma, 2 \sigma \lambda \le 1$​
 
-​![image](assets/image-20230922104907-gw4p43v.png)​
+​![image](http://127.0.0.1:49482/assets/image-20230922104907-gw4p43v.png)​
 
 > Theorem：设有格式如上定义，假设：
 >
@@ -155,7 +155,7 @@ $$
 ## Leap frog scheme
 
 [Time Dependent Problems and____ Difference Methods.pdf - p65 - Time Dependent Problems and____ Difference Methods-P65-20230922195151](assets/Time Dependent Problems and____ Difference Methods-20230922195106-20cq141.pdf?p=65)  
-​![](assets/Time Dependent Problems and____ Difference Methods-P65-20230922195151-20230922195155-i3shy9y.png)​
+​![](undefined "Dependent")​
 
 $$
 v_j^{n+1} = v_j^{n-1} + \lambda (v_{j+1} ^ n - v_{j-1}^n)
@@ -175,14 +175,14 @@ $$
 
 $z_{1,2}$是特征方程的解。
 
-​![image](assets/image-20230922191135-c0xr1vh.png)​
+​![image](http://127.0.0.1:49482/assets/image-20230922191135-c0xr1vh.png)​
 
 ### CFL条件
 
 Domain of Dependence of `difference approximation`​  **must include ​**Domain of Dependence of PDE.
 
 [Time Dependent Problems and____ Difference Methods.pdf - p69 - Time Dependent Problems and____ Difference Methods-P69-20230922195539](assets/Time Dependent Problems and____ Difference Methods-20230922195106-20cq141.pdf?p=69)  
-​![](assets/Time Dependent Problems and____ Difference Methods-P69-20230922195539-20230926090128-y2lyi05.png)​
+​![](undefined "Dependent")​
 
 ## Implicit Methods
 
