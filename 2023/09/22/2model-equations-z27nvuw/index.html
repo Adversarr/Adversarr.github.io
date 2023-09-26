@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="2-Model Equations First order wave-equation, convergence, stability \[ \begin{cases}   u_t &#x3D; u_x\\   u(x, 0) &#x3D; f(x) \end{cases} \] 其中\(f\)是周期函数，周期为\(2\pi\)，那么解也是以\(2 \pi\)为周期的函数。 Follow 上一章，考虑 \[ f(x)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2-Model Equations">
+<meta property="og:url" content="https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/index.html">
+<meta property="og:site_name" content="Adversarr&#39;s Blog">
+<meta property="og:description" content="2-Model Equations First order wave-equation, convergence, stability \[ \begin{cases}   u_t &#x3D; u_x\\   u(x, 0) &#x3D; f(x) \end{cases} \] 其中\(f\)是周期函数，周期为\(2\pi\)，那么解也是以\(2 \pi\)为周期的函数。 Follow 上一章，考虑 \[ f(x)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/assets/image-20230922103339-4808cmb.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/assets/image-20230922104907-gw4p43v.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/assets/image-20230922191135-c0xr1vh.png">
+<meta property="article:published_time" content="2023-09-22T01:49:41.000Z">
+<meta property="article:modified_time" content="2023-09-26T01:02:27.000Z">
+<meta property="article:author" content="Adversarr">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/assets/image-20230922103339-4808cmb.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/magic-wand-48.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/magic-wand-192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/magic-wand-180.png">
+        
+      
+    
+    <!-- title -->
+    <title>2-Model Equations</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' async></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/post/calculus-hs2st.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/09/08/titles-2dx47u/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&text=2-Model Equations"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&title=2-Model Equations"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&is_video=false&description=2-Model Equations"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2-Model Equations&body=Check out this article: https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&title=2-Model Equations"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&title=2-Model Equations"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&title=2-Model Equations"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&title=2-Model Equations"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&name=2-Model Equations&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&t=2-Model Equations"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#model-equations"><span class="toc-number">1.</span> <span class="toc-text">2-Model Equations</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#first-order-wave-equation-convergence-stability"><span class="toc-number">1.1.</span> <span class="toc-text">First order
+wave-equation, convergence, stability</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#stablity"><span class="toc-number">1.1.1.</span> <span class="toc-text">stablity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E7%B2%98%E6%80%A7"><span class="toc-number">1.1.2.</span> <span class="toc-text">数值粘性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leap-frog-scheme"><span class="toc-number">1.2.</span> <span class="toc-text">Leap frog scheme</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cfl%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text">CFL条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#implicit-methods"><span class="toc-number">1.3.</span> <span class="toc-text">Implicit Methods</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        2-Model Equations
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Adversarr</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-09-22T01:49:41.000Z" class="dt-published" itemprop="datePublished">2023-09-22</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="model-equations">2-Model Equations</h1>
+<h2 id="first-order-wave-equation-convergence-stability">First order
+wave-equation, convergence, stability</h2>
+<p><span class="math display">\[
+\begin{cases}
+  u_t = u_x\\
+  u(x, 0) = f(x)
+\end{cases}
+\]</span></p>
+<p>其中<span class="math inline">\(f\)</span>是周期函数，周期为<span
+class="math inline">\(2\pi\)</span>，那么解也是以<span
+class="math inline">\(2 \pi\)</span>为周期的函数。</p>
+<p>Follow 上一章，考虑</p>
+<p><span class="math display">\[
+f(x) = \frac{1}{\sqrt{2\pi}} e^{i \omega x} \hat f(\omega)
+\]</span></p>
+<p>我们考虑找到相同类型的解：</p>
+<p><span class="math display">\[
+u = \frac{1}{\sqrt{2 \pi}} e^{i \omega x} \hat u(\omega, t)
+\]</span></p>
+<p>显然：</p>
+<p><span class="math display">\[
+u(x, t) = f(x + t)
+\]</span></p>
+<p>因此还有Parseval等式成立，即<span class="math inline">\(\| u(\cdot,
+t) \|\)</span>不变，为<span class="math inline">\(\| f\|\)</span>​</p>
+<p>数值解是指：进行空间和时间划分：</p>
+<p><span class="math display">\[
+u_j^n = u(x_j, t^n) = u(jh, nk)
+\]</span></p>
+<p>求出近似解。</p>
+<p><span class="math display">\[
+\begin{cases}
+v_j ^{n+1} = (I+kD_0)v_j^n\\
+v_j^0 = f_j
+\end{cases}
+\]</span></p>
+<p>假设<span class="math inline">\(v_j^n\)</span>是某个谐波解，即</p>
+<p><span class="math display">\[
+v_j^n = \frac{1}{\sqrt{2 \pi}} \hat v^n (\omega) e^{i \omega x_j}
+\]</span></p>
+<p>我们考虑这个解的Fourier系数会如何变化！</p>
+<p>其实我的理解是，</p>
+<ul>
+<li>原本空间域上的<span class="math inline">\(E\)</span>算子</li>
+<li>在频率域空间就是简单的数乘</li>
+</ul>
+<p>推导：令<span class="math inline">\(\lambda = dt / dx\)</span> 以及
+<span class="math inline">\(\xi = \omega h\)</span>，那么：</p>
+<p>$$ y_j = E x_j</p>
+<p>y = e^{ih} x $$</p>
+<p>对应的<span class="math inline">\(D\sim (e^{i \omega h} - 1)/
+h\)</span></p>
+<p>从而对于格式：</p>
+<p><span class="math display">\[
+y= x + dt/ dh(Ex - E^{-1}x)
+\]</span></p>
+<p>有：</p>
+<p><span class="math display">\[
+\hat y = (1 + \lambda(e^{i\omega h} - e^{-i\omega h}))\hat x
+\]</span></p>
+<p>所谓的<span class="math inline">\(\hat
+Q\)</span>就是<strong>放大因子</strong></p>
+<p>简单说，这个系统将<span
+class="math inline">\(\omega\)</span>的频率分量放大了<span
+class="math inline">\(\hat Q\)</span>倍。</p>
+<p>​<img src="assets/image-20230922103339-4808cmb.png" alt="image" /></p>
+<p>有这个结论，我们还能知道，这个算法是逐点收敛的。</p>
+<h3 id="stablity">stablity</h3>
+<p>实际上就是考虑 <span class="math inline">\(\hat Q\)</span>
+的性质。</p>
+<p>方法：固定 <span class="math inline">\(T\)</span>，<span
+class="math inline">\(n \sim T / dt\)</span>，考察<span
+class="math inline">\(|\hat Q|^n\)</span>是否有界。</p>
+<p>FTCS格式的结论：</p>
+<ul>
+<li>if <span class="math inline">\(\lambda\)</span> fixed, <span
+class="math inline">\(| \hat Q |^n\to \infty\)</span></li>
+<li>if <span class="math inline">\(dx / dt^2\)</span> fixed, then <span
+class="math inline">\(|\hat Q|^n &lt; e^{c T}\)</span></li>
+</ul>
+<p>FTCS方法不常用的原因：</p>
+<ol type="1">
+<li>要求 <span
+class="math inline">\(dx/dt^2\)</span>固定，复杂度问题</li>
+<li>就算是这种情况，上面这个不等式的界也很大</li>
+</ol>
+<h3 id="数值粘性">数值粘性</h3>
+<p><span class="math display">\[
+v^{n+1} = (I + k D_0) v_j + \sigma k h D_+ D_- v_j
+\]</span></p>
+<p>这是：</p>
+<p><span class="math display">\[
+u_t = u_x + \sigma h u_{xx}
+\]</span></p>
+<ul>
+<li>类比流体粘性项，<span class="math inline">\(\Delta u\)</span>​</li>
+</ul>
+<p>那么：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat Q = 1 + \lambda (e^{i \omega h} - e^{-i \omega h})/2 +
+\sigma\lambda (e^{i \omega h}-1)(1-e^{-i \omega h})\\ = 1 + i \lambda
+\sin \xi - 4 \sigma \lambda \sin^2 \xi/2
+\end{aligned}
+\]</span></p>
+<p>两种方式：</p>
+<ol type="1">
+<li><span class="math inline">\(0 &lt; \lambda \le 2 \sigma \le
+1\)</span>​</li>
+<li><span class="math inline">\(1 \le 2 \sigma, 2 \sigma \lambda \le
+1\)</span>​</li>
+</ol>
+<p>​<img src="assets/image-20230922104907-gw4p43v.png" alt="image" />​</p>
+<blockquote>
+<p>Theorem：设有格式如上定义，假设：</p>
+<ol type="1">
+<li>初值条件的Fourier级数收敛到原函数、并且能量有限</li>
+<li>初值条件等距采样后的DFT收敛到原本的函数</li>
+<li>方法Stable：<span class="math inline">\(\sup |\hat Q^n| \le
+K(s)\)</span>​</li>
+<li>方法Consistent：<span class="math inline">\(\lim_{k, h \to 0} \sup |
+\hat Q^n - e^{i \omega t_n}| = 0\)</span></li>
+</ol>
+<p>那么，三角插值 <span class="math inline">\(Int_N
+v\)</span>收敛到原本方程的解。</p>
+</blockquote>
+<h2 id="leap-frog-scheme">Leap frog scheme</h2>
+<p><a
+href="assets/Time%20Dependent%20Problems%20and____%20Difference%20Methods-20230922195106-20cq141.pdf?p=65">Time
+Dependent Problems and____ Difference Methods.pdf - p65 - Time Dependent
+Problems and____ Difference Methods-P65-20230922195151</a><br />
+​<img
+src="assets/Time%20Dependent%20Problems%20and____%20Difference%20Methods-P65-20230922195151-20230922195155-i3shy9y.png" />​</p>
+<p><span class="math display">\[
+v_j^{n+1} = v_j^{n-1} + \lambda (v_{j+1} ^ n - v_{j-1}^n)
+\]</span></p>
+<p>分析困难一些；</p>
+<p><span class="math display">\[
+\hat v^{n+2} = \hat v^n + (2i\lambda \sin \omega h)\hat v^{n+1}
+\]</span></p>
+<p>写成等比数列和的形式：</p>
+<p><span class="math display">\[
+\hat v^n = C_1 z_1^n + C_2 z_2 ^n
+\]</span></p>
+<p><span class="math inline">\(z_{1,2}\)</span>是特征方程的解。</p>
+<p>​<img src="assets/image-20230922191135-c0xr1vh.png" alt="image" />​</p>
+<h3 id="cfl条件">CFL条件</h3>
+<p>Domain of Dependence of <code>difference approximation</code>​
+<strong>must include ​</strong>Domain of Dependence of PDE.</p>
+<p><a
+href="assets/Time%20Dependent%20Problems%20and____%20Difference%20Methods-20230922195106-20cq141.pdf?p=69">Time
+Dependent Problems and____ Difference Methods.pdf - p69 - Time Dependent
+Problems and____ Difference Methods-P69-20230922195539</a><br />
+​<img
+src="assets/Time%20Dependent%20Problems%20and____%20Difference%20Methods-P69-20230922195539-20230926090128-y2lyi05.png" />​</p>
+<h2 id="implicit-methods">Implicit Methods</h2>
+<p>‍</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/tags/">Tag</a></li>
+        
+          <li><a href="/categories/">Category</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#model-equations"><span class="toc-number">1.</span> <span class="toc-text">2-Model Equations</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#first-order-wave-equation-convergence-stability"><span class="toc-number">1.1.</span> <span class="toc-text">First order
+wave-equation, convergence, stability</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#stablity"><span class="toc-number">1.1.1.</span> <span class="toc-text">stablity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E7%B2%98%E6%80%A7"><span class="toc-number">1.1.2.</span> <span class="toc-text">数值粘性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leap-frog-scheme"><span class="toc-number">1.2.</span> <span class="toc-text">Leap frog scheme</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cfl%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text">CFL条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#implicit-methods"><span class="toc-number">1.3.</span> <span class="toc-text">Implicit Methods</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&text=2-Model Equations"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&title=2-Model Equations"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&is_video=false&description=2-Model Equations"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2-Model Equations&body=Check out this article: https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&title=2-Model Equations"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&title=2-Model Equations"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&title=2-Model Equations"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&title=2-Model Equations"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&name=2-Model Equations&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/09/22/2model-equations-z27nvuw/&t=2-Model Equations"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2023
+    Adversarr
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
