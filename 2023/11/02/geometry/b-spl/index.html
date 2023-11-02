@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="B-Spline Curve Definition Use repleated linear interpolation. \[ N_i^1(t) &#x3D; \begin{cases}     1 &amp; i \le t &lt; i + 1\\     0&amp; \text{otherwise} \end{cases} \] and, \[ N_i^k(t) &#x3D; \frac{t-i}{(i+k">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Adversarr&#39;s Blog">
+<meta property="og:url" content="https://adversarr.github.io/2023/11/02/geometry/b-spl/index.html">
+<meta property="og:site_name" content="Adversarr&#39;s Blog">
+<meta property="og:description" content="B-Spline Curve Definition Use repleated linear interpolation. \[ N_i^1(t) &#x3D; \begin{cases}     1 &amp; i \le t &lt; i + 1\\     0&amp; \text{otherwise} \end{cases} \] and, \[ N_i^k(t) &#x3D; \frac{t-i}{(i+k">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-02T08:26:49.587Z">
+<meta property="article:modified_time" content="2023-11-02T08:26:49.587Z">
+<meta property="article:author" content="Adversarr">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/magic-wand-48.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/magic-wand-192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/magic-wand-180.png">
+        
+      
+    
+    <!-- title -->
+    <title>Adversarr&#39;s Blog</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$'], ['\\(', '\\)']]
+			}
+		  });
+		</script>
+		<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' async></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/10/09/mg-zh/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/11/02/geometry/b-spl/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://adversarr.github.io/2023/11/02/geometry/b-spl/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/11/02/geometry/b-spl/&t="><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#b-spline-curve"><span class="toc-number">1.</span> <span class="toc-text">B-Spline Curve</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#definition"><span class="toc-number">1.1.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#properties"><span class="toc-number">1.2.</span> <span class="toc-text">Properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#relation-to-bezier"><span class="toc-number">1.3.</span> <span class="toc-text">Relation to Bezier</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b-spline"><span class="toc-number">2.</span> <span class="toc-text">B-Spline</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#definition-1"><span class="toc-number">2.1.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#properties-1"><span class="toc-number">2.2.</span> <span class="toc-text">Properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#evaluation-de-boor-algorithm"><span class="toc-number">2.3.</span> <span class="toc-text">Evaluation: de Boor algorithm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#interpolation-using-b-spline"><span class="toc-number">2.4.</span> <span class="toc-text">Interpolation using b-spline</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#relationships"><span class="toc-number">3.</span> <span class="toc-text">Relationships</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bezier-b-spline"><span class="toc-number">3.1.</span> <span class="toc-text">Bezier → B-Spline</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Adversarr</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-11-02T08:26:49.587Z" class="dt-published" itemprop="datePublished">2023-11-02</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="b-spline-curve">B-Spline Curve</h2>
+<h3 id="definition">Definition</h3>
+<p>Use repleated linear interpolation. <span class="math display">\[
+N_i^1(t) = \begin{cases}
+    1 &amp; i \le t &lt; i + 1\\
+    0&amp; \text{otherwise}
+\end{cases}
+\]</span> and, <span class="math display">\[
+N_i^k(t) = \frac{t-i}{(i+k-1) -i} N_i^{k-1} (t) + \frac{(i+k) -
+t}{(i+k)- (i+1)}N_{i+1}^{k-1}(t)
+\]</span> Generalize: replace <span class="math inline">\(i\)</span>
+with <span class="math inline">\(t_i\)</span></p>
+<p>Then, the curve is defined: Given <span
+class="math inline">\(n+1\)</span> control points <span
+class="math inline">\(\vec p_i\)</span>, Knot vector <span
+class="math inline">\(T = (t_0, …, t_{n+k})\)</span>: <span
+class="math display">\[
+\vec r(t) = \sum_{i = 0}^n \vec p_i N_{i}^k (t)
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\vec p_i\)</span> is <strong>de Boor
+points</strong></li>
+<li>Curve is defined on interval <span class="math inline">\([t_{k-1},
+t_{n+1}]\)</span></li>
+</ul>
+<h3 id="properties">Properties</h3>
+<ol type="1">
+<li><p>Local support: For given <span class="math inline">\(i,
+k\)</span>, support is <span class="math inline">\((t_i,
+t_{i+k})\)</span></p></li>
+<li><p>Non-negtivity</p></li>
+<li><p>Unitary: <span class="math inline">\(\sum N_i (t) = 1\)</span>
+inside the domain of definition.</p>
+<p>⇒ Convex</p></li>
+<li><p>For <span class="math inline">\(t_i \le t_j \le t_{i+k}\)</span>,
+<span class="math inline">\(N\)</span> is <span
+class="math inline">\(C^{k-2}\)</span> at <span
+class="math inline">\(t_j\)</span></p></li>
+<li><p>Repeat at <span class="math inline">\(t_i\)</span> for <span
+class="math inline">\(j\)</span> times, the continuity goes down <span
+class="math inline">\(j\)</span> order.</p></li>
+</ol>
+<h3 id="relation-to-bezier">Relation to Bezier</h3>
+<p><span class="math display">\[
+T=(0, 0, ..., 0, 1, 1, ..., 1)
+\]</span></p>
+<p><span class="math inline">\(k\)</span>-times on two ending ⇒
+Bernstein polynomial.</p>
+<h2 id="b-spline">B-Spline</h2>
+<h3 id="definition-1">Definition</h3>
+<p>Given special knot vector: (Repaat at ends) <span
+class="math display">\[
+T = (t_0= t_1=\cdots= t_{k-1}, t_k, t_1, ..., t_n, t_{n+1} = \cdots =
+t_{n+k})
+\]</span></p>
+<ul>
+<li>de Boor polygon: <span class="math inline">\(d_0, …,
+d_n\)</span></li>
+<li>also defined on <span class="math inline">\([t_{k-1},
+t_{n+1}]\)</span>, but endings are repeated.</li>
+</ul>
+<h3 id="properties-1">Properties</h3>
+<ol type="1">
+<li>Endpoint interpolation</li>
+<li>Tangent direction at <span class="math inline">\(d_0\)</span></li>
+<li><span class="math inline">\(n-k+2\)</span> polynomial curve segments
+of degree <span class="math inline">\(k-1\)</span></li>
+</ol>
+<p>Multiple inner knots ⇒ Reduction of continuity of <span
+class="math inline">\(x(t)\)</span></p>
+<ul>
+<li><span class="math inline">\(l\)</span>-times ⇒ <span
+class="math inline">\(C^{k-l-1}\)</span> cont.</li>
+</ul>
+<p>Local impact, <span class="math inline">\(d_i\)</span> ⇒ impact <span
+class="math inline">\([t_i, t_{i+k}]\)</span></p>
+<h3 id="evaluation-de-boor-algorithm">Evaluation: de Boor algorithm</h3>
+<ol type="1">
+<li>evaluate B-Spline Functions</li>
+<li>(or) de Boor algorithm</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">deBoor</span>(<span class="params">d, T, t</span>):</span><br><span class="line">  r = t[r] &lt; t &lt; t[r+<span class="number">1</span>]</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(r-k+<span class="number">1</span>, r+<span class="number">1</span>):</span><br><span class="line">    d[<span class="number">0</span>][i] = d[i]</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="number">1</span>, ..., k-<span class="number">1</span>:</span><br><span class="line">    <span class="keyword">for</span> i = r-k+<span class="number">1</span>, ..., r:</span><br><span class="line">      d[j][i] = (<span class="number">1</span> - alpha) d[j-<span class="number">1</span>][i-<span class="number">1</span>] + alpha d[j-<span class="number">1</span>][i]</span><br><span class="line">	<span class="keyword">return</span> d[k-<span class="number">1</span>][r]</span><br></pre></td></tr></table></figure>
+<h3 id="interpolation-using-b-spline">Interpolation using b-spline</h3>
+<p>Input:</p>
+<ul>
+<li>control points (not de boor points) <span
+class="math inline">\(k_0,...,k_n\)</span></li>
+<li>knot vector <span class="math inline">\(s_0, … s_n\)</span></li>
+</ul>
+<p>Output: curve interpolates <span class="math inline">\(k_i\)</span>
+at <span class="math inline">\(s_i\)</span></p>
+<p>Key: find deboor points <span class="math inline">\(d_0, …,
+d_{n+k-2}\)</span></p>
+<ul>
+<li>Domain: <span class="math inline">\(t_{k-1} \to t_{N+1}\)</span> has
+<span class="math inline">\(N-k+3\)</span> “points”</li>
+<li>therefore <span class="math inline">\(N-k+3 = n+1 \implies N =
+n+k-2\)</span></li>
+</ul>
+<p>Formulation:</p>
+<ol type="1">
+<li>Interpolation: <span class="math inline">\(x(s_i) =
+k_i\)</span></li>
+<li>Ending condition</li>
+</ol>
+<h2 id="relationships">Relationships</h2>
+<h3 id="bezier-b-spline">Bezier → B-Spline</h3>
+<p>Input:</p>
+<ul>
+<li>control points of bezier curve</li>
+<li>knot vector</li>
+<li><span class="math inline">\(b_0, …, b_{3n}\)</span>, Bezier points
+interpolating the curve.</li>
+<li>ending conditions</li>
+</ul>
+<p>Output:</p>
+<ul>
+<li>curve in b-spline form</li>
+</ul>
+<p>Key:</p>
+<ul>
+<li>deboor points, and knot for b-spline</li>
+</ul>
+<p>Algorithm: <span class="math display">\[
+\begin{aligned}
+d_0 &amp;= b_0\quad d_1 = b_1 \\
+d_i &amp;= b_{3i-4} + \Delta_{i-1}/ \Delta_{i-2} (b_{3i-4}-b_{3i-5})\\
+d_{n+1} &amp;= b_{3n - 1}\quad d_{n} = b_{3n}
+\end{aligned}
+\]</span></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/tags/">Tag</a></li>
+        
+          <li><a href="/categories/">Category</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#b-spline-curve"><span class="toc-number">1.</span> <span class="toc-text">B-Spline Curve</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#definition"><span class="toc-number">1.1.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#properties"><span class="toc-number">1.2.</span> <span class="toc-text">Properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#relation-to-bezier"><span class="toc-number">1.3.</span> <span class="toc-text">Relation to Bezier</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b-spline"><span class="toc-number">2.</span> <span class="toc-text">B-Spline</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#definition-1"><span class="toc-number">2.1.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#properties-1"><span class="toc-number">2.2.</span> <span class="toc-text">Properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#evaluation-de-boor-algorithm"><span class="toc-number">2.3.</span> <span class="toc-text">Evaluation: de Boor algorithm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#interpolation-using-b-spline"><span class="toc-number">2.4.</span> <span class="toc-text">Interpolation using b-spline</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#relationships"><span class="toc-number">3.</span> <span class="toc-text">Relationships</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bezier-b-spline"><span class="toc-number">3.1.</span> <span class="toc-text">Bezier → B-Spline</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/11/02/geometry/b-spl/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://adversarr.github.io/2023/11/02/geometry/b-spl/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/11/02/geometry/b-spl/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/11/02/geometry/b-spl/&t="><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2023
+    Adversarr
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
