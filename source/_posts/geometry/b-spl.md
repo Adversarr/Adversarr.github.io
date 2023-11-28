@@ -1,3 +1,13 @@
+---
+title: Multigrid method
+date: '2023-11-10'
+toc: true
+tags:
+  - Geometry
+---
+
+<!-- more -->
+
 ## B-Spline Curve
 
 ### Definition
