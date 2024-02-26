@@ -1,5 +1,5 @@
 ---
-title: Multigrid method
+title: B-Spline Curve
 date: '2023-11-10'
 toc: true
 tags:
