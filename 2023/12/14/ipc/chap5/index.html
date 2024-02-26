@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="15-769: Lecture 5: Normal Contact with Distance Barrier  没有碰撞的固体是没有灵魂的 没有摩擦的碰撞是没有灵魂的 —— 蒋陈凡夫《Variational Contact》  在上一篇中，我们主要提到了如下几点：  物体的表示，我们后面主要用的是拉格朗日视角的描述，最最主要的是三角网格； 各类的Energy：Inertia（惯性 or 动能），">
+<meta property="og:type" content="article">
+<meta property="og:title" content="15-769: Lecture 5: Normal Contact with Distance Barrier">
+<meta property="og:url" content="https://adversarr.github.io/2023/12/14/ipc/chap5/index.html">
+<meta property="og:site_name" content="Adversarr&#39;s Blog">
+<meta property="og:description" content="15-769: Lecture 5: Normal Contact with Distance Barrier  没有碰撞的固体是没有灵魂的 没有摩擦的碰撞是没有灵魂的 —— 蒋陈凡夫《Variational Contact》  在上一篇中，我们主要提到了如下几点：  物体的表示，我们后面主要用的是拉格朗日视角的描述，最最主要的是三角网格； 各类的Energy：Inertia（惯性 or 动能），">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231129201132391.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231129201631234.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231129203725204.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231129205902576.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231130102802785.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231130103323725.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231130104340511.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231130105145925.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231130105332928.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231130105519027.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231130110035585.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231130110110450.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231130110420103.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231130111609484.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231130111334411.png">
+<meta property="article:published_time" content="2023-12-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-26T01:53:42.748Z">
+<meta property="article:author" content="Adversarr">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://adversarr.github.io/2023/12/14/ipc/chap5/media//image-20231129201132391.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/magic-wand-48.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/magic-wand-192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/magic-wand-180.png">
+        
+      
+    
+    <!-- title -->
+    <title>15-769: Lecture 5: Normal Contact with Distance Barrier</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$'], ['\\(', '\\)']]
+			}
+		  });
+		</script>
+		<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' async></script>
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2023/12/14/ipc/chap1234/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/11/09/geometry/CAGD/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/12/14/ipc/chap5/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&text=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&title=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&is_video=false&description=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=15-769: Lecture 5: Normal Contact with Distance Barrier&body=Check out this article: https://adversarr.github.io/2023/12/14/ipc/chap5/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&title=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&title=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&title=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&title=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&name=15-769: Lecture 5: Normal Contact with Distance Barrier&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/12/14/ipc/chap5/&t=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lecture-5-normal-contact-with-distance-barrier"><span class="toc-number">1.</span> <span class="toc-text">15-769: Lecture
+5: Normal Contact with Distance Barrier</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#formulation"><span class="toc-number">1.1.</span> <span class="toc-text">Formulation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#barrier-method"><span class="toc-number">1.2.</span> <span class="toc-text">Barrier Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#remarks"><span class="toc-number">1.4.</span> <span class="toc-text">Remarks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%80%E4%B8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.4.1.</span> <span class="toc-text">简单提一下代码实现。</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        15-769: Lecture 5: Normal Contact with Distance Barrier
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Adversarr</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-12-14T16:00:00.000Z" class="dt-published" itemprop="datePublished">2023-12-15</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="lecture-5-normal-contact-with-distance-barrier">15-769: Lecture
+5: Normal Contact with Distance Barrier</h1>
+<blockquote>
+<p>没有碰撞的固体是没有灵魂的</p>
+<p>没有摩擦的碰撞是没有灵魂的</p>
+<p>—— 蒋陈凡夫《Variational Contact》</p>
+</blockquote>
+<p>在上一篇中，我们主要提到了如下几点：</p>
+<ol type="1">
+<li>物体的表示，我们后面主要用的是拉格朗日视角的描述，最最主要的是三角网格；</li>
+<li>各类的Energy：Inertia（惯性 or 动能），Gravity，Spring；</li>
+<li>Time Integration，特别是 Implicit、Optimize-based Time
+Integration，将整个时间积分变为优化问题；</li>
+</ol>
+<p>这次我们来看看 IPC
+中最重要的一个部分：<strong>碰撞处理</strong>。</p>
+<p>碰撞处理实际上还有很多方面的问题：</p>
+<ol type="1">
+<li>碰撞检测，最难的是连续碰撞检测，也就是CCD</li>
+<li>碰撞响应，在检测到碰撞后，正确处理碰撞</li>
+</ol>
+<p>IPC解决的是碰撞响应，它观察到：</p>
+<blockquote>
+<p>物体没有碰撞 <span class="math inline">\(\iff\)</span>
+物体的运动路径，没有<strong>几何相交</strong></p>
+</blockquote>
+<p>它的核心思想是：</p>
+<blockquote>
+<p>定义基于几何体距离的
+Log-Barrier，添加到原本的优化函数中，做内点法。</p>
+</blockquote>
+<p>其实如果是了解后续几篇文章的读者不难看出，有一些文章是针对如何实现这样的barrier，例如：</p>
+<ul>
+<li>(JCP21) BFEMP：MPM-FEM</li>
+<li>(SIG 23) A Contact Proxy Splitting Method for Lagrangian Solid-Fluid
+Coupling：引入SPH流体</li>
+</ul>
+<figure>
+<img src="./media//image-20231129201132391.png" alt="BFEMP" />
+<figcaption aria-hidden="true">BFEMP</figcaption>
+</figure>
+<figure>
+<img src="./media//image-20231129201631234.png"
+alt="A Contact Proxy Splitting Method for Lagrangian Solid-Fluid Coupling" />
+<figcaption aria-hidden="true">A Contact Proxy Splitting Method for
+Lagrangian Solid-Fluid Coupling</figcaption>
+</figure>
+<h2 id="formulation">Formulation</h2>
+<p>Inequality constraints: <span class="math display">\[
+\forall k\quad d_k(x) \ge 0
+\]</span> 这里的 <span class="math inline">\(k\)</span>
+是任何一对不同的点。<span class="math inline">\(d_k\)</span>
+实际上是带符号的距离，之前我们在SDF提到过。例如，对于高度为<span
+class="math inline">\(0\)</span>的水平地面，我们可以定义（<span
+class="math inline">\(-y\)</span> 为重力方向）： <span
+class="math display">\[
+d(\bold{x}) = y - 0
+\]</span> 在后面的课程中，<span
+class="math inline">\(d\)</span>也可以是无符号的距离，例如空间中两个不同的点的欧式距离。</p>
+<p>我们首先考虑解的性质，Recap 之前的能量定义： <span
+class="math display">\[
+E(x) = \frac{1}{2 h^2} \| x - y \| _M^2 + P(x)
+\]</span> 最小化问题为： <span class="math display">\[
+\min E(x) \quad \mathrm{s.t.} A x = b,d_k(x) \ge 0\quad  \forall k
+\]</span> 其中的 <span class="math inline">\(A\)</span>
+表明了系统的Dirichlet边界。</p>
+<p>写出拉格朗日函数 <span class="math display">\[
+\mathcal L = E(x) - \lambda&#39; (Ax - b) + \sum_k \gamma_k d_k(x)
+\]</span> 然后对 <span class="math inline">\(x\)</span> 求梯度，应用KKT
+<span class="math display">\[
+\nabla E(x) - A&#39; \lambda - \sum_k \gamma_k \nabla d_k(x) = 0
+\]</span> 外加几个条件：</p>
+<ol type="1">
+<li>原始可行性：<span class="math inline">\(Ax = b, d_k(x) \ge
+0\)</span></li>
+<li>对偶可行性：<span class="math inline">\(\gamma_k \ge 0\)</span></li>
+<li>互补松弛性：<span class="math inline">\(\gamma_k d_k(x) =
+0\)</span>，这里因为<span class="math inline">\(\gamma,
+d\)</span>都是非负的所以每一项都是 <span
+class="math inline">\(0\)</span></li>
+</ol>
+<p>在PPT中，提到了这几个性质给出的力学特征：</p>
+<ul>
+<li>原始可行性 <span class="math inline">\(\implies\)</span>
+无穿透条件</li>
+<li>对偶可行性 <span class="math inline">\(\implies\)</span>
+支持力不能指向墙内部</li>
+<li>稳定性条件 <span class="math inline">\(\implies\)</span>
+受力平衡</li>
+<li>互补松弛性 <span class="math inline">\(\implies\)</span>
+支持力只出现在出现碰撞的地方</li>
+</ul>
+<figure>
+<img src="./media//image-20231129203725204.png" alt="KKT" />
+<figcaption aria-hidden="true">KKT</figcaption>
+</figure>
+<p>之前也有针对这样的问题的求解方法：</p>
+<ol type="1">
+<li>Penalty - 惩罚方法，转化到无约束优化 ⇒
+不保证原始可行性，即不保证无穿透</li>
+<li>Active set - 转化到等式优化 ⇒ 不保证收敛</li>
+<li>Primal Dual-交替迭代 <span class="math inline">\(x, \gamma\)</span>
+⇒ 收敛速度慢</li>
+</ol>
+<p>我们的方法是Barrier method，它由如下的特点</p>
+<ol type="1">
+<li>转化到无约束优化问题</li>
+<li>保证收敛、保证原始可行性、保证收敛速度</li>
+</ol>
+<blockquote>
+<p>那么牺牲的是什么呢？后面再提。</p>
+</blockquote>
+<p>有一些其他方法失败的例子，例如：</p>
+<ol type="1">
+<li>出现穿透（Interpenetration）</li>
+<li>数值不稳定</li>
+</ol>
+<figure>
+<img src="./media//image-20231129205902576.png" alt="SQP" />
+<figcaption aria-hidden="true">SQP</figcaption>
+</figure>
+<h2 id="barrier-method">Barrier Method</h2>
+<blockquote>
+<p>Convex Optimization(Stephen Boyd)</p>
+</blockquote>
+<p>在这里我们先考虑最简单的情况，即墙面、地面等静止物体和一个可运动的物体的碰撞。我们要处理的碰撞实际上就是：
+<span class="math display">\[
+d_{k} \ge 0
+\]</span> 内点法的形式是，对于优化问题： <span class="math display">\[
+\begin{aligned}
+    \min \quad &amp;f_0(x)\\
+    \text{s.t.}\quad &amp;f_i (x) \le 0, i = 1\dots m\\
+    &amp; Ax = b
+\end{aligned}
+\]</span> 转化为不含不等式约束，但含有指示函数<span
+class="math inline">\(I_-\)</span>的形式： <span class="math display">\[
+\begin{aligned}
+    \min \quad &amp;f_0(x) + \sum_i I_-(f_i(x)) \\
+    \text{s.t.}\quad
+    &amp; Ax = b
+\end{aligned}
+\]</span> 其中的 <span class="math display">\[
+I_-(x) = \begin{cases}
+    0 &amp; u \le 0\\ \infty &amp; u &gt; 0
+\end{cases}
+\]</span>
+它保证了，如果可行域非空，那么一定目标函数的最优值一定不是<span
+class="math inline">\(\infty\)</span>，从而保证不等式约束满足。</p>
+<p>实际计算中，<span class="math inline">\(I_-\)</span>通常可以通过
+Log函数近似。</p>
+<figure>
+<img src="./media//image-20231130102802785.png" alt="CVX Book" />
+<figcaption aria-hidden="true">CVX Book</figcaption>
+</figure>
+<p>很显然的是，引入这样的Log-Barrier函数会使得最终求解得到的结果不完全是原问题的最优解，随着Log-Barrier对<span
+class="math inline">\(I_-\)</span>的逼近程度提高，结果会越来越逼近最优解。例如如下的线性规划问题。</p>
+<figure>
+<img src="./media//image-20231130103323725.png" alt="LP" />
+<figcaption aria-hidden="true">LP</figcaption>
+</figure>
+<p>在Convex Optimization的567页，就有关于内点法的力学解释：</p>
+<blockquote>
+<p>We can give a simple mechanics interpretation of the central path in
+terms of potential forces acting on a particle in the strictly feasible
+set C. For simplicity we assume that there are no equality
+constraints.</p>
+<p>We associate with each constraint the force <span
+class="math inline">\(F_i(x) = -\nabla (-\log (-f_i(x)))\)</span>,
+acting on the particle when it is at position <span
+class="math inline">\(x\)</span>. The potential associated with the
+total force field generated by the constraints is the logarithmic
+barrier <span class="math inline">\(\phi\)</span>. As the particle moves
+toward the boundary of the feasible set, it is strongly repelled by the
+forces generated by the constraints.</p>
+<p>…</p>
+</blockquote>
+<p>总结来说，描述了两件事情：</p>
+<ol type="1">
+<li>Log-Barrier实际上是添加了边界对粒子的一个势能，这个势能在粒子充分靠近边界时趋于<span
+class="math inline">\(+\infty\)</span>，从而产生充分大的作用力将粒子推离边界；</li>
+<li>另一方面，随着Log-Barrier不断逼近 <span
+class="math inline">\(I_-\)</span>，边界产生的力场在更多的区域上趋零，在边界处越来越逼近了<span
+class="math inline">\(I_-\)</span>，那么粒子的平衡位置，也就是求解结果随着这个逼近过程越来越靠近最优解</li>
+</ol>
+<figure>
+<img src="./media//image-20231130104340511.png" alt="Force Field" />
+<figcaption aria-hidden="true">Force Field</figcaption>
+</figure>
+<p>好吧，让我们回到这门课的内容，这里我们定义的
+Log-Barrier是不太一样的，因为我们的不等式约束是非常多的，假设我们的场景中有
+<span class="math inline">\(N\)</span>
+个几何体（点、线、面），考虑它们之间不相互穿透带来的不等式约束，那么很可能产生的不等式数量是<span
+class="math inline">\(O(N^2)\)</span>量级的，一个较为简单的模型，例如一个四面体就包含了
+<span class="math inline">\(N = 4 + 6 + 4 = 14\)</span>
+个这样的元素，<span class="math inline">\(N\)</span>的量级是很大的。</p>
+<p>因此，在这里采取的做法是，将Log-Barrier在一定的范围外直接置零，这里的范围选作
+<span class="math inline">\(\hat d\)</span></p>
+<figure>
+<img src="./media//image-20231130105145925.png"
+alt="Contact Potential" />
+<figcaption aria-hidden="true">Contact Potential</figcaption>
+</figure>
+<p>但是有一点需要注意的是，这里的 <span class="math inline">\(b\)</span>
+的定义实际上并不是IPC原文的定义：</p>
+<figure>
+<img src="./media//image-20231130105332928.png"
+alt="Incremental Potential Contact" />
+<figcaption aria-hidden="true">Incremental Potential
+Contact</figcaption>
+</figure>
+<p>其主要的区别在于，这个函数在 <span class="math inline">\(\hat
+d\)</span> 处是否是 <span class="math inline">\(C^2\)</span>的。</p>
+<p>这样一番操作是否理论上合理呢，PPT给出了答案：</p>
+<figure>
+<img src="./media//image-20231130105519027.png"
+alt="KKT-Barrier Method" />
+<figcaption aria-hidden="true">KKT-Barrier Method</figcaption>
+</figure>
+<ol type="1">
+<li>原始可行性 - Barrier函数保证</li>
+<li>对偶可行性 - Barrier 函数保证</li>
+<li>稳定性 -
+被迭代终止条件保证，这里说的Newton实际上可以换做任何一个求解器</li>
+<li>互补松弛性 - 降低 <span class="math inline">\(\hat d\)</span>
+可以提升精度</li>
+</ol>
+<h2 id="实现">实现</h2>
+<p>一个问题：下降方向 <span class="math inline">\(p = -H^{-1} g\)</span>
+并不能保证原始可行性，即无穿透条件。我们可以做的一个方法是：</p>
+<ol type="1">
+<li>搜索 <span class="math inline">\(x \to
+x+p\)</span>上，产生碰撞的最小时间 <span class="math inline">\(t_0 \in
+(0, 1]\)</span>（这个过程实际上就是CCD）</li>
+<li>将线搜索的初始步长设置为 <span class="math inline">\(\alpha =
+\min\{1, t_0\}\)</span>，实际为了避免距离直接变为 <span
+class="math inline">\(0\)</span>，设置为 <span
+class="math inline">\(\alpha = \min\{1, 0.9 t_0\}\)</span></li>
+</ol>
+<figure>
+<img src="./media//image-20231130110035585.png"
+alt="image-20231130110035585" />
+<figcaption aria-hidden="true">image-20231130110035585</figcaption>
+</figure>
+<p>最终算法：</p>
+<figure>
+<img src="./media//image-20231130110110450.png"
+alt="Barrier Aware Newton Method" />
+<figcaption aria-hidden="true">Barrier Aware Newton Method</figcaption>
+</figure>
+<h2 id="remarks">Remarks</h2>
+<p>几点说明，首先是CCD是必须的，我们找的是路径上不发生穿透的点：</p>
+<figure>
+<img src="./media//image-20231130110420103.png" alt="CCD" />
+<figcaption aria-hidden="true">CCD</figcaption>
+</figure>
+<p>第二点，也是我最近比较关注的点，就是如果不是拉格朗日视角的物体表达怎么办？</p>
+<ol type="1">
+<li>欧拉网格的流体，实际上固定网格点的数据</li>
+<li>SDF表达的数据</li>
+</ol>
+<figure>
+<img src="./media//image-20231130111609484.png" alt="PPT" />
+<figcaption aria-hidden="true">PPT</figcaption>
+</figure>
+<p>这里带来的一个问题是Cut
+Cell，用线性插值带来的通常是不精确、不光滑的物体边界。这里也提供了可能的解决方案：</p>
+<ol type="1">
+<li>高阶的B-样条，解决光滑性</li>
+<li>始终使用同一种插值方法</li>
+</ol>
+<figure>
+<img src="./media//image-20231130111334411.png"
+alt="体积云（Multi-Threading in OpenVDB SIGGRAPH Course 2023）" />
+<figcaption aria-hidden="true">体积云（Multi-Threading in OpenVDB
+SIGGRAPH Course 2023）</figcaption>
+</figure>
+<h3 id="简单提一下代码实现">简单提一下代码实现。</h3>
+<p>存在的问题：</p>
+<ol type="1">
+<li>能量的value、grad、hessian暂时写头文件了，后面可能还得改改</li>
+<li>实现部分没啥注释</li>
+<li>没做Project Newton，假定所有的Hessian正定，收敛会慢一点</li>
+</ol>
+<p>主要代码：</p>
+<ol type="1">
+<li>求解器：<a
+target="_blank" rel="noopener" href="https://github.com/Adversarr/axes/blob/main/axes/source/physics/solid_sim/solver.cpp">solver.cpp</a></li>
+<li>相关能量的实现：<a
+target="_blank" rel="noopener" href="https://github.com/Adversarr/axes/tree/main/axes/include/axes/physics/solid_sim">solid_sim</a></li>
+<li>具体的可执行程序：<a
+target="_blank" rel="noopener" href="https://github.com/Adversarr/axes/tree/main/examples/solidsim-spring">solidsim-spring</a></li>
+</ol>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/tags/">Tag</a></li>
+        
+          <li><a href="/categories/">Category</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lecture-5-normal-contact-with-distance-barrier"><span class="toc-number">1.</span> <span class="toc-text">15-769: Lecture
+5: Normal Contact with Distance Barrier</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#formulation"><span class="toc-number">1.1.</span> <span class="toc-text">Formulation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#barrier-method"><span class="toc-number">1.2.</span> <span class="toc-text">Barrier Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#remarks"><span class="toc-number">1.4.</span> <span class="toc-text">Remarks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%8F%90%E4%B8%80%E4%B8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.4.1.</span> <span class="toc-text">简单提一下代码实现。</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/12/14/ipc/chap5/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&text=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&title=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&is_video=false&description=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=15-769: Lecture 5: Normal Contact with Distance Barrier&body=Check out this article: https://adversarr.github.io/2023/12/14/ipc/chap5/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&title=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&title=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&title=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&title=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/12/14/ipc/chap5/&name=15-769: Lecture 5: Normal Contact with Distance Barrier&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/12/14/ipc/chap5/&t=15-769: Lecture 5: Normal Contact with Distance Barrier"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2024
+    Adversarr
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

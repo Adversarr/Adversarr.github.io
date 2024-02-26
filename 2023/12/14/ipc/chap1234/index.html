@@ -6,23 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="#! https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;668263455 # 15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc. 从零开始的 15-769: Physically-based Animation of Solids and Fluids">
+    <meta name="description" content="15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc. 从零开始的 15-769: Physically-based Animation of Solids and Fluids Minchen Li 在 CMU 开设了 15-769 课程，里面用 Python 实">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Adversarr&#39;s Blog">
-<meta property="og:url" content="https://adversarr.github.io/2024/01/23/ipc/chap1234/index.html">
+<meta property="og:title" content="15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc.">
+<meta property="og:url" content="https://adversarr.github.io/2023/12/14/ipc/chap1234/index.html">
 <meta property="og:site_name" content="Adversarr&#39;s Blog">
-<meta property="og:description" content="#! https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;668263455 # 15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc. 从零开始的 15-769: Physically-based Animation of Solids and Fluids">
+<meta property="og:description" content="15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc. 从零开始的 15-769: Physically-based Animation of Solids and Fluids Minchen Li 在 CMU 开设了 15-769 课程，里面用 Python 实">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://adversarr.github.io/2024/01/23/ipc/chap1234/media/image-20231122200000518.png">
-<meta property="og:image" content="https://adversarr.github.io/2024/01/23/ipc/chap1234/media//image-20231122200046716.png">
-<meta property="og:image" content="https://adversarr.github.io/2024/01/23/ipc/chap1234/media//image-20231122200322315.png">
-<meta property="og:image" content="https://adversarr.github.io/2024/01/23/ipc/chap1234/media//image-20231122200442798.png">
-<meta property="og:image" content="https://adversarr.github.io/2024/01/23/ipc/chap1234/media//image-20231122200524605.png">
-<meta property="article:published_time" content="2024-01-23T11:29:33.550Z">
-<meta property="article:modified_time" content="2024-01-23T11:29:33.550Z">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap1234/media/image-20231122200000518.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap1234/media//image-20231122200046716.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap1234/media//image-20231122200322315.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap1234/media//image-20231122200442798.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/12/14/ipc/chap1234/media//image-20231122200524605.png">
+<meta property="article:published_time" content="2023-12-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-26T01:53:42.748Z">
 <meta property="article:author" content="Adversarr">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://adversarr.github.io/2024/01/23/ipc/chap1234/media/image-20231122200000518.png">
+<meta name="twitter:image" content="https://adversarr.github.io/2023/12/14/ipc/chap1234/media/image-20231122200000518.png">
     
     
       
@@ -42,7 +42,7 @@
       
     
     <!-- title -->
-    <title>Adversarr&#39;s Blog</title>
+    <title>15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc.</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -71,7 +71,7 @@
 		</script>
 		<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' async></script>
 	
-<meta name="generator" content="Hexo 7.1.1"></head>
+<meta name="generator" content="Hexo 7.0.0"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -104,7 +104,7 @@
       <ul>
         
         
-        <li><a class="icon" aria-label="Next post" href="/2023/11/27/my-library/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/2023/12/14/ipc/chap5/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -117,26 +117,28 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2024/01/23/ipc/chap1234/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://adversarr.github.io/2024/01/23/ipc/chap1234/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2024/01/23/ipc/chap1234/&t="><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/12/14/ipc/chap1234/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&text=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&title=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&is_video=false&description=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc.&body=Check out this article: https://adversarr.github.io/2023/12/14/ipc/chap1234/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&title=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&title=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&title=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&title=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&name=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc.&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/12/14/ipc/chap1234/&t=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84-15-769-physically-based-animation-of-solids-and-fluids"><span class="toc-number">1.</span> <span class="toc-text">从零开始的
-15-769: Physically-based Animation of Solids and Fluids</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-1-shape-representation"><span class="toc-number">2.</span> <span class="toc-text">Lecture 1: Shape
-Representation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sdfsigned-distance-function"><span class="toc-number">2.1.</span> <span class="toc-text">SDF：Signed Distance Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#points-and-particles."><span class="toc-number">2.2.</span> <span class="toc-text">Points, and particles.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mesh"><span class="toc-number">2.3.</span> <span class="toc-text">Mesh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hybrid---mpm"><span class="toc-number">2.4.</span> <span class="toc-text">Hybrid - MPM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#time-discretization"><span class="toc-number">2.5.</span> <span class="toc-text">Time Discretization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-2-time-integration"><span class="toc-number">3.</span> <span class="toc-text">Lecture 2: Time Integration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-3-mass-spring"><span class="toc-number">4.</span> <span class="toc-text">Lecture 3: Mass Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#inertia-energy"><span class="toc-number">4.1.</span> <span class="toc-text">Inertia Energy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dirichlet-bc"><span class="toc-number">5.</span> <span class="toc-text">Dirichlet BC</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lecture-1-4-shape-repersentation-time-integration-mass-spring-system-dirichlet-bc."><span class="toc-number">1.</span> <span class="toc-text">15-769:
+Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system,
+Dirichlet bc.</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84-15-769-physically-based-animation-of-solids-and-fluids"><span class="toc-number">1.1.</span> <span class="toc-text">从零开始的
+15-769: Physically-based Animation of Solids and Fluids</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-1-shape-representation"><span class="toc-number">1.2.</span> <span class="toc-text">Lecture 1: Shape
+Representation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sdfsigned-distance-function"><span class="toc-number">1.2.1.</span> <span class="toc-text">SDF：Signed Distance Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#points-and-particles."><span class="toc-number">1.2.2.</span> <span class="toc-text">Points, and particles.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mesh"><span class="toc-number">1.2.3.</span> <span class="toc-text">Mesh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hybrid---mpm"><span class="toc-number">1.2.4.</span> <span class="toc-text">Hybrid - MPM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#time-discretization"><span class="toc-number">1.2.5.</span> <span class="toc-text">Time Discretization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-2-time-integration"><span class="toc-number">1.3.</span> <span class="toc-text">Lecture 2: Time Integration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-3-mass-spring"><span class="toc-number">1.4.</span> <span class="toc-text">Lecture 3: Mass Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#inertia-energy"><span class="toc-number">1.4.1.</span> <span class="toc-text">Inertia Energy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dirichlet-bc"><span class="toc-number">1.5.</span> <span class="toc-text">Dirichlet BC</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -149,7 +151,7 @@ Representation</span></a><ol class="toc-child"><li class="toc-item toc-level-3">
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        
+        15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc.
     </h1>
 
 
@@ -161,7 +163,7 @@ Representation</span></a><ol class="toc-child"><li class="toc-item toc-level-3">
       
     <div class="postdate">
       
-        <time datetime="2024-01-23T11:29:33.550Z" class="dt-published" itemprop="datePublished">2024-01-23</time>
+        <time datetime="2023-12-14T16:00:00.000Z" class="dt-published" itemprop="datePublished">2023-12-15</time>
         
       
     </div>
@@ -176,9 +178,10 @@ Representation</span></a><ol class="toc-child"><li class="toc-item toc-level-3">
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>#! https://zhuanlan.zhihu.com/p/668263455 # 15-769: Lecture 1-4:
-Shape Repersentation, Time Integration, Mass Spring system, Dirichlet
-bc.</p>
+    <h1
+id="lecture-1-4-shape-repersentation-time-integration-mass-spring-system-dirichlet-bc.">15-769:
+Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system,
+Dirichlet bc.</h1>
 <h2
 id="从零开始的-15-769-physically-based-animation-of-solids-and-fluids">从零开始的
 15-769: Physically-based Animation of Solids and Fluids</h2>
@@ -395,25 +398,27 @@ class="math inline">\(0\)</span></li>
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84-15-769-physically-based-animation-of-solids-and-fluids"><span class="toc-number">1.</span> <span class="toc-text">从零开始的
-15-769: Physically-based Animation of Solids and Fluids</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-1-shape-representation"><span class="toc-number">2.</span> <span class="toc-text">Lecture 1: Shape
-Representation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sdfsigned-distance-function"><span class="toc-number">2.1.</span> <span class="toc-text">SDF：Signed Distance Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#points-and-particles."><span class="toc-number">2.2.</span> <span class="toc-text">Points, and particles.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mesh"><span class="toc-number">2.3.</span> <span class="toc-text">Mesh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hybrid---mpm"><span class="toc-number">2.4.</span> <span class="toc-text">Hybrid - MPM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#time-discretization"><span class="toc-number">2.5.</span> <span class="toc-text">Time Discretization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-2-time-integration"><span class="toc-number">3.</span> <span class="toc-text">Lecture 2: Time Integration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-3-mass-spring"><span class="toc-number">4.</span> <span class="toc-text">Lecture 3: Mass Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#inertia-energy"><span class="toc-number">4.1.</span> <span class="toc-text">Inertia Energy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dirichlet-bc"><span class="toc-number">5.</span> <span class="toc-text">Dirichlet BC</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lecture-1-4-shape-repersentation-time-integration-mass-spring-system-dirichlet-bc."><span class="toc-number">1.</span> <span class="toc-text">15-769:
+Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system,
+Dirichlet bc.</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84-15-769-physically-based-animation-of-solids-and-fluids"><span class="toc-number">1.1.</span> <span class="toc-text">从零开始的
+15-769: Physically-based Animation of Solids and Fluids</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-1-shape-representation"><span class="toc-number">1.2.</span> <span class="toc-text">Lecture 1: Shape
+Representation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sdfsigned-distance-function"><span class="toc-number">1.2.1.</span> <span class="toc-text">SDF：Signed Distance Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#points-and-particles."><span class="toc-number">1.2.2.</span> <span class="toc-text">Points, and particles.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mesh"><span class="toc-number">1.2.3.</span> <span class="toc-text">Mesh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hybrid---mpm"><span class="toc-number">1.2.4.</span> <span class="toc-text">Hybrid - MPM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#time-discretization"><span class="toc-number">1.2.5.</span> <span class="toc-text">Time Discretization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-2-time-integration"><span class="toc-number">1.3.</span> <span class="toc-text">Lecture 2: Time Integration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-3-mass-spring"><span class="toc-number">1.4.</span> <span class="toc-text">Lecture 3: Mass Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#inertia-energy"><span class="toc-number">1.4.1.</span> <span class="toc-text">Inertia Energy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dirichlet-bc"><span class="toc-number">1.5.</span> <span class="toc-text">Dirichlet BC</span></a></li></ol></li></ol>
       </div>
     
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2024/01/23/ipc/chap1234/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://adversarr.github.io/2024/01/23/ipc/chap1234/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2024/01/23/ipc/chap1234/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2024/01/23/ipc/chap1234/&t="><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/12/14/ipc/chap1234/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&text=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&title=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&is_video=false&description=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc.&body=Check out this article: https://adversarr.github.io/2023/12/14/ipc/chap1234/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&title=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&title=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&title=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&title=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/12/14/ipc/chap1234/&name=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc.&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/12/14/ipc/chap1234/&t=15-769: Lecture 1-4: Shape Repersentation, Time Integration, Mass Spring system, Dirichlet bc."><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
