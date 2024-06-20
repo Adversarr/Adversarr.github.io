@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Sparse Approximate Inverse Given non singular \(A\) find: \[ M \approx A^{-1}, \quad M \in \mathbb{R}^{n \times n} \text{ is sparse} \] and \(S\) is the sparsity pattern of \(M\). Motivation SPAI is u">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sparse Approximate Inverse">
+<meta property="og:url" content="https://adversarr.github.io/2024/06/18/linsys/spai/index.html">
+<meta property="og:site_name" content="Adversarr&#39;s Blog">
+<meta property="og:description" content="Sparse Approximate Inverse Given non singular \(A\) find: \[ M \approx A^{-1}, \quad M \in \mathbb{R}^{n \times n} \text{ is sparse} \] and \(S\) is the sparsity pattern of \(M\). Motivation SPAI is u">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-06-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-20T08:23:54.825Z">
+<meta property="article:author" content="Adversarr">
+<meta property="article:tag" content="Numeric Methods">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/magic-wand-48.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/magic-wand-192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/magic-wand-180.png">
+        
+      
+    
+    <!-- title -->
+    <title>Sparse Approximate Inverse</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$'], ['\\(', '\\)']]
+			}
+		  });
+		</script>
+		<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' async></script>
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/12/14/ipc/chap1234/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2024/06/18/linsys/spai/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2024/06/18/linsys/spai/&text=Sparse Approximate Inverse"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2024/06/18/linsys/spai/&title=Sparse Approximate Inverse"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2024/06/18/linsys/spai/&is_video=false&description=Sparse Approximate Inverse"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Sparse Approximate Inverse&body=Check out this article: https://adversarr.github.io/2024/06/18/linsys/spai/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2024/06/18/linsys/spai/&title=Sparse Approximate Inverse"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2024/06/18/linsys/spai/&title=Sparse Approximate Inverse"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2024/06/18/linsys/spai/&title=Sparse Approximate Inverse"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2024/06/18/linsys/spai/&title=Sparse Approximate Inverse"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2024/06/18/linsys/spai/&name=Sparse Approximate Inverse&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2024/06/18/linsys/spai/&t=Sparse Approximate Inverse"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sparse-approximate-inverse"><span class="toc-number">1.</span> <span class="toc-text">Sparse Approximate Inverse</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#motivation"><span class="toc-number">1.1.</span> <span class="toc-text">Motivation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#diagonal-block-method"><span class="toc-number">1.2.</span> <span class="toc-text">Diagonal Block Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#least-squares-sparse-inverse"><span class="toc-number">1.3.</span> <span class="toc-text">Least Squares Sparse Inverse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#generalization-koloblina-yeremin-1986"><span class="toc-number">1.4.</span> <span class="toc-text">Generalization (Koloblina
+&amp; Yeremin, 1986)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#w-a-t"><span class="toc-number">1.4.1.</span> <span class="toc-text">\(W &#x3D; A^{-T}\)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#w-i"><span class="toc-number">1.4.2.</span> <span class="toc-text">\(W &#x3D; I\)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#w-at-a-1"><span class="toc-number">1.4.3.</span> <span class="toc-text">\(W &#x3D; (A^T
+A)^{-1}\)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#properties"><span class="toc-number">1.4.4.</span> <span class="toc-text">Properties</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#factorized-sparse-approximate-inverse"><span class="toc-number">1.5.</span> <span class="toc-text">Factorized Sparse
+Approximate Inverse</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Sparse Approximate Inverse
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Adversarr</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-06-18T16:00:00.000Z" class="dt-published" itemprop="datePublished">2024-06-19</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Numeric-Methods/" rel="tag">Numeric Methods</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="sparse-approximate-inverse">Sparse Approximate Inverse</h1>
+<p>Given non singular <span class="math inline">\(A\)</span> find: <span
+class="math display">\[
+M \approx A^{-1}, \quad M \in \mathbb{R}^{n \times n} \text{ is sparse}
+\]</span> and <span class="math inline">\(S\)</span> is the sparsity
+pattern of <span class="math inline">\(M\)</span>.</p>
+<h2 id="motivation">Motivation</h2>
+<p>SPAI is useful as a parallel preconditioner for iterative solvers. It
+is also used in the context of domain decomposition methods.</p>
+<p>Apply the preconditioner is just a SpMV operation.</p>
+<ul>
+<li>static pattern: choose a fixed sparsity pattern</li>
+<li>dynamic pattern: choose a sparsity pattern during the computation of
+<span class="math inline">\(M\)</span></li>
+</ul>
+<h2 id="diagonal-block-method">Diagonal Block Method</h2>
+<p>Given <span class="math inline">\(S\)</span> find <span
+class="math inline">\(M\)</span> such that:</p>
+<p><span class="math display">\[
+(A M)_{ij} = (I)_{ij} \quad (i,j) \in S
+\]</span></p>
+<ul>
+<li>Not requiring <span class="math inline">\(AM\)</span> to match <span
+class="math inline">\(I\)</span> in every entry, but only on the
+sparsity pattern <span class="math inline">\(S\)</span></li>
+<li>This problem decouples into <span class="math inline">\(n\)</span>
+subproblems on each column.
+<ul>
+<li>compute <span class="math inline">\(M\)</span> is also highly
+parallelizable</li>
+</ul></li>
+</ul>
+<p>For column <span class="math inline">\(j\)</span> we have: <span
+class="math display">\[
+(A m_j)_i = \delta_{ij} \quad i \in S_j
+\]</span> where <span class="math inline">\(S_j\)</span> is the set of
+rows in the sparsity pattern of column <span
+class="math inline">\(j\)</span>.</p>
+<ul>
+<li>is attractive because of its simplicity, parallelism and
+scalability</li>
+</ul>
+<p>Each subproblem involves solving a linear system with a sparse
+matrix, but can be much smaller than the original system by only
+considering the block related to the sparsity pattern. - If <span
+class="math inline">\(A\)</span> is SPD, then the block in subproblems
+are also SPD.</p>
+<p>Question: 1. Is <span class="math inline">\(M\)</span> non singular?
+No! 2. If <span class="math inline">\(A\)</span> is SPD, is <span
+class="math inline">\(M\)</span> SPD? No!</p>
+<p><em>For CG, we need a symmetric and positive definite
+preconditioner!</em></p>
+<h2 id="least-squares-sparse-inverse">Least Squares Sparse Inverse</h2>
+<p>Given <span class="math inline">\(S\)</span> find <span
+class="math inline">\(M\)</span> such that:</p>
+<p><span class="math display">\[
+\min_{M} \| A M - I \|_F^2
+\]</span></p>
+<p>Again, this computation decouples into independent subproblems.</p>
+<ul>
+<li>The least-squares problem is well-posed and has a unique
+solution.</li>
+</ul>
+<p>However, even <span class="math inline">\(A\)</span> is symmetric,
+<span class="math inline">\(M\)</span> is not symmetric in general.</p>
+<h2 id="generalization-koloblina-yeremin-1986">Generalization (Koloblina
+&amp; Yeremin, 1986)</h2>
+<p>Given <span class="math inline">\(S\)</span> find <span
+class="math inline">\(M\)</span> such that:</p>
+<p><span class="math display">\[
+\min F_W (G) = \| I - G A \|_W^2 = \mathrm{tr} (I-GA) W (I-GA)^T
+\]</span> where <span class="math inline">\(W\)</span> is a symmetric
+positive definite (weight) matrix.</p>
+<ul>
+<li>If <span class="math inline">\(W = I\)</span>, then we have the
+least squares problem.</li>
+</ul>
+<p>take the derivative: <span class="math display">\[
+\frac{\partial F_W}{\partial G_{ij}} = 0 \implies
+(GAWA^T)_{ij} = (WA^T)_{ij} \quad (i,j) \in S
+\]</span></p>
+<p>the optimal value of minimum of <span
+class="math inline">\(F_W(G)\)</span> is <span
+class="math inline">\(\mathrm{tr} (W) - \mathrm{tr} (GAW)\)</span></p>
+<p>To see this:</p>
+<p><span class="math display">\[
+F_W(G) = \mathrm{tr}(W) - 2 \mathrm{tr} (GAW) + \mathrm{tr} (GAWA^TG)
+\]</span></p>
+<h3 id="w-a-t"><span class="math inline">\(W = A^{-T}\)</span></h3>
+<p>If <span class="math inline">\(W = A^{-T}\)</span>: <span
+class="math display">\[
+(GA) _{ij} = (I)_{ij} \quad (i,j) \in S
+\]</span></p>
+<p>Optimal value is <span class="math inline">\(\mathrm{tr} (A^{-T}) -
+\mathrm{tr} (G AA^{-T}) = n\)</span></p>
+<p>Further, if <span class="math inline">\(A\)</span> is symmetric, then
+optimal is <span class="math inline">\(\mathrm{tr} (A^{-1}) -
+\mathrm{tr} (G)\)</span></p>
+<p>choose <span class="math inline">\(S\)</span> to maximize the <span
+class="math inline">\(\mathrm{tr} (G)\)</span></p>
+<h3 id="w-i"><span class="math inline">\(W = I\)</span></h3>
+<p><span class="math display">\[
+(GAA^T)_{ij} = (A^T)_{ij} \quad (i,j) \in S
+\]</span></p>
+<p>Optimal value is <span class="math inline">\(n - \mathrm{tr}
+(GA)\)</span></p>
+<p>view as solving the normal equations.</p>
+<h3 id="w-at-a-1"><span class="math inline">\(W = (A^T
+A)^{-1}\)</span></h3>
+<p>we have:</p>
+<p><span class="math display">\[
+G_{ij} = (A^{-1})_{ij} \quad (i,j) \in S
+\]</span></p>
+<p>not practical, we donot know how to compute it cheaply.</p>
+<h3 id="properties">Properties</h3>
+<p>Nonsingularity: If <span class="math inline">\(\|I - GA\| = \epsilon
+&lt; 1\)</span>,</p>
+<ol type="1">
+<li><span class="math inline">\(GA\)</span> is nonsingular</li>
+<li><span class="math inline">\(\kappa (GA) = (1+ \epsilon)/
+(1-\epsilon)\)</span></li>
+<li><span class="math inline">\(GA\)</span> is positive definite.</li>
+</ol>
+<p>In practice, this condition may be expensive to obtain! (need <span
+class="math inline">\(G\)</span> to be dense.)</p>
+<h2 id="factorized-sparse-approximate-inverse">Factorized Sparse
+Approximate Inverse</h2>
+<p>Given <span class="math inline">\(A\)</span> find <span
+class="math inline">\(G\)</span> with sparse pattern <span
+class="math inline">\(S\)</span> such that: <span
+class="math display">\[
+G^T G \approx A^{-1}
+\]</span></p>
+<p>advantage of this form:</p>
+<ul>
+<li>if <span class="math inline">\(A\)</span> is spd, then we can
+guarantee that <span class="math inline">\(G^T G\)</span> is spd.</li>
+<li><span class="math inline">\(G^T G\)</span> is “denser” than <span
+class="math inline">\(G\)</span>, so it may approximate <span
+class="math inline">\(A^{-1}\)</span> better</li>
+</ul>
+<p>We will choose <span class="math inline">\(G\)</span> as lower
+triangular. (non triangular is possible, but the performance is not as
+well.) All known methods for computing FSAI use <span
+class="math inline">\(G\)</span> triangular.</p>
+<p>If <span class="math inline">\(A\)</span> is SPD, then <span
+class="math inline">\(G\)</span> approximates the inverse of Cholesky
+factor <span class="math inline">\(L\)</span> of <span
+class="math inline">\(A = L L^T\)</span>.</p>
+<p><span class="math display">\[
+\min \| I - GL \| _ F^2
+\]</span></p>
+<p>However, we do not know <span class="math inline">\(L\)</span>.</p>
+<p>Similar to the previous case, we can derive: <span
+class="math display">\[
+(G LL^T)_{ij} = (L^T)_{ij} \quad (i,j) \in S
+\]</span></p>
+<p>However, <span class="math inline">\(L\)</span> is lower triangular,
+and <span class="math inline">\(S\)</span> is also. we only need the
+Diagonal part of <span class="math inline">\(L\)</span> (still not
+known).</p>
+<p>Solve for <span class="math inline">\(\tilde G = D G\)</span>.
+(scaled version of G)</p>
+<p><span class="math display">\[
+(\tilde G A)_{ij} = (I)_{ij} \quad (i,j) \in S
+\]</span></p>
+<p>And now find <span class="math inline">\(D\)</span>, such that <span
+class="math display">\[
+G A G = I
+\]</span> the diagonal of <span
+class="math inline">\(\mathrm{diag}D^{-1} \tilde G A \tilde G^T D^{-1} =
+\mathrm{diag}(I)\)</span></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/tags/">Tag</a></li>
+        
+          <li><a href="/categories/">Category</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sparse-approximate-inverse"><span class="toc-number">1.</span> <span class="toc-text">Sparse Approximate Inverse</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#motivation"><span class="toc-number">1.1.</span> <span class="toc-text">Motivation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#diagonal-block-method"><span class="toc-number">1.2.</span> <span class="toc-text">Diagonal Block Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#least-squares-sparse-inverse"><span class="toc-number">1.3.</span> <span class="toc-text">Least Squares Sparse Inverse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#generalization-koloblina-yeremin-1986"><span class="toc-number">1.4.</span> <span class="toc-text">Generalization (Koloblina
+&amp; Yeremin, 1986)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#w-a-t"><span class="toc-number">1.4.1.</span> <span class="toc-text">\(W &#x3D; A^{-T}\)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#w-i"><span class="toc-number">1.4.2.</span> <span class="toc-text">\(W &#x3D; I\)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#w-at-a-1"><span class="toc-number">1.4.3.</span> <span class="toc-text">\(W &#x3D; (A^T
+A)^{-1}\)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#properties"><span class="toc-number">1.4.4.</span> <span class="toc-text">Properties</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#factorized-sparse-approximate-inverse"><span class="toc-number">1.5.</span> <span class="toc-text">Factorized Sparse
+Approximate Inverse</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2024/06/18/linsys/spai/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2024/06/18/linsys/spai/&text=Sparse Approximate Inverse"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2024/06/18/linsys/spai/&title=Sparse Approximate Inverse"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2024/06/18/linsys/spai/&is_video=false&description=Sparse Approximate Inverse"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Sparse Approximate Inverse&body=Check out this article: https://adversarr.github.io/2024/06/18/linsys/spai/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2024/06/18/linsys/spai/&title=Sparse Approximate Inverse"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2024/06/18/linsys/spai/&title=Sparse Approximate Inverse"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2024/06/18/linsys/spai/&title=Sparse Approximate Inverse"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2024/06/18/linsys/spai/&title=Sparse Approximate Inverse"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2024/06/18/linsys/spai/&name=Sparse Approximate Inverse&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2024/06/18/linsys/spai/&t=Sparse Approximate Inverse"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2024
+    Adversarr
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
