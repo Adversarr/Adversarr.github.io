@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Optimization Lecture 2: Convex Set Common Convex Sets  Hyperplane: \(H &#x3D; \{x \in \mathbb{R}^n \mid a^Tx &#x3D; b\}\). Halfspace: \(H &#x3D; \{x \in \mathbb{R}^n \mid a^Tx \leq b\}\). Polyhedron: \(P &#x3D; \{x \in \">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A short summary to Optimization Theory.">
+<meta property="og:url" content="https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/index.html">
+<meta property="og:site_name" content="Adversarr&#39;s Blog">
+<meta property="og:description" content="Optimization Lecture 2: Convex Set Common Convex Sets  Hyperplane: \(H &#x3D; \{x \in \mathbb{R}^n \mid a^Tx &#x3D; b\}\). Halfspace: \(H &#x3D; \{x \in \mathbb{R}^n \mid a^Tx \leq b\}\). Polyhedron: \(P &#x3D; \{x \in \">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-06-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-21T13:20:47.715Z">
+<meta property="article:author" content="Adversarr">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/magic-wand-48.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/magic-wand-192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/magic-wand-180.png">
+        
+      
+    
+    <!-- title -->
+    <title>A short summary to Optimization Theory.</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$'], ['\\(', '\\)']]
+			}
+		  });
+		</script>
+		<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' async></script>
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2024/06/18/linsys/spai/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&text=A short summary to Optimization Theory."><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&title=A short summary to Optimization Theory."><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&is_video=false&description=A short summary to Optimization Theory."><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=A short summary to Optimization Theory.&body=Check out this article: https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&title=A short summary to Optimization Theory."><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&title=A short summary to Optimization Theory."><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&title=A short summary to Optimization Theory."><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&title=A short summary to Optimization Theory."><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&name=A short summary to Optimization Theory.&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&t=A short summary to Optimization Theory."><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#optimization"><span class="toc-number">1.</span> <span class="toc-text">Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-2-convex-set"><span class="toc-number">1.1.</span> <span class="toc-text">Lecture 2: Convex Set</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#common-convex-sets"><span class="toc-number">1.1.1.</span> <span class="toc-text">Common Convex Sets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#property-of-conv"><span class="toc-number">1.1.2.</span> <span class="toc-text">Property of conv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#operations-on-convex-sets"><span class="toc-number">1.1.3.</span> <span class="toc-text">Operations on Convex Sets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dual-cone-generalized-inequalities"><span class="toc-number">1.1.4.</span> <span class="toc-text">Dual Cone &amp; Generalized
+Inequalities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#separating-hyperplane-theorem"><span class="toc-number">1.1.5.</span> <span class="toc-text">Separating Hyperplane
+Theorem</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#convex-function"><span class="toc-number">1.2.</span> <span class="toc-text">Convex Function</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#definition"><span class="toc-number">1.2.1.</span> <span class="toc-text">Definition</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        A short summary to Optimization Theory.
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Adversarr</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-06-20T16:00:00.000Z" class="dt-published" itemprop="datePublished">2024-06-21</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="optimization">Optimization</h1>
+<h2 id="lecture-2-convex-set">Lecture 2: Convex Set</h2>
+<h3 id="common-convex-sets">Common Convex Sets</h3>
+<ul>
+<li><strong>Hyperplane</strong>: <span class="math inline">\(H = \{x \in
+\mathbb{R}^n \mid a^Tx = b\}\)</span>.</li>
+<li><strong>Halfspace</strong>: <span class="math inline">\(H = \{x \in
+\mathbb{R}^n \mid a^Tx \leq b\}\)</span>.</li>
+<li><strong>Polyhedron</strong>: <span class="math inline">\(P = \{x \in
+\mathbb{R}^n \mid Ax \leq b\}\)</span>.</li>
+<li><strong>Euclidean Ball</strong>: <span class="math inline">\(B = \{x
+\in \mathbb{R}^n \mid \|x - x_c\|_2 \leq r\}\)</span>.</li>
+<li><strong>Ellipsoid</strong>: <span class="math inline">\(E = \{x \in
+\mathbb{R}^n \mid (x - x_c)^T P^{-1} (x - x_c) \leq 1\}\)</span>.</li>
+<li><strong>Norm Ball</strong>: <span class="math inline">\(B = \{x \in
+\mathbb{R}^n \mid \|x - x_c\|_p \leq r\}\)</span>.</li>
+<li><strong>Norm Cone</strong>: <span class="math inline">\(C = \{x \in
+\mathbb{R}^n \mid \|x\|_p \leq t\}\)</span>.</li>
+</ul>
+<p>Some special matrices:</p>
+<ul>
+<li>Symmetric matrix set: <span class="math inline">\(S^n = \{X \in
+\mathbb{R}^{n \times n} \mid X = X^T\}\)</span>.</li>
+<li>Semi-positive definite matrix set: <span class="math inline">\(S_+^n
+= \{X \in \mathbb{R}^{n \times n} \mid X = X^T, \lambda_{\min}(X) \geq
+0\}\)</span>.</li>
+<li>Positive definite matrix set: <span class="math inline">\(S_{++}^n =
+\{X \in \mathbb{R}^{n \times n} \mid X = X^T, \lambda_{\min}(X) &gt;
+0\}\)</span>.</li>
+</ul>
+<p>Actually, SPD matrix set is a cone.</p>
+<h3 id="property-of-conv">Property of <code>conv</code></h3>
+<p>Convex combination: <span class="math display">\[
+x = \theta_1 x_1 + ... + \theta_k x_k, \theta_i \geq 0, \sum_{i=1}^k
+\theta_i = 1.
+\]</span></p>
+<p><span class="math inline">\(\mathbf{conv} S\)</span> is the smallest
+convex set that contains <span class="math inline">\(S\)</span>. - Also
+the intersection of all convex sets that contain <span
+class="math inline">\(S\)</span>.</p>
+<p><code>aff</code>: The smallest affine set that contains <span
+class="math inline">\(S\)</span>. - The smallest affine set that
+contains <span class="math inline">\(S\)</span>. - Containing all the
+affine combinations of points in <span
+class="math inline">\(S\)</span>.</p>
+<p>Cone: <span class="math display">\[
+C = \{x \in \mathbb{R}^n \mid \lambda x \in C, \forall \lambda \geq 0\}
+\]</span></p>
+<p>Cone combination: <span class="math display">\[
+x = \theta_1 x_1 + ... + \theta_k x_k, \theta_i \geq 0, x_i \in C.
+\]</span></p>
+<ul>
+<li>If all the cone combinations of <span class="math inline">\(x_1,
+..., x_k\)</span> are in <span class="math inline">\(C\)</span>, then
+<span class="math inline">\(C\)</span> is a convex cone.</li>
+</ul>
+<h3 id="operations-on-convex-sets">Operations on Convex Sets</h3>
+<p>Affine transform keeps convexity.</p>
+<p>Perspective transform <span class="math inline">\(P: R^{n+1} \to
+R^n\)</span> <span class="math display">\[
+P(x, t) = \frac{x}{t}, \text{dom} P = \{(x, t) \mid t &gt; 0\}
+\]</span> Perspective transform keeps convexity.</p>
+<p>Therefore: <span class="math display">\[
+f(x)  = \frac{Ax + b}{c^Tx + d}, \text{dom} f = \{x \mid c^Tx + d &gt;
+0\}
+\]</span> keeps convexity.</p>
+<h3 id="dual-cone-generalized-inequalities">Dual Cone &amp; Generalized
+Inequalities</h3>
+<p><strong>Proper cone</strong>: - Closed - <span
+class="math inline">\(\text{int} K\)</span> is nonempty - <span
+class="math inline">\(K\)</span> is pointed: <span
+class="math inline">\(K \cap -K = \{0\}\)</span></p>
+<p>For example: 1. Nonnegative orthant: <span class="math inline">\(K =
+\mathbb{R}_+^n\)</span> 2. Semi-PD matrix cone: <span
+class="math inline">\(K = S_{+}^n\)</span></p>
+<p><strong>Generalized Inequalities</strong>: For proper cone <span
+class="math inline">\(K\)</span>, <span class="math display">\[
+x \preceq_K y \Leftrightarrow y - x \in K
+\]</span> Strict inequality: <span class="math display">\[
+x \prec_K y \Leftrightarrow y - x \in \text{int} K
+\]</span></p>
+<p><strong>Dual Cone</strong>: For <span
+class="math inline">\(K\)</span>, the dual cone is <span
+class="math display">\[
+K^* = \{y \mid x^Ty \geq 0, \forall x \in K\}
+\]</span></p>
+<p>There are many properties for dual cone</p>
+<ul>
+<li><span class="math inline">\(K^*\)</span> is a cone, and a closed
+convex set.</li>
+<li>if <span class="math inline">\(\mathrm{int} K\)</span> is nonempty,
+then <span class="math inline">\(K^*\)</span> is pointed</li>
+<li>… (see slide page 36.)</li>
+</ul>
+<p>One important property is: if <span class="math inline">\(K\)</span>
+is proper, then <span class="math inline">\(K^*\)</span> is also
+proper.</p>
+<p>There is dual generalized inequalities: <span class="math display">\[
+x \preceq_K y \iff y - x \in K^*
+\]</span> it satisfies: - <span class="math inline">\(x \preceq_K y
+\implies z^Tx \leq z^Ty, \forall z \succeq_{K^*} 0\)</span></p>
+<blockquote>
+<p>The advantage of dual generalized inequalities is that, the dual cone
+is always closed and convex, and it converts a partial order to a full
+order problem.</p>
+</blockquote>
+<blockquote>
+<p>Reference: 02-convex-set-ustc.pdf, page 37</p>
+</blockquote>
+<h3 id="separating-hyperplane-theorem">Separating Hyperplane
+Theorem</h3>
+<p>For two disjoint convex sets <span class="math inline">\(C\)</span>
+and <span class="math inline">\(D\)</span>, there exists a hyperplane
+that separates them.</p>
+<p><strong>Supporting Hyperplane</strong>: For a convex set <span
+class="math inline">\(C\)</span>, and a point <span
+class="math inline">\(x_0 \in \partial C\)</span>, there exists a
+hyperplane <span class="math inline">\(a^Tx = b\)</span> such that <span
+class="math inline">\(a^Tx \leq b, \forall x \in C\)</span>.</p>
+<h2 id="convex-function">Convex Function</h2>
+<h3 id="definition">Definition</h3>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/tags/">Tag</a></li>
+        
+          <li><a href="/categories/">Category</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#optimization"><span class="toc-number">1.</span> <span class="toc-text">Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-2-convex-set"><span class="toc-number">1.1.</span> <span class="toc-text">Lecture 2: Convex Set</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#common-convex-sets"><span class="toc-number">1.1.1.</span> <span class="toc-text">Common Convex Sets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#property-of-conv"><span class="toc-number">1.1.2.</span> <span class="toc-text">Property of conv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#operations-on-convex-sets"><span class="toc-number">1.1.3.</span> <span class="toc-text">Operations on Convex Sets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dual-cone-generalized-inequalities"><span class="toc-number">1.1.4.</span> <span class="toc-text">Dual Cone &amp; Generalized
+Inequalities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#separating-hyperplane-theorem"><span class="toc-number">1.1.5.</span> <span class="toc-text">Separating Hyperplane
+Theorem</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#convex-function"><span class="toc-number">1.2.</span> <span class="toc-text">Convex Function</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#definition"><span class="toc-number">1.2.1.</span> <span class="toc-text">Definition</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&text=A short summary to Optimization Theory."><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&title=A short summary to Optimization Theory."><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&is_video=false&description=A short summary to Optimization Theory."><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=A short summary to Optimization Theory.&body=Check out this article: https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&title=A short summary to Optimization Theory."><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&title=A short summary to Optimization Theory."><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&title=A short summary to Optimization Theory."><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&title=A short summary to Optimization Theory."><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&name=A short summary to Optimization Theory.&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2024/06/20/optimizer/optimizer_final/&t=A short summary to Optimization Theory."><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2024
+    Adversarr
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
