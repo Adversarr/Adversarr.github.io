@@ -25,7 +25,6 @@ Some special matrices:
 
 Actually, SPD matrix set is a cone.
 
-
 ### Property of `conv`
 
 Convex combination:
@@ -118,8 +117,410 @@ For two disjoint convex sets $C$ and $D$, there exists a hyperplane that separat
 
 **Supporting Hyperplane**: For a convex set $C$, and a point $x_0 \in \partial C$, there exists a hyperplane $a^Tx = b$ such that $a^Tx \leq b, \forall x \in C$.
 
-## Convex Function
+## Lecture 3: Convex Function
+
+### Gradients & Hessians
+
+**Gradient**:
+$$
+\lim_{p\to 0} \frac{f(x + p) - f(x)}{\|p\|} = \nabla f(x)
+$$
+
+**Hessian**:
+$$
+\nabla^2 f(x) = \begin{bmatrix}
+\frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n} \\
+\frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} & \cdots & \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{\partial^2 f}{\partial x_n \partial x_1} & \frac{\partial^2 f}{\partial x_n \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_n^2}
+\end{bmatrix}
+$$
+
+Gateaux derivative:
+$$
+\lim_{\alpha \to 0} \frac{f(x + \alpha d) - f(x) - t \langle g, d \rangle}{\alpha}
+$$
+
+
+Some important derivatives:
+$$
+\text{Linear: } \nabla_x \mathrm{tr} (A X^T B) = BA
+$$
+
+$$
+\text{Quadratic: } \nabla_x x^T A x = (A + A^T) x
+$$
+
+$$
+\nabla \ln \det X = X^{-1}
+$$
 
 ### Definition
+
+A function $f: \mathbb{R}^n \to \mathbb{R}$ is convex if:
+$$
+f(\theta x + (1-\theta)y) \leq \theta f(x) + (1-\theta)f(y), \forall x, y \in \text{dom} f, \theta \in [0, 1]
+$$
+
+Strict convex:
+$$
+f(\theta x + (1-\theta)y) < \theta f(x) + (1-\theta)f(y), \forall x, y \in \text{dom} f, \theta \in (0, 1)
+$$
+
+some important examples in 1D:
+- Affines
+- Exponentials
+- Powers $x^p$, with $p \geq 1, x \in \mathbb R_{++}$
+- Negative entropy $x \ln x$, with $x \in \mathbb R_{++}$
+
+basic examples in $\mathbb{R}^n$:
+- Affine functions
+- Norm, with $p \geq 1$
+
+In matrix space:
+- $f(X) = \mathrm{tr} (AX) = \sum_{ij} A_{ij} X_{ij} + b$ is affine, convex.
+- Matrix norms ($p=2$): $f(X) = \|X\|_2$ is convex.
+
+### checking convexity
+
+**Restrict to line**:
+$g(t) = f(x + td)$ is always convex, then $f$ is convex.
+
+**First order condition**: 
+if $f$ is differentiable, then $f$ is convex if and only if $f(y) \geq f(x) + \nabla f(x)^T (y - x)$.
+
+More on derivative:
+if $f$ is differentiable, then $f$ is convex if and only if $\mathrm{dom} f$ is convex, and $\nabla f$ is monotonically increasing:
+$$
+(\nabla f(x) - \nabla f(y))^T (x - y) \geq 0, \forall x, y \in \text{dom} f
+$$
+
+**Second order condition**:
+if $f$ is twice differentiable, then $f$ is convex if and only if $\nabla^2 f(x) \succeq 0, \forall x \in \text{dom} f$.
+
+And if $\nabla^2 f \succ 0$, then $f$ is strictly convex.
+
+**Jensen's Inequality**:
+if $f$ is convex, then
+1. $f(\theta x + (1-\theta)y) \leq \theta f(x) + (1-\theta)f(y)$
+2. $f(\mathbb{E}[X]) \leq \mathbb{E}[f(X)]$
+
+### Operations
+
+**Nonnegative weighted sum**:
+$$
+f(x) = \sum_{i=1}^k \theta_i f_i(x), \theta_i \geq 0
+$$
+
+**Pointwise maximum**:
+$$
+f(x) = \max_{i=1}^k f_i(x)
+$$
+
+**Composition with affine transform**:
+$$
+f(x) = g(Ax + b)
+$$
+
+**Composition with perspective transform**:
+$$
+g(x, t) = t f(x / t)
+$$
+
+**Conjugate function**:
+$$
+f^*(y) = \sup_{x \in \text{dom} f} \langle x, y \rangle - f(x)
+$$
+
+- [ ] Connection to proximal operator, Moreau decomposition.
+
+## Lecture 4: Convex Problems
+
+**Definition of Convex Optimization Problem**:
+$$
+\begin{aligned}
+       \min \quad &f_0(x) \\
+\text{s.t.} \quad &f_i(x) \leq 0, i = 1, ..., m \\
+                  &h_i(x) = 0, i = 1, ..., p
+\end{aligned}
+$$
+
+basic property: the feasible set is convex.
+
+**Theorem**: Any local minimum of a convex problem is a global minimum.
+
+**Linear Programming**:
+$$
+\min c^Tx \quad \text{s.t.} \quad Ax = b, G x \leq e
+$$
+and fractional linear programming, is also equivalent to linear programming.
+
+**Quadratic Programming**:
+$$
+\min \frac{1}{2} x^T P x + q^T x + r \quad \text{s.t.} \quad Ax = b, G x \leq e
+$$
+
+some examples:
+- Least squares
+- Stotasitc Linear Programming
+
+**QCQP**:
+$$
+\min x^T P_0 x + q_0^T x + r_0 \quad \text{s.t.} \quad x^T P_i x + q_i^T x + r_i \leq 0, i = 1, ..., m
+$$
+
+**SOCP**:
+$$
+\begin{aligned}
+       \min \quad &c^Tx \\
+\text{s.t.} \quad &\|A_i x + b_i\|_2 \leq c_i^T x + d_i, i = 1, ..., m
+                  &Fx = g
+\end{aligned}
+$$
+
+**Convex Relaxation**: max-cut:
+$$
+\begin{aligned}
+       \max \quad &\frac{1}{2} \sum_{i < j} (1 - x_i x_j) w_{ij} \\
+\text{s.t.} \quad &x_i \in \{-1, 1\}
+\end{aligned}
+$$
+
+relaxation: let $W = (w_{ij}) \in S^n$, $C = -\frac{1}{4} (\mathrm{diag} (W 1) - W)$ (graph laplacian):
+$$
+\begin{aligned}
+       \max \quad &\frac{1}{4} x^T C x \\
+\text{s.t.} \quad &x_i \in \{-1, 1\}
+\end{aligned}
+$$
+
+Let $X = xx^T$, and use $x_i^2 = 1$, we have:
+$$
+\begin{aligned}
+       \max \quad &\frac{1}{4} \mathrm{tr} (CX) \\
+\text{s.t.} \quad &X \succeq 0, X_{ii} = 1, X\preceq 0, \mathrm{rank} X = 1
+\end{aligned}
+$$
+
+## Lecture 5: Optimal conditions
+
+### First Order Condition and Second Order Condition
+
+**First order**: Suppose $f$ is differentiable, then $x$ is optimal must satisfies
+$$
+\nabla f(x) = 0
+$$
+This is only a necessary condition generally. But for convex function, it is also sufficient.
+
+**Second order**: Suppose $f$ is twice differentiable,
+1. necessary condition: $\nabla f(x) = 0, \nabla^2 f \preceq 0$
+2. sufficient condition: $\nabla f(x) = 0, \nabla^2 f \prec 0$
+
+### Duality
+
+**Lagrange Dual Function**: for a convex optimization problem
+$$
+\begin{aligned}
+       \min \quad &f_0(x) \\
+\text{s.t.} \quad &f_i(x) \leq 0, i = 1, ..., m \\
+                  &h_i(x) = 0, i = 1, ..., p
+\end{aligned}
+$$
+the Lagrange dual function is
+$$
+L(x, \lambda, \nu) = f_0(x) + \sum_{i=1}^m \lambda_i f_i(x) + \sum_{i=1}^p \nu_i h_i(x)
+$$
+
+**Weak Duality**: for any feasible $x$ and $\lambda, \nu$,
+$$
+g(\lambda, \nu) = \inf_x L(x, \lambda, \nu)
+$$
+and, if $\lambda \ge 0$, we have:
+$$
+g(\lambda, \nu) \leq p^*
+$$
+
+**Lagrange Dual Problem**: the dual problem is:
+$$
+\begin{aligned}
+       \max \quad &g(\lambda, \nu) = \inf_x L(x, \lambda, \nu) \\
+\text{s.t.} \quad &\lambda \succeq 0
+\end{aligned}
+$$
+and duality gap is $p^* - d^* \ge 0$, where $p^*$ is the primal optimal value, and $d^*$ is the dual optimal value.
+
+Duality feasible:
+$$
+\mathrm{dom} g = \{(\lambda, \nu) \mid \lambda \succeq 0, g(\lambda, \nu) > -\infty\}
+$$
+
+Examples:
+- LP -> LP
+- QP -> QP
+
+**Connection to conjugate function**: if the constraint is linear,
+$$
+g(\lambda, \nu) = -f_0^*(-A^T \lambda - C^T \nu) - b^T \lambda - d^T \nu
+$$
+When conjugate function is known, we can directly solve the dual problem.
+
+**Change of variables**:
+$$
+\min f_0 (Ax + b)
+$$
+can be changed to:
+$$
+\min f_0(y) \quad \text{s.t.} \quad y = Ax + b
+$$
+
+**Bound constrainted LP**:
+$$
+\begin{aligned}
+        \min &c^T x \\
+\text{s.t.} &A x = b, -1 \le x \le 1
+\end{aligned}
+$$
+
+Implicit boundary constraint:
+$$
+\begin{aligned}
+        \min &f_0(x) = \begin{cases}
+        c^T x &\text{if } -1 \le x \le 1 \\
+        +\infty &\text{otherwise}
+    \end{cases} \\
+\text{s.t.} &A x = b, -1 \le x \le 1
+\end{aligned}
+$$
+the dual function:
+$$
+g(\nu) = -b^T \nu - \| A^T \nu + c \|_1
+$$
+
+**Cones**: How to deal with cone constraint?
+$$
+\begin{aligned}
+       \min & f(x) \\
+\text{s.t.} & c_i(x) \succeq_{K_i} 0\\
+            & d_i(x) = 0
+\end{aligned}
+$$
+the Lagrange dual function is:
+$$
+L(x, \lambda, \nu) = f(x) + \sum_i \langle \lambda_i, c_i(x)\rangle + \sum_i \nu_i^T d_i(x)
+$$
+
+### Optimal condition: Slater, KKT, LICQ
+
+Why we need slater's condition: wish to find the optimal condition for a constrainted optimization problem, as if we are solving an unconstrainted problem.
+
+**Slater's Condition**: if there exists a feasible $x \in \mathrm{relint} \mathcal D$ such that $f_i(x) < 0, h_i(x) = 0$, then we say slate's condition holds.
+
+For convex problem, Slater's condition is sufficient for **strong duality**(zero duality gap).
+
+**KKT condition**, also the **First order sufficient and necessary condition**:
+For a convex optimization problem, if Slater's condition holds, then the KKT condition is necessary and sufficient for optimality:
+1. stationary: $0 \in \partial f(x^*) + \sum \lambda_i \partial f_i(x^*) + \sum \nu_i \partial h_i(x^*)$
+2. primal feasibility: $f_i(x^*) \le 0, h_i(x^*) = 0$
+3. duality feasibility: $\lambda_i \ge 0$
+4. complementary slackness: $\lambda_i f_i(x^*) = 0$
+
+#### General KKT condition
+
+**LICQ**(Linear Independence Constraint Qualification): for a point $x$, if the gradients of active constraints are linearly independent, then we say LICQ holds.
+
+For a general problem, we need LICQ condition to ensure the KKT condition is necessary and sufficient.
+
+> TODO: More on LICQ
+
+- Analytic solution for some basic problems.
+
+## Gradient Descent
+
+For a quadratic problem:
+$$
+\| x_k - x^* \|^2 \le \left(\frac{\lambda_{\max} - \lambda_{\min}}{\lambda_{\max} + \lambda_{\min}}\right) \|x_0 - x^*\|^2
+$$
+
+Therefore, we consider the Lipschitz constant:
+$$
+\| \nabla f(x) - \nabla f(y) \| \le L \|x - y\|
+$$
+the Lipschitz constant also gives us:
+$$
+\begin{aligned}
+    f(y) &\le f(x) + \nabla f(x)^T (y - x) + \frac{L}{2} \|y - x\|^2 \\
+    f(x) &\ge f(y) + \nabla f(y)^T (x - y) + \frac{L}{2} \|x - y\|^2
+\end{aligned}
+$$
+To ensure convergence, we must set $\alpha_k < \frac{1}{L}$.
+
+Moreover, if $f$ is twice differentiable, then $f$ is $m$-strong convex, and $L$-continuously differentiable, if:
+$$
+m I \preceq \nabla^2 f(x) \preceq L I
+$$
+
+The convergence rate of GD is given by:
+$$
+f(x_k) - f(x^*) \le \frac{L \|x_0 - x^*\|^2}{2k}
+$$
+
+Convergence rate under strong convexity:
+$$
+f(x^k) - f^* \le c^k \frac{L}{2} \| x^0 - x^* \|_2^2
+$$
+where $c = L / m < 1$.
+
+### More on convex functions
+
+For a differentiable function, tfae:
+1. $\nabla f$ is Lipschitz continuous with constant $L$,
+2. $g(x) := L/2 \|x\|_2^2 - f(x)$ is convex,
+3. $\nabla f$ has: $(\nabla f(x) - \nabla f(y))^T (x - y) \ge L \|x - y\|^2$, for all $x, y$
+
+### Line searching
+
+**Armijo rule**, checking for sufficient decrease:
+$$
+f(x_k + \alpha_k d_k) \le f(x_k) + \alpha_k c_1 \nabla f(x_k)^T d_k
+$$
+
+**Wolfe conditions**, checking for curvature:
+$$
+\begin{aligned}
+    f(x_k + \alpha_k d_k) &\le f(x_k) + \alpha_k c_1 \nabla f(x_k)^T d_k \\
+    \nabla f(x_k + \alpha_k d_k)^T d_k &\ge c_2 \nabla f(x_k)^T d_k
+\end{aligned}
+$$
+we need $0 < c_1 < c_2 < 1$.
+
+**Goldstein conditions**, a compromise between Armijo and Wolfe:
+$$
+\begin{aligned}
+    f(x_k + \alpha_k d_k) &\le f(x_k) + \alpha_k c_1 \nabla f(x_k)^T d_k \\
+    f(x_k + \alpha_k d_k) &\ge f(x_k) + \alpha_k (1-c) \nabla f(x_k)^T d_k
+\end{aligned}
+$$
+we need $0 < c < 1/2$
+
+### Non smooth problems
+
+Convergence rate for gd:
+$$
+\min _{k = 0, 1, ..., T} \| \nabla f (x_k) \|^2 \le \frac{2 L (f(x_0) - f^*)}{T}
+$$
+
+TODO: Check for the convergency proof.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
