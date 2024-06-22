@@ -434,7 +434,7 @@ For a general problem, we need LICQ condition to ensure the KKT condition is nec
 
 - Analytic solution for some basic problems.
 
-## Gradient Descent
+## Lecture 6: Gradient Descent
 
 For a quadratic problem:
 $$
@@ -510,6 +510,194 @@ $$
 $$
 
 TODO: Check for the convergency proof.
+
+## Lecture 7: Subgradients
+
+### Definition of Subgradients & Subdifferential
+
+**Subgradient**:
+$$
+\partial f(x) = \{ g \mid f(y) \ge f(x) + g^T (y - x), \forall y \}
+$$
+
+For a convex function, $x \in \mathrm{int~dom} f$, the subgradient is always nonempty.
+
+### Computing Subgradients & Subdifferential
+
+differentiable function: equivalent to strong derivative.
+
+Non-negative weighted sum.
+
+Composition with affine transform.
+
+Pointwise maximum:
+$$
+f(x) = \max \{ f_1(x), f_2(x) \}
+\implies
+\partial f(x) = \mathbf{conv} \partial f_1(x) \cap \partial f_2(x)
+$$
+
+Examples:
+- Piecewise linear function 
+- L1 norm.
+
+### Optimal condition
+
+**First order condition**(unconstrainted): $x^*$ is local minimum, if and only if,
+$$
+0 \in \partial f
+$$
+
+**First order condition**(constrainted): $x^*$ is local minimum, if and only if,
+$$
+0 \in \partial f(x^*) + \sum \lambda_i \partial f_i(x^*)
+$$
+where $\lambda_i \ge 0$ is the optimal dual variable.
+
+### Subgradient methods
+
+$$
+x^{k+1}\larr x^k - \alpha_k g^k
+$$
+we have many choices for $\alpha_k$:
+1. constant step size: does not guarantee convergency
+2. constant $\|x^{k+1} - x^k\|$: does not guarantee convergency
+3. diminishing step size: ok, a typical choice is $\alpha_k = 1/k$
+4. line search: ok, but expensive.
+
+## Lecture 8: projected gradient descent, conditional gradient descent
+
+Now consider constrainted problems.
+
+**Optimal condition**:
+$$
+\langle \nabla f(x^*), x^* - y\rangle = 0,\quad \forall y in C
+$$
+
+**Projected Gradient Descent**:
+$$
+x_{k+1} = \Pi_C (x_k - \alpha_k \nabla f(x_k))
+$$
+
+**Non expansion property of projection**: if $C$ is convex,
+$$
+\| \Pi_C(x) - \Pi_C(y) \| \le \|x - y\|
+$$
+
+The convergency result under strong convex assumption:
+$$
+\|x_k - x^*\|^2 \leq \left(1 - \frac{m}{L}\right)^k \|x_0 - x^*\|^2
+$$
+if we choose $\alpha_k = 1/L$
+
+### Conditional Gradient Descent
+
+also called Frank-Wolfe algorithm.
+
+Why we need conditional gradient descent: Projection is expensive
+
+**Conditional Gradient Descent**:
+$$
+\begin{aligned}
+    x_k &= \arg\min_{x \in C} \langle \nabla f(x_{k-1}), x \rangle, \\
+    y_k &= x_{k-1} + \alpha_k (x_k - x_{k-1})
+\end{aligned}
+$$
+might be easier, if the linear programming is easy in $C$
+
+Choices for $\alpha_k$:
+- diminishing step size: $\alpha_k = 2/(k+1)$
+- or via exact line search
+
+## Lecture 9: Prox Mapping
+
+### Definition of Proximal Mapping
+
+**Proximal Mapping**:
+$$
+\text{prox}_{\alpha f}(x) = \arg\min_y \left( f(y) + \frac{1}{2} \|y - x\|^2 \right)
+$$
+
+**Relation to subgradient**:
+$$
+u = \text{prox}_{f}(x) \iff x - u \in \partial f(u)
+$$
+
+**Relation to projection**:
+$$
+\text{prox}_{I_C}(x) = \Pi_C(x)
+$$
+
+### Moreau decomposition
+
+$$
+x = \mathrm{prox}_{h}(x) + \mathrm{prox}_{h^*}(x)
+$$
+Generally:
+$$
+x = \mathrm{prox}_{\lambda h}(x) + \lambda\mathrm{prox}_{\lambda^{-1}h^*}(x)
+$$
+
+we can use Moreau decomposition to compute many proximal mappings.
+
+**Norm Ball**:
+The conjugate of $\| \cdot \|$ is the indicator function of the unit ball under the dual norm.
+
+### Proximal Gradient Descent
+
+**Proximal Gradient Descent**:
+$$
+x_{k+1} = \text{prox}_{\alpha h}(x_k - \alpha \nabla f(x_k))
+$$
+
+due to the optimal condition, we have:
+$$
+x = \text{prox}_{\alpha h}(x - \alpha \nabla f(x)) \iff -\nabla f(x) \in \partial h(x)
+$$
+
+#### Convergency
+
+Define the gradient mapping:
+$$
+G_t (x) = \frac{1}{t} (x - \text{prox}_{t h}(x - t \nabla f(x)))
+$$
+
+The proximal gradient descent can be written as:
+$$
+x_{k+1} = x_k - t G_{\alpha} (x_k)
+$$
+
+Convergency for constant step size $\alpha < 1/L$:
+$$
+f(x_k) - f(x^*) \le \frac{2 L}{k}\|x_0 - x^*\|^2
+$$
+
+Convergency for backtracking, similar.
+$$
+f(x_k) - f(x^*) \le \frac{1}{2k \min\{ \hat{t}, \beta/L \}} \|x_0 - x^*\|^2
+$$
+
+### Moreau Envelope
+
+**Moreau Envelope**:
+$$
+h_\alpha (x) = \min_y h(y) + \frac{1}{2\alpha} \|x - y\|^2
+$$
+
+Moreau envelop can be viewed as an approximation to non smooth $h$.
+
+For any proper, closed, convex function, the Moreau envelop $h_\alpha$ is differentiable, and the gradient is given by:
+$$
+\nabla h_\alpha (x) = \frac{1}{\alpha} (x - \text{prox}_{\alpha h}(x))
+$$
+
+
+
+
+
+
+
+
 
 
 
