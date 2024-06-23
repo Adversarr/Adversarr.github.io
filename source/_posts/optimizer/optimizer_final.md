@@ -262,7 +262,7 @@ $$
 
 some examples:
 - Least squares
-- Stotasitc Linear Programming
+- Stochastic Linear Programming
 
 **QCQP**:
 $$
@@ -988,4 +988,264 @@ $$
 
 $F$ is firmly nonexpansive if $g$ and $h$ are convex.
 
+## Lecture 17: Block Coordinate Descent
 
+### Coordinate Descent
+
+**Coordinate Descent**:
+$$
+x_i^{k+1} = \arg\min_{x_i} f(x_1^{k+1}, ..., x_{i-1}^{k+1}, x_i, x_{i+1}^k, ..., x_n^k)
+$$
+
+will converge? not always.
+1. if differentiable and convex, then it converges.
+2. if non-differentiable, then it may not converge.
+
+For example:
+$$
+f(x) = \frac{1}{2} (x_1^2 + x_2^2) + |x_1 - x_2|
+$$
+
+A special case is, the non-smooth convex part is separable:
+$$
+F(x) = f(x) + \sum_i r_i (x_i)
+$$
+where $f$ is differentiable. CD will converge.
+
+Challenges:
+1. non convex & non smooth problem?
+2. non separable problem: the structure of $f$ is complex.
+
+Wish:
+1. the update is simple
+2. guarantee the global convergence
+
+### Block Coordinate Descent
+
+Consider this problem:
+$$
+F(x) = f(x_1, ..., x_s) + \sum_i r_i(x_i)
+$$
+
+updating rule: update a block of variables at each iteration(run a minimization subroutine).
+
+Divide the variables into blocks:
+$$
+x = (x_1, x_2, ..., x_s)
+$$
+
+and the proxy function:
+$$
+f_i^k(x_i) = f(x_1^k, ... , x_i, ..., x_s^k)
+$$
+
+Typically, $x_i$ is updated by:
+1. exact minimization: 
+   $$\min f_i^k(x_i) + r_i(x_i)$$
+2. with regularization:
+   $$\min f_i^k(x_i) + r_i(x_i) + \frac{L_i^{k-1}}{2} \|x_i - x_i^k\|^2$$
+3. linear approximation:
+   $$\min f_i^k(x_i) + \nabla f_i^k(x_i^k)^T (x_i - x_i^k) + \frac{L_i^{k-1}}{2} \|x_i - x_i^k\|^2 + r_i(x_i)$$
+every scheme has its own suitable problems
+
+### Dual Block Coordinate Ascent
+
+Original problem:
+$$
+\min P(w) = \frac{1}{n} \sum_{i=1}^n \phi_i(w^T x_i) + \frac{\lambda}{2} \|w\|^2
+$$
+
+Dual problem:
+$$
+\max_\alpha D(\alpha) =
+\frac{1}{n} \sum_{i=1}^n -\phi_i^*(-\alpha_i) - \frac{\lambda}{2} \|\frac{1}{\lambda n} \sum_{i=1}^n x_i \alpha_i\|^2
+$$
+
+**Stochastic Dual Coordinate Ascent**:
+1. randomly select $i$
+2. update $\alpha_i$ by exact line search
+3. update $w_t$
+4. terminate if $\|w_t - w_{t-1}\| < \epsilon$
+
+## Lecture 18: Stochastic Optimization
+
+### Stochastic Gradient Descent(SGD)
+
+$$
+x_{k+1} = x_k - \alpha_k \nabla f_{s_k} (x_k)
+$$
+where $s_k$ is a random sample.
+
+We need to ensure the random gradient's conditional expectation is the true gradient:
+$$
+\mathbb{E}[\nabla f_s(x_k)\mid x_k] = \nabla f(x)
+$$
+
+Mini-batch SGD:
+$$
+x_{k+1} = x_k - \frac{\alpha_k}{B} \nabla f_{S_k} (x_k)
+$$
+where $B = \mathrm{cord} S_k$.
+
+Nesterov's accelerated SGD:
+$$
+\begin{aligned}
+    y_k &= x_k + \mu_k (x_k - x_{k-1}) \\
+    x_{k+1} &= y_k - \alpha_k \nabla f_{s_k} (y_k)
+\end{aligned}
+$$
+
+### Convergency of SGD
+
+Consider a differentiable, strong convex problem,
+1. $g(x_t, \xi_t)$ is unbiased estimator of $\nabla f(x_t)$
+2. Variance is bounded, $\mathbb{E}[\|g(x_t, \xi_t) - \nabla f(x_t)\|^2] \le \sigma^2 + c_g \|\nabla F(x)\|_2^2$
+
+Then, the convergency rate of SGD is:
+$$
+E[f(x_k) - f(x^*)] \le \frac{\eta L \sigma_g^e}{2\mu} + (1 - \eta \mu)^k (f(x_0) - f(x^*))
+$$
+
+If we only have convexity, instead of strong convexity:
+$$
+E[f(x_k) - f(x^*)] \le \frac{E[\|x_0 - x^*\|^2] + \sigma_g^2\sum_{t=0}^{k-1} \eta_t^2}{2\sum_{t=0}^{k-1} \eta_t}
+$$
+
+If $\eta_t \approx \sqrt{1/t}$, then:
+$$
+E[f(x_k) - f(x^*)] \approx \frac{\log t}{\sqrt{t}}
+$$
+
+## Lecture 19: Advanced Stochastic Optimization
+
+### AdaGrad
+
+Idea: adapt the learning rate for each parameter.
+
+> If some component of the gradient is large, then the learning rate for this component should be small.
+>
+> If some component of the gradient is small, then the learning rate for this component should be large.
+
+let $g_k = \nabla f_{s_k} (x_k)$, and
+$$
+G_k = \sum_{t=0}^k g_t\odot g_t, \quad (G_k)_i = \sum_{t=0}^k (g_t)_i^2
+$$
+
+then the update rule is:
+$$
+\begin{aligned}
+    x_{k+1}&= x_k - \frac{\alpha}{\sqrt{G_k + \epsilon}} \odot g_k\\
+    G_{k+1}&= G_k + g_k \odot g_k
+\end{aligned}
+$$
+
+Advantage: step size is automatically adjusted.
+
+Disadvantage: the step size will be too small after a long time.
+
+### RMSProp
+
+Idea: use a moving average of the squared gradient.
+$$
+M_{k+1} = \beta M_k + (1 - \beta) g_k \odot g_k
+$$
+root mean square:
+$$
+R_k = \sqrt{M_k + \epsilon}
+$$
+
+**RMSProp**:
+$$
+\begin{aligned}
+    x_{k+1}&= x_k - \frac{\alpha}{R_k} \odot g_k\\
+    M_{k+1}&= \beta M_k + (1 - \beta) g_k \odot g_k
+\end{aligned}
+$$
+
+### Adam
+
+**Influence of batch size**:
+
+| | small | large|
+|---|---|---|
+| speed for one update (no parallel) | fast | slow |
+| speed for one update (with parallel) | same | same |
+| time for one epoch | slow | fast |
+| gradient | noisy | less noisy |
+| optimization | better! | worse |
+| generalization | better! | worse |
+
+**Adam**: momentum term
+$$
+S_k = \rho_1 S^{k-1} + (1 - \rho_1) g_k
+$$
+
+Second order term:
+$$
+M_k = \rho_2 M^{k-1} + (1 - \rho_2) g_k \odot g_k
+$$
+
+Bias correction:
+$$
+\hat{S}_k = \frac{S_k}{1 - \rho_1^k}, \quad \hat{M}_k = \frac{M_k}{1 - \rho_2^k}
+$$
+
+Update rule:
+$$
+x_{k+1} = x_k - \frac{\alpha}{\sqrt{\hat{M}_k} + \epsilon} \odot \hat{S}_k
+$$
+
+SGDR: stochastic gradient descent with warm restarts.
+
+### SAG, SAGA
+
+Monte carlo estimates $E[X]$, if we can sample another $Y$ is the same distribution, then we can estimate $E[X]$ by $E[Y]$.
+$$
+\theta_\gamma = \gamma (X - Y) + E[Y] \implies E[\theta_\gamma] = \gamma E[X] + (1 - \gamma) E[Y]
+$$
+
+- SAG: stochastic average gradient
+- SAGA
+- SVRG: stochastic variance reduced gradient
+
+First, sample $\nabla f_{s_k}(x_k)$, store in memory.
+$$
+g_i^{k-1} = \nabla f_{s_k}(x_k)
+$$
+
+and let $\gamma = 1/N$, we can get a estimate of gradients:
+$$
+\theta_\gamma^k = \frac{1}{N} (\nabla f_{s_k} (x_k) - g_{s_k}^{k-1}) + \sum_{i=1}^N g_i^{k-1}
+$$
+
+**SAG**:
+$$
+\begin{aligned}
+    x_{k+1} &= x_k - \alpha \theta_\gamma^k \\
+    g_{s_k}^{k-1} &= \nabla f_{s_k} (x_k) \quad \text{if } s_k \text{ is sampled}
+\end{aligned}
+$$
+
+**SAGA**: let $\gamma = 1$
+$$
+\begin{aligned}
+    x_{k+1} &= x_k - \alpha_k \left( \nabla f_{s_k} (x^k) - g_{s_k}^{k-1} + \frac{1}{N} \sum_{i=1}^N g_i^{k-1} \right) \\
+    g_{s_k}^{k-1} &= \nabla f_{s_k} (x_k) \quad \text{if } s_k \text{is sampled}
+\end{aligned}
+$$
+
+### SVRG
+
+**SVRG**: use periodic cache of full gradient to reduce variance.
+
+Let $\tilde{x}^j$ is $j$-th check point, we need:
+$$
+\nabla f(\tilde{x}^j) = \frac{1}{n} \sum_{i=1}^n \nabla f_i(\tilde{x}^j)
+$$
+and use
+$$
+\nu^k = \nabla f_{s_k}(x^k) - (\nabla f_{s_k}(\tilde{x}^j) - \nabla f(\tilde{x}^j))
+$$
+as a direction.
+
+We can prove that SVRG's estimate is unbiased.
