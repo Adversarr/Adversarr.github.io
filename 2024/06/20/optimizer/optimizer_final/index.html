@@ -14,7 +14,7 @@
 <meta property="og:description" content="Optimization Lecture 2: Convex Set Common Convex Sets  Hyperplane: \(H &#x3D; \{x \in \mathbb{R}^n \mid a^Tx &#x3D; b\}\). Halfspace: \(H &#x3D; \{x \in \mathbb{R}^n \mid a^Tx \leq b\}\). Polyhedron: \(P &#x3D; \{x \in \">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-06-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-23T03:49:37.418Z">
+<meta property="article:modified_time" content="2024-06-23T08:12:03.490Z">
 <meta property="article:author" content="Adversarr">
 <meta name="twitter:card" content="summary">
     
@@ -142,7 +142,11 @@ Gradient Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3
 Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#secant-equation"><span class="toc-number">1.11.1.</span> <span class="toc-text">Secant Equation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sr1"><span class="toc-number">1.11.2.</span> <span class="toc-text">SR1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bfgs"><span class="toc-number">1.11.3.</span> <span class="toc-text">BFGS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dfp"><span class="toc-number">1.11.4.</span> <span class="toc-text">DFP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lbfgs"><span class="toc-number">1.11.5.</span> <span class="toc-text">LBFGS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-14-dual-ascent"><span class="toc-number">1.12.</span> <span class="toc-text">Lecture 14: Dual Ascent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dual-proximal-gradient-accent"><span class="toc-number">1.12.1.</span> <span class="toc-text">Dual proximal gradient
 accent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#min-max-problems"><span class="toc-number">1.12.2.</span> <span class="toc-text">min max problems</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-15-augmented-lagrangian"><span class="toc-number">1.13.</span> <span class="toc-text">Lecture 15: Augmented
 Lagrangian</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#general-constrained-optimization"><span class="toc-number">1.13.1.</span> <span class="toc-text">General constrained
-optimization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-16-admm"><span class="toc-number">1.14.</span> <span class="toc-text">Lecture 16: ADMM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#common-techniques"><span class="toc-number">1.14.1.</span> <span class="toc-text">Common Techniques</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#douglas-rachford-splitting"><span class="toc-number">1.14.2.</span> <span class="toc-text">Douglas-Rachford Splitting</span></a></li></ol></li></ol></li></ol>
+optimization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-16-admm"><span class="toc-number">1.14.</span> <span class="toc-text">Lecture 16: ADMM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#common-techniques"><span class="toc-number">1.14.1.</span> <span class="toc-text">Common Techniques</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#douglas-rachford-splitting"><span class="toc-number">1.14.2.</span> <span class="toc-text">Douglas-Rachford Splitting</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-17-block-coordinate-descent"><span class="toc-number">1.15.</span> <span class="toc-text">Lecture 17: Block
+Coordinate Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#coordinate-descent"><span class="toc-number">1.15.1.</span> <span class="toc-text">Coordinate Descent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#block-coordinate-descent"><span class="toc-number">1.15.2.</span> <span class="toc-text">Block Coordinate Descent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dual-block-coordinate-ascent"><span class="toc-number">1.15.3.</span> <span class="toc-text">Dual Block Coordinate Ascent</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-18-stochastic-optimization"><span class="toc-number">1.16.</span> <span class="toc-text">Lecture 18: Stochastic
+Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#stochastic-gradient-descentsgd"><span class="toc-number">1.16.1.</span> <span class="toc-text">Stochastic Gradient
+Descent(SGD)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#convergency-of-sgd"><span class="toc-number">1.16.2.</span> <span class="toc-text">Convergency of SGD</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-19-advanced-stochastic-optimization"><span class="toc-number">1.17.</span> <span class="toc-text">Lecture 19:
+Advanced Stochastic Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#adagrad"><span class="toc-number">1.17.1.</span> <span class="toc-text">AdaGrad</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rmsprop"><span class="toc-number">1.17.2.</span> <span class="toc-text">RMSProp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#adam"><span class="toc-number">1.17.3.</span> <span class="toc-text">Adam</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sag-saga"><span class="toc-number">1.17.4.</span> <span class="toc-text">SAG, SAGA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#svrg"><span class="toc-number">1.17.5.</span> <span class="toc-text">SVRG</span></a></li></ol></li></ol></li></ol>
       </div>
     
   </span>
@@ -427,7 +431,7 @@ linear programming.</p>
 \min \frac{1}{2} x^T P x + q^T x + r \quad \text{s.t.} \quad Ax = b, G x
 \leq e
 \]</span></p>
-<p>some examples: - Least squares - Stotasitc Linear Programming</p>
+<p>some examples: - Least squares - Stochastic Linear Programming</p>
 <p><strong>QCQP</strong>: <span class="math display">\[
 \min x^T P_0 x + q_0^T x + r_0 \quad \text{s.t.} \quad x^T P_i x + q_i^T
 x + r_i \leq 0, i = 1, ..., m
@@ -1042,6 +1046,247 @@ F(z) = z + \mathrm{prox}_{\alpha h} (2 \mathrm{prox}_{\alpha g} (z) - z)
 <p><span class="math inline">\(F\)</span> is firmly nonexpansive if
 <span class="math inline">\(g\)</span> and <span
 class="math inline">\(h\)</span> are convex.</p>
+<h2 id="lecture-17-block-coordinate-descent">Lecture 17: Block
+Coordinate Descent</h2>
+<h3 id="coordinate-descent">Coordinate Descent</h3>
+<p><strong>Coordinate Descent</strong>: <span class="math display">\[
+x_i^{k+1} = \arg\min_{x_i} f(x_1^{k+1}, ..., x_{i-1}^{k+1}, x_i,
+x_{i+1}^k, ..., x_n^k)
+\]</span></p>
+<p>will converge? not always. 1. if differentiable and convex, then it
+converges. 2. if non-differentiable, then it may not converge.</p>
+<p>For example: <span class="math display">\[
+f(x) = \frac{1}{2} (x_1^2 + x_2^2) + |x_1 - x_2|
+\]</span></p>
+<p>A special case is, the non-smooth convex part is separable: <span
+class="math display">\[
+F(x) = f(x) + \sum_i r_i (x_i)
+\]</span> where <span class="math inline">\(f\)</span> is
+differentiable. CD will converge.</p>
+<p>Challenges: 1. non convex &amp; non smooth problem? 2. non separable
+problem: the structure of <span class="math inline">\(f\)</span> is
+complex.</p>
+<p>Wish: 1. the update is simple 2. guarantee the global convergence</p>
+<h3 id="block-coordinate-descent">Block Coordinate Descent</h3>
+<p>Consider this problem: <span class="math display">\[
+F(x) = f(x_1, ..., x_s) + \sum_i r_i(x_i)
+\]</span></p>
+<p>updating rule: update a block of variables at each iteration(run a
+minimization subroutine).</p>
+<p>Divide the variables into blocks: <span class="math display">\[
+x = (x_1, x_2, ..., x_s)
+\]</span></p>
+<p>and the proxy function: <span class="math display">\[
+f_i^k(x_i) = f(x_1^k, ... , x_i, ..., x_s^k)
+\]</span></p>
+<p>Typically, <span class="math inline">\(x_i\)</span> is updated by: 1.
+exact minimization: <span class="math display">\[\min f_i^k(x_i) +
+r_i(x_i)\]</span> 2. with regularization: <span
+class="math display">\[\min f_i^k(x_i) + r_i(x_i) + \frac{L_i^{k-1}}{2}
+\|x_i - x_i^k\|^2\]</span> 3. linear approximation: <span
+class="math display">\[\min f_i^k(x_i) + \nabla f_i^k(x_i^k)^T (x_i -
+x_i^k) + \frac{L_i^{k-1}}{2} \|x_i - x_i^k\|^2 + r_i(x_i)\]</span> every
+scheme has its own suitable problems</p>
+<h3 id="dual-block-coordinate-ascent">Dual Block Coordinate Ascent</h3>
+<p>Original problem: <span class="math display">\[
+\min P(w) = \frac{1}{n} \sum_{i=1}^n \phi_i(w^T x_i) + \frac{\lambda}{2}
+\|w\|^2
+\]</span></p>
+<p>Dual problem: <span class="math display">\[
+\max_\alpha D(\alpha) =
+\frac{1}{n} \sum_{i=1}^n -\phi_i^*(-\alpha_i) - \frac{\lambda}{2}
+\|\frac{1}{\lambda n} \sum_{i=1}^n x_i \alpha_i\|^2
+\]</span></p>
+<p><strong>Stochastic Dual Coordinate Ascent</strong>: 1. randomly
+select <span class="math inline">\(i\)</span> 2. update <span
+class="math inline">\(\alpha_i\)</span> by exact line search 3. update
+<span class="math inline">\(w_t\)</span> 4. terminate if <span
+class="math inline">\(\|w_t - w_{t-1}\| &lt; \epsilon\)</span></p>
+<h2 id="lecture-18-stochastic-optimization">Lecture 18: Stochastic
+Optimization</h2>
+<h3 id="stochastic-gradient-descentsgd">Stochastic Gradient
+Descent(SGD)</h3>
+<p><span class="math display">\[
+x_{k+1} = x_k - \alpha_k \nabla f_{s_k} (x_k)
+\]</span> where <span class="math inline">\(s_k\)</span> is a random
+sample.</p>
+<p>We need to ensure the random gradient’s conditional expectation is
+the true gradient: <span class="math display">\[
+\mathbb{E}[\nabla f_s(x_k)\mid x_k] = \nabla f(x)
+\]</span></p>
+<p>Mini-batch SGD: <span class="math display">\[
+x_{k+1} = x_k - \frac{\alpha_k}{B} \nabla f_{S_k} (x_k)
+\]</span> where <span class="math inline">\(B = \mathrm{cord}
+S_k\)</span>.</p>
+<p>Nesterov’s accelerated SGD: <span class="math display">\[
+\begin{aligned}
+    y_k &amp;= x_k + \mu_k (x_k - x_{k-1}) \\
+    x_{k+1} &amp;= y_k - \alpha_k \nabla f_{s_k} (y_k)
+\end{aligned}
+\]</span></p>
+<h3 id="convergency-of-sgd">Convergency of SGD</h3>
+<p>Consider a differentiable, strong convex problem, 1. <span
+class="math inline">\(g(x_t, \xi_t)\)</span> is unbiased estimator of
+<span class="math inline">\(\nabla f(x_t)\)</span> 2. Variance is
+bounded, <span class="math inline">\(\mathbb{E}[\|g(x_t, \xi_t) - \nabla
+f(x_t)\|^2] \le \sigma^2 + c_g \|\nabla F(x)\|_2^2\)</span></p>
+<p>Then, the convergency rate of SGD is: <span class="math display">\[
+E[f(x_k) - f(x^*)] \le \frac{\eta L \sigma_g^e}{2\mu} + (1 - \eta \mu)^k
+(f(x_0) - f(x^*))
+\]</span></p>
+<p>If we only have convexity, instead of strong convexity: <span
+class="math display">\[
+E[f(x_k) - f(x^*)] \le \frac{E[\|x_0 - x^*\|^2] +
+\sigma_g^2\sum_{t=0}^{k-1} \eta_t^2}{2\sum_{t=0}^{k-1} \eta_t}
+\]</span></p>
+<p>If <span class="math inline">\(\eta_t \approx \sqrt{1/t}\)</span>,
+then: <span class="math display">\[
+E[f(x_k) - f(x^*)] \approx \frac{\log t}{\sqrt{t}}
+\]</span></p>
+<h2 id="lecture-19-advanced-stochastic-optimization">Lecture 19:
+Advanced Stochastic Optimization</h2>
+<h3 id="adagrad">AdaGrad</h3>
+<p>Idea: adapt the learning rate for each parameter.</p>
+<blockquote>
+<p>If some component of the gradient is large, then the learning rate
+for this component should be small.</p>
+<p>If some component of the gradient is small, then the learning rate
+for this component should be large.</p>
+</blockquote>
+<p>let <span class="math inline">\(g_k = \nabla f_{s_k} (x_k)\)</span>,
+and <span class="math display">\[
+G_k = \sum_{t=0}^k g_t\odot g_t, \quad (G_k)_i = \sum_{t=0}^k (g_t)_i^2
+\]</span></p>
+<p>then the update rule is: <span class="math display">\[
+\begin{aligned}
+    x_{k+1}&amp;= x_k - \frac{\alpha}{\sqrt{G_k + \epsilon}} \odot g_k\\
+    G_{k+1}&amp;= G_k + g_k \odot g_k
+\end{aligned}
+\]</span></p>
+<p>Advantage: step size is automatically adjusted.</p>
+<p>Disadvantage: the step size will be too small after a long time.</p>
+<h3 id="rmsprop">RMSProp</h3>
+<p>Idea: use a moving average of the squared gradient. <span
+class="math display">\[
+M_{k+1} = \beta M_k + (1 - \beta) g_k \odot g_k
+\]</span> root mean square: <span class="math display">\[
+R_k = \sqrt{M_k + \epsilon}
+\]</span></p>
+<p><strong>RMSProp</strong>: <span class="math display">\[
+\begin{aligned}
+    x_{k+1}&amp;= x_k - \frac{\alpha}{R_k} \odot g_k\\
+    M_{k+1}&amp;= \beta M_k + (1 - \beta) g_k \odot g_k
+\end{aligned}
+\]</span></p>
+<h3 id="adam">Adam</h3>
+<p><strong>Influence of batch size</strong>:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>small</th>
+<th>large</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>speed for one update (no parallel)</td>
+<td>fast</td>
+<td>slow</td>
+</tr>
+<tr class="even">
+<td>speed for one update (with parallel)</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr class="odd">
+<td>time for one epoch</td>
+<td>slow</td>
+<td>fast</td>
+</tr>
+<tr class="even">
+<td>gradient</td>
+<td>noisy</td>
+<td>less noisy</td>
+</tr>
+<tr class="odd">
+<td>optimization</td>
+<td>better!</td>
+<td>worse</td>
+</tr>
+<tr class="even">
+<td>generalization</td>
+<td>better!</td>
+<td>worse</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Adam</strong>: momentum term <span class="math display">\[
+S_k = \rho_1 S^{k-1} + (1 - \rho_1) g_k
+\]</span></p>
+<p>Second order term: <span class="math display">\[
+M_k = \rho_2 M^{k-1} + (1 - \rho_2) g_k \odot g_k
+\]</span></p>
+<p>Bias correction: <span class="math display">\[
+\hat{S}_k = \frac{S_k}{1 - \rho_1^k}, \quad \hat{M}_k = \frac{M_k}{1 -
+\rho_2^k}
+\]</span></p>
+<p>Update rule: <span class="math display">\[
+x_{k+1} = x_k - \frac{\alpha}{\sqrt{\hat{M}_k} + \epsilon} \odot
+\hat{S}_k
+\]</span></p>
+<p>SGDR: stochastic gradient descent with warm restarts.</p>
+<h3 id="sag-saga">SAG, SAGA</h3>
+<p>Monte carlo estimates <span class="math inline">\(E[X]\)</span>, if
+we can sample another <span class="math inline">\(Y\)</span> is the same
+distribution, then we can estimate <span
+class="math inline">\(E[X]\)</span> by <span
+class="math inline">\(E[Y]\)</span>. <span class="math display">\[
+\theta_\gamma = \gamma (X - Y) + E[Y] \implies E[\theta_\gamma] = \gamma
+E[X] + (1 - \gamma) E[Y]
+\]</span></p>
+<ul>
+<li>SAG: stochastic average gradient</li>
+<li>SAGA</li>
+<li>SVRG: stochastic variance reduced gradient</li>
+</ul>
+<p>First, sample <span class="math inline">\(\nabla
+f_{s_k}(x_k)\)</span>, store in memory. <span class="math display">\[
+g_i^{k-1} = \nabla f_{s_k}(x_k)
+\]</span></p>
+<p>and let <span class="math inline">\(\gamma = 1/N\)</span>, we can get
+a estimate of gradients: <span class="math display">\[
+\theta_\gamma^k = \frac{1}{N} (\nabla f_{s_k} (x_k) - g_{s_k}^{k-1}) +
+\sum_{i=1}^N g_i^{k-1}
+\]</span></p>
+<p><strong>SAG</strong>: <span class="math display">\[
+\begin{aligned}
+    x_{k+1} &amp;= x_k - \alpha \theta_\gamma^k \\
+    g_{s_k}^{k-1} &amp;= \nabla f_{s_k} (x_k) \quad \text{if } s_k
+\text{ is sampled}
+\end{aligned}
+\]</span></p>
+<p><strong>SAGA</strong>: let <span class="math inline">\(\gamma =
+1\)</span> <span class="math display">\[
+\begin{aligned}
+    x_{k+1} &amp;= x_k - \alpha_k \left( \nabla f_{s_k} (x^k) -
+g_{s_k}^{k-1} + \frac{1}{N} \sum_{i=1}^N g_i^{k-1} \right) \\
+    g_{s_k}^{k-1} &amp;= \nabla f_{s_k} (x_k) \quad \text{if } s_k
+\text{is sampled}
+\end{aligned}
+\]</span></p>
+<h3 id="svrg">SVRG</h3>
+<p><strong>SVRG</strong>: use periodic cache of full gradient to reduce
+variance.</p>
+<p>Let <span class="math inline">\(\tilde{x}^j\)</span> is <span
+class="math inline">\(j\)</span>-th check point, we need: <span
+class="math display">\[
+\nabla f(\tilde{x}^j) = \frac{1}{n} \sum_{i=1}^n \nabla f_i(\tilde{x}^j)
+\]</span> and use <span class="math display">\[
+\nu^k = \nabla f_{s_k}(x^k) - (\nabla f_{s_k}(\tilde{x}^j) - \nabla
+f(\tilde{x}^j))
+\]</span> as a direction.</p>
+<p>We can prove that SVRG’s estimate is unbiased.</p>
 
   </div>
 </article>
@@ -1089,7 +1334,11 @@ Gradient Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3
 Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#secant-equation"><span class="toc-number">1.11.1.</span> <span class="toc-text">Secant Equation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sr1"><span class="toc-number">1.11.2.</span> <span class="toc-text">SR1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bfgs"><span class="toc-number">1.11.3.</span> <span class="toc-text">BFGS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dfp"><span class="toc-number">1.11.4.</span> <span class="toc-text">DFP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lbfgs"><span class="toc-number">1.11.5.</span> <span class="toc-text">LBFGS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-14-dual-ascent"><span class="toc-number">1.12.</span> <span class="toc-text">Lecture 14: Dual Ascent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dual-proximal-gradient-accent"><span class="toc-number">1.12.1.</span> <span class="toc-text">Dual proximal gradient
 accent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#min-max-problems"><span class="toc-number">1.12.2.</span> <span class="toc-text">min max problems</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-15-augmented-lagrangian"><span class="toc-number">1.13.</span> <span class="toc-text">Lecture 15: Augmented
 Lagrangian</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#general-constrained-optimization"><span class="toc-number">1.13.1.</span> <span class="toc-text">General constrained
-optimization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-16-admm"><span class="toc-number">1.14.</span> <span class="toc-text">Lecture 16: ADMM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#common-techniques"><span class="toc-number">1.14.1.</span> <span class="toc-text">Common Techniques</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#douglas-rachford-splitting"><span class="toc-number">1.14.2.</span> <span class="toc-text">Douglas-Rachford Splitting</span></a></li></ol></li></ol></li></ol>
+optimization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-16-admm"><span class="toc-number">1.14.</span> <span class="toc-text">Lecture 16: ADMM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#common-techniques"><span class="toc-number">1.14.1.</span> <span class="toc-text">Common Techniques</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#douglas-rachford-splitting"><span class="toc-number">1.14.2.</span> <span class="toc-text">Douglas-Rachford Splitting</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-17-block-coordinate-descent"><span class="toc-number">1.15.</span> <span class="toc-text">Lecture 17: Block
+Coordinate Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#coordinate-descent"><span class="toc-number">1.15.1.</span> <span class="toc-text">Coordinate Descent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#block-coordinate-descent"><span class="toc-number">1.15.2.</span> <span class="toc-text">Block Coordinate Descent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dual-block-coordinate-ascent"><span class="toc-number">1.15.3.</span> <span class="toc-text">Dual Block Coordinate Ascent</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-18-stochastic-optimization"><span class="toc-number">1.16.</span> <span class="toc-text">Lecture 18: Stochastic
+Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#stochastic-gradient-descentsgd"><span class="toc-number">1.16.1.</span> <span class="toc-text">Stochastic Gradient
+Descent(SGD)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#convergency-of-sgd"><span class="toc-number">1.16.2.</span> <span class="toc-text">Convergency of SGD</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-19-advanced-stochastic-optimization"><span class="toc-number">1.17.</span> <span class="toc-text">Lecture 19:
+Advanced Stochastic Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#adagrad"><span class="toc-number">1.17.1.</span> <span class="toc-text">AdaGrad</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rmsprop"><span class="toc-number">1.17.2.</span> <span class="toc-text">RMSProp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#adam"><span class="toc-number">1.17.3.</span> <span class="toc-text">Adam</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sag-saga"><span class="toc-number">1.17.4.</span> <span class="toc-text">SAG, SAGA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#svrg"><span class="toc-number">1.17.5.</span> <span class="toc-text">SVRG</span></a></li></ol></li></ol></li></ol>
       </div>
     
 
