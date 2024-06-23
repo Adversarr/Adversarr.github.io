@@ -14,7 +14,7 @@
 <meta property="og:description" content="Optimization Lecture 2: Convex Set Common Convex Sets  Hyperplane: \(H &#x3D; \{x \in \mathbb{R}^n \mid a^Tx &#x3D; b\}\). Halfspace: \(H &#x3D; \{x \in \mathbb{R}^n \mid a^Tx \leq b\}\). Polyhedron: \(P &#x3D; \{x \in \">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-06-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-22T10:59:59.333Z">
+<meta property="article:modified_time" content="2024-06-23T03:49:37.418Z">
 <meta property="article:author" content="Adversarr">
 <meta name="twitter:card" content="summary">
     
@@ -135,8 +135,14 @@ Condition and Second Order Condition</span></a></li><li class="toc-item toc-leve
 KKT, LICQ</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#general-kkt-condition"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">General KKT condition</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-6-gradient-descent"><span class="toc-number">1.5.</span> <span class="toc-text">Lecture 6: Gradient Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#more-on-convex-functions"><span class="toc-number">1.5.1.</span> <span class="toc-text">More on convex functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#line-searching"><span class="toc-number">1.5.2.</span> <span class="toc-text">Line searching</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#non-smooth-problems"><span class="toc-number">1.5.3.</span> <span class="toc-text">Non smooth problems</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-7-subgradients"><span class="toc-number">1.6.</span> <span class="toc-text">Lecture 7: Subgradients</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#definition-of-subgradients-subdifferential"><span class="toc-number">1.6.1.</span> <span class="toc-text">Definition of
 Subgradients &amp; Subdifferential</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#computing-subgradients-subdifferential"><span class="toc-number">1.6.2.</span> <span class="toc-text">Computing Subgradients
 &amp; Subdifferential</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#optimal-condition"><span class="toc-number">1.6.3.</span> <span class="toc-text">Optimal condition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#subgradient-methods"><span class="toc-number">1.6.4.</span> <span class="toc-text">Subgradient methods</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-8-projected-gradient-descent-conditional-gradient-descent"><span class="toc-number">1.7.</span> <span class="toc-text">Lecture
-8: projected gradient descent, conditional gradient descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#conditional-gradient-descent"><span class="toc-number">1.7.1.</span> <span class="toc-text">Conditional Gradient Descent</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-9-prox-mapping"><span class="toc-number">1.8.</span> <span class="toc-text">Lecture 9: Prox Mapping</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#definition-of-proximal-mapping"><span class="toc-number">1.8.1.</span> <span class="toc-text">Definition of Proximal
-Mapping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#moreau-decomposition"><span class="toc-number">1.8.2.</span> <span class="toc-text">Moreau decomposition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proximal-gradient-descent"><span class="toc-number">1.8.3.</span> <span class="toc-text">Proximal Gradient Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#convergency"><span class="toc-number">1.8.3.1.</span> <span class="toc-text">Convergency</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#moreau-envelope"><span class="toc-number">1.8.4.</span> <span class="toc-text">Moreau Envelope</span></a></li></ol></li></ol></li></ol>
+8: projected gradient descent, conditional gradient descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#conditional-gradient-descent"><span class="toc-number">1.7.1.</span> <span class="toc-text">Conditional Gradient Descent</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-910-proximal-mapping-proximal-gradient-descent"><span class="toc-number">1.8.</span> <span class="toc-text">Lecture
+9&#x2F;10: Proximal Mapping &amp; Proximal Gradient Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#definition-of-proximal-mapping"><span class="toc-number">1.8.1.</span> <span class="toc-text">Definition of Proximal
+Mapping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#moreau-decomposition"><span class="toc-number">1.8.2.</span> <span class="toc-text">Moreau decomposition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proximal-gradient-descent"><span class="toc-number">1.8.3.</span> <span class="toc-text">Proximal Gradient Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#convergency"><span class="toc-number">1.8.3.1.</span> <span class="toc-text">Convergency</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#moreau-envelope"><span class="toc-number">1.8.4.</span> <span class="toc-text">Moreau Envelope</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-11-accelerated-gradient-descent"><span class="toc-number">1.9.</span> <span class="toc-text">Lecture 11: Accelerated
+Gradient Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fista"><span class="toc-number">1.9.1.</span> <span class="toc-text">FISTA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-12-newtons-method"><span class="toc-number">1.10.</span> <span class="toc-text">Lecture 12: Newton’s Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-13-quasi-newton-methods"><span class="toc-number">1.11.</span> <span class="toc-text">Lecture 13: Quasi-Newton
+Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#secant-equation"><span class="toc-number">1.11.1.</span> <span class="toc-text">Secant Equation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sr1"><span class="toc-number">1.11.2.</span> <span class="toc-text">SR1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bfgs"><span class="toc-number">1.11.3.</span> <span class="toc-text">BFGS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dfp"><span class="toc-number">1.11.4.</span> <span class="toc-text">DFP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lbfgs"><span class="toc-number">1.11.5.</span> <span class="toc-text">LBFGS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-14-dual-ascent"><span class="toc-number">1.12.</span> <span class="toc-text">Lecture 14: Dual Ascent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dual-proximal-gradient-accent"><span class="toc-number">1.12.1.</span> <span class="toc-text">Dual proximal gradient
+accent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#min-max-problems"><span class="toc-number">1.12.2.</span> <span class="toc-text">min max problems</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-15-augmented-lagrangian"><span class="toc-number">1.13.</span> <span class="toc-text">Lecture 15: Augmented
+Lagrangian</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#general-constrained-optimization"><span class="toc-number">1.13.1.</span> <span class="toc-text">General constrained
+optimization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-16-admm"><span class="toc-number">1.14.</span> <span class="toc-text">Lecture 16: ADMM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#common-techniques"><span class="toc-number">1.14.1.</span> <span class="toc-text">Common Techniques</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#douglas-rachford-splitting"><span class="toc-number">1.14.2.</span> <span class="toc-text">Douglas-Rachford Splitting</span></a></li></ol></li></ol></li></ol>
       </div>
     
   </span>
@@ -728,7 +734,8 @@ class="math inline">\(C\)</span></p>
 <p>Choices for <span class="math inline">\(\alpha_k\)</span>: -
 diminishing step size: <span class="math inline">\(\alpha_k =
 2/(k+1)\)</span> - or via exact line search</p>
-<h2 id="lecture-9-prox-mapping">Lecture 9: Prox Mapping</h2>
+<h2 id="lecture-910-proximal-mapping-proximal-gradient-descent">Lecture
+9/10: Proximal Mapping &amp; Proximal Gradient Descent</h2>
 <h3 id="definition-of-proximal-mapping">Definition of Proximal
 Mapping</h3>
 <p><strong>Proximal Mapping</strong>: <span class="math display">\[
@@ -791,6 +798,250 @@ class="math inline">\(h_\alpha\)</span> is differentiable, and the
 gradient is given by: <span class="math display">\[
 \nabla h_\alpha (x) = \frac{1}{\alpha} (x - \text{prox}_{\alpha h}(x))
 \]</span></p>
+<h2 id="lecture-11-accelerated-gradient-descent">Lecture 11: Accelerated
+Gradient Descent</h2>
+<p><strong>Heavy ball method</strong>(Polyak, 1964), also called
+momentum method: <span class="math display">\[
+x_{k+1} = x_k - \eta \nabla f(x_k) + \beta (x_k - x_{k-1})
+\]</span></p>
+<p><strong>Nesterov’s accelerated gradient descent</strong>(1983): <span
+class="math display">\[
+\begin{aligned}
+    y_k &amp;= x_k + \frac{k-1}{k+2} (x_k - x_{k-1}) \\
+    x_{k+1} &amp;= y_k - \eta \nabla f(y_k)
+\end{aligned}
+\]</span> convergency rate, let <span class="math inline">\(s =
+1/L\)</span>: <span class="math display">\[
+f(x_k) - f^* \leq \frac{2L \|x_0 - x^*\|^2}{(k+1)^2}
+\]</span> complexity is <span
+class="math inline">\(O(\frac{1}{\epsilon}^{1/2})\)</span>, much faster
+than GD, which is <span
+class="math inline">\(O(\frac{1}{\epsilon})\)</span>.</p>
+<h3 id="fista">FISTA</h3>
+<p><strong>FISTA</strong>(Beck and Teboulle, 2009): <span
+class="math display">\[
+\begin{aligned}
+    y_k &amp;= x_k + \frac{k-1}{k+2} (x_k - x_{k-1}) \\
+    x_{k+1} &amp;= \text{prox}_{\eta h} (y_k - \eta \nabla f(y_k))
+\end{aligned}
+\]</span> only changed the gradient update rule to proximal mapping.</p>
+<h2 id="lecture-12-newtons-method">Lecture 12: Newton’s Method</h2>
+<p><strong>Newton’s Method</strong>: for a twice differentiable
+function, the update rule is: <span class="math display">\[
+x_{k+1} = x_k - \nabla^2 f(x_k)^{-1} \nabla f(x_k)
+\]</span></p>
+<p>Affine invariance: Newton’s method is invariant under affine
+transformation.</p>
+<p>Convergence: if <span class="math inline">\(f\)</span> is strongly
+convex, then Newton’s method converges quadratically.</p>
+<p><strong>Modified Newton’s Method</strong>: for non-convex problem, we
+can use modified Newton’s method: <span class="math display">\[
+x_{k+1} = x_k - \alpha \hat{H}^{-1} \nabla f(x_k)
+\]</span> the Hessian is approximated by <span
+class="math inline">\(\hat{H}\)</span>, and <span
+class="math inline">\(\alpha\)</span> is the step size from line
+search.</p>
+<p>Requirement on <span class="math inline">\(\hat{H}\)</span>: 1. <span
+class="math inline">\(\hat{H}\)</span> is positive definite 2. <span
+class="math inline">\(\hat{H}\)</span> is close to the true Hessian 3.
+<span class="math inline">\(\hat{H}\)</span> has small condition
+number</p>
+<p><strong>Inexact Newton’s Method</strong>: for large scale problem, we
+can use inexact Newton’s method: - use iterative method to solve <span
+class="math inline">\(\hat{H} \delta = -\nabla f(x_k)\)</span> - stop
+early, when <span class="math inline">\(\|\hat{H} \delta + \nabla
+f(x_k)\|\)</span> is small enough.</p>
+<p><strong>Linesearch Newton-CG</strong>: replace the iterative method
+with Conjugate Gradient.</p>
+<h2 id="lecture-13-quasi-newton-methods">Lecture 13: Quasi-Newton
+Methods</h2>
+<h3 id="secant-equation">Secant Equation</h3>
+<p><span class="math display">\[
+B_{k+1} s_k = y_k
+\]</span> where <span class="math inline">\(B_k\)</span> is the
+approximation of the Hessian. and <span class="math inline">\(H_{k+1} =
+B_{k+1}^{-1}\)</span> is the approximation of the inverse Hessian. <span
+class="math display">\[
+H_{k+1} y_k = s_k
+\]</span> where <span class="math inline">\(y_k = \nabla f(x_{k+1}) -
+\nabla f(x_k)\)</span>, and <span class="math inline">\(s_k = x_{k+1} -
+x_k\)</span>.</p>
+<p><strong>Curvature requirement</strong>: <span class="math display">\[
+y_k^T s_k &gt; 0
+\]</span> We need to use Wolfe condition in line search.</p>
+<h3 id="sr1">SR1</h3>
+<p><strong>SR1</strong>: Rank 1 update, <span
+class="math inline">\(B_{k+1} = B_k + a uu^T\)</span>, where 1. <span
+class="math inline">\(u = y_k - B_k s_k\)</span>. 2. <span
+class="math inline">\(a = 1 / u^T s_k\)</span>.</p>
+<p>Drawback: SR1 does not guarantee positive definiteness. A sufficient
+condition for PD is: 1. <span class="math inline">\(B^k\)</span> is PD,
+2. <span class="math inline">\(u^T s_k &gt; 0\)</span>.</p>
+<h3 id="bfgs">BFGS</h3>
+<p><strong>BFGS</strong>: Rank 2 update. <span class="math display">\[
+B_{k+1} = B_k + a u u^T + b v v^T
+\]</span></p>
+<p>Then we have: <span class="math display">\[
+(a \cdot u^T s_k) u + (b \cdot v^T s_k) v = y_k - B_k s_k
+\]</span> therefore: <span class="math display">\[
+B_{k+1} = B_k + \frac{y_k y_k^T}{y_k^T s_k} - \frac{B_k s_k s_k^T
+B_k^T}{s_k^T B_k s_k}
+\]</span> and <span class="math display">\[
+H_{k+1} = \left( I - \frac{s_k y_k^T}{y_k^T s_k} \right) H_k \left( I -
+\frac{y_k s_k^T}{y_k^T s_k} \right) + \frac{s_k s_k^T}{y_k^T s_k}
+\]</span></p>
+<blockquote>
+<p><strong>Sherman-Morrison formula</strong>: <span
+class="math display">\[(A + uv^T)^{-1} = A^{-1} - \frac{A^{-1} u v^T
+A^{-1}}{1 + v^T A^{-1} u}\]</span></p>
+</blockquote>
+<p><strong>Positive definiteness requirement</strong>: 1. <span
+class="math inline">\(B_k\)</span> or <span
+class="math inline">\(H_k\)</span> is PD 2. curvature requirement is
+satsfied <span class="math inline">\(y_k^T s_k &gt; 0\)</span></p>
+<h3 id="dfp">DFP</h3>
+<p><strong>DFP</strong>: <span class="math display">\[
+B_{k+1} = B_k - \frac{B_k s_k s_k^T B_k}{s_k^T B_k s_k} + \frac{y_k
+y_k^T}{y_k^T s_k}
+\]</span></p>
+<h3 id="lbfgs">LBFGS</h3>
+<p>use two-loop recursion to replace the inverse Hessian.</p>
+<h2 id="lecture-14-dual-ascent">Lecture 14: Dual Ascent</h2>
+<blockquote>
+<p>Drawback for primal methods:</p>
+<ol type="1">
+<li>subgradient: slow convergency.</li>
+<li>gradient: require differentiable</li>
+</ol>
+</blockquote>
+<p>consider: <span class="math display">\[
+\min \phi(x) = f(x) + h(Ax)
+\]</span> even <span class="math inline">\(h\)</span> has a simple
+proximal mapping, the proximal mapping of <span
+class="math inline">\(h(Ax)\)</span> is hard to compute.</p>
+<p>Introduce <span class="math inline">\(y = Ax\)</span>, the
+Lagrangian: <span class="math display">\[
+L(x, y, z) = f(x) + h(y) + z^T (Ax - y)
+\]</span> The dual problem: <span class="math display">\[
+\max - f^*(-A^T z) - h^*(z)
+\]</span></p>
+<p><strong>Property of strong convexity</strong>: suppose <span
+class="math inline">\(\mu &gt; 0\)</span> is the strong convexity
+parameter of <span class="math inline">\(f\)</span>, then its conjugate
+<span class="math inline">\(f^*\)</span> is <span
+class="math inline">\(\mu\)</span>-smooth and differentiable.</p>
+<p><strong>Equality constrained problems</strong>: <span
+class="math display">\[
+\min f(x) \quad \text{s.t.} \quad Ax = b
+\implies
+\min f^* (-A^T z) + b^T z
+\]</span></p>
+<p><strong>Dual subgradient accent</strong>: <span
+class="math display">\[
+x_{k+1} = \arg\min_x (f(x) + z_k^T Ax)\\
+z_{k+1} = z_k + \alpha_k (Ax_{k+1} - y)
+\]</span></p>
+<p><strong>Separable problem with inequality constraints</strong>: <span
+class="math display">\[
+\min f_1 (x_1) + f_2 (x_2) \quad \text{s.t.} \quad A_1 x_1 + A_2 x_2
+\leq b
+\]</span> the dual problem is: <span class="math display">\[
+\max -f_1^* (- A_1^T z) - f_2^* (- A_2^T z) - b^T z
+\quad \text{s.t.} \quad z \geq 0
+\]</span></p>
+<p>use <strong>Dual projected gradient accent</strong>: <span
+class="math display">\[
+x_{k+1} = \arg\min_x (f_1(x_1) + f_2(x_2) + z_k^T (A_1 x_1 + A_2 x_2))\\
+z_{k+1} = \Pi_{\mathbb{R}_+^m} (z_k + \alpha_k (A_1 x_{1, k+1} + A_2
+x_{2, k+1} - b))
+\]</span></p>
+<h3 id="dual-proximal-gradient-accent">Dual proximal gradient
+accent</h3>
+<p><strong>Dual proximal gradient accent</strong>: <span
+class="math display">\[
+z_{k+1} = \text{prox}_{\alpha h^*} (z_k + \alpha A x_k)
+\]</span></p>
+<h3 id="min-max-problems">min max problems</h3>
+<p>Consider following: <span class="math display">\[
+\min f(x) + h(Ax)
+\]</span> the dual problem is: <span class="math display">\[
+\min \max f(x) + h(y) + z^T (Ax - y)
+\]</span></p>
+<p>Therefore, we are solving for <span class="math inline">\(L(x, y,
+z)\)</span>’s saddle point.</p>
+<p><strong>PHDG</strong>: <span class="math display">\[
+\begin{aligned}
+    x_{k+1} &amp;= \text{prox}_{\alpha f} (x_k - \alpha A^T z_k) \\
+    y_{k+1} &amp;= \text{prox}_{\alpha h} (y_k + \alpha A x_{k+1}) \\
+\end{aligned}
+\]</span></p>
+<h2 id="lecture-15-augmented-lagrangian">Lecture 15: Augmented
+Lagrangian</h2>
+<p><strong>Augmented Lagrangian</strong>: <span class="math display">\[
+L_\rho (x, \lambda) = f(x) + \sum_i \lambda_i c_i(x) + \frac{\rho}{2}
+\|c(x)\|^2
+\]</span></p>
+<p>Typically the algorithm is: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">not</span> converged:</span><br><span class="line">    x = argmin(L(x, lamb))</span><br><span class="line">    lamb = lamb + rho * c(x)</span><br><span class="line">    rho = rho * beta</span><br></pre></td></tr></table></figure></p>
+<h3 id="general-constrained-optimization">General constrained
+optimization</h3>
+<p><strong>General constrained optimization</strong>: <span
+class="math display">\[
+\min f(x) \quad \text{s.t.} \quad c_i(x) = 0, c_i(x) + s_i = 0, s_i \geq
+0
+\]</span></p>
+<h2 id="lecture-16-admm">Lecture 16: ADMM</h2>
+<p>consider: <span class="math display">\[
+\min f(x) + g(z) \quad \text{s.t.} \quad Ax + Bz = c
+\]</span></p>
+<p>Augmented Lagrangian: <span class="math display">\[
+L_\rho (x, z, y) = f(x) + g(z) + y^T (Ax + Bz - c) + \frac{\rho}{2} \|Ax
++ Bz - c\|^2
+\]</span></p>
+<p>Then, the ADMM algorithm is: <span class="math display">\[
+\begin{aligned}
+    x_{k+1} &amp;= \arg\min_x L_\rho (x, z_k, y_k) \\
+    z_{k+1} &amp;= \arg\min_z L_\rho (x_{k+1}, z, y_k) \\
+    y_{k+1} &amp;= y_k + \rho (Ax_{k+1} + Bz_{k+1} - c)
+\end{aligned}
+\]</span></p>
+<h3 id="common-techniques">Common Techniques</h3>
+<p>Use linear approximation for <span class="math inline">\(f\)</span>
+and <span class="math inline">\(g\)</span>: <span
+class="math display">\[
+f(x) \approx f(x_k) + \nabla f(x_k)^T (x - x_k) + \frac{1}{2} (x -
+x_k)^T H (x - x_k)
+\]</span></p>
+<p>Many block ADMM: may not converge.</p>
+<h3 id="douglas-rachford-splitting">Douglas-Rachford Splitting</h3>
+<p>Consider: <span class="math display">\[
+\min f(x) = g(x) + h(x)
+\]</span></p>
+<p><strong>Douglas-Rachford Splitting</strong>: <span
+class="math display">\[
+\begin{aligned}
+    x_{k+1} &amp;= \text{prox}_{\alpha h} (z_k) \\
+    y_{k+1} &amp;= \text{prox}_{\alpha g} (2 x_{k+1} - z_k) \\
+    z_{k+1} &amp;= z_k + (x_{k+1} - y_{k+1})
+\end{aligned}
+\]</span></p>
+<p>Therefore, we merge 3 steps into one: <span class="math display">\[
+z_{k+1} = F(z_k)
+\]</span></p>
+<p>This is a fixed point iteration, and the convergence is guaranteed if
+<span class="math inline">\(F\)</span> is nonexpansive: <span
+class="math display">\[
+\|F(x) - F(y)\| \le \|x - y\|
+\]</span></p>
+<p>firmly nonexpansive: <span class="math display">\[
+\|F(x) - F(y)\|^2 \le \langle x - y, F(x) - F(y) \rangle
+\]</span></p>
+<p>In DR: <span class="math display">\[
+F(z) = z + \mathrm{prox}_{\alpha h} (2 \mathrm{prox}_{\alpha g} (z) - z)
+- \mathrm{prox}_{\alpha h} (z)
+\]</span></p>
+<p><span class="math inline">\(F\)</span> is firmly nonexpansive if
+<span class="math inline">\(g\)</span> and <span
+class="math inline">\(h\)</span> are convex.</p>
 
   </div>
 </article>
@@ -831,8 +1082,14 @@ Condition and Second Order Condition</span></a></li><li class="toc-item toc-leve
 KKT, LICQ</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#general-kkt-condition"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">General KKT condition</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-6-gradient-descent"><span class="toc-number">1.5.</span> <span class="toc-text">Lecture 6: Gradient Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#more-on-convex-functions"><span class="toc-number">1.5.1.</span> <span class="toc-text">More on convex functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#line-searching"><span class="toc-number">1.5.2.</span> <span class="toc-text">Line searching</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#non-smooth-problems"><span class="toc-number">1.5.3.</span> <span class="toc-text">Non smooth problems</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-7-subgradients"><span class="toc-number">1.6.</span> <span class="toc-text">Lecture 7: Subgradients</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#definition-of-subgradients-subdifferential"><span class="toc-number">1.6.1.</span> <span class="toc-text">Definition of
 Subgradients &amp; Subdifferential</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#computing-subgradients-subdifferential"><span class="toc-number">1.6.2.</span> <span class="toc-text">Computing Subgradients
 &amp; Subdifferential</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#optimal-condition"><span class="toc-number">1.6.3.</span> <span class="toc-text">Optimal condition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#subgradient-methods"><span class="toc-number">1.6.4.</span> <span class="toc-text">Subgradient methods</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-8-projected-gradient-descent-conditional-gradient-descent"><span class="toc-number">1.7.</span> <span class="toc-text">Lecture
-8: projected gradient descent, conditional gradient descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#conditional-gradient-descent"><span class="toc-number">1.7.1.</span> <span class="toc-text">Conditional Gradient Descent</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-9-prox-mapping"><span class="toc-number">1.8.</span> <span class="toc-text">Lecture 9: Prox Mapping</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#definition-of-proximal-mapping"><span class="toc-number">1.8.1.</span> <span class="toc-text">Definition of Proximal
-Mapping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#moreau-decomposition"><span class="toc-number">1.8.2.</span> <span class="toc-text">Moreau decomposition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proximal-gradient-descent"><span class="toc-number">1.8.3.</span> <span class="toc-text">Proximal Gradient Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#convergency"><span class="toc-number">1.8.3.1.</span> <span class="toc-text">Convergency</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#moreau-envelope"><span class="toc-number">1.8.4.</span> <span class="toc-text">Moreau Envelope</span></a></li></ol></li></ol></li></ol>
+8: projected gradient descent, conditional gradient descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#conditional-gradient-descent"><span class="toc-number">1.7.1.</span> <span class="toc-text">Conditional Gradient Descent</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-910-proximal-mapping-proximal-gradient-descent"><span class="toc-number">1.8.</span> <span class="toc-text">Lecture
+9&#x2F;10: Proximal Mapping &amp; Proximal Gradient Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#definition-of-proximal-mapping"><span class="toc-number">1.8.1.</span> <span class="toc-text">Definition of Proximal
+Mapping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#moreau-decomposition"><span class="toc-number">1.8.2.</span> <span class="toc-text">Moreau decomposition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proximal-gradient-descent"><span class="toc-number">1.8.3.</span> <span class="toc-text">Proximal Gradient Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#convergency"><span class="toc-number">1.8.3.1.</span> <span class="toc-text">Convergency</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#moreau-envelope"><span class="toc-number">1.8.4.</span> <span class="toc-text">Moreau Envelope</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-11-accelerated-gradient-descent"><span class="toc-number">1.9.</span> <span class="toc-text">Lecture 11: Accelerated
+Gradient Descent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fista"><span class="toc-number">1.9.1.</span> <span class="toc-text">FISTA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-12-newtons-method"><span class="toc-number">1.10.</span> <span class="toc-text">Lecture 12: Newton’s Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-13-quasi-newton-methods"><span class="toc-number">1.11.</span> <span class="toc-text">Lecture 13: Quasi-Newton
+Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#secant-equation"><span class="toc-number">1.11.1.</span> <span class="toc-text">Secant Equation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sr1"><span class="toc-number">1.11.2.</span> <span class="toc-text">SR1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bfgs"><span class="toc-number">1.11.3.</span> <span class="toc-text">BFGS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dfp"><span class="toc-number">1.11.4.</span> <span class="toc-text">DFP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lbfgs"><span class="toc-number">1.11.5.</span> <span class="toc-text">LBFGS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-14-dual-ascent"><span class="toc-number">1.12.</span> <span class="toc-text">Lecture 14: Dual Ascent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dual-proximal-gradient-accent"><span class="toc-number">1.12.1.</span> <span class="toc-text">Dual proximal gradient
+accent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#min-max-problems"><span class="toc-number">1.12.2.</span> <span class="toc-text">min max problems</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-15-augmented-lagrangian"><span class="toc-number">1.13.</span> <span class="toc-text">Lecture 15: Augmented
+Lagrangian</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#general-constrained-optimization"><span class="toc-number">1.13.1.</span> <span class="toc-text">General constrained
+optimization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lecture-16-admm"><span class="toc-number">1.14.</span> <span class="toc-text">Lecture 16: ADMM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#common-techniques"><span class="toc-number">1.14.1.</span> <span class="toc-text">Common Techniques</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#douglas-rachford-splitting"><span class="toc-number">1.14.2.</span> <span class="toc-text">Douglas-Rachford Splitting</span></a></li></ol></li></ol></li></ol>
       </div>
     
 
