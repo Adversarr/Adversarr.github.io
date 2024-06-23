@@ -609,7 +609,7 @@ Choices for $\alpha_k$:
 - diminishing step size: $\alpha_k = 2/(k+1)$
 - or via exact line search
 
-## Lecture 9: Prox Mapping
+## Lecture 9/10: Proximal Mapping & Proximal Gradient Descent
 
 ### Definition of Proximal Mapping
 
@@ -691,24 +691,301 @@ $$
 \nabla h_\alpha (x) = \frac{1}{\alpha} (x - \text{prox}_{\alpha h}(x))
 $$
 
+## Lecture 11: Accelerated Gradient Descent
 
+**Heavy ball method**(Polyak, 1964), also called momentum method:
+$$
+x_{k+1} = x_k - \eta \nabla f(x_k) + \beta (x_k - x_{k-1})
+$$
 
+**Nesterov's accelerated gradient descent**(1983):
+$$
+\begin{aligned}
+    y_k &= x_k + \frac{k-1}{k+2} (x_k - x_{k-1}) \\
+    x_{k+1} &= y_k - \eta \nabla f(y_k)
+\end{aligned}
+$$
+convergency rate, let $s = 1/L$:
+$$
+f(x_k) - f^* \leq \frac{2L \|x_0 - x^*\|^2}{(k+1)^2}
+$$
+complexity is $O(\frac{1}{\epsilon}^{1/2})$, much faster than GD, which is $O(\frac{1}{\epsilon})$.
 
+### FISTA
 
+**FISTA**(Beck and Teboulle, 2009):
+$$
+\begin{aligned}
+    y_k &= x_k + \frac{k-1}{k+2} (x_k - x_{k-1}) \\
+    x_{k+1} &= \text{prox}_{\eta h} (y_k - \eta \nabla f(y_k))
+\end{aligned}
+$$
+only changed the gradient update rule to proximal mapping.
 
+## Lecture 12: Newton's Method
 
+**Newton's Method**: for a twice differentiable function, the update rule is:
+$$
+x_{k+1} = x_k - \nabla^2 f(x_k)^{-1} \nabla f(x_k)
+$$
 
+Affine invariance: Newton's method is invariant under affine transformation.
 
+Convergence: if $f$ is strongly convex, then Newton's method converges quadratically.
 
+**Modified Newton's Method**: for non-convex problem, we can use modified Newton's method:
+$$
+x_{k+1} = x_k - \alpha \hat{H}^{-1} \nabla f(x_k)
+$$
+the Hessian is approximated by $\hat{H}$, and $\alpha$ is the step size from line search.
 
+Requirement on $\hat{H}$:
+1. $\hat{H}$ is positive definite
+2. $\hat{H}$ is close to the true Hessian 
+3. $\hat{H}$ has small condition number
 
+**Inexact Newton's Method**: for large scale problem, we can use inexact Newton's method:
+- use iterative method to solve $\hat{H} \delta = -\nabla f(x_k)$
+- stop early, when $\|\hat{H} \delta + \nabla f(x_k)\|$ is small enough.
 
+**Linesearch Newton-CG**: replace the iterative method with Conjugate Gradient.
 
+## Lecture 13: Quasi-Newton Methods
 
+### Secant Equation
 
+$$
+B_{k+1} s_k = y_k
+$$
+where $B_k$ is the approximation of the Hessian. and $H_{k+1} = B_{k+1}^{-1}$ is the approximation of the inverse Hessian.
+$$
+H_{k+1} y_k = s_k
+$$
+where $y_k = \nabla f(x_{k+1}) - \nabla f(x_k)$, and $s_k = x_{k+1} - x_k$.
 
+**Curvature requirement**:
+$$
+y_k^T s_k > 0
+$$
+We need to use Wolfe condition in line search.
 
+### SR1
 
+**SR1**: Rank 1 update, $B_{k+1} = B_k + a uu^T$, where
+1. $u = y_k - B_k s_k$.
+2. $a = 1 / u^T s_k$.
 
+Drawback: SR1 does not guarantee positive definiteness. A sufficient condition for PD is:
+1. $B^k$ is PD,
+2. $u^T s_k > 0$.
+
+### BFGS
+
+**BFGS**: Rank 2 update.
+$$
+B_{k+1} = B_k + a u u^T + b v v^T
+$$
+
+Then we have:
+$$
+(a \cdot u^T s_k) u + (b \cdot v^T s_k) v = y_k - B_k s_k
+$$
+therefore:
+$$
+B_{k+1} = B_k + \frac{y_k y_k^T}{y_k^T s_k} - \frac{B_k s_k s_k^T B_k^T}{s_k^T B_k s_k}
+$$
+and
+$$
+H_{k+1} = \left( I - \frac{s_k y_k^T}{y_k^T s_k} \right) H_k \left( I - \frac{y_k s_k^T}{y_k^T s_k} \right) + \frac{s_k s_k^T}{y_k^T s_k}
+$$
+
+> **Sherman-Morrison formula**:
+> $$(A + uv^T)^{-1} = A^{-1} - \frac{A^{-1} u v^T A^{-1}}{1 + v^T A^{-1} u}$$
+
+**Positive definiteness requirement**:
+1. $B_k$ or $H_k$ is PD
+2. curvature requirement is satsfied $y_k^T s_k > 0$
+
+### DFP
+
+**DFP**:
+$$
+B_{k+1} = B_k - \frac{B_k s_k s_k^T B_k}{s_k^T B_k s_k} + \frac{y_k y_k^T}{y_k^T s_k}
+$$
+
+### LBFGS
+
+use two-loop recursion to replace the inverse Hessian.
+
+## Lecture 14: Dual Ascent
+
+> Drawback for primal methods:
+>
+> 1. subgradient: slow convergency.
+> 2. gradient: require differentiable
+
+consider:
+$$
+\min \phi(x) = f(x) + h(Ax)
+$$
+even $h$ has a simple proximal mapping, the proximal mapping of $h(Ax)$ is hard to compute.
+
+Introduce $y = Ax$, the Lagrangian:
+$$
+L(x, y, z) = f(x) + h(y) + z^T (Ax - y)
+$$
+The dual problem:
+$$
+\max - f^*(-A^T z) - h^*(z)
+$$
+
+**Property of strong convexity**: suppose $\mu > 0$ is the strong convexity parameter of $f$, then its conjugate $f^*$ is $\mu$-smooth and differentiable.
+
+**Equality constrained problems**:
+$$
+\min f(x) \quad \text{s.t.} \quad Ax = b
+\implies
+\min f^* (-A^T z) + b^T z
+$$
+
+**Dual subgradient accent**:
+$$
+x_{k+1} = \arg\min_x (f(x) + z_k^T Ax)\\
+z_{k+1} = z_k + \alpha_k (Ax_{k+1} - y)
+$$
+
+**Separable problem with inequality constraints**:
+$$
+\min f_1 (x_1) + f_2 (x_2) \quad \text{s.t.} \quad A_1 x_1 + A_2 x_2 \leq b
+$$
+the dual problem is:
+$$
+\max -f_1^* (- A_1^T z) - f_2^* (- A_2^T z) - b^T z
+\quad \text{s.t.} \quad z \geq 0
+$$
+
+use **Dual projected gradient accent**:
+$$
+x_{k+1} = \arg\min_x (f_1(x_1) + f_2(x_2) + z_k^T (A_1 x_1 + A_2 x_2))\\
+z_{k+1} = \Pi_{\mathbb{R}_+^m} (z_k + \alpha_k (A_1 x_{1, k+1} + A_2 x_{2, k+1} - b))
+$$
+
+### Dual proximal gradient accent
+
+**Dual proximal gradient accent**:
+$$
+z_{k+1} = \text{prox}_{\alpha h^*} (z_k + \alpha A x_k)
+$$
+
+### min max problems
+
+Consider following:
+$$
+\min f(x) + h(Ax)
+$$
+the dual problem is:
+$$
+\min \max f(x) + h(y) + z^T (Ax - y)
+$$
+
+Therefore, we are solving for $L(x, y, z)$'s saddle point.
+
+**PHDG**:
+$$
+\begin{aligned}
+    x_{k+1} &= \text{prox}_{\alpha f} (x_k - \alpha A^T z_k) \\
+    y_{k+1} &= \text{prox}_{\alpha h} (y_k + \alpha A x_{k+1}) \\
+\end{aligned}
+$$
+
+## Lecture 15: Augmented Lagrangian
+
+**Augmented Lagrangian**:
+$$
+L_\rho (x, \lambda) = f(x) + \sum_i \lambda_i c_i(x) + \frac{\rho}{2} \|c(x)\|^2
+$$
+
+Typically the algorithm is:
+```python
+while not converged:
+    x = argmin(L(x, lamb))
+    lamb = lamb + rho * c(x)
+    rho = rho * beta
+```
+
+### General constrained optimization
+
+**General constrained optimization**:
+$$
+\min f(x) \quad \text{s.t.} \quad c_i(x) = 0, c_i(x) + s_i = 0, s_i \geq 0
+$$
+
+## Lecture 16: ADMM
+
+consider:
+$$
+\min f(x) + g(z) \quad \text{s.t.} \quad Ax + Bz = c
+$$
+
+Augmented Lagrangian:
+$$
+L_\rho (x, z, y) = f(x) + g(z) + y^T (Ax + Bz - c) + \frac{\rho}{2} \|Ax + Bz - c\|^2
+$$
+
+Then, the ADMM algorithm is:
+$$
+\begin{aligned}
+    x_{k+1} &= \arg\min_x L_\rho (x, z_k, y_k) \\
+    z_{k+1} &= \arg\min_z L_\rho (x_{k+1}, z, y_k) \\
+    y_{k+1} &= y_k + \rho (Ax_{k+1} + Bz_{k+1} - c)
+\end{aligned}
+$$
+
+### Common Techniques
+
+Use linear approximation for $f$ and $g$:
+$$
+f(x) \approx f(x_k) + \nabla f(x_k)^T (x - x_k) + \frac{1}{2} (x - x_k)^T H (x - x_k)
+$$
+
+Many block ADMM: may not converge.
+
+### Douglas-Rachford Splitting
+
+Consider:
+$$
+\min f(x) = g(x) + h(x)
+$$
+
+**Douglas-Rachford Splitting**:
+$$
+\begin{aligned}
+    x_{k+1} &= \text{prox}_{\alpha h} (z_k) \\
+    y_{k+1} &= \text{prox}_{\alpha g} (2 x_{k+1} - z_k) \\
+    z_{k+1} &= z_k + (x_{k+1} - y_{k+1})
+\end{aligned}
+$$
+
+Therefore, we merge 3 steps into one:
+$$
+z_{k+1} = F(z_k)
+$$
+
+This is a fixed point iteration, and the convergence is guaranteed if $F$ is nonexpansive:
+$$
+\|F(x) - F(y)\| \le \|x - y\|
+$$
+
+firmly nonexpansive:
+$$
+\|F(x) - F(y)\|^2 \le \langle x - y, F(x) - F(y) \rangle
+$$
+
+In DR:
+$$
+F(z) = z + \mathrm{prox}_{\alpha h} (2 \mathrm{prox}_{\alpha g} (z) - z) - \mathrm{prox}_{\alpha h} (z)
+$$
+
+$F$ is firmly nonexpansive if $g$ and $h$ are convex.
 
 
