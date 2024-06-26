@@ -313,8 +313,8 @@ $$
 This is only a necessary condition generally. But for convex function, it is also sufficient.
 
 **Second order**: Suppose $f$ is twice differentiable,
-1. necessary condition: $\nabla f(x) = 0, \nabla^2 f \preceq 0$
-2. sufficient condition: $\nabla f(x) = 0, \nabla^2 f \prec 0$
+1. necessary condition: $\nabla f(x) = 0, \nabla^2 f \succeq 0$
+2. sufficient condition: $\nabla f(x) = 0, \nabla^2 f \succ 0$
 
 ### Duality
 
@@ -534,7 +534,7 @@ Pointwise maximum:
 $$
 f(x) = \max \{ f_1(x), f_2(x) \}
 \implies
-\partial f(x) = \mathbf{conv} \partial f_1(x) \cap \partial f_2(x)
+\partial f(x) = \mathbf{conv} \partial f_1(x) \cup \partial f_2(x)
 $$
 
 Examples:
@@ -600,7 +600,7 @@ Why we need conditional gradient descent: Projection is expensive
 $$
 \begin{aligned}
     x_k &= \arg\min_{x \in C} \langle \nabla f(x_{k-1}), x \rangle, \\
-    y_k &= x_{k-1} + \alpha_k (x_k - x_{k-1})
+    y_k &= y_{k-1} + \alpha_k (x_k - y_{k-1})
 \end{aligned}
 $$
 might be easier, if the linear programming is easy in $C$
@@ -642,6 +642,10 @@ we can use Moreau decomposition to compute many proximal mappings.
 
 **Norm Ball**:
 The conjugate of $\| \cdot \|$ is the indicator function of the unit ball under the dual norm.
+
+$$
+\text{prox}_{\alpha \| \cdot \|}(x) = x - \alpha \Pi_{\| \cdot \|}(x / \alpha) = x - \Pi_{t\| \cdot \|}(x)
+$$
 
 ### Proximal Gradient Descent
 
@@ -721,6 +725,12 @@ $$
 \end{aligned}
 $$
 only changed the gradient update rule to proximal mapping.
+
+Convergency rate: suppose strong convexity, $\kappa = L / \mu$
+$$
+f(x_k) - f^* \leq \left( 1 - \frac{1}{\sqrt{\kappa}} \right) ^k (f(x_0) - f^* + \mu \|x_0 - x^*\|^2 / 2)
+$$
+complexity: $O(\kappa \log(1/\epsilon))$
 
 ## Lecture 12: Newton's Method
 
@@ -875,6 +885,15 @@ $$
 **Dual proximal gradient accent**:
 $$
 z_{k+1} = \text{prox}_{\alpha h^*} (z_k + \alpha A x_k)
+$$
+
+operate on original problem:
+$$
+\begin{aligned}
+    x_{k+1} &= \text{prox}_{\alpha f} (x_k - \alpha A^T z_k) \\
+    y_{k+1} &= \text{prox}_{\alpha^{-1} h} (z_k/t + A x_{k+1})\\
+    z_{k+1} &= z_k + \alpha (Ax_{k+1} - y_{k+1})
+\end{aligned}
 $$
 
 ### min max problems
