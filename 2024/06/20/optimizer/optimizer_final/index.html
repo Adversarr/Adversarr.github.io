@@ -14,7 +14,7 @@
 <meta property="og:description" content="Optimization Lecture 2: Convex Set Common Convex Sets  Hyperplane: \(H &#x3D; \{x \in \mathbb{R}^n \mid a^Tx &#x3D; b\}\). Halfspace: \(H &#x3D; \{x \in \mathbb{R}^n \mid a^Tx \leq b\}\). Polyhedron: \(P &#x3D; \{x \in \">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-06-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-23T08:12:03.490Z">
+<meta property="article:modified_time" content="2024-06-26T07:25:04.132Z">
 <meta property="article:author" content="Adversarr">
 <meta name="twitter:card" content="summary">
     
@@ -483,8 +483,8 @@ function, it is also sufficient.</p>
 <p><strong>Second order</strong>: Suppose <span
 class="math inline">\(f\)</span> is twice differentiable, 1. necessary
 condition: <span class="math inline">\(\nabla f(x) = 0, \nabla^2 f
-\preceq 0\)</span> 2. sufficient condition: <span
-class="math inline">\(\nabla f(x) = 0, \nabla^2 f \prec 0\)</span></p>
+\succeq 0\)</span> 2. sufficient condition: <span
+class="math inline">\(\nabla f(x) = 0, \nabla^2 f \succ 0\)</span></p>
 <h3 id="duality">Duality</h3>
 <p><strong>Lagrange Dual Function</strong>: for a convex optimization
 problem <span class="math display">\[
@@ -678,7 +678,7 @@ Subgradients &amp; Subdifferential</h3>
 <p>Pointwise maximum: <span class="math display">\[
 f(x) = \max \{ f_1(x), f_2(x) \}
 \implies
-\partial f(x) = \mathbf{conv} \partial f_1(x) \cap \partial f_2(x)
+\partial f(x) = \mathbf{conv} \partial f_1(x) \cup \partial f_2(x)
 \]</span></p>
 <p>Examples: - Piecewise linear function - L1 norm.</p>
 <h3 id="optimal-condition">Optimal condition</h3>
@@ -731,7 +731,7 @@ class="math display">\[
 \begin{aligned}
     x_k &amp;= \arg\min_{x \in C} \langle \nabla f(x_{k-1}), x \rangle,
 \\
-    y_k &amp;= x_{k-1} + \alpha_k (x_k - x_{k-1})
+    y_k &amp;= y_{k-1} + \alpha_k (x_k - y_{k-1})
 \end{aligned}
 \]</span> might be easier, if the linear programming is easy in <span
 class="math inline">\(C\)</span></p>
@@ -766,6 +766,10 @@ mappings.</p>
 <p><strong>Norm Ball</strong>: The conjugate of <span
 class="math inline">\(\| \cdot \|\)</span> is the indicator function of
 the unit ball under the dual norm.</p>
+<p><span class="math display">\[
+\text{prox}_{\alpha \| \cdot \|}(x) = x - \alpha \Pi_{\| \cdot \|}(x /
+\alpha) = x - \Pi_{t\| \cdot \|}(x)
+\]</span></p>
 <h3 id="proximal-gradient-descent">Proximal Gradient Descent</h3>
 <p><strong>Proximal Gradient Descent</strong>: <span
 class="math display">\[
@@ -829,6 +833,13 @@ class="math display">\[
     x_{k+1} &amp;= \text{prox}_{\eta h} (y_k - \eta \nabla f(y_k))
 \end{aligned}
 \]</span> only changed the gradient update rule to proximal mapping.</p>
+<p>Convergency rate: suppose strong convexity, <span
+class="math inline">\(\kappa = L / \mu\)</span> <span
+class="math display">\[
+f(x_k) - f^* \leq \left( 1 - \frac{1}{\sqrt{\kappa}} \right) ^k (f(x_0)
+- f^* + \mu \|x_0 - x^*\|^2 / 2)
+\]</span> complexity: <span class="math inline">\(O(\kappa
+\log(1/\epsilon))\)</span></p>
 <h2 id="lecture-12-newtons-method">Lecture 12: Newton’s Method</h2>
 <p><strong>Newton’s Method</strong>: for a twice differentiable
 function, the update rule is: <span class="math display">\[
@@ -964,6 +975,13 @@ accent</h3>
 <p><strong>Dual proximal gradient accent</strong>: <span
 class="math display">\[
 z_{k+1} = \text{prox}_{\alpha h^*} (z_k + \alpha A x_k)
+\]</span></p>
+<p>operate on original problem: <span class="math display">\[
+\begin{aligned}
+    x_{k+1} &amp;= \text{prox}_{\alpha f} (x_k - \alpha A^T z_k) \\
+    y_{k+1} &amp;= \text{prox}_{\alpha^{-1} h} (z_k/t + A x_{k+1})\\
+    z_{k+1} &amp;= z_k + \alpha (Ax_{k+1} - y_{k+1})
+\end{aligned}
 \]</span></p>
 <h3 id="min-max-problems">min max problems</h3>
 <p>Consider following: <span class="math display">\[
@@ -1182,39 +1200,39 @@ R_k = \sqrt{M_k + \epsilon}
 <p><strong>Influence of batch size</strong>:</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th></th>
 <th>small</th>
 <th>large</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>speed for one update (no parallel)</td>
 <td>fast</td>
 <td>slow</td>
 </tr>
-<tr class="even">
+<tr>
 <td>speed for one update (with parallel)</td>
 <td>same</td>
 <td>same</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>time for one epoch</td>
 <td>slow</td>
 <td>fast</td>
 </tr>
-<tr class="even">
+<tr>
 <td>gradient</td>
 <td>noisy</td>
 <td>less noisy</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>optimization</td>
 <td>better!</td>
 <td>worse</td>
 </tr>
-<tr class="even">
+<tr>
 <td>generalization</td>
 <td>better!</td>
 <td>worse</td>
