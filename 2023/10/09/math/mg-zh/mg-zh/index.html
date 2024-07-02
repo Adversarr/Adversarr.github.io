@@ -9,18 +9,18 @@
     <meta name="description" content="A translation to: Chapter 7-3 of Strang, Gilbert. Computational Science and Engineering Translator： Adversarr Github：https:&#x2F;&#x2F;github.com&#x2F;Adversarr&#x2F;multigrid-zh  背景问题 考虑如下的两点边值问题： \[ \begin{cases}   -">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Multigrid method">
-<meta property="og:url" content="https://adversarr.github.io/2023/10/09/mg-zh/index.html">
+<meta property="og:url" content="https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/index.html">
 <meta property="og:site_name" content="Adversarr&#39;s Blog">
 <meta property="og:description" content="A translation to: Chapter 7-3 of Strang, Gilbert. Computational Science and Engineering Translator： Adversarr Github：https:&#x2F;&#x2F;github.com&#x2F;Adversarr&#x2F;multigrid-zh  背景问题 考虑如下的两点边值问题： \[ \begin{cases}   -">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://adversarr.github.io/2023/10/09/mg-zh/image-20231009193402907.png">
-<meta property="og:image" content="https://adversarr.github.io/2023/10/09/mg-zh/image-20231010132617154.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/image-20231009193402907.png">
+<meta property="og:image" content="https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/image-20231010132617154.png">
 <meta property="article:published_time" content="2023-10-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-26T07:25:04.132Z">
+<meta property="article:modified_time" content="2024-07-02T02:26:26.634Z">
 <meta property="article:author" content="Adversarr">
 <meta property="article:tag" content="Numeric Methods">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://adversarr.github.io/2023/10/09/mg-zh/image-20231009193402907.png">
+<meta name="twitter:image" content="https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/image-20231009193402907.png">
     
     
       
@@ -101,7 +101,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="Previous post" href="/2023/11/09/geometry/b-spl/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/2023/12/14/ipc/chap5/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
@@ -115,17 +115,17 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/10/09/mg-zh/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/10/09/mg-zh/&text=Multigrid method"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/10/09/mg-zh/&title=Multigrid method"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/10/09/mg-zh/&is_video=false&description=Multigrid method"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Multigrid method&body=Check out this article: https://adversarr.github.io/2023/10/09/mg-zh/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/10/09/mg-zh/&title=Multigrid method"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/10/09/mg-zh/&title=Multigrid method"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/10/09/mg-zh/&title=Multigrid method"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/10/09/mg-zh/&title=Multigrid method"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/10/09/mg-zh/&name=Multigrid method&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/10/09/mg-zh/&t=Multigrid method"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&text=Multigrid method"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&title=Multigrid method"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&is_video=false&description=Multigrid method"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Multigrid method&body=Check out this article: https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&title=Multigrid method"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&title=Multigrid method"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&title=Multigrid method"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&title=Multigrid method"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&name=Multigrid method&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&t=Multigrid method"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -1243,17 +1243,17 @@ adjustment），一般的流体并不产生一个对称的矩阵。特别是当�
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/10/09/mg-zh/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/10/09/mg-zh/&text=Multigrid method"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/10/09/mg-zh/&title=Multigrid method"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/10/09/mg-zh/&is_video=false&description=Multigrid method"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Multigrid method&body=Check out this article: https://adversarr.github.io/2023/10/09/mg-zh/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/10/09/mg-zh/&title=Multigrid method"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/10/09/mg-zh/&title=Multigrid method"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/10/09/mg-zh/&title=Multigrid method"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/10/09/mg-zh/&title=Multigrid method"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/10/09/mg-zh/&name=Multigrid method&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/10/09/mg-zh/&t=Multigrid method"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&text=Multigrid method"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&title=Multigrid method"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&is_video=false&description=Multigrid method"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Multigrid method&body=Check out this article: https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&title=Multigrid method"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&title=Multigrid method"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&title=Multigrid method"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&title=Multigrid method"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&name=Multigrid method&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2023/10/09/math/mg-zh/mg-zh/&t=Multigrid method"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

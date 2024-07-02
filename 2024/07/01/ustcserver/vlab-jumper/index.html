@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="通过 vlab 跳板连接校内服务器 大致的思路是：  只能连接外网的机器 L（Local） 能同时访问内网和外网的 J （Jump Host） 只能连接内网的机器 R（Remote Host）  通过 L &lt;-&gt; J &lt;-&gt; R 建立 L &lt;-&gt; R 的连接。我们的使用场景下 R 就是服务器，L 是你的个人机器，J 可以是任何一个可以同事访问内外网的机器。 在我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过 vlab 跳板连接校内服务器">
+<meta property="og:url" content="https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/index.html">
+<meta property="og:site_name" content="Adversarr&#39;s Blog">
+<meta property="og:description" content="通过 vlab 跳板连接校内服务器 大致的思路是：  只能连接外网的机器 L（Local） 能同时访问内网和外网的 J （Jump Host） 只能连接内网的机器 R（Remote Host）  通过 L &lt;-&gt; J &lt;-&gt; R 建立 L &lt;-&gt; R 的连接。我们的使用场景下 R 就是服务器，L 是你的个人机器，J 可以是任何一个可以同事访问内外网的机器。 在我">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/jumper-setup.png">
+<meta property="og:image" content="https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/jumper-login.png">
+<meta property="og:image" content="https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/jumper-ssh-server.png">
+<meta property="og:image" content="https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/ljr.png">
+<meta property="article:published_time" content="2024-07-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-02T02:26:26.634Z">
+<meta property="article:author" content="Adversarr">
+<meta property="article:tag" content="USTC Server">
+<meta property="article:tag" content="Network">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/jumper-setup.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/magic-wand-48.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/magic-wand-192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/magic-wand-180.png">
+        
+      
+    
+    <!-- title -->
+    <title>通过 vlab 跳板连接校内服务器</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$'], ['\\(', '\\)']]
+			}
+		  });
+		</script>
+		<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' async></script>
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2024/06/18/math/linsys/spai/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&text=通过 vlab 跳板连接校内服务器"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&title=通过 vlab 跳板连接校内服务器"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&is_video=false&description=通过 vlab 跳板连接校内服务器"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=通过 vlab 跳板连接校内服务器&body=Check out this article: https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&title=通过 vlab 跳板连接校内服务器"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&title=通过 vlab 跳板连接校内服务器"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&title=通过 vlab 跳板连接校内服务器"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&title=通过 vlab 跳板连接校内服务器"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&name=通过 vlab 跳板连接校内服务器&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&t=通过 vlab 跳板连接校内服务器"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-vlab-%E8%B7%B3%E6%9D%BF%E8%BF%9E%E6%8E%A5%E6%A0%A1%E5%86%85%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">通过 vlab 跳板连接校内服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-vlab-%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">1.1.</span> <span class="toc-text">创建 vlab 虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0-ssh-%E8%BF%9E%E6%8E%A5-vlab"><span class="toc-number">1.2.</span> <span class="toc-text">本地 ssh 连接 vlab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8-ssh-%E7%99%BB%E9%99%86"><span class="toc-number">1.3.</span> <span class="toc-text">直接使用 ssh 登陆</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        通过 vlab 跳板连接校内服务器
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Adversarr</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-07-01T16:00:00.000Z" class="dt-published" itemprop="datePublished">2024-07-02</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Network/" rel="tag">Network</a>, <a class="p-category" href="/tags/USTC-Server/" rel="tag">USTC Server</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="通过-vlab-跳板连接校内服务器">通过 vlab 跳板连接校内服务器</h1>
+<p>大致的思路是：</p>
+<ol type="1">
+<li><em>只能连接</em>外网的机器 L（Local）</li>
+<li><em>能同时访问内网和外网</em>的 J （Jump Host）</li>
+<li><em>只能连接</em>内网的机器 R（Remote Host）</li>
+</ol>
+<p>通过 <code>L &lt;-&gt; J &lt;-&gt; R</code> 建立
+<code>L &lt;-&gt; R</code> 的连接。我们的使用场景下 R 就是服务器，L
+是你的个人机器，J 可以是任何一个可以同事访问内外网的机器。</p>
+<p>在我们这里的主要 ssh 的功能是： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- SSH [J]umping: Connect through a jumphost to a remote server (Multiple jump hops may be specified separated by comma characters):</span><br><span class="line">    ssh -J username@jump_host username@remote_host</span><br></pre></td></tr></table></figure></p>
+<h2 id="创建-vlab-虚拟机">创建 vlab 虚拟机</h2>
+<p><a target="_blank" rel="noopener" href="https://vlab.ustc.edu.cn/vm/">VLAB 实验中心</a> <a
+target="_blank" rel="noopener" href="https://vlab.ustc.edu.cn/docs/web/#change-password">官方教程</a></p>
+<p>在这里创建虚拟机，我使用的是ubuntu镜像。等待创建完还需要开机，结果如下：</p>
+<p><img src="jumper-setup.png" /></p>
+<h2 id="本地-ssh-连接-vlab">本地 ssh 连接 vlab</h2>
+<p><a
+target="_blank" rel="noopener" href="https://vlab.ustc.edu.cn/docs/login/ssh/#pubkey">官方教程</a>
+建议使用密钥的方式进行连接</p>
+<p><img src="jumper-login.png" /></p>
+<p>在这个里面已经可以访问到我们的服务器了：</p>
+<p><img src="jumper-ssh-server.png" /></p>
+<p>避免每次连接的时候都需要写一长串的 ssh 命令，我们修改
+<code>~/.ssh/config</code>: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cat ~/.ssh/config</span><br><span class="line">...</span><br><span class="line">Host vlab</span><br><span class="line">    HostName vlab.ustc.edu.cn</span><br><span class="line">    User ubuntu</span><br><span class="line">    IdentityFile ~/.ssh/ustcvlab/vlab.pem # 注意修改</span><br></pre></td></tr></table></figure></p>
+<h2 id="直接使用-ssh-登陆">直接使用 ssh 登陆</h2>
+<p>这一部分我们尝试一下 <code>ssh -J</code> 来登陆</p>
+<p>根据一开始的提示，我们需要使用 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -J username@jump_host username@remote_host</span><br></pre></td></tr></table></figure></p>
+<p>因为我们之前配置了
+<code>.ssh/config</code>，因此我们只需要将跳板机器的
+<code>username@jump_host</code> 替换成对应的 Host
+即可（<code>vlab</code>）</p>
+<p><img src="ljr.png" /></p>
+<p>当然你也可以直接用下面的命令来连接。 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -i &lt;ident-file&gt; -J ubuntu@vlab.ustc.edu.cn user@gpu</span><br></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/tags/">Tag</a></li>
+        
+          <li><a href="/categories/">Category</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-vlab-%E8%B7%B3%E6%9D%BF%E8%BF%9E%E6%8E%A5%E6%A0%A1%E5%86%85%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">通过 vlab 跳板连接校内服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-vlab-%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">1.1.</span> <span class="toc-text">创建 vlab 虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0-ssh-%E8%BF%9E%E6%8E%A5-vlab"><span class="toc-number">1.2.</span> <span class="toc-text">本地 ssh 连接 vlab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8-ssh-%E7%99%BB%E9%99%86"><span class="toc-number">1.3.</span> <span class="toc-text">直接使用 ssh 登陆</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&text=通过 vlab 跳板连接校内服务器"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&title=通过 vlab 跳板连接校内服务器"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&is_video=false&description=通过 vlab 跳板连接校内服务器"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=通过 vlab 跳板连接校内服务器&body=Check out this article: https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&title=通过 vlab 跳板连接校内服务器"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&title=通过 vlab 跳板连接校内服务器"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&title=通过 vlab 跳板连接校内服务器"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&title=通过 vlab 跳板连接校内服务器"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&name=通过 vlab 跳板连接校内服务器&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://adversarr.github.io/2024/07/01/ustcserver/vlab-jumper/&t=通过 vlab 跳板连接校内服务器"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2024
+    Adversarr
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/adversarr">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
