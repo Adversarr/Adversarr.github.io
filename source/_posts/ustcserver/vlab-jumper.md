@@ -1,6 +1,8 @@
 ---
 title: 通过 vlab 跳板连接校内服务器
 date: 2024-07-02
+categories:
+  - USTC Server
 tags:
   - USTC Server
   - Network
