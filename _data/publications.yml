@@ -8,4 +8,12 @@ main:
     code: https://github.com/Adversarr/LearningSparsePreconditioner4GPU
     image: ./assets/img/nips-25.png
     # bibtex: https://bib.yliu.me/MICCAI23.txt
-    # notes: Accept
+    notes: Accept
+
+  - title: Learning Laplacian Eigenspace with Mass-Aware Neural Operators on Point Clouds
+    authors: <strong>Zherui Yang</strong>, Tao Du, Ligang Liu
+    conference_short: SIGGRAPH
+    conference: SIGGRAPH 2026
+    code: https://github.com/Adversarr/
+    notes: Accept
+    image: ./assets/img/sig-teaser.jpg
