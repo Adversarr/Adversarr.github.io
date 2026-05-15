@@ -2,13 +2,13 @@ main:
 
   - title: Learning Sparse Approximate Inverse Preconditioners for Conjugate Gradient Solvers on GPUs
     authors: <strong>Zherui Yang</strong>, Zhehao Li, Kangbo Lyu, Yixuan Li, Tao Du, Ligang Liu
-    conference_short: NeurIPS
+    conference_short: NeurIPS 2025
     conference: The Thirty-Ninth Annual Conference on Neural Information Processing Systems <strong>(NeurIPS)</strong>, 2025.
     pdf: https://arxiv.org/abs/2510.27517
     code: https://github.com/Adversarr/LearningSparsePreconditioner4GPU
     image: ./assets/img/nips-25.png
     # bibtex: https://bib.yliu.me/MICCAI23.txt
-    notes: Accept
+    notes: Poster
 
   - title: Learning Laplacian Eigenspace with Mass-Aware Neural Operators on Point Clouds
     authors: <strong>Zherui Yang</strong>, Tao Du, Ligang Liu
@@ -17,3 +17,11 @@ main:
     code: https://github.com/Adversarr/
     notes: Accept
     image: ./assets/img/sig-teaser.jpg
+
+  - title: "Simple yet Effective: Low-Rank Spatial Attention for Neural Operators"
+    authors: <strong>Zherui Yang</strong>, Haiyang Xin, Tao Du, Ligang Liu
+    conference_short: ICML 2026
+    conference: Forty-Third International Conference on Machine Learning, <strong>(ICML)</strong>, 2026.
+    code: https://github.com/Adversarr/LRSA-Operator
+    image: ./assets/img/icml-26.png
+    notes: Poster

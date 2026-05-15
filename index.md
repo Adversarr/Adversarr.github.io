@@ -5,7 +5,11 @@ layout: homepage
 ## About Me
 
 I am a third-year Ph.D. student at the University of Science and Technology of China (USTC), advised by Prof. Ligang Liu. I also work closely with Assistant Professor Tao Du at Tsinghua University. Prior to that, I obtained my bachelor's degree in Computer Science and Technology at Chien-Shiung Wu College, Southeast University.
-I am currently seeking an internship opportunity, particularly in multimodal models and world models.
+
+## Internship Experience
+I am currently seeking an internship opportunity, particularly in foundation models and world models.
+
+- (2026.04-now) LLM Research Intern @ Baidu, Beijing, China
 
 ## Research Interests
 
