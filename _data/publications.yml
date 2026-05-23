@@ -12,16 +12,17 @@ main:
 
   - title: Learning Laplacian Eigenspace with Mass-Aware Neural Operators on Point Clouds
     authors: <strong>Zherui Yang</strong>, Tao Du, Ligang Liu
-    conference_short: SIGGRAPH
+    conference_short: SIGGRAPH 2026
     conference: SIGGRAPH 2026
     code: https://github.com/Adversarr/
-    notes: Accept
+    notes: Conference Track
     image: ./assets/img/sig-teaser.jpg
 
   - title: "Simple yet Effective: Low-Rank Spatial Attention for Neural Operators"
     authors: <strong>Zherui Yang</strong>, Haiyang Xin, Tao Du, Ligang Liu
     conference_short: ICML 2026
     conference: Forty-Third International Conference on Machine Learning, <strong>(ICML)</strong>, 2026.
+    pdf: https://arxiv.org/abs/2604.03582
     code: https://github.com/Adversarr/LRSA-Operator
     image: ./assets/img/icml-26.png
     notes: Poster

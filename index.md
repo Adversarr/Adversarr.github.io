@@ -4,14 +4,19 @@ layout: homepage
 
 ## About Me
 
-I am a third-year Ph.D. student at the University of Science and Technology of China (USTC), advised by Prof. Ligang Liu. I also work closely with Assistant Professor Tao Du at Tsinghua University. Prior to that, I obtained my bachelor's degree in Computer Science and Technology at Chien-Shiung Wu College, Southeast University.
+I am a third-year Ph.D. student at the University of Science and Technology of China (USTC), advised by Prof. [Ligang Liu](https://staff.ustc.edu.cn/~lgliu/). I also work closely with Assistant Professor [Tao Du](https://people.iiis.tsinghua.edu.cn/~taodu/) at Tsinghua University (he is really nice!).
+
+Prior to that, I obtained my bachelor's degree in Computer Science and Technology at Chien-Shiung Wu College, Southeast University.
 
 ## Internship Experience
-I am currently seeking an internship opportunity, particularly in foundation models and world models.
+I am currently seeking an internship opportunity, particularly in scalable foundation model training and inference.
 
-- (2026.04-now) LLM Research Intern @ Baidu, Beijing, China
+1. 2026.04 - present · Research Intern @ Baidu · Beijing · China
+  - Topic: Cost-effective LLM architecture, especially linear & hybrid attention techniques
 
 ## Research Interests
+
+My fundamental research interests lie in the *accelerated computing*, with a particular focus on the following areas:
 
 - **Machine Learning for Numerical Linear Algebra:** Developing data-driven methods to accelerate numerical linear algebra algorithms and provide efficient, effective alternatives to traditional approaches.
 - **Neural Operators:** Solving partial differential equations (PDEs) using fully learned, end-to-end, feed-forward neural networks.
