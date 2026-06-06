@@ -11,8 +11,10 @@ Prior to that, I obtained my bachelor's degree in Computer Science and Technolog
 ## Internship Experience
 I am currently seeking an internship opportunity, particularly in scalable foundation model training and inference.
 
-1. 2026.04 - present · Research Intern @ Baidu · Beijing · China
+1. 2026.04 - 2026.06 · Research Intern @ Baidu · Beijing · China
   - Topic: Cost-effective LLM architecture, especially linear & hybrid attention techniques
+2. 2026.06 - present · Intern @ Math Magic · Beijing · China
+  - Topic: Diffusion infra in 3D generations' training and inference.
 
 ## Research Interests
 
